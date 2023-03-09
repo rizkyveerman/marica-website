@@ -23,7 +23,7 @@ const links = [
 
 const Navbar = () => {
   return (
-    <header className="p-4 flex justify-between items-center">
+    <header className="p-4 flex justify-between items-center bg-abu-terang">
       <h1>Marica</h1>
       <nav>
         <ul className="hidden md:flex justify-center items-center gap-4">
@@ -42,7 +42,6 @@ const Navbar = () => {
           <Link href="/login">Buat akun</Link>
         </Button>
       </div>
-      <Button className="block md:hidden">menu</Button>
     </header>
   );
 };
