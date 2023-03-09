@@ -1,3 +1,4 @@
+import styles from "../styles/Home.module.css";
 import theSoul from "../../public/images/poster-the-soul.png";
 import mickeyMouse from "../../public/images/poster-mickey-mouse.png";
 import zootopia from "../../public/images/poster-zootopia.png";
@@ -24,7 +25,10 @@ const faq = [
 export default function Home() {
   return (
     <article className="bg-bad-blueberry">
-      <section id="hero" className="flex items-center px-4 h-[650px] gap-8">
+      <section
+        id="hero"
+        className={`${styles.hero} flex items-center px-4 h-[650px] gap-8`}
+      >
         <div className="translate-y-10">
           <h1 className="md:text-4xl mb-4 xl:mb-6 text-abu-terang max-w-xl">
             Tingkatkan Pengalaman Belajar Kamu Dengan Menonton Film
@@ -39,6 +43,7 @@ export default function Home() {
           </div>
         </div>
       </section>
+      <section className="h-screen"></section>
     </article>
   );
 }
