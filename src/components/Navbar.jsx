@@ -23,7 +23,7 @@ const links = [
 
 const Navbar = () => {
   return (
-    <header className="p-4 flex justify-between items-center bg-abu-terang">
+    <header className="fixed left-4 right-4 top-4 p-4 flex justify-between items-center bg-abu-terang rounded-2xl">
       <h1>Marica</h1>
       <nav>
         <ul className="hidden md:flex justify-center items-center gap-4">
