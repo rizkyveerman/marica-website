@@ -23,7 +23,9 @@ h4 {
 
 p,
 a,
-li {
+li,
+input,
+button {
   font-family: "Nunito", sans-serif;
   font-weight: 500;
 }

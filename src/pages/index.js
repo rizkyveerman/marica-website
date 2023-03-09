@@ -4,6 +4,8 @@ import zootopia from "../../public/images/poster-zootopia.png";
 import MainLayout from "@/layout/MainLayout";
 import Button from "../components/Button";
 import Image from "next/image";
+import Link from "next/link";
+import TextInput from "@/components/TextInput";
 
 const faq = [
   {
@@ -21,12 +23,54 @@ const faq = [
 export default function Home() {
   return (
     <>
-      <section id="hero" className="flex justify-between items-center">
-        <div></div>
-        <div className="relative">
-          <Image src={theSoul} alt="the soul 2022" title="the soul 2022" />
-          <Image src={mickeyMouse} alt="mickey mouse" title="mickey mouse" />
-          <Image src={zootopia} alt="zootopia" title="zootopia" />
+      <section
+        id="hero"
+        className="bg-bad-blueberry flex justify-between items-center px-4 h-[650px]"
+      >
+        <div>
+          <h1 className="md:text-4xl mb-4 xl:mb-6">
+            Tingkatkan Pengalaman Belajar Kamu Dengan Menonton Film
+          </h1>
+          <p className="text-base text-abu-terang">
+            Cara yang menyenangkan untuk mempelajari hal-hal baru dan menemukan
+            dunia di sekitarmu.
+          </p>
+          <div className="flex items-center gap-2">
+            <TextInput />
+            <Button type="primary">Cari film</Button>
+          </div>
+        </div>
+        <div className="carousel carousel-center max-w-lg p-4 space-x-4">
+          <div className="carousel-item">
+            <Link href="/">
+              <Image
+                src={theSoul}
+                className="rounded-3xl"
+                alt="the soul 2022"
+                title="the soul 2022"
+              />
+            </Link>
+          </div>
+          <div className="carousel-item">
+            <Link href="/">
+              <Image
+                src={zootopia}
+                className="rounded-3xl"
+                alt="zootopia"
+                title="zootopia"
+              />
+            </Link>
+          </div>
+          <div className="carousel-item">
+            <Link href="/">
+              <Image
+                src={mickeyMouse}
+                className="rounded-3xl"
+                alt="mickey mouse"
+                title="mickey mouse"
+              />
+            </Link>
+          </div>
         </div>
       </section>
     </>
