@@ -1,27 +1,15 @@
-import React from "react";
 import Link from "next/link";
-import {
-  Box,
-  Flex,
-  Stack,
-  HStack,
-  Text,
-  useDisclosure,
-  useColorMode,
-  useColorModeValue,
-  IconButton,
-} from "@chakra-ui/react";
+import React from "react";
 import Button from "./Button";
-import { HamburgerIcon, CloseIcon } from "@chakra-ui/icons";
 
-const routes = [
+const links = [
   {
     pathname: "Home",
     link: "/",
   },
   {
-    pathname: "Library",
-    link: "/library",
+    pathname: "Film",
+    link: "/film",
   },
   {
     pathname: "Pricing",
@@ -34,54 +22,28 @@ const routes = [
 ];
 
 const Navbar = () => {
-  const { isOpen, onClose, onOpen } = useDisclosure();
-
   return (
-    <Box maxW="1280px" p="16px">
-      <Flex
-        bg="#EAEFFA"
-        justifyContent="space-between"
-        alignItems="center"
-        borderRadius="16px"
-        p="8px"
-      >
-        <Box>
-          <Text>Marica</Text>
-        </Box>
-        <HStack as="nav">
-          {routes.map((route) => (
-            <Box key={route.pathname} _hover={{ color: "#6379f2" }} p="12px">
-              <Link href={route.link}>{route.pathname}</Link>
-            </Box>
+    <header className="p-4 flex justify-between items-center">
+      <h1>Marica</h1>
+      <nav>
+        <ul className="hidden md:flex justify-center items-center gap-4">
+          {links.map((link) => (
+            <li key={link.pathname} className="hover:text-blueberry">
+              <Link href={link.link}>{link.pathname}</Link>
+            </li>
           ))}
-        </HStack>
-        <Flex p="8px" borderRadius="16px" bg="#DEE8FF" gap="8px">
-          <Button type="secondary">Masuk</Button>
-          <Button type="primary">Buat Akun</Button>
-        </Flex>
-        <IconButton
-          size="md"
-          icon={isOpen ? <CloseIcon /> : <HamburgerIcon />}
-          onClick={isOpen ? onClose : onOpen}
-          display={{ base: "inline-flex", md: "none" }}
-        />
-      </Flex>
-      {isOpen ? (
-        <Box>
-          <Stack as="nav">
-            {routes.map((route) => (
-              <Box key={route.pathname} _hover={{ color: "#6379f2" }} p="12px">
-                <Link href={route.link}>{route.pathname}</Link>
-              </Box>
-            ))}
-          </Stack>
-          <Flex p="8px" borderRadius="16px" bg="#DEE8FF" gap="8px">
-            <Button type="secondary">Masuk</Button>
-            <Button type="primary">Buat Akun</Button>
-          </Flex>
-        </Box>
-      ) : null}
-    </Box>
+        </ul>
+      </nav>
+      <div className="hidden md:flex items-center gap-2">
+        <Button type="primary" isLink>
+          <Link href="/login">Masuk</Link>
+        </Button>
+        <Button isLink>
+          <Link href="/login">Buat akun</Link>
+        </Button>
+      </div>
+      <Button className="block md:hidden">menu</Button>
+    </header>
   );
 };
 

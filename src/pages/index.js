@@ -1,18 +1,5 @@
-import {
-  Accordion,
-  AccordionItem,
-  AccordionButton,
-  AccordionPanel,
-  AccordionIcon,
-  Box,
-  useColorModeValue,
-  useColorMode,
-} from "@chakra-ui/react";
-import { Nunito } from "next/font/google";
 import MainLayout from "@/layout/MainLayout";
 import Button from "../components/Button";
-
-const nunito = Nunito({ subsets: ["latin"] });
 
 const faq = [
   {
@@ -28,8 +15,7 @@ const faq = [
 ];
 
 export default function Home() {
-  const colorMode = useColorModeValue("#000", "#EAEFFA");
-  return <>homepage</>;
+  return <p>homepage</p>;
 }
 
 Home.getLayout = function getLayout(page) {

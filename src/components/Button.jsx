@@ -2,14 +2,16 @@ import React from "react";
 import propTypes from "prop-types";
 import styles from "./Button.module.css";
 
-const Button = (props) => {
+const Button = ({ type, isLink, children }) => {
   return (
     <button
-      className={`${styles.button} ${
-        props.type === "primary" ? styles.primary : styles.secondary
-      }`}
+      className={`${
+        type === "primary"
+          ? "bg-blueberry text-sirsak"
+          : "bg-transparent text-blueberry border border-blueberry"
+      } px-5 py-3 rounded-lg`}
     >
-      {props.children}
+      {children}
     </button>
   );
 };
