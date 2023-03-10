@@ -10,7 +10,7 @@ const Button = ({ type, isLink, href, isClicked, className, children }) => {
         type === "primary"
           ? "bg-blueberry text-sirsak"
           : "bg-transparent text-blueberry border border-blueberry"
-      } px-5 py-3 rounded-lg`}
+      } px-5 py-2 rounded-lg`}
       onClick={isLink ? null : () => isClicked()}
     >
       {isLink ? <Link href={href}>{children}</Link> : <span>{children}</span>}
