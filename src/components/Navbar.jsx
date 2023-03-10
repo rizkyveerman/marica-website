@@ -16,7 +16,7 @@ const links = [
     link: "/pricing",
   },
   {
-    pathname: "Berlangganan",
+    pathname: "⭐Berlangganan",
     link: "/subscription",
   },
 ];
