@@ -25,7 +25,7 @@ const faq = [
 export default function Home() {
   return (
     <article>
-      <section>
+      {/* <section>
         <div className="px-16 py-8">
           <div className="carousel w-full">
             <div
@@ -72,7 +72,7 @@ export default function Home() {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
     </article>
   );
 }
