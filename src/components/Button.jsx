@@ -1,8 +1,9 @@
 import React from "react";
+import Link from "next/link";
 import propTypes from "prop-types";
 import styles from "./Button.module.css";
 
-const Button = ({ type, isLink, onClick, className, children }) => {
+const Button = ({ type, isLink, href, isClicked, className, children }) => {
   return (
     <button
       className={`${className} ${
@@ -10,9 +11,9 @@ const Button = ({ type, isLink, onClick, className, children }) => {
           ? "bg-blueberry text-sirsak"
           : "bg-transparent text-blueberry border border-blueberry"
       } px-5 py-3 rounded-lg`}
-      onClick={() => onClick()}
+      onClick={isLink ? null : () => isClicked()}
     >
-      {children}
+      {isLink ? <Link href={href}>{children}</Link> : <span>{children}</span>}
     </button>
   );
 };

@@ -39,7 +39,7 @@ const Navbar = () => {
             </li>
           ))}
         </ul>
-        <Button className="md:hidden" onClick={() => setIsOpen(!isOpen)}>
+        <Button className="md:hidden" isClicked={() => setIsOpen(!isOpen)}>
           Menu
         </Button>
         {isOpen && (
@@ -53,22 +53,22 @@ const Navbar = () => {
               </li>
             ))}
             <div className="flex flex-col gap-2">
-              <Button type="primary" isLink>
-                <Link href="/login">Masuk</Link>
+              <Button type="primary" isLink href="/login">
+                Masuk
               </Button>
-              <Button isLink>
-                <Link href="/login">Buat akun</Link>
+              <Button isLink href="/login">
+                Buat akun
               </Button>
             </div>
           </ul>
         )}
       </nav>
       <div className="hidden md:flex items-center gap-2">
-        <Button type="primary" isLink>
-          <Link href="/login">Masuk</Link>
+        <Button type="primary" isLink href="/login">
+          Masuk
         </Button>
-        <Button isLink>
-          <Link href="/login">Buat akun</Link>
+        <Button isLink href="/login">
+          Buat akun
         </Button>
       </div>
     </header>

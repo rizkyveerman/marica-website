@@ -19,7 +19,9 @@ const MainLayout = ({ children, title, icon }) => {
         />
       </Head>
       <Navbar />
-      <main className="max-w-screen-xl min-h-screen m-auto">{children}</main>
+      <main className="max-w-screen-xl min-h-screen m-auto bg-abu-terang">
+        {children}
+      </main>
       <Footer />
     </>
   );

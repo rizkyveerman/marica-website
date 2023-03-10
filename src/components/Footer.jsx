@@ -21,7 +21,7 @@ const footerLinks = [
 
 const Footer = () => {
   return (
-    <footer className="px-4 py-4 md:px-16 flex flex-col gap-4 md:flex-row justify-center md:justify-between items-center">
+    <footer className="px-4 py-4 md:px-16 md:py-8 flex flex-col gap-4 md:flex-row justify-center md:justify-between items-center bg-abu-terang">
       <div className="max-w-lg">
         <ul className="flex flex-col md:flex-row items-center gap-4 mb-4 text-arang">
           {footerLinks.map((link) => (
