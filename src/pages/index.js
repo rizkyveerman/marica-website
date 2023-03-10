@@ -27,12 +27,12 @@ export default function Home() {
     <article className="bg-bad-blueberry">
       <section
         id="hero"
-        className={`${styles.hero} flex items-center px-4 h-[650px] gap-8`}
+        className={`${styles.hero} flex items-center px-28 h-[650px] gap-8`}
       >
         <div className="translate-y-10">
-          <h1 className="md:text-4xl mb-4 xl:mb-6 text-abu-terang max-w-xl">
+          <h2 className="mb-4 text-abu-terang max-w-xl">
             Tingkatkan Pengalaman Belajar Kamu Dengan Menonton Film
-          </h1>
+          </h2>
           <p className="text-base text-abu-terang max-w-md mb-3 leading-[150%]">
             Cara yang menyenangkan untuk mempelajari hal-hal baru dan menemukan
             dunia di sekitarmu.
@@ -43,7 +43,58 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <section className="h-screen"></section>
+      <section className="pl-4 my-28">
+        <h3 className="text-jeruk mb-8">Sedang Trending</h3>
+        <div className="carousel rounded-box space-x-4">
+          {[1, 2, 3, 4].map((number) => (
+            <div
+              key={number}
+              className="carousel-item rounded-xl w-96 h-72 bg-abu-terang"
+            >
+              <Link href="/">trending video</Link>
+            </div>
+          ))}
+        </div>
+      </section>
+      <section className="pl-4 my-28">
+        <h3 className="text-jeruk mb-8">Serial Baru</h3>
+        <div className="carousel rounded-box space-x-4">
+          {[1, 2, 3, 4].map((number) => (
+            <div
+              key={number}
+              className="carousel-item rounded-xl w-96 h-72 bg-abu-terang"
+            >
+              <Link href="/">trending video</Link>
+            </div>
+          ))}
+        </div>
+      </section>
+      <section className="my-28 relative before:block before:bg-abu-terang before:absolute before:left-4 before:right-4 before:top-4 before:bottom-4 before:rounded-xl">
+        <div className="flex justify-center items-center gap-7 relative z-20 overflow-hidden">
+          <div className="z-20">
+            <h3>Tonton disemua perangkat.</h3>
+            <p>
+              Streaming film sambil mempelajari hal baru melalui smartphone,
+              tablet, laptop, dan TV.
+            </p>
+            <Button type="primary">Coba gratis!</Button>
+          </div>
+          <div className="w-80 h-72 rounded-2xl bg-blueberry"></div>
+        </div>
+      </section>
+      <section className="my-28 relative before:block before:bg-abu-terang before:absolute before:left-4 before:right-4 before:top-4 before:bottom-4 before:rounded-xl">
+        <div className="flex justify-center items-center flex-row-reverse gap-7 relative z-20 overflow-hidden">
+          <div className="z-20">
+            <h3>Tonton disemua perangkat.</h3>
+            <p>
+              Streaming film sambil mempelajari hal baru melalui smartphone,
+              tablet, laptop, dan TV.
+            </p>
+            <Button type="primary">Coba gratis!</Button>
+          </div>
+          <div className="w-80 h-72 rounded-2xl bg-blueberry"></div>
+        </div>
+      </section>
     </article>
   );
 }
