@@ -22,6 +22,8 @@ const links = [
 ];
 
 const Navbar = () => {
+  const url = window.location.pathname.slice(1);
+  console.log("path:", url);
   const [isOpen, setIsOpen] = useState(false);
   return (
     <header className="py-4 px-4 md:py-3 md:px-16 flex justify-between items-center bg-abu-terang z-50">
@@ -53,7 +55,7 @@ const Navbar = () => {
               </li>
             ))}
             <div className="flex flex-col gap-2">
-              <Button type="primary" isLink href="/login">
+              <Button type="button" variant="primary" isLink href="/login">
                 Masuk
               </Button>
               <Button isLink href="/login">
@@ -64,11 +66,13 @@ const Navbar = () => {
         )}
       </nav>
       <div className="hidden md:flex items-center gap-2">
-        <Button type="primary" isLink href="/login">
-          Masuk
-        </Button>
-        <Button isLink href="/login">
-          Buat akun
+        <Button
+          type="button"
+          variant={url === "login" ? "secondary" : "primary"}
+          isLink
+          href="/login"
+        >
+          Masuk / Buat akun
         </Button>
       </div>
     </header>

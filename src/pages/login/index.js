@@ -69,21 +69,51 @@ const Login = () => {
               className="grid gap-2"
               onSubmit={onRegisterHandler}
             >
-              <div className="grid gap-2">
-                <p>Buat username</p>
-                <div className="flex flex-col md:flex-row gap-2">
-                  <input
-                    type="text"
-                    id="username"
-                    name="username"
-                    ref={passwordRef}
-                    value={password}
-                    onChange={onPasswordInput}
-                    placeholder="Username baru"
-                    className="px-4 py-3 border border-abu rounded-lg md:max-w-xs"
-                  />
+              {registerStep ? (
+                <div className="grid gap-2">
+                  <p>Buat username</p>
+                  <div className="flex flex-col md:flex-row gap-2">
+                    <input
+                      type="text"
+                      id="username"
+                      name="username"
+                      ref={passwordRef}
+                      value={password}
+                      onChange={onPasswordInput}
+                      placeholder="Username baru"
+                      className="px-4 py-3 border border-abu rounded-lg md:max-w-xs"
+                    />
+                  </div>
                 </div>
-              </div>
+              ) : (
+                <div className="grid gap-2">
+                  <p>Siapa nama kamu?</p>
+                  <div className="flex">
+                    <div className="flex flex-col md:flex-row gap-2">
+                      <input
+                        type="text"
+                        id="firstname"
+                        name="firstname"
+                        ref={passwordRef}
+                        value={password}
+                        onChange={onPasswordInput}
+                        placeholder="Nama depan"
+                        className="px-4 py-3 border border-abu rounded-lg md:max-w-xs"
+                      />{" "}
+                      <input
+                        type="text"
+                        id="lastname"
+                        name="lastname"
+                        ref={passwordRef}
+                        value={password}
+                        onChange={onPasswordInput}
+                        placeholder="Nama belakang"
+                        className="px-4 py-3 border border-abu rounded-lg md:max-w-xs"
+                      />
+                    </div>
+                  </div>
+                </div>
+              )}
               {registerStep ? (
                 <div className="grid gap-2 mt-2">
                   <p>Buat password</p>
