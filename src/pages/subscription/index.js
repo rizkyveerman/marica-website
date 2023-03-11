@@ -4,6 +4,7 @@ import Button from "@/components/Button";
 
 const Subscription = () => {
   const [yearlyPlan, setYearlyPlan] = useState(true);
+  const [monthlyPlan, setMonthlyPlan] = useState(false);
 
   return (
     <article>
@@ -78,8 +79,13 @@ const Subscription = () => {
           </ul>
           <div id="subscribe" className="grid md:grid-cols-2 gap-4">
             <div
-              className="relative border border-abu rounded-xl flex-1 w-full h-auto p-4"
-              onClick={() => setYearlyPlan(false)}
+              className={`${
+                monthlyPlan && "border-2 border-blueberry"
+              } relative border border-abu rounded-xl flex-1 w-full h-auto p-4`}
+              onClick={() => {
+                setYearlyPlan(false);
+                setMonthlyPlan(true);
+              }}
             >
               <p>
                 Rp<span className="font-bold text-xl"> 35.000 </span>/bulan
@@ -89,7 +95,10 @@ const Subscription = () => {
               className={`${
                 yearlyPlan && "border-2 border-blueberry"
               } relative border border-abu rounded-xl flex-1 w-full h-auto`}
-              onClick={() => setYearlyPlan(true)}
+              onClick={() => {
+                setYearlyPlan(true);
+                setMonthlyPlan(false);
+              }}
             >
               <p className="bg-blueberry text-white rounded-xl px-3 text-sm py-1 flex-1 w-fit">
                 ⭐Direkomendasikan!
