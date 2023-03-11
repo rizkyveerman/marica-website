@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import Button from "./Button";
 
 const links = [
@@ -22,8 +22,12 @@ const links = [
 ];
 
 const Navbar = () => {
-  const url = window.location.pathname.slice(1);
-  console.log("path:", url);
+  const urlRef = useRef("");
+
+  useEffect(() => {
+    urlRef.current = window.location.pathname;
+  }, []);
+
   const [isOpen, setIsOpen] = useState(false);
   return (
     <header className="py-4 px-4 md:py-3 md:px-16 flex justify-between items-center bg-abu-terang z-50">
@@ -68,7 +72,9 @@ const Navbar = () => {
       <div className="hidden md:flex items-center gap-2">
         <Button
           type="button"
-          variant={url === "login" ? "secondary" : "primary"}
+          variant={
+            urlRef.current.slice(1) === "login" ? "secondary" : "primary"
+          }
           isLink
           href="/login"
         >

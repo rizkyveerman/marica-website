@@ -41,7 +41,7 @@ const Login = () => {
                   value={email}
                   onChange={onEmailInput}
                   placeholder="Masukkan email"
-                  className="px-4 py-3 border border-abu rounded-lg max-w-xs"
+                  className="px-4 py-3 border border-abu rounded-lg min-w-full md:min-w-min md:max-w-xs"
                 />
               </div>
               <div className="flex flex-col gap-2">
@@ -54,7 +54,7 @@ const Login = () => {
                   value={password}
                   onChange={onPasswordInput}
                   placeholder="Masukkan password"
-                  className="px-4 py-3 border border-abu rounded-lg max-w-xs"
+                  className="px-4 py-3 border border-abu rounded-lg min-w-full md:min-w-min md:max-w-xs"
                 />
               </div>
               <div>
@@ -81,7 +81,7 @@ const Login = () => {
                       value={password}
                       onChange={onPasswordInput}
                       placeholder="Username baru"
-                      className="px-4 py-3 border border-abu rounded-lg md:max-w-xs"
+                      className="px-4 py-3 border border-abu rounded-lg min-w-full md:min-w-min md:max-w-xs"
                     />
                   </div>
                 </div>
@@ -89,7 +89,7 @@ const Login = () => {
                 <div className="grid gap-2">
                   <p>Siapa nama kamu?</p>
                   <div className="flex">
-                    <div className="flex flex-col md:flex-row gap-2">
+                    <div className="flex flex-col md:flex-row gap-2 w-full">
                       <input
                         type="text"
                         id="firstname"
@@ -98,8 +98,8 @@ const Login = () => {
                         value={password}
                         onChange={onPasswordInput}
                         placeholder="Nama depan"
-                        className="px-4 py-3 border border-abu rounded-lg md:max-w-xs"
-                      />{" "}
+                        className="px-4 py-3 border border-abu rounded-lg min-w-full md:min-w-min md:max-w-xs"
+                      />
                       <input
                         type="text"
                         id="lastname"
@@ -108,7 +108,7 @@ const Login = () => {
                         value={password}
                         onChange={onPasswordInput}
                         placeholder="Nama belakang"
-                        className="px-4 py-3 border border-abu rounded-lg md:max-w-xs"
+                        className="px-4 py-3 border border-abu rounded-lg min-w-full md:min-w-min md:max-w-xs"
                       />
                     </div>
                   </div>
@@ -126,7 +126,7 @@ const Login = () => {
                       value={password}
                       onChange={onPasswordInput}
                       placeholder="Password baru"
-                      className="px-4 py-3 border border-abu rounded-lg max-w-xs"
+                      className="px-4 py-3 border border-abu rounded-lg min-w-full md:min-w-min md:max-w-xs"
                     />
                     <input
                       type="password"
@@ -152,7 +152,7 @@ const Login = () => {
                       value={password}
                       onChange={onPasswordInput}
                       placeholder="Nama Kecamatan"
-                      className="px-4 py-3 border border-abu rounded-lg max-w-xs"
+                      className="px-4 py-3 border border-abu rounded-lg min-w-full md:min-w-min md:max-w-xs"
                     />
                     <input
                       variant="text"
