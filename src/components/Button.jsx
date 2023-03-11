@@ -3,11 +3,20 @@ import Link from "next/link";
 import propTypes from "prop-types";
 import styles from "./Button.module.css";
 
-const Button = ({ type, isLink, href, isClicked, className, children }) => {
+const Button = ({
+  type,
+  variant,
+  isLink,
+  href,
+  isClicked,
+  className,
+  children,
+}) => {
   return (
     <button
+      type={type !== "" ? type : "button"}
       className={`${className} ${
-        type === "primary"
+        variant === "primary"
           ? "bg-blueberry text-sirsak"
           : "bg-transparent text-blueberry border border-blueberry"
       } px-5 py-2 rounded-lg`}
@@ -21,6 +30,6 @@ const Button = ({ type, isLink, href, isClicked, className, children }) => {
 export default Button;
 
 Button.propTypes = {
-  type: propTypes.oneOf(["primary", "secondary"]),
+  variant: propTypes.oneOf(["primary", "secondary"]),
   isLink: propTypes.bool,
 };

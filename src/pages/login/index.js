@@ -6,12 +6,18 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isLogin, setIsLogin] = useState(true);
+  const [registerStep, setRegisterStep] = useState(false);
 
   const emailRef = useRef();
   const passwordRef = useRef();
 
   const onEmailInput = (e) => setEmail((prev) => (prev = e.target.value));
   const onPasswordInput = (e) => setPassword((prev) => (prev = e.target.value));
+
+  const onRegisterHandler = (e) => {
+    e.preventDefault();
+    console.log("register: berhasil");
+  };
 
   return (
     <article>
@@ -20,6 +26,9 @@ const Login = () => {
           <h3 className="relative before:absolute before:top-[100%] before:h-[1px] before:w-1/6 before:bg-arang before:rounded-full">
             {isLogin ? "Masuk ke Marica" : "Buat akun di Marica"}
           </h3>
+          {registerStep && (
+            <p className="p-2 bg-abu-terang rounded-xl">👍🏻Hampir selesai!</p>
+          )}
           {isLogin ? (
             <form id="login-form" className="grid gap-2">
               <div className="flex flex-col gap-2">
@@ -49,67 +58,109 @@ const Login = () => {
                 />
               </div>
               <div>
-                <Button type="primary">Masuk</Button>
+                <Button variant="primary" type="submit">
+                  Masuk
+                </Button>
               </div>
             </form>
           ) : (
-            <form id="form-register" className="grid gap-2">
+            <form
+              id="form-register"
+              className="grid gap-2"
+              onSubmit={onRegisterHandler}
+            >
               <div className="grid gap-2">
-                <p>Siapa nama kamu?</p>
-                <div className="flex gap-2">
+                <p>Buat username</p>
+                <div className="flex flex-col md:flex-row gap-2">
                   <input
                     type="text"
-                    id="firstname"
-                    name="firstname"
+                    id="username"
+                    name="username"
                     ref={passwordRef}
                     value={password}
                     onChange={onPasswordInput}
-                    placeholder="Nama Depan"
-                    className="px-4 py-3 border border-abu rounded-lg max-w-xs"
-                  />
-                  <input
-                    type="text"
-                    id="lastname"
-                    name="lastname"
-                    ref={passwordRef}
-                    value={password}
-                    onChange={onPasswordInput}
-                    placeholder="Nama Belakang"
-                    className="px-4 py-3 border border-abu rounded-lg max-w-1/2"
+                    placeholder="Username baru"
+                    className="px-4 py-3 border border-abu rounded-lg md:max-w-xs"
                   />
                 </div>
               </div>
-              <div className="grid gap-2">
-                <p>Kamu tinggal dimana?</p>
-                <div className="flex gap-2">
-                  <input
-                    type="text"
-                    id="alamat"
-                    name="alamat"
-                    ref={passwordRef}
-                    value={password}
-                    onChange={onPasswordInput}
-                    placeholder="Nama Kecamatan"
-                    className="px-4 py-3 border border-abu rounded-lg max-w-xs"
-                  />
-                  <input
-                    type="text"
-                    id="kota"
-                    name="kota"
-                    ref={passwordRef}
-                    value={password}
-                    onChange={onPasswordInput}
-                    placeholder="Nama Kota/Kab"
-                    className="px-4 py-3 border border-abu rounded-lg max-w-1/2"
-                  />
+              {registerStep ? (
+                <div className="grid gap-2 mt-2">
+                  <p>Buat password</p>
+                  <div className="flex flex-col md:flex-row gap-2">
+                    <input
+                      type="password"
+                      id="password"
+                      name="password"
+                      ref={passwordRef}
+                      value={password}
+                      onChange={onPasswordInput}
+                      placeholder="Password baru"
+                      className="px-4 py-3 border border-abu rounded-lg max-w-xs"
+                    />
+                    <input
+                      type="password"
+                      id="retype-password"
+                      name="retype-password"
+                      ref={passwordRef}
+                      value={password}
+                      onChange={onPasswordInput}
+                      placeholder="Tulis ulang password baru"
+                      className="px-4 py-3 border border-abu rounded-lg max-w-1/2"
+                    />
+                  </div>
                 </div>
-              </div>
-
+              ) : (
+                <div className="grid gap-2 mt-2">
+                  <p>Kamu tinggal dimana?</p>
+                  <div className="flex flex-col md:flex-row gap-2">
+                    <input
+                      variant="text"
+                      id="alamat"
+                      name="alamat"
+                      ref={passwordRef}
+                      value={password}
+                      onChange={onPasswordInput}
+                      placeholder="Nama Kecamatan"
+                      className="px-4 py-3 border border-abu rounded-lg max-w-xs"
+                    />
+                    <input
+                      variant="text"
+                      id="kota"
+                      name="kota"
+                      ref={passwordRef}
+                      value={password}
+                      onChange={onPasswordInput}
+                      placeholder="Nama Kota/Kab"
+                      className="px-4 py-3 border border-abu rounded-lg max-w-1/2"
+                    />
+                  </div>
+                </div>
+              )}
               <div className="flex gap-2 items-center">
-                <Button type="primary">Lanjut</Button>
+                <Button
+                  variant={registerStep ? "primary" : "secondary"}
+                  type={registerStep ? "submit" : "button"}
+                  isClicked={() =>
+                    registerStep ? onRegisterHandler : setRegisterStep(true)
+                  }
+                >
+                  {registerStep ? "Buat akun" : "Lanjut"}
+                </Button>
+                {registerStep && (
+                  <Button
+                    variant="secondary"
+                    type="button"
+                    isClicked={() => setRegisterStep(false)}
+                  >
+                    Kembali
+                  </Button>
+                )}
                 <p className="text-abu">
-                  <span className="font-regular mr-1">1</span>/
-                  <span className="font-bold ml-1">2</span>
+                  <span className="font-regular mr-1">
+                    {registerStep ? 2 : 1}
+                  </span>
+                  /<span className="font-bold ml-1">2</span>
                 </p>
               </div>
             </form>
@@ -117,14 +168,20 @@ const Login = () => {
           {isLogin ? (
             <div>
               <p className="mb-2 mt-4 text-sm">Belum punya akun Marica?</p>
-              <Button type="secondary" isClicked={() => setIsLogin(!isLogin)}>
+              <Button
+                variant="secondary"
+                isClicked={() => setIsLogin(!isLogin)}
+              >
                 Buat akun baru
               </Button>
             </div>
           ) : (
             <div>
               <p className="mb-2 mt-4 text-sm">Sudah punya akun Marica?</p>
-              <Button type="secondary" isClicked={() => setIsLogin(!isLogin)}>
+              <Button
+                variant="secondary"
+                isClicked={() => setIsLogin(!isLogin)}
+              >
                 Langsung masuk
               </Button>
             </div>
