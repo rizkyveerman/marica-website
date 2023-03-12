@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, useRef, useLayoutEffect } from "react";
+import { gsap } from "gsap";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import Image from "next/image";
@@ -6,6 +7,7 @@ import Image from "next/image";
 const MovieCard = ({ thumbnail, title, slug, rating, children }) => {
   const [showDetails, setShowDetails] = useState(false);
   const router = useRouter();
+
   return (
     <Link
       href={slug}
@@ -19,14 +21,20 @@ const MovieCard = ({ thumbnail, title, slug, rating, children }) => {
           title={title}
           fill
           objectFit="cover"
-          className="hover:scale-150"
+          className="thumbnail hover:scale-125 transition-transform"
         />
-        {showDetails && (
-          <div className="absolute left-0 right-0 bottom-0 p-4 bg-blueberry">
-            <p>{title}</p>
-            <div>Ratings: {rating}</div>
-          </div>
-        )}
+        <div
+          className={`absolute left-0 right-0 bottom-0 p-4 bg-semangka ${
+            showDetails
+              ? "translate-y-0 transition-transform"
+              : "translate-y-full transition-transform"
+          }`}
+        >
+          <h3 className="text-white">{title}</h3>
+          <p className="text-white text-sm">
+            Ratings: <span className="font-bold">{rating}</span>⭐
+          </p>
+        </div>
       </div>
     </Link>
   );
