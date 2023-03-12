@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { useRouter } from "next/router";
 import { useState, useEffect, useRef } from "react";
 import Button from "./Button";
 
@@ -22,6 +23,8 @@ const links = [
 ];
 
 const Navbar = () => {
+  const router = useRouter();
+  console.log("router query:>", router);
   const urlRef = useRef("");
 
   useEffect(() => {
