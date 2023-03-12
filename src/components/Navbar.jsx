@@ -13,10 +13,6 @@ const links = [
     link: "/film",
   },
   {
-    pathname: "Pricing",
-    link: "/pricing",
-  },
-  {
     pathname: "⭐Berlangganan",
     link: "/subscription",
   },
@@ -33,21 +29,24 @@ const Navbar = () => {
 
   const [isOpen, setIsOpen] = useState(false);
   return (
-    <header className="py-4 px-4 md:py-3 md:px-16 flex justify-between items-center bg-abu-terang z-50">
+    <header className="p-4 flex justify-between items-center bg-abu-terang dark:bg-bad-blueberry z-50">
       <h3>
         <Link href="/">Marica</Link>
       </h3>
       <nav className="relative">
-        <ul
+        {/* <ul
           id="desktop-nav"
           className="hidden md:flex justify-center items-center gap-4"
         >
           {links.map((link) => (
-            <li key={link.pathname} className="hover:text-blueberry">
+            <li
+              key={link.pathname}
+              className="dark:text-white hover:text-blueberry"
+            >
               <Link href={link.link}>{link.pathname}</Link>
             </li>
           ))}
-        </ul>
+        </ul> */}
         <Button className="md:hidden" isClicked={() => setIsOpen(!isOpen)}>
           Menu
         </Button>

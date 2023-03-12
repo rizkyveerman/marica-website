@@ -1,7 +1,9 @@
 import React from "react";
+import styles from "./MainLayout.module.css";
 import Head from "next/head";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import Sidebar from "@/components/Sidebar";
 
 const MainLayout = ({ children, title, icon }) => {
   return (
@@ -19,9 +21,12 @@ const MainLayout = ({ children, title, icon }) => {
         />
       </Head>
       <Navbar />
-      <main className="max-w-screen-xl min-h-screen m-auto bg-abu-terang">
-        {children}
-      </main>
+      <div
+        className={`${styles["layout-container"]} bg-abu-terang dark:bg-bad-blueberry`}
+      >
+        <Sidebar />
+        <main className="w-full h-full">{children}</main>
+      </div>
       <Footer />
     </>
   );

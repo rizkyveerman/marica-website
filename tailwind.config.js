@@ -12,7 +12,7 @@ module.exports = {
     extend: {
       colors: {
         semangka: "#D9325E",
-        "bad-blueberry": "#19287C",
+        "bad-blueberry": "#00093D",
         blueberry: "#6379F2",
         mangga: "#1BBFA1",
         sirsak: "#DFF2EF",

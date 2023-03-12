@@ -21,18 +21,21 @@ const footerLinks = [
 
 const Footer = () => {
   return (
-    <footer className="px-4 py-4 md:px-16 md:py-8 flex flex-col gap-4 md:flex-row justify-center md:justify-between items-center bg-abu-terang">
+    <footer className="px-4 py-4 md:px-16 md:py-8 flex flex-col gap-4 md:flex-row justify-center md:justify-between items-center bg-abu-terang dark:bg-bad-blueberry">
       <div className="max-w-lg">
         <ul className="flex flex-col md:flex-row items-center gap-4 mb-4 text-arang">
           {footerLinks.map((link) => (
             <li key={link.pathname}>
-              <Link href={link.link} className="hover:text-blueberry">
+              <Link
+                href={link.link}
+                className="dark:text-white hover:text-blueberry"
+              >
                 {link.pathname}
               </Link>
             </li>
           ))}
         </ul>
-        <p className="text-sm text-abu text-justify md:text-left">
+        <p className="text-sm dark:text-white text-justify md:text-left">
           © 2023 Marica dan entitas-entitas terkaitnya. Hak Cipta Dilindungi
           Undang-Undang. © 2023 Entitas-entitas pemberi lisensi Marica. Hak
           Cipta Dilindungi Undang-Undang
