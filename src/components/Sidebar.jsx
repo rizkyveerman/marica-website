@@ -5,7 +5,7 @@ import Button from "./Button";
 const Sidebar = () => {
   return (
     <aside className="w-full h-full">
-      <div className="p-4 rounded-xl w-full h-full">
+      <div className="md:block p-4 rounded-xl w-full h-full">
         <div className="h-full flex flex-col justify-between">
           <ul>
             <li>
@@ -51,6 +51,7 @@ const Sidebar = () => {
           </div>
         </div>
       </div>
+      <div className="block md:hidden">mobile menu</div>
     </aside>
   );
 };

@@ -31,8 +31,19 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   return (
     <header className="p-4 flex justify-between items-center bg-white dark:bg-bad-blueberry z-50">
-      <TextInput />
-      <div className="hidden md:flex items-center gap-2">
+      <div className="hidden md:block">
+        <TextInput />
+      </div>
+      <div className="block md:hidden">
+        {" "}
+        <Link
+          className="text-blueberry font-bold text-xl block py-4 hover:bg-indigo-100 rounded-xl pl-4"
+          href="/"
+        >
+          Marica
+        </Link>
+      </div>
+      <div className="flex items-center gap-2">
         <Button
           type="button"
           variant={

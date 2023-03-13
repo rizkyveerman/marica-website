@@ -42,7 +42,7 @@ export default function Home({ movies }) {
       </section>
       <section className="my-4">
         <p className="text-xl font-semibold mb-4">Film gratis terpopuler</p>
-        <div className="grid grid-cols-4 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
           {[1, 2, 3, 4].map((card) => (
             <div
               key={card}
@@ -53,7 +53,7 @@ export default function Home({ movies }) {
       </section>
       <section className="my-4">
         <p className="text-xl font-semibold mb-4">Terakhir ditambahkan</p>
-        <div className="grid grid-cols-4 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
           {[1, 2, 3, 4].map((card) => (
             <div
               key={card}
@@ -65,7 +65,7 @@ export default function Home({ movies }) {
 
       <section className="my-4">
         <p className="text-xl font-semibold mb-4">Lainnya</p>
-        <div className="grid grid-cols-4 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
           {[1, 2, 3, 4, 5, 6, 7, 8].map((card) => (
             <div
               key={card}

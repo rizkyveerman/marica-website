@@ -20,7 +20,7 @@ const MainLayout = ({ children, title, icon }) => {
         />
       </Head>
       <div className="flex">
-        <div className="w-1/4 h-screen sticky top-0 left-0">
+        <div className="w-full md:w-1/4 h-screen absolute md:sticky top-0 left-0">
           <Sidebar />
         </div>
         <main className="relative w-full">
