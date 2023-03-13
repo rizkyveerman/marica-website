@@ -10,7 +10,7 @@ const Sidebar = () => {
           <ul>
             <li>
               <Link
-                className="text-blueberry font-bold text-xl block py-4 hover:bg-white rounded-xl pl-4"
+                className="text-blueberry font-bold text-xl block py-4 hover:bg-indigo-100 rounded-xl pl-4"
                 href="/"
               >
                 Marica
@@ -18,7 +18,7 @@ const Sidebar = () => {
             </li>
             <li>
               <Link
-                className="block py-4 hover:bg-white rounded-xl pl-4"
+                className="block py-4 hover:bg-indigo-100 rounded-xl pl-4"
                 href="/browse"
               >
                 Browse
@@ -26,7 +26,7 @@ const Sidebar = () => {
             </li>
             <li>
               <Link
-                className="block py-4 hover:bg-white rounded-xl pl-4"
+                className="block py-4 hover:bg-indigo-100 rounded-xl pl-4"
                 href="/watchlist"
               >
                 Watchlist
@@ -34,7 +34,7 @@ const Sidebar = () => {
             </li>
             <li>
               <Link
-                className="block py-4 hover:bg-white rounded-xl pl-4"
+                className="block py-4 hover:bg-indigo-100 rounded-xl pl-4"
                 href="/coming-soon"
               >
                 Coming soon
@@ -43,7 +43,7 @@ const Sidebar = () => {
           </ul>
           <div>
             <Link
-              className="block py-4 hover:bg-white rounded-xl pl-4"
+              className="block py-4 hover:bg-indigo-100 rounded-xl pl-4"
               href="/coming-soon"
             >
               Help
