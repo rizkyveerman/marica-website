@@ -1,5 +1,4 @@
 import React from "react";
-import styles from "./MainLayout.module.css";
 import Head from "next/head";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -20,21 +19,17 @@ const MainLayout = ({ children, title, icon }) => {
           rel="stylesheet"
         />
       </Head>
-      <article
-        className={`${styles.container} bg-abu-terang dark:bg-bad-blueberry`}
-      >
-        <div
-          className={`${styles.sidebar} min-w-full lg:min-w-[280px] bg-abu-terang sticky top-0`}
-        >
+      <div className="flex">
+        <div className="w-1/4 h-screen sticky top-0 left-0">
           <Sidebar />
         </div>
-        <div className={`${styles.navbar} sticky top-0`}>
+        <main className="relative w-full">
           <Navbar />
-        </div>
-        <main className={`${styles.main} rounded-[32px] p-4 mr-4 bg-white`}>
-          {children}
+          <div className="p-4 bg-abu-terang dark:bg-bad-blueberry min-h-screen rounded-tl-3xl">
+            {children}
+          </div>
         </main>
-      </article>
+      </div>
     </>
   );
 };

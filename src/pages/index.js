@@ -6,6 +6,7 @@ import heroBg from "../../public/images/hero-bg.png";
 import MainLayout from "@/layout/MainLayout";
 import Navbar from "@/components/Navbar";
 import MovieCard from "@/components/cards/MovieCard";
+import Button from "@/components/Button";
 
 export async function getServerSideProps(ctx) {
   const options = {
@@ -32,26 +33,48 @@ export async function getServerSideProps(ctx) {
 }
 
 export default function Home({ movies }) {
-  console.log("props", movies);
   return (
     <article>
       <section>
-        <div className="w-full h-[60vh] bg-blueberry rounded-2xl"></div>
+        <div className="w-full h-96 rounded-2xl bg-indigo-200 grid place-content-center">
+          poster slide
+        </div>
       </section>
-      <section>
-        <ul className="flex flex-wrap flex-grow justify-start gap-4">
-          {movies.results.map((movie) => (
-            <li key={movie.imdbID}>
-              <MovieCard
-                thumbnail={movie.backdropURLs[300]}
-                title={movie.title}
-                slug={movie.streamingInfo.netflix.us}
-                rating={movie.imdbRating}
-              />
-            </li>
+      <section className="my-4">
+        <p className="text-xl font-semibold mb-4">Film gratis terpopuler</p>
+        <div className="grid grid-cols-4 gap-4">
+          {[1, 2, 3, 4].map((card) => (
+            <div
+              key={card}
+              className="w-full h-40 bg-indigo-200 rounded-xl"
+            ></div>
           ))}
-        </ul>
+        </div>
       </section>
+      <section className="my-4">
+        <p className="text-xl font-semibold mb-4">Terakhir ditambahkan</p>
+        <div className="grid grid-cols-4 gap-4">
+          {[1, 2, 3, 4].map((card) => (
+            <div
+              key={card}
+              className="w-full h-40 bg-indigo-200 rounded-xl"
+            ></div>
+          ))}
+        </div>
+      </section>
+
+      <section className="my-4">
+        <p className="text-xl font-semibold mb-4">Lainnya</p>
+        <div className="grid grid-cols-4 gap-4">
+          {[1, 2, 3, 4, 5, 6, 7, 8].map((card) => (
+            <div
+              key={card}
+              className="w-full h-40 bg-indigo-200 rounded-xl"
+            ></div>
+          ))}
+        </div>
+      </section>
+      <Button type="secondary">Cari semua film</Button>
     </article>
   );
 }
