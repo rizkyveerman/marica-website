@@ -44,7 +44,8 @@ const Sidebar = () => {
           <div className="grid grid-cols-1 gap-4">
             <div className="w-full h-56 bg-indigo-100 rounded-xl p-4 grid place-content-center text-center">
               disini ada poster agar menarik user utk berlangganan sepertinya
-              sabi sih🤔
+              sabi sih🤔.. atau mungkin slideshow buat iklan produk marica, atau
+              gameboard sebangku???
             </div>
             <Link
               className="block py-4 hover:bg-indigo-100 rounded-xl pl-4"
