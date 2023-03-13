@@ -25,7 +25,7 @@ const MainLayout = ({ children, title, icon }) => {
         </div>
         <main className="relative w-full">
           <Navbar />
-          <div className="p-4 bg-abu-terang dark:bg-bad-blueberry min-h-screen rounded-tl-3xl">
+          <div className="p-4 bg-abu-terang dark:bg-bad-blueberry min-h-screen rounded-tl-3xl rounded-tr-3xl md:rounded-tr-0">
             {children}
           </div>
         </main>

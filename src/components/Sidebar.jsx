@@ -35,13 +35,17 @@ const Sidebar = () => {
             <li>
               <Link
                 className="block py-4 hover:bg-indigo-100 rounded-xl pl-4"
-                href="/coming-soon"
+                href="/subscription"
               >
-                Coming soon
+                Berlangganan
               </Link>
             </li>
           </ul>
-          <div>
+          <div className="grid grid-cols-1 gap-4">
+            <div className="w-full h-56 bg-indigo-100 rounded-xl p-4 grid place-content-center text-center">
+              disini ada poster agar menarik user utk berlangganan sepertinya
+              sabi sih🤔
+            </div>
             <Link
               className="block py-4 hover:bg-indigo-100 rounded-xl pl-4"
               href="/coming-soon"

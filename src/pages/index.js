@@ -57,7 +57,7 @@ export default function Home({ movies }) {
           {[1, 2, 3, 4].map((card) => (
             <div
               key={card}
-              className="w-full h-40 bg-indigo-200 rounded-xl"
+              className="w-full h-44 bg-indigo-200 rounded-xl"
             ></div>
           ))}
         </div>

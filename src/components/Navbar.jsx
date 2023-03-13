@@ -44,15 +44,8 @@ const Navbar = () => {
         </Link>
       </div>
       <div className="flex items-center gap-2">
-        <Button
-          type="button"
-          variant={
-            urlRef.current.slice(1) === "login" ? "secondary" : "primary"
-          }
-          isLink
-          href="/login"
-        >
-          Masuk / Buat akun
+        <Button type="button" variant="secondary" isLink href="/login">
+          Masuk ke Marica
         </Button>
       </div>
     </header>
