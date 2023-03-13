@@ -22,10 +22,12 @@ const MainLayout = ({ children, title, icon }) => {
       </Head>
       <Navbar />
       <div
-        className={`${styles["layout-container"]} bg-abu-terang dark:bg-bad-blueberry`}
+        className={`${styles["layout-container"]} bg-abu-terang dark:bg-bad-blueberry pr-4`}
       >
         <Sidebar />
-        <main className="w-full h-full">{children}</main>
+        <main className="w-full h-full bg-white rounded-2xl dark:bg-bad-blueberry">
+          {children}
+        </main>
       </div>
       <Footer />
     </>

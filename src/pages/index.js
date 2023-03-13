@@ -38,7 +38,7 @@ export default function Home({ movies }) {
   console.log("props", movies);
   return (
     <article>
-      <section className="p-4">
+      <section>
         <div className="w-full h-[60vh] bg-blueberry rounded-2xl"></div>
       </section>
       <section className="p-4">

@@ -29,7 +29,7 @@ const Navbar = () => {
 
   const [isOpen, setIsOpen] = useState(false);
   return (
-    <header className="p-4 flex justify-between items-center bg-abu-terang dark:bg-bad-blueberry z-50">
+    <header className="sticky top-0 p-4 flex justify-between items-center bg-abu-terang dark:bg-bad-blueberry z-50">
       <h3>
         <Link href="/">Marica</Link>
       </h3>

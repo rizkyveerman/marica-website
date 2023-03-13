@@ -14,7 +14,7 @@ const MovieCard = ({ thumbnail, title, slug, rating, children }) => {
       onMouseEnter={() => setShowDetails(true)}
       onMouseLeave={() => setShowDetails(false)}
     >
-      <div className="relative bg-blueberry rounded-xl overflow-hidden w-48 h-32">
+      <div className="relative bg-blueberry rounded-xl overflow-hidden min-w-[280px] w-full h-32">
         <Image
           src={thumbnail}
           alt={title}

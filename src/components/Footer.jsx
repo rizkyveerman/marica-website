@@ -37,8 +37,7 @@ const Footer = () => {
         </ul>
         <p className="text-sm dark:text-white text-justify md:text-left">
           © 2023 Marica dan entitas-entitas terkaitnya. Hak Cipta Dilindungi
-          Undang-Undang. © 2023 Entitas-entitas pemberi lisensi Marica. Hak
-          Cipta Dilindungi Undang-Undang
+          Undang-Undang.
         </p>
       </div>
       <div className="">
