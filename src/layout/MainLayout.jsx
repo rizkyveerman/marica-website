@@ -20,16 +20,21 @@ const MainLayout = ({ children, title, icon }) => {
           rel="stylesheet"
         />
       </Head>
-      <Navbar />
-      <div
-        className={`${styles["layout-container"]} bg-abu-terang dark:bg-bad-blueberry pr-4`}
+      <article
+        className={`${styles.container} bg-abu-terang dark:bg-bad-blueberry`}
       >
-        <Sidebar />
-        <main className="w-full h-full bg-white rounded-2xl dark:bg-bad-blueberry">
+        <div
+          className={`${styles.sidebar} min-w-full lg:min-w-[280px] bg-abu-terang sticky top-0`}
+        >
+          <Sidebar />
+        </div>
+        <div className={`${styles.navbar} sticky top-0`}>
+          <Navbar />
+        </div>
+        <main className={`${styles.main} rounded-[32px] p-4 mr-4 bg-white`}>
           {children}
         </main>
-      </div>
-      <Footer />
+      </article>
     </>
   );
 };

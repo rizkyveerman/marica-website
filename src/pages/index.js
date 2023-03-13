@@ -4,10 +4,7 @@ import mickeyMouse from "../../public/images/poster-mickey-mouse.png";
 import zootopia from "../../public/images/poster-zootopia.png";
 import heroBg from "../../public/images/hero-bg.png";
 import MainLayout from "@/layout/MainLayout";
-import Button from "../components/Button";
-import Image from "next/image";
-import Link from "next/link";
-import TextInput from "@/components/TextInput";
+import Navbar from "@/components/Navbar";
 import MovieCard from "@/components/cards/MovieCard";
 
 export async function getServerSideProps(ctx) {
@@ -41,7 +38,7 @@ export default function Home({ movies }) {
       <section>
         <div className="w-full h-[60vh] bg-blueberry rounded-2xl"></div>
       </section>
-      <section className="p-4">
+      <section>
         <ul className="flex flex-wrap flex-grow justify-start gap-4">
           {movies.results.map((movie) => (
             <li key={movie.imdbID}>

@@ -1,4 +1,17 @@
-.layout-container {
+.container {
   display: grid;
-  grid-template-columns: 1fr 4fr;
+  grid-template-areas:
+    "sidebar navbar"
+    "sidebar main";
+  gap: 0;
+}
+
+.sidebar {
+  grid-area: sidebar;
+}
+.navbar {
+  grid-area: navbar;
+}
+.main {
+  grid-area: main;
 }
