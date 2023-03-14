@@ -1,10 +1,17 @@
-import React from "react";
+import { useState } from "react";
+import { ModalContext } from "@/libs/context/modal-context";
 import Head from "next/head";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Sidebar from "@/components/Sidebar";
 
 const MainLayout = ({ children, title, icon }) => {
+  const [showModal, setShowModal] = useState(false);
+
+  const toggleModalHandler = () => {
+    setShowModal(!showModal);
+  };
+
   return (
     <>
       <Head>
@@ -19,17 +26,24 @@ const MainLayout = ({ children, title, icon }) => {
           rel="stylesheet"
         />
       </Head>
-      <div className="flex">
-        <div className="w-full md:w-1/4 h-screen absolute md:sticky top-0 left-0">
-          <Sidebar />
-        </div>
-        <main className="relative w-full">
-          <Navbar />
-          <div className="p-4 bg-abu-terang dark:bg-bad-blueberry min-h-screen rounded-t-3xl md:rounded-t-none md:rounded-tl-3xl">
-            {children}
+      <ModalContext.Provider
+        value={{
+          isShow: showModal,
+          toggleModal: toggleModalHandler,
+        }}
+      >
+        <div className="flex">
+          <div className="w-full md:w-1/4 h-screen absolute md:sticky top-0 left-0">
+            <Sidebar />
           </div>
-        </main>
-      </div>
+          <main className="relative w-full">
+            <Navbar />
+            <div className="p-4 bg-abu-terang dark:bg-bad-blueberry min-h-screen rounded-t-3xl md:rounded-t-none md:rounded-tl-3xl">
+              {children}
+            </div>
+          </main>
+        </div>
+      </ModalContext.Provider>
     </>
   );
 };

@@ -12,6 +12,7 @@
     "daisyui": "^2.51.3",
     "eslint": "8.35.0",
     "eslint-config-next": "13.2.3",
+    "formik": "^2.2.9",
     "framer-motion": "^10.2.3",
     "gsap": "^3.11.4",
     "next": "13.2.3",

@@ -1,10 +1,4 @@
-import styles from "../styles/Home.module.css";
-import theSoul from "../../public/images/poster-the-soul.png";
-import mickeyMouse from "../../public/images/poster-mickey-mouse.png";
-import zootopia from "../../public/images/poster-zootopia.png";
-import heroBg from "../../public/images/hero-bg.png";
 import MainLayout from "@/layout/MainLayout";
-import Navbar from "@/components/Navbar";
 import MovieCard from "@/components/cards/MovieCard";
 import Button from "@/components/Button";
 
