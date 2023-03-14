@@ -4,41 +4,44 @@ import MovieCard from "@/components/cards/MovieCard";
 import Button from "@/components/Button";
 import { ModalContext } from "@/libs/context/modal-context";
 import { fromJSON } from "postcss";
+import Login from "@/components/form/login/Login";
 
-export async function getServerSideProps(ctx) {
-  const options = {
-    method: "GET",
-    headers: {
-      "X-RapidAPI-Key": "67bab0cae7msh55022c298b7ebc4p12216bjsnbe8224d9d264",
-      "X-RapidAPI-Host": "streaming-availability.p.rapidapi.com",
-    },
-  };
+// export async function getServerSideProps(ctx) {
+//   const options = {
+//     method: "GET",
+//     headers: {
+//       "X-RapidAPI-Key": "67bab0cae7msh55022c298b7ebc4p12216bjsnbe8224d9d264",
+//       "X-RapidAPI-Host": "streaming-availability.p.rapidapi.com",
+//     },
+//   };
 
-  const movies = await fetch(
-    "https://streaming-availability.p.rapidapi.com/search/basic?country=us&service=netflix&type=movie&genre=18&page=1&output_language=en&language=en",
-    options
-  )
-    .then((response) => response.json())
-    .then((response) => response)
-    .catch((error) => console.log("error:: ", error));
+//   const movies = await fetch(
+//     "https://streaming-availability.p.rapidapi.com/search/basic?country=us&service=netflix&type=movie&genre=18&page=1&output_language=en&language=en",
+//     options
+//   )
+//     .then((response) => response.json())
+//     .then((response) => response)
+//     .catch((error) => console.log("error:: ", error));
 
-  return {
-    props: {
-      movies,
-    },
-  };
-}
+//   return {
+//     props: {
+//       movies,
+//     },
+//   };
+// }
 
-export default function Home({ movies }) {
+export default function Home() {
   const modalCtx = useContext(ModalContext);
   return (
     <article>
       {modalCtx.isShow && (
         <div
-          className="fixed top-0 bottom-0 left-0 right-0 bg-slate-500 grid place-content-center"
+          className="fixed top-0 bottom-0 left-0 right-0 bg-slate-500/20 backdrop-blur grid place-content-center"
           onClick={modalCtx.toggleModal}
         >
-          <div className="p-4 w-96 h-56 bg-white rounded-2xl">loginnnnn</div>
+          <div className="p-4 w-full md:w-96 h-56 bg-white rounded-2xl">
+            <Login />
+          </div>
         </div>
       )}
       <section>
