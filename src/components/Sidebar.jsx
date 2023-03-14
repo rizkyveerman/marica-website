@@ -1,5 +1,7 @@
 import React from "react";
+import Image from "next/image";
 import Link from "next/link";
+import logoMarica from "../../public/images/Logo-Marica.png";
 import Button from "./Button";
 
 const Sidebar = () => {
@@ -10,15 +12,15 @@ const Sidebar = () => {
           <ul>
             <li>
               <Link
-                className="text-blueberry font-bold text-xl block py-4 hover:bg-indigo-100 rounded-xl pl-4"
+                className="text-semangka font-bold text-xl block py-4 hover:bg-semangka/20 rounded-xl pl-4"
                 href="/"
               >
-                Marica
+                <Image src={logoMarica} alt="Marica" height={48} />
               </Link>
             </li>
             <li>
               <Link
-                className="block py-4 hover:bg-indigo-100 rounded-xl pl-4"
+                className="block py-4 hover:bg-semangka/20 rounded-xl pl-4"
                 href="/browse"
               >
                 Browse
@@ -26,7 +28,7 @@ const Sidebar = () => {
             </li>
             <li>
               <Link
-                className="block py-4 hover:bg-indigo-100 rounded-xl pl-4"
+                className="block py-4 hover:bg-semangka/20 rounded-xl pl-4"
                 href="/watchlist"
               >
                 Watchlist
@@ -34,7 +36,7 @@ const Sidebar = () => {
             </li>
             <li>
               <Link
-                className="block py-4 hover:bg-indigo-100 rounded-xl pl-4"
+                className="block py-4 hover:bg-semangka/20 rounded-xl pl-4"
                 href="/subscription"
               >
                 Berlangganan
@@ -42,13 +44,13 @@ const Sidebar = () => {
             </li>
           </ul>
           <div className="grid grid-cols-1 gap-4">
-            <div className="w-full h-56 bg-indigo-100 rounded-xl p-4 grid place-content-center text-center">
+            <div className="w-full h-56 bg-semangka rounded-xl p-4 grid place-content-center text-center">
               disini ada poster agar menarik user utk berlangganan sepertinya
               sabi sih🤔.. atau mungkin slideshow buat iklan produk marica, atau
               gameboard sebangku???
             </div>
             <Link
-              className="block py-4 hover:bg-indigo-100 rounded-xl pl-4"
+              className="block py-4 hover:bg-semangka rounded-xl pl-4"
               href="/coming-soon"
             >
               Help

@@ -4,12 +4,12 @@ import MainLayout from "@/layout/MainLayout";
 import Link from "next/link";
 import { useState, useRef } from "react";
 
-const Login = () => {
-  return <article></article>;
+const CreateAccount = () => {
+  return (
+    <article className="grid place-content-center h-screen">
+      create your account here
+    </article>
+  );
 };
 
-Login.getLayout = function getLayout(page) {
-  return <MainLayout title="Masuk ke Marica">{page}</MainLayout>;
-};
-
-export default Login;
+export default CreateAccount;

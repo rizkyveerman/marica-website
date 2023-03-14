@@ -14,7 +14,7 @@ const MovieCard = ({ thumbnail, title, slug, rating, children }) => {
       onMouseEnter={() => setShowDetails(true)}
       onMouseLeave={() => setShowDetails(false)}
     >
-      <div className="relative bg-blueberry rounded-xl overflow-hidden min-w-[280px] w-full h-40">
+      <div className="relative bg-semangka rounded-xl overflow-hidden min-w-[280px] w-full h-40">
         <Image
           src={thumbnail}
           alt={title}
@@ -24,7 +24,7 @@ const MovieCard = ({ thumbnail, title, slug, rating, children }) => {
           className="thumbnail hover:scale-125 transition-transform"
         />
         <div
-          className={`absolute left-0 right-0 bottom-0 p-4 bg-blueberry ${
+          className={`absolute left-0 right-0 bottom-0 p-4 bg-semangka ${
             showDetails
               ? "translate-y-0 transition-transform"
               : "translate-y-full transition-transform"

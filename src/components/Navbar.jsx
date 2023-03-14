@@ -10,7 +10,7 @@ const Navbar = () => {
   console.log("modalCtx", modalCtx.isShow);
 
   return (
-    <header className="p-4 flex justify-between items-center bg-white dark:bg-bad-blueberry z-50">
+    <header className="p-4 flex justify-between items-center bg-white dark:bg-bad-semangka z-50">
       <div className="hidden md:flex gap-1">
         <TextInput />
         <Button>Cari</Button>
@@ -18,7 +18,7 @@ const Navbar = () => {
       <div className="block md:hidden">
         {" "}
         <Link
-          className="text-blueberry font-bold text-xl block py-4 hover:bg-indigo-100 rounded-xl pl-4"
+          className="text-semangka font-bold text-xl block py-4 hover:bg-semangka rounded-xl pl-4"
           href="/"
         >
           Marica

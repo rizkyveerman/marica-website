@@ -80,7 +80,7 @@ const Subscription = () => {
           <div id="subscribe" className="grid md:grid-cols-2 gap-4">
             <div
               className={`${
-                monthlyPlan && "border-2 border-blueberry"
+                monthlyPlan && "border-2 border-semangka"
               } relative border border-abu rounded-xl flex-1 w-full h-auto p-4`}
               onClick={() => {
                 setYearlyPlan(false);
@@ -93,14 +93,14 @@ const Subscription = () => {
             </div>
             <div
               className={`${
-                yearlyPlan && "border-2 border-blueberry"
+                yearlyPlan && "border-2 border-semangka"
               } relative border border-abu rounded-xl flex-1 w-full h-auto`}
               onClick={() => {
                 setYearlyPlan(true);
                 setMonthlyPlan(false);
               }}
             >
-              <p className="bg-blueberry text-white rounded-xl px-3 text-sm py-1 flex-1 w-fit">
+              <p className="bg-semangka text-white rounded-xl px-3 text-sm py-1 flex-1 w-fit">
                 ⭐Direkomendasikan!
               </p>
               <div className="p-4">

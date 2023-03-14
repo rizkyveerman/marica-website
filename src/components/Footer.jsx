@@ -21,14 +21,14 @@ const footerLinks = [
 
 const Footer = () => {
   return (
-    <footer className="px-4 py-4 md:px-16 md:py-8 flex flex-col gap-4 md:flex-row justify-center md:justify-between items-center bg-abu-terang dark:bg-bad-blueberry">
+    <footer className="px-4 py-4 md:px-16 md:py-8 flex flex-col gap-4 md:flex-row justify-center md:justify-between items-center bg-abu-terang dark:bg-bad-semangka">
       <div className="max-w-lg">
         <ul className="flex flex-col md:flex-row items-center gap-4 mb-4 text-arang">
           {footerLinks.map((link) => (
             <li key={link.pathname}>
               <Link
                 href={link.link}
-                className="dark:text-white hover:text-blueberry"
+                className="dark:text-white hover:text-semangka"
               >
                 {link.pathname}
               </Link>
@@ -43,7 +43,7 @@ const Footer = () => {
       <div className="">
         <p className="mb-4">Terhubunglah dengan kami</p>
         <ul className="flex items-center gap-4">
-          <li className="py-2 px-4 bg-blueberry rounded-lg grid place-content-center">
+          <li className="py-2 px-4 bg-semangka rounded-lg grid place-content-center">
             <Link href="http://facebook.com/">
               <svg
                 width="24"
@@ -59,7 +59,7 @@ const Footer = () => {
               </svg>
             </Link>
           </li>
-          <li className="py-2 px-4 bg-blueberry rounded-lg grid place-content-center">
+          <li className="py-2 px-4 bg-semangka rounded-lg grid place-content-center">
             <Link href="http://instagram.com/">
               <svg
                 width="24"
@@ -81,7 +81,7 @@ const Footer = () => {
               </svg>
             </Link>
           </li>
-          <li className="py-2 px-4 bg-blueberry rounded-lg grid place-content-center">
+          <li className="py-2 px-4 bg-semangka rounded-lg grid place-content-center">
             <Link href="http://youtube.com/">
               <svg
                 width="24"
@@ -104,7 +104,7 @@ const Footer = () => {
       <div className="">
         <p className="mb-4">Download Marica mobile app</p>
         <ul className="flex items-center gap-4">
-          <li className="py-2 px-4 bg-blueberry rounded-lg grid place-content-center">
+          <li className="py-2 px-4 bg-semangka rounded-lg grid place-content-center">
             <Link className="flex items-center" href="http://play.google.com/">
               <svg
                 width="23"
@@ -121,7 +121,7 @@ const Footer = () => {
               <p className="text-white">Appstore</p>
             </Link>
           </li>
-          <li className="py-2 px-4 bg-blueberry rounded-lg grid place-content-center">
+          <li className="py-2 px-4 bg-semangka rounded-lg grid place-content-center">
             <Link className="flex items-center" href="http://appstore.com/">
               <svg
                 width="24"

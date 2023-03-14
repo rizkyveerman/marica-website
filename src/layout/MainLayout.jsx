@@ -9,7 +9,6 @@ import LoginModal from "@/components/modal/LoginModal";
 const MainLayout = ({ children, title, icon }) => {
   const [showModal, setShowModal] = useState(false);
 
-
   const toggleModalHandler = () => {
     setShowModal(!showModal);
   };
@@ -35,13 +34,12 @@ const MainLayout = ({ children, title, icon }) => {
         }}
       >
         <div className="flex">
-          
           <div className="w-full md:w-1/4 h-screen absolute md:sticky top-0 left-0">
             <Sidebar />
           </div>
           <main className="relative w-full">
             <Navbar />
-            <div className="p-4 bg-abu-terang dark:bg-bad-blueberry min-h-screen rounded-t-3xl md:rounded-t-none md:rounded-tl-3xl">
+            <div className="p-4 bg-semangka/10 min-h-screen rounded-t-3xl md:rounded-t-none md:rounded-tl-3xl">
               {children}
             </div>
           </main>

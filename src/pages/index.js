@@ -11,7 +11,7 @@ export default function Home() {
   return (
     <article>
       {modalCtx.isShow && (
-        <div className="fixed top-0 bottom-0 left-0 right-0 bg-slate-500/20 backdrop-blur grid place-content-center">
+        <div className="fixed top-0 bottom-0 left-0 right-0 bg-semangka/10 backdrop-blur grid place-content-center">
           <div className="p-4 w-96 h-auto bg-white rounded-2xl z-50">
             <Login />
           </div>
@@ -22,7 +22,7 @@ export default function Home() {
         </div>
       )}
       <section>
-        <div className="w-full h-96 rounded-2xl bg-indigo-200 grid place-content-center">
+        <div className="w-full h-96 rounded-2xl bg-semangka/30 grid place-content-center">
           poster slide
         </div>
       </section>
@@ -32,7 +32,7 @@ export default function Home() {
           {[1, 2, 3, 4].map((card) => (
             <div
               key={card}
-              className="w-full h-40 bg-indigo-200 rounded-xl"
+              className="w-full h-40 bg-semangka/30 rounded-xl"
             ></div>
           ))}
         </div>
@@ -43,7 +43,7 @@ export default function Home() {
           {[1, 2, 3, 4].map((card) => (
             <div
               key={card}
-              className="w-full h-44 bg-indigo-200 rounded-xl"
+              className="w-full h-44 bg-semangka/30 rounded-xl"
             ></div>
           ))}
         </div>
@@ -55,7 +55,7 @@ export default function Home() {
           {[1, 2, 3, 4, 5, 6, 7, 8].map((card) => (
             <div
               key={card}
-              className="w-full h-40 bg-indigo-200 rounded-xl"
+              className="w-full h-40 bg-semangka/30 rounded-xl"
             ></div>
           ))}
         </div>
