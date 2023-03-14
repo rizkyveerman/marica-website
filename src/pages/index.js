@@ -1,6 +1,9 @@
 import MainLayout from "@/layout/MainLayout";
+import { useContext } from "react";
 import MovieCard from "@/components/cards/MovieCard";
 import Button from "@/components/Button";
+import { ModalContext } from "@/libs/context/modal-context";
+import { fromJSON } from "postcss";
 
 export async function getServerSideProps(ctx) {
   const options = {
@@ -27,8 +30,17 @@ export async function getServerSideProps(ctx) {
 }
 
 export default function Home({ movies }) {
+  const modalCtx = useContext(ModalContext);
   return (
     <article>
+      {modalCtx.isShow && (
+        <div
+          className="fixed top-0 bottom-0 left-0 right-0 bg-slate-500 grid place-content-center"
+          onClick={modalCtx.toggleModal}
+        >
+          <div className="p-4 w-96 h-56 bg-white rounded-2xl">loginnnnn</div>
+        </div>
+      )}
       <section>
         <div className="w-full h-96 rounded-2xl bg-indigo-200 grid place-content-center">
           poster slide

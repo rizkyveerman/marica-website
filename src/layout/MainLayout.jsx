@@ -4,9 +4,11 @@ import Head from "next/head";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Sidebar from "@/components/Sidebar";
+import LoginModal from "@/components/modal/LoginModal";
 
 const MainLayout = ({ children, title, icon }) => {
   const [showModal, setShowModal] = useState(false);
+
 
   const toggleModalHandler = () => {
     setShowModal(!showModal);
@@ -33,6 +35,7 @@ const MainLayout = ({ children, title, icon }) => {
         }}
       >
         <div className="flex">
+          
           <div className="w-full md:w-1/4 h-screen absolute md:sticky top-0 left-0">
             <Sidebar />
           </div>
