@@ -25,11 +25,7 @@ const Navbar = () => {
         </Link>
       </div>
       <div className="flex items-center gap-2">
-        <Button
-          type="button"
-          variant="secondary"
-          isClicked={modalCtx.toggleModal}
-        >
+        <Button isLink type="button" variant="secondary" href="/login">
           Masuk ke Marica
         </Button>
       </div>

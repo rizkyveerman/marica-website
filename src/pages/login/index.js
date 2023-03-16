@@ -4,13 +4,13 @@ import Image from "next/image";
 import { Form, Formik, Field, ErrorMessage } from "formik";
 import movie from "@/images/movie.png";
 
-const CreateAccount = () => {
+const Login = () => {
   return (
     <article className="grid grid-cols-2 h-screen bg-abu-terang">
       <section className="grid place-content-center p-4">
-        <div className="w-full max-w-xl bg-white p-4 rounded-2xl grid gap-4">
+        <div className="min-w-[350px] md:w-[450px] max-w-xl bg-white p-4 rounded-2xl grid gap-4">
           <Logo styles="m-auto" />
-          <h3>Buat akun Marica Gratis!</h3>
+          <h3>Masuk ke Marica</h3>
           <Formik
             initialValues={{ email: "", password: "" }}
             validate={(values) => {
@@ -33,34 +33,6 @@ const CreateAccount = () => {
           >
             {({ isSubmitting }) => (
               <Form className="grid grid-cols-1 gap-4 w-full">
-                <div className="flex gap-4">
-                  <div className="email w-full relative grid gap-2">
-                    <p>Nama depan*</p>
-                    <Field
-                      type="text"
-                      name="firstname"
-                      className="w-full py-3 px-6 rounded-lg bg-abu-terang dark:bg-bad-semangka"
-                    />
-                    <ErrorMessage
-                      name="firstname"
-                      component="div"
-                      className="m-auto absolute top-full p-2 rounded-xl bg-red-100 text-red-600 before:block before:absolute before:left-1/2 before:bottom-full before:w-3 before:h-3 before:bg-red-100 before:translate-y-1/2 before:-translate-x-1/2 before:rotate-45 before:rounded-sm z-10"
-                    />
-                  </div>
-                  <div className="email w-full relative grid gap-2">
-                    <p>Nama belakang*</p>
-                    <Field
-                      type="text"
-                      name="lastname"
-                      className="w-full py-3 px-6 rounded-lg bg-abu-terang dark:bg-bad-semangka"
-                    />
-                    <ErrorMessage
-                      name="lastname"
-                      component="div"
-                      className="m-auto absolute top-full p-2 rounded-xl bg-red-100 text-red-600 before:block before:absolute before:left-1/2 before:bottom-full before:w-3 before:h-3 before:bg-red-100 before:translate-y-1/2 before:-translate-x-1/2 before:rotate-45 before:rounded-sm z-10"
-                    />
-                  </div>
-                </div>
                 <div className="email w-full relative grid gap-2">
                   <p>Masukkan email</p>
                   <Field
@@ -88,16 +60,16 @@ const CreateAccount = () => {
                   disabled={isSubmitting}
                   className="py-3 px-6 bg-semangka rounded-lg text-white"
                 >
-                  Buat akun
+                  Masuk
                 </button>
               </Form>
             )}
           </Formik>
           <p className="text-sm text-abu text-center mt-10">
-            Sudah punya akun Marica?
+            Belum punya akun Marica?
           </p>
-          <Button isLink type="secondary" href="/login">
-            Masuk
+          <Button isLink type="secondary" href="/create-account">
+            Buat akun
           </Button>
         </div>
       </section>
@@ -108,4 +80,4 @@ const CreateAccount = () => {
   );
 };
 
-export default CreateAccount;
+export default Login;
