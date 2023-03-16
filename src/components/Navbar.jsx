@@ -7,7 +7,6 @@ import TextInput from "./TextInput";
 
 const Navbar = () => {
   const modalCtx = useContext(ModalContext);
-  console.log("modalCtx", modalCtx.isShow);
 
   return (
     <header className="p-4 flex justify-between items-center bg-white dark:bg-bad-semangka z-50">
