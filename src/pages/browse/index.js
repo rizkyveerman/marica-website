@@ -93,7 +93,8 @@ const Browser = (props) => {
   return (
     <article>
       <section>
-        <ul>
+        Browser
+        {/* <ul>
           {props.movies.map((movie) => (
             <li key={movie.imdbID}>
               <MovieCard
@@ -104,7 +105,7 @@ const Browser = (props) => {
               />
             </li>
           ))}
-        </ul>
+        </ul> */}
       </section>
     </article>
   );
