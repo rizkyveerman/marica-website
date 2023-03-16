@@ -1,6 +1,5 @@
 import MainLayout from "@/layout/MainLayout";
 import { useContext } from "react";
-import MovieCard from "@/components/cards/MovieCard";
 import Button from "@/components/Button";
 import { ModalContext } from "@/libs/context/modal-context";
 import { fromJSON } from "postcss";

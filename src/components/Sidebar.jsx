@@ -30,9 +30,17 @@ const Sidebar = () => {
             <li>
               <Link
                 className="block py-4 px-4 hover:bg-semangka/20 rounded-xl lg:pl-4"
-                href="/subscription"
+                href="/dashboard"
               >
-                Berlangganan
+                Dashboard
+              </Link>
+            </li>
+            <li>
+              <Link
+                className="block py-4 px-4 hover:bg-semangka/20 rounded-xl lg:pl-4"
+                href="/user-setting"
+              >
+                Setting
               </Link>
             </li>
           </ul>
