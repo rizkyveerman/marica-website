@@ -1,8 +1,6 @@
 import React from "react";
-import Image from "next/image";
 import Link from "next/link";
-import logoMarica from "../../public/images/Logo-Marica.png";
-import Button from "./Button";
+import Logo from "./Logo";
 
 const Sidebar = () => {
   return (
@@ -11,12 +9,7 @@ const Sidebar = () => {
         <div className="h-full flex flex-col justify-between">
           <ul>
             <li>
-              <Link
-                className="text-semangka font-bold text-xl block py-4 hover:bg-semangka/20 rounded-xl pl-4"
-                href="/"
-              >
-                <Image src={logoMarica} alt="Marica" height={48} />
-              </Link>
+              <Logo />
             </li>
             <li>
               <Link
