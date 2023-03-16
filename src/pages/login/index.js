@@ -28,6 +28,7 @@ const Login = () => {
               }}
               onSubmit={(values, { setSubmitting }) => {
                 setTimeout(() => {
+                  // https://marica-backend.vercel.app/api/v1/user/login?identifier=diama&password=diama
                   alert(JSON.stringify(values, null, 2));
                   setSubmitting(false);
                 }, 400);
@@ -57,13 +58,14 @@ const Login = () => {
                     />
                     <ErrorMessage name="password" component="div" />
                   </div>
-                  <button
+                  <Button
                     type="submit"
+                    variant="primary"
                     disabled={isSubmitting}
-                    className="py-3 px-6 bg-semangka rounded-lg text-white"
+                    isClicked={() => "submitted!"}
                   >
                     Masuk
-                  </button>
+                  </Button>
                 </Form>
               )}
             </Formik>

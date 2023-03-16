@@ -17,7 +17,7 @@ const Button = ({
       type={type !== "" ? type : "button"}
       className={`${className} ${
         variant === "primary"
-          ? "bg-semangka text-sirsak"
+          ? "bg-gradient-to-t from-pink-600 to-pink-400 text-sirsak drop-shadow-md"
           : "bg-transparent text-semangka border border-semangka"
       } px-5 py-3 rounded-lg`}
       onClick={isLink ? null : () => isClicked()}
