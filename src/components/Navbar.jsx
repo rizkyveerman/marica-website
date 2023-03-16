@@ -24,8 +24,8 @@ const Navbar = () => {
       </div>
       <div className="relative flex items-center gap-2">
         {profileMenu && (
-          <div className="absolute top-10 right-4 p-4 rounded-xl bg-white">
-            <ul className="grid gap-1 w-60">
+          <div className="absolute top-14 right-4 p-4 rounded-xl bg-white">
+            <ul className="grid gap-1 w-60 drop-shadow-xl">
               <li onClick={() => setProfileMenu(!profileMenu)}>
                 <Link
                   href="/my-profile"

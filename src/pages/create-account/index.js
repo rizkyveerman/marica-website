@@ -8,7 +8,7 @@ import movie from "@/images/movie.png";
 const CreateAccount = () => {
   return (
     <>
-      <article className="grid grid-cols-1 md:grid-cols-2 h-screen bg-abu-terang">
+      <article className="grid grid-cols-1 md:grid-cols-2 min-h-screen bg-abu-terang">
         <section className="grid place-content-center p-4">
           <div className="w-full max-w-xl bg-white p-4 rounded-2xl grid gap-4">
             <Logo styles="m-auto" />

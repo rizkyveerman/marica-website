@@ -14,6 +14,14 @@ const Sidebar = () => {
             <li>
               <Link
                 className="block py-4 px-4 hover:bg-semangka/20 rounded-xl lg:pl-4"
+                href="/dashboard"
+              >
+                Dashboard
+              </Link>
+            </li>
+            <li>
+              <Link
+                className="block py-4 px-4 hover:bg-semangka/20 rounded-xl lg:pl-4"
                 href="/browse"
               >
                 Browse
@@ -27,14 +35,7 @@ const Sidebar = () => {
                 Watchlist
               </Link>
             </li>
-            <li>
-              <Link
-                className="block py-4 px-4 hover:bg-semangka/20 rounded-xl lg:pl-4"
-                href="/dashboard"
-              >
-                Dashboard
-              </Link>
-            </li>
+
             <li>
               <Link
                 className="block py-4 px-4 hover:bg-semangka/20 rounded-xl lg:pl-4"
