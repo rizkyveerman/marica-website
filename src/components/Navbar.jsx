@@ -3,6 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import defaultProfile from "../../public/images/profile.jpg";
 import Button from "./Button";
+import LoginButton from "@/components/buttons/LoginButton";
 import TextInput from "./TextInput";
 
 const Navbar = () => {
@@ -71,9 +72,10 @@ const Navbar = () => {
           />
         </div>
         {/* is login? */}
-        <Button isLink type="button" variant="secondary" href="/login">
+        {/* <Button isLink type="button" variant="secondary" href="/login">
           Masuk ke Marica
-        </Button>
+        </Button> */}
+        <LoginButton />
       </div>
     </header>
   );
