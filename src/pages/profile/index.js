@@ -1,9 +1,8 @@
 import Link from "next/link";
 import React from "react";
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
   const res = await fetch("https://jsonplaceholder.typicode.com/users");
-
   const users = await res.json();
 
   return {
@@ -20,10 +19,10 @@ const Profile = ({ users }) => {
           <ul className="grid grid-cols-4 gap-4">
             {users.map((user) => (
               <li key={user.id}>
-                <div>
+                <Link href={`/profile/${user.id}`} className="block">
                   <div className="h-20 w-20 bg-mangga rounded-lg"></div>
                   <p className="">{user.name}</p>
-                </div>
+                </Link>
               </li>
             ))}
             <div>
