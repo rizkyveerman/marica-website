@@ -75,7 +75,6 @@ const Navbar = () => {
         {/* <Button isLink type="button" variant="secondary" href="/login">
           Masuk ke Marica
         </Button> */}
-        <LoginButton />
       </div>
     </header>
   );

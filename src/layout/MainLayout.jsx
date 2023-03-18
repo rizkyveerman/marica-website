@@ -4,7 +4,7 @@ import Head from "next/head";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Sidebar from "@/components/Sidebar";
-import LoginModal from "@/components/modal/LoginModal";
+import LoginButton from "@/components/buttons/LoginButton";
 
 const MainLayout = ({ children, title, icon }) => {
   const [showModal, setShowModal] = useState(false);
@@ -40,6 +40,7 @@ const MainLayout = ({ children, title, icon }) => {
           <main className="relative w-full">
             <Navbar />
             <div className="p-4 bg-semangka/10 min-h-screen rounded-t-3xl md:rounded-t-none md:rounded-tl-3xl">
+              {/* <LoginButton /> */}
               {children}
             </div>
           </main>

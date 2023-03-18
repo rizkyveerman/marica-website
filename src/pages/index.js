@@ -1,28 +1,36 @@
 import MainLayout from "@/layout/MainLayout";
-import { useContext } from "react";
 import Button from "@/components/Button";
-import { ModalContext } from "@/libs/context/modal-context";
-import { fromJSON } from "postcss";
-import Login from "@/components/form/login/Login";
+import Image from "next/image";
 
-export default function Home() {
-  const modalCtx = useContext(ModalContext);
+const fetcher = (...args) => fetch(...args).then((res) => res.json());
+
+export async function getServerSideProps(ctx) {
+  const res = await fetch(
+    "https://streaming-availability.p.rapidapi.com/search/basic?country=us&service=netflix&type=movie&genre=18&page=1&output_language=en&language=en"
+  );
+
+  const movies = await res.json();
+
+  return {
+    props: {
+      movies,
+    },
+  };
+}
+
+export default function Home({ movies }) {
+  console.log("movies", movies);
   return (
     <article>
-      {modalCtx.isShow && (
-        <div className="fixed top-0 bottom-0 left-0 right-0 bg-semangka/10 backdrop-blur grid place-content-center">
-          <div className="p-4 w-96 h-auto bg-white rounded-2xl z-50">
-            <Login />
-          </div>
-          <div
-            className="absolute top-0 bottom-0 left-0 right-0 grid place-content-center z-40"
-            onClick={modalCtx.toggleModal}
-          ></div>
-        </div>
-      )}
       <section>
         <div className="w-full h-96 rounded-2xl bg-semangka/30 grid place-content-center">
-          poster slide
+          {/* {movies.slice(0, 1).map((movie) => (
+            <Image
+              key={movie.imdbID}
+              src={movie.backdropURls.original}
+              alt={movie.title}
+            />
+          ))} */}
         </div>
       </section>
       <section className="my-4">

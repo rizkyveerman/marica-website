@@ -3,9 +3,20 @@ import MainLayout from "@/layout/MainLayout";
 import React from "react";
 
 export async function getServerSideProps(ctx) {
+  const options = {
+    method: "GET",
+    headers: {
+      "X-RapidAPI-Key": "67bab0cae7msh55022c298b7ebc4p12216bjsnbe8224d9d264",
+      "X-RapidAPI-Host": "imdb-top-100-movies.p.rapidapi.com",
+    },
+  };
+
   const movies = await fetch(
-    "https://streaming-availability.p.rapidapi.com/search/basic?country=us&service=netflix&type=movie&genre=18&page=1&output_language=en&language=en"
-  ).then((response) => response.json());
+    "https://imdb-top-100-movies.p.rapidapi.com/",
+    options
+  )
+    .then((response) => response.json())
+    .catch((err) => console.error(err));
 
   return {
     props: {
@@ -15,61 +26,25 @@ export async function getServerSideProps(ctx) {
 }
 
 const dummyMovie = {
-  imdbID: "tt2385126",
-  tmdbID: "412186",
-  imdbRating: 55,
-  imdbVoteCount: 252,
-  tmdbRating: 59,
-  backdropPath: "/5MnTrwEBHkSlktid9bkY9W4o98G.jpg",
-  backdropURLs: {
-    300: "https://image.tmdb.org/t/p/w300/5MnTrwEBHkSlktid9bkY9W4o98G.jpg",
-    780: "https://image.tmdb.org/t/p/w780/5MnTrwEBHkSlktid9bkY9W4o98G.jpg",
-    1280: "https://image.tmdb.org/t/p/w1280/5MnTrwEBHkSlktid9bkY9W4o98G.jpg",
-    original:
-      "https://image.tmdb.org/t/p/original/5MnTrwEBHkSlktid9bkY9W4o98G.jpg",
-  },
-  originalTitle: "'76",
-  genres: [18, 10749],
-  countries: ["NG"],
-  year: 2016,
-  runtime: 118,
-  cast: [
-    "Rita Dominic",
-    "Ramsey Nouah",
-    "Efetobore Afatakpa",
-    "Nenye Eke",
-    "Nelly Ekwereogo",
-    "Ibinabo Fiberesima",
-    "Chidi Mokeme",
+  rank: 1,
+  title: "The Shawshank Redemption",
+  thumbnail:
+    "https://m.media-amazon.com/images/M/MV5BMDFkYTc0MGEtZmNhMC00ZDIzLWFmNTEtODM1ZmRlYWMwMWFmXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_UY67_CR0,0,45,67_AL_.jpg",
+  rating: "9.3",
+  id: "top1",
+  year: 1994,
+  image:
+    "https://m.media-amazon.com/images/M/MV5BMDFkYTc0MGEtZmNhMC00ZDIzLWFmNTEtODM1ZmRlYWMwMWFmXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_QL75_UX380_CR0,1,380,562_.jpg",
+  description:
+    "Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency.",
+  trailer: "https://www.youtube.com/embed/NmzuHjWmXOc",
+  genre: ["Drama"],
+  director: ["Frank Darabont"],
+  writers: [
+    'Stephen King (based on the short novel "Rita Hayworth and the Shawshank Redemption" by)',
+    "Frank Darabont (screenplay by)",
   ],
-  significants: ["Izu Ojukwu"],
-  title: "'76",
-  overview:
-    "Nollywood superstars Ramsey Nouah, Rita Dominic, and Chidi Mokeme headline this gripping drama set against the backdrop of the attempted 1976 military coup against the government of General Murtala Mohammed.",
-  tagline: "",
-  video: "WuWL33z7brM",
-  posterPath: "/2TOA28EMpBjz4jmlpBPKvZLdwAf.jpg",
-  posterURLs: {
-    92: "https://image.tmdb.org/t/p/w92/2TOA28EMpBjz4jmlpBPKvZLdwAf.jpg",
-    154: "https://image.tmdb.org/t/p/w154/2TOA28EMpBjz4jmlpBPKvZLdwAf.jpg",
-    185: "https://image.tmdb.org/t/p/w185/2TOA28EMpBjz4jmlpBPKvZLdwAf.jpg",
-    342: "https://image.tmdb.org/t/p/w342/2TOA28EMpBjz4jmlpBPKvZLdwAf.jpg",
-    500: "https://image.tmdb.org/t/p/w500/2TOA28EMpBjz4jmlpBPKvZLdwAf.jpg",
-    780: "https://image.tmdb.org/t/p/w780/2TOA28EMpBjz4jmlpBPKvZLdwAf.jpg",
-    original:
-      "https://image.tmdb.org/t/p/original/2TOA28EMpBjz4jmlpBPKvZLdwAf.jpg",
-  },
-  age: 12,
-  streamingInfo: {
-    netflix: {
-      us: {
-        link: "https://www.netflix.com/title/81412227/",
-        added: 1653676890,
-        leaving: 0,
-      },
-    },
-  },
-  originalLanguage: "en",
+  imdbid: "tt0111161",
 };
 
 const Browser = (props) => {
@@ -82,18 +57,18 @@ const Browser = (props) => {
     <article>
       <section>
         Browser
-        {/* <ul>
+        <ul>
           {props.movies.map((movie) => (
-            <li key={movie.imdbID}>
+            <li key={movie.imdbid}>
               <MovieCard
-                thumbnail={movie.posterURLs[500]}
-                slug="/"
+                thumbnail={movie.thumbnail}
+                slug=""
                 title={movie.title}
-                rating={movie.imdbRating}
+                rating={movie.rating}
               />
             </li>
           ))}
-        </ul> */}
+        </ul>
       </section>
     </article>
   );
