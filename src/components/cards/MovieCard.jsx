@@ -1,19 +1,12 @@
-import { useState, useRef, useLayoutEffect } from "react";
-import { gsap } from "gsap";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import Image from "next/image";
 
 const MovieCard = ({ thumbnail, title, slug, rating, children }) => {
-  const [showDetails, setShowDetails] = useState(false);
   const router = useRouter();
 
   return (
-    <Link
-      href={slug}
-      onMouseEnter={() => setShowDetails(true)}
-      onMouseLeave={() => setShowDetails(false)}
-    >
+    <Link href={slug} className="block p-4 bg-white rounded-2xl">
       <div className="relative bg-semangka rounded-xl overflow-hidden min-w-[280px] w-full h-40">
         <Image
           src={thumbnail}
@@ -23,18 +16,12 @@ const MovieCard = ({ thumbnail, title, slug, rating, children }) => {
           objectFit="cover"
           className="thumbnail hover:scale-125 transition-transform"
         />
-        <div
-          className={`absolute left-0 right-0 bottom-0 p-4 bg-semangka ${
-            showDetails
-              ? "translate-y-0 transition-transform"
-              : "translate-y-full transition-transform"
-          }`}
-        >
-          <h3 className="text-white">{title}</h3>
-          <p className="text-white text-sm">
-            Ratings: <span className="font-bold">{rating}</span>⭐
-          </p>
-        </div>
+      </div>
+      <div className="py-4">
+        <h3 className="text-arang">{title}</h3>
+        <p className="text-arang text-sm">
+          Ratings: <span className="font-bold">{rating}</span>⭐
+        </p>
       </div>
     </Link>
   );

@@ -14,9 +14,9 @@ const Sidebar = () => {
             <li>
               <Link
                 className="block py-4 px-4 hover:bg-semangka/20 rounded-xl lg:pl-4"
-                href="/dashboard"
+                href="/feed"
               >
-                Dashboard
+                Feed
               </Link>
             </li>
             <li>

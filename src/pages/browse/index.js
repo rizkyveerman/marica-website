@@ -56,12 +56,11 @@ const Browser = (props) => {
   return (
     <article>
       <section>
-        Browser
-        <ul>
+        <ul className="grid grid-cols-4 gap-4">
           {props.movies.map((movie) => (
-            <li key={movie.imdbid}>
+            <li key={movie.imdbid} className="h-auto">
               <MovieCard
-                thumbnail={movie.thumbnail}
+                thumbnail={movie.image}
                 slug=""
                 title={movie.title}
                 rating={movie.rating}
