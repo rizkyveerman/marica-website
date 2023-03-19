@@ -7,7 +7,7 @@ const MovieCard = ({ thumbnail, title, slug, rating, children }) => {
 
   return (
     <Link href={slug} className="block p-4 bg-white rounded-2xl">
-      <div className="relative bg-semangka rounded-xl overflow-hidden min-w-[280px] w-full h-40">
+      <div className="relative bg-semangka rounded-xl overflow-hidden w-full h-40">
         <Image
           src={thumbnail}
           alt={title}

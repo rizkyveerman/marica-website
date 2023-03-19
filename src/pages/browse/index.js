@@ -47,17 +47,13 @@ const dummyMovie = {
   imdbid: "tt0111161",
 };
 
-const Browser = (movies) => {
-  console.log("movies", props.movies);
-
-  if (!props.movies) {
-    return "no movie found";
-  }
+const Browser = (props) => {
+  console.log("props", props.movies);
   return (
     <article>
       <section>
         <ul className="grid grid-cols-4 gap-4">
-          {/* {movies.map((movie) => (
+          {props.movies.map((movie) => (
             <li key={movie.imdbid} className="h-auto">
               <MovieCard
                 thumbnail={movie.image}
@@ -66,7 +62,7 @@ const Browser = (movies) => {
                 rating={movie.rating}
               />
             </li>
-          ))} */}
+          ))}
         </ul>
       </section>
     </article>

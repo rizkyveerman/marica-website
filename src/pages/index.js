@@ -2,6 +2,7 @@ import MainLayout from "@/layout/MainLayout";
 import Button from "@/components/Button";
 import Image from "next/image";
 import MovieCard from "@/components/cards/MovieCard";
+import Link from "next/link";
 
 export async function getServerSideProps(ctx) {
   const options = {
@@ -32,7 +33,7 @@ export default function Home({ movies }) {
     <article>
       <section>
         <div className="relative w-full h-96 rounded-2xl bg-semangka/30 grid place-content-center overflow-hidden">
-          {/* {movies.slice(77, 78).map((movie) => (
+          {movies.slice(77, 78).map((movie) => (
             <div key={movie.imdbid} className="h-auto">
               <Image
                 src={movie.image}
@@ -42,53 +43,71 @@ export default function Home({ movies }) {
                 objectPosition="top"
               />
             </div>
-          ))} */}
+          ))}
         </div>
       </section>
       <section className="my-4">
         <p className="text-xl font-semibold mb-4">Film gratis terpopuler</p>
         <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-          {/* {movies.slice(32, 36).map((movie) => (
-            <li key={movie.imdbid} className="h-auto">
-              <MovieCard
-                thumbnail={movie.image}
-                slug=""
-                title={movie.title}
-                rating={movie.rating}
-              />
+          {movies.slice(32, 36).map((movie) => (
+            <li
+              key={movie.imdbid}
+              className="h-auto rounded-xl overflow-hidden"
+            >
+              <Link href="/" className="relative block w-full h-32">
+                <Image
+                  src={movie.image}
+                  alt={movie.title}
+                  title={movie.title}
+                  fill
+                  objectFit="cover"
+                />
+              </Link>
             </li>
-          ))} */}
+          ))}
         </ul>
       </section>
       <section className="my-4">
         <p className="text-xl font-semibold mb-4">Terakhir ditambahkan</p>
         <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-          {/* {movies.slice(90, 94).map((movie) => (
-            <li key={movie.imdbid} className="h-auto">
-              <MovieCard
-                thumbnail={movie.image}
-                slug=""
-                title={movie.title}
-                rating={movie.rating}
-              />
+          {movies.slice(90, 94).map((movie) => (
+            <li
+              key={movie.imdbid}
+              className="h-auto rounded-xl overflow-hidden"
+            >
+              <Link href="/" className="relative block w-full h-32">
+                <Image
+                  src={movie.image}
+                  alt={movie.title}
+                  title={movie.title}
+                  fill
+                  objectFit="cover"
+                />
+              </Link>
             </li>
-          ))} */}
+          ))}
         </ul>
       </section>
 
       <section className="my-4">
         <p className="text-xl font-semibold mb-4">Lainnya</p>
         <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-          {/* {movies.slice(77, 85).map((movie) => (
-            <li key={movie.imdbid} className="h-auto">
-              <MovieCard
-                thumbnail={movie.image}
-                slug=""
-                title={movie.title}
-                rating={movie.rating}
-              />
+          {movies.slice(77, 85).map((movie) => (
+            <li
+              key={movie.imdbid}
+              className="h-auto rounded-xl overflow-hidden"
+            >
+              <Link href="/" className="relative block w-full h-32">
+                <Image
+                  src={movie.image}
+                  alt={movie.title}
+                  title={movie.title}
+                  fill
+                  objectFit="cover"
+                />
+              </Link>
             </li>
-          ))} */}
+          ))}
         </ul>
       </section>
       <Button type="secondary">Cari semua film</Button>
