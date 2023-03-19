@@ -53,7 +53,7 @@ const Browser = (props) => {
     <article>
       <section>
         <ul className="grid grid-cols-4 gap-4">
-          {props.movies.map((movie) => (
+          {/* {props.movies.map((movie) => (
             <li key={movie.imdbid} className="h-auto">
               <MovieCard
                 thumbnail={movie.image}
@@ -62,7 +62,7 @@ const Browser = (props) => {
                 rating={movie.rating}
               />
             </li>
-          ))}
+          ))} */}
         </ul>
       </section>
     </article>
