@@ -27,7 +27,9 @@ export async function getServerSideProps(ctx) {
 }
 
 export default function Home({ movies }) {
-  console.log("movies", movies);
+  if (!movies) {
+    return "no movie found";
+  }
   return (
     <article>
       <section>
