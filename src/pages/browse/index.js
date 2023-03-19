@@ -48,7 +48,7 @@ const dummyMovie = {
 };
 
 const Browser = ({ movies }) => {
-  if (!movies) {
+  if (movies === undefined || null) {
     return "no movie found";
   }
   return (
