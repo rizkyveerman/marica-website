@@ -18,7 +18,7 @@ const MovieCard = ({ thumbnail, title, slug, rating, children }) => {
         />
       </div>
       <div className="py-4">
-        <h3 className="text-arang">{title}</h3>
+        <p className="text-arang text-lg">{title}</p>
         <p className="text-arang text-sm">
           Ratings: <span className="font-bold">{rating}</span>⭐
         </p>

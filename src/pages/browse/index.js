@@ -22,14 +22,14 @@ const Browser = (props) => {
               <li key={movie.imdbid} className="h-auto">
                 <MovieCard
                   thumbnail={movie.image}
-                  slug={`/browse/${movie.title}`}
+                  slug={`/browse/${movie.id}`}
                   title={movie.title}
                   rating={movie.rating}
                 />
               </li>
             ))
           ) : (
-            <p>Loading...</p>
+            <p>No movies found</p>
           )}
         </ul>
       </section>

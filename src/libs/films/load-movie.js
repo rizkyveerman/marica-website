@@ -1,10 +1,4 @@
-import React from "react";
-
-const index = () => {
-  return <div>index</div>;
-};
-
-export async function getStaticProps(ctx) {
+export async function loadMovie(id) {
   const options = {
     method: "GET",
     headers: {
@@ -13,18 +7,12 @@ export async function getStaticProps(ctx) {
     },
   };
 
-  const movies = await fetch(
-    "https://imdb-top-100-movies.p.rapidapi.com/",
+  const movie = await fetch(
+    "https://imdb-top-100-movies.p.rapidapi.com/" + id,
     options
   )
     .then((response) => response.json())
     .catch((err) => console.error(err));
 
-  return {
-    props: {
-      movies,
-    },
-  };
+  return movie;
 }
-
-export default index;
