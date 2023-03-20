@@ -1,7 +1,7 @@
 import MainLayout from "@/layout/MainLayout";
 import Image from "next/image";
 import defaultAvatar from "@/images/profile.jpg";
-import Button from "@/components/Button";
+import Button from "@/components/buttons/Button";
 
 const MyProfile = () => {
   return (

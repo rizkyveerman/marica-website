@@ -2,7 +2,7 @@ import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import defaultProfile from "../../public/images/profile.jpg";
-import Button from "./Button";
+import Button from "./buttons/Button";
 import halfMoon from "@/icons/half-moon.png";
 import TextInput from "./TextInput";
 

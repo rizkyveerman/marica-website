@@ -1,4 +1,4 @@
-import Button from "@/components/Button";
+import Button from "@/components/buttons/Button";
 import Footer from "@/components/Footer";
 import Logo from "@/components/Logo";
 import Image from "next/image";

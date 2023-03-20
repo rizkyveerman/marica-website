@@ -1,5 +1,5 @@
 import MainLayout from "@/layout/MainLayout";
-import Button from "@/components/Button";
+import Button from "@/components/buttons/Button";
 import Image from "next/image";
 import MovieCard from "@/components/cards/MovieCard";
 import Link from "next/link";

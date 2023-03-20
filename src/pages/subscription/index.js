@@ -1,6 +1,6 @@
 import MainLayout from "@/layout/MainLayout";
 import React, { useState } from "react";
-import Button from "@/components/Button";
+import Button from "@/components/buttons/Button";
 
 const Subscription = () => {
   const [yearlyPlan, setYearlyPlan] = useState(true);

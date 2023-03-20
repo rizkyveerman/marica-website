@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import { Formik, Form, Field, ErrorMessage } from "formik";
-import Button from "@/components/Button";
+import Button from "@/components/buttons/Button";
 
 const Login = () => {
   return (
