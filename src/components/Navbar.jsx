@@ -1,4 +1,5 @@
 import { useState } from "react";
+import pro from "@/icons/pro.png";
 import bell from "@/icons/bell.png";
 import Logo from "./Logo";
 import Link from "next/link";
@@ -83,9 +84,10 @@ const Navbar = () => {
         <div className="w-full flex gap-2 md:gap-4 justify-end items-center">
           <Link
             href="/subscription"
-            className="block w-full p-2 rounded-xl bg-semangka/10 text-sm"
+            className="flex justify-start items-center gap-1 w-full py-1 px-2 rounded-xl bg-semangka/10 text-xs"
           >
-            <p>🏷️Upgrade ke Pro</p>
+            <Image src={pro} alt="pro-icon" width={24} height={24} />
+            <p>Upgrade ke Pro</p>
           </Link>
           <Image src={bell} alt="bell-icon" width={24} height={24} />
           <Image
