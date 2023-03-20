@@ -28,7 +28,6 @@ export async function getServerSideProps(ctx) {
 }
 
 export default function Home({ movies }) {
-  console.log("movies", movies);
   return (
     <article>
       <section>

@@ -1,22 +1,9 @@
+import { loadMovies } from "@/libs/films/load-movies";
 import MovieCard from "@/components/cards/MovieCard";
 import MainLayout from "@/layout/MainLayout";
-import React from "react";
 
 export async function getServerSideProps(ctx) {
-  const options = {
-    method: "GET",
-    headers: {
-      "X-RapidAPI-Key": "67bab0cae7msh55022c298b7ebc4p12216bjsnbe8224d9d264",
-      "X-RapidAPI-Host": "imdb-top-100-movies.p.rapidapi.com",
-    },
-  };
-
-  const movies = await fetch(
-    "https://imdb-top-100-movies.p.rapidapi.com/",
-    options
-  )
-    .then((response) => response.json())
-    .catch((err) => console.error(err));
+  const movies = await loadMovies();
 
   return {
     props: {
@@ -25,44 +12,25 @@ export async function getServerSideProps(ctx) {
   };
 }
 
-const dummyMovie = {
-  rank: 1,
-  title: "The Shawshank Redemption",
-  thumbnail:
-    "https://m.media-amazon.com/images/M/MV5BMDFkYTc0MGEtZmNhMC00ZDIzLWFmNTEtODM1ZmRlYWMwMWFmXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_UY67_CR0,0,45,67_AL_.jpg",
-  rating: "9.3",
-  id: "top1",
-  year: 1994,
-  image:
-    "https://m.media-amazon.com/images/M/MV5BMDFkYTc0MGEtZmNhMC00ZDIzLWFmNTEtODM1ZmRlYWMwMWFmXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_QL75_UX380_CR0,1,380,562_.jpg",
-  description:
-    "Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency.",
-  trailer: "https://www.youtube.com/embed/NmzuHjWmXOc",
-  genre: ["Drama"],
-  director: ["Frank Darabont"],
-  writers: [
-    'Stephen King (based on the short novel "Rita Hayworth and the Shawshank Redemption" by)',
-    "Frank Darabont (screenplay by)",
-  ],
-  imdbid: "tt0111161",
-};
-
 const Browser = (props) => {
-  console.log("props", props.movies);
   return (
     <article>
       <section>
         <ul className="grid grid-cols-4 gap-4">
-          {props.movies.map((movie) => (
-            <li key={movie.imdbid} className="h-auto">
-              <MovieCard
-                thumbnail={movie.image}
-                slug=""
-                title={movie.title}
-                rating={movie.rating}
-              />
-            </li>
-          ))}
+          {props.movies.length > 0 ? (
+            props.movies.map((movie) => (
+              <li key={movie.imdbid} className="h-auto">
+                <MovieCard
+                  thumbnail={movie.image}
+                  slug={`/browse/${movie.title}`}
+                  title={movie.title}
+                  rating={movie.rating}
+                />
+              </li>
+            ))
+          ) : (
+            <p>Loading...</p>
+          )}
         </ul>
       </section>
     </article>

@@ -19,7 +19,7 @@ const Profile = ({ users }) => {
           <ul className="grid grid-cols-4 gap-4">
             {users.map((user) => (
               <li key={user.id}>
-                <Link href={`/profile/${user.id}`} className="block">
+                <Link href={`/users/${user.id}`} className="block">
                   <div className="h-20 w-20 bg-mangga rounded-lg"></div>
                   <p className="">{user.name}</p>
                 </Link>
