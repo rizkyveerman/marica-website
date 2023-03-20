@@ -1,4 +1,5 @@
 import { useState } from "react";
+import bell from "@/icons/bell.png";
 import Logo from "./Logo";
 import Link from "next/link";
 import Image from "next/image";
@@ -12,12 +13,13 @@ const Navbar = () => {
 
   return (
     <header className="relative p-4 flex justify-between items-center bg-white dark:bg-bad-semangka z-50">
-      <div className="hidden md:flex gap-1 w-full justify-between items-center mr-4">
+      <div className="hidden md:flex gap-1 justify-between items-center mr-4">
         <div className="flex gap-1">
           <TextInput />
           <Button>Cari</Button>
         </div>
-        <ul className="flex">
+
+        {/* <ul className="flex">
           <li>
             <Link
               href="/about"
@@ -34,7 +36,7 @@ const Navbar = () => {
               Blog
             </Link>
           </li>
-        </ul>
+        </ul> */}
       </div>
       <div className="block md:hidden">
         <div className="block md:hidden">
@@ -78,16 +80,21 @@ const Navbar = () => {
             </ul>
           </div>
         )}
-        <div
-          onClick={() => setProfileMenu(!profileMenu)}
-          className="cursor-pointer"
-        >
+        <div className="w-full flex gap-2 md:gap-4 justify-end items-center">
+          <Link
+            href="/subscription"
+            className="block w-full p-2 rounded-xl bg-semangka/10 text-sm"
+          >
+            <p>🏷️Upgrade ke Pro</p>
+          </Link>
+          <Image src={bell} alt="bell-icon" width={24} height={24} />
           <Image
             src={defaultProfile}
             alt="Rica"
             width={50}
             height={50}
             className="rounded-full"
+            onClick={() => setProfileMenu(!profileMenu)}
           />
         </div>
         {/* is login? */}
