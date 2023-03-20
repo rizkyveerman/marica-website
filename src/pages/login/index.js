@@ -2,14 +2,15 @@ import Button from "@/components/buttons/Button";
 import Footer from "@/components/Footer";
 import Logo from "@/components/Logo";
 import Image from "next/image";
-import { Form, Formik, Field, ErrorMessage } from "formik";
 import movie from "@/images/movie.png";
-
-import { useState } from "react";
+import { useState, useRef } from "react";
+import Input from "@/components/inputs/Input";
 
 function LoginPage() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const usernameRef = useRef();
+  const passwordRef = useRef();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -36,26 +37,30 @@ function LoginPage() {
           <div className="min-w-[350px] md:w-[450px] max-w-xl bg-white p-4 rounded-2xl grid gap-4">
             <Logo styles="m-auto" />
             <h3>Masuk ke Marica</h3>
-            <form onSubmit={handleSubmit}>
-              <label>
-                Username:
-                <input
-                  type="text"
-                  value={username}
-                  onChange={(e) => setUsername(e.target.value)}
-                />
-              </label>
-              <br />
-              <label>
-                Password:
-                <input
-                  type="password"
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                />
-              </label>
-              <br />
-              <button type="submit">Log in</button>
+            <form onSubmit={handleSubmit} className="grid grid-cols-1 gap-4">
+              <Input
+                placeholder="Masukkan email"
+                ref={usernameRef}
+                label="Username"
+                type="text"
+                name="username"
+                onChange={(e) => setUsername(e.target.value)}
+              />
+              <Input
+                placeholder="Masukkan password"
+                ref={usernameRef}
+                label="Password"
+                type="password"
+                name="password"
+                onChange={(e) => setPassword(e.target.value)}
+              />
+              <Button
+                type="submit"
+                variant="primary"
+                isClicked={() => "clicked"}
+              >
+                Masuk
+              </Button>
             </form>
             <p className="text-sm text-abu text-center mt-10">
               Belum punya akun Marica?
