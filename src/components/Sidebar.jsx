@@ -13,15 +13,15 @@ const Sidebar = () => {
             </li>
             <li>
               <Link
-                className="block py-4 px-4 hover:bg-semangka/20 rounded-xl lg:pl-4"
-                href="/feed"
+                className="block py-4 px-4 hover:bg-semangka/10 rounded-xl lg:pl-4"
+                href="/activities"
               >
-                Feed
+                Activities
               </Link>
             </li>
             <li>
               <Link
-                className="block py-4 px-4 hover:bg-semangka/20 rounded-xl lg:pl-4"
+                className="block py-4 px-4 hover:bg-semangka/10 rounded-xl lg:pl-4"
                 href="/browse"
               >
                 Browse
@@ -29,30 +29,22 @@ const Sidebar = () => {
             </li>
             <li>
               <Link
-                className="block py-4 px-4 hover:bg-semangka/20 rounded-xl lg:pl-4"
+                className="block py-4 px-4 hover:bg-semangka/10 rounded-xl lg:pl-4"
                 href="/watchlist"
               >
                 Watchlist
               </Link>
             </li>
-
-            <li>
-              <Link
-                className="block py-4 px-4 hover:bg-semangka/20 rounded-xl lg:pl-4"
-                href="/user-setting"
-              >
-                Setting
-              </Link>
-            </li>
           </ul>
-          <div className="hidden lg:grid grid-cols-1 gap-4">
-            <div className="w-full h-56 bg-semangka rounded-xl p-4 grid place-content-center text-center">
-              disini ada poster agar menarik user utk berlangganan sepertinya
-              sabi sih🤔.. atau mungkin slideshow buat iklan produk marica, atau
-              gameboard sebangku???
-            </div>
+          <div className="hidden lg:grid grid-cols-1 gap-1 pt-4 border-t-2 border-semangka/20">
             <Link
-              className="block py-4 hover:bg-semangka rounded-xl pl-4"
+              className="block py-4 px-4 hover:bg-semangka/10 rounded-xl lg:pl-4"
+              href="/user-setting"
+            >
+              Setting
+            </Link>
+            <Link
+              className="block py-4 hover:bg-semangka/10 rounded-xl pl-4"
               href="/help"
             >
               Help

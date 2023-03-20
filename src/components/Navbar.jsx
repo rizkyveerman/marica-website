@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Logo from "./Logo";
 import Link from "next/link";
 import Image from "next/image";
 import defaultProfile from "../../public/images/profile.jpg";
@@ -11,17 +12,34 @@ const Navbar = () => {
 
   return (
     <header className="relative p-4 flex justify-between items-center bg-white dark:bg-bad-semangka z-50">
-      <div className="hidden md:flex gap-1">
-        <TextInput />
-        <Button>Cari</Button>
+      <div className="hidden md:flex gap-1 w-full justify-between items-center mr-4">
+        <div className="flex gap-1">
+          <TextInput />
+          <Button>Cari</Button>
+        </div>
+        <ul className="flex">
+          <li>
+            <Link
+              href="/about"
+              className="block p-4 hover:bg-semangka/10 rounded-lg cursor-pointer"
+            >
+              Tentang Marica
+            </Link>
+          </li>
+          <li>
+            <Link
+              href="/blog"
+              className="block p-4 hover:bg-semangka/10 rounded-lg cursor-pointer"
+            >
+              Blog
+            </Link>
+          </li>
+        </ul>
       </div>
       <div className="block md:hidden">
-        <Link
-          className="text-semangka font-bold text-xl block py-4 hover:bg-semangka rounded-xl pl-4"
-          href="/"
-        >
-          Marica
-        </Link>
+        <div className="block md:hidden">
+          <Logo />
+        </div>
       </div>
       <div className="relative flex items-center gap-2">
         {profileMenu && (
