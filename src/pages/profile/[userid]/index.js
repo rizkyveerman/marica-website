@@ -1,31 +1,29 @@
 import React from "react";
 
-export async function getStaticPaths() {
-  const res = await fetch("https://jsonplaceholder.typicode.com/users");
+// export async function getStaticPaths() {
+//   const res = await fetch("https://jsonplaceholder.typicode.com/users");
 
-  const users = await res.json();
+//   const users = await res.json();
 
-  const paths = users.map((user) => {
-    params: {
-      id: user.id;
-    }
-  });
+//   const paths = users.map((user) => {
+//     params: {
+//       id: user.id;
+//     }
+//   });
 
-  return { paths, fallback: false };
-}
+//   return { paths, fallback: false };
+// }
 
-export async function getStaticProps(context) {
-  const res = await fetch("https://jsonplaceholder.typicode.com/users");
-  const users = await res.json();
+// export async function getStaticProps(context) {
+//   const res = await fetch("https://jsonplaceholder.typicode.com/users");
+//   const users = await res.json();
 
-  return {
-    props: { users },
-  };
-}
+//   return {
+//     props: { users },
+//   };
+// }
 
-const UserDetail = ({ users }) => {
-  console.log("paths", paths);
-
+const UserDetail = () => {
   return <div>UserDetail</div>;
 };
 
