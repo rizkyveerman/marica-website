@@ -9,6 +9,7 @@ import Button from "./buttons/Button";
 import lightmode from "@/images/lightmode.png";
 import darkmode from "@/images/darkmode.png";
 import TextInput from "./TextInput";
+import Input from "./inputs/Input";
 
 const Navbar = () => {
   const [profileMenu, setProfileMenu] = useState(false);
@@ -18,7 +19,7 @@ const Navbar = () => {
     <header className="relative p-4 flex justify-between items-center bg-white dark:bg-bad-semangka z-50">
       <div className="hidden md:flex gap-1 justify-between items-center mr-4">
         <div className="flex gap-1">
-          <TextInput />
+          <Input placeholder="Coba cari Cocomelon..." type="text" />
           <Button>Cari</Button>
         </div>
 

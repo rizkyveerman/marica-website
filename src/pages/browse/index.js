@@ -16,7 +16,7 @@ const Browser = (props) => {
   return (
     <article>
       <section>
-        <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+        <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-4">
           {props.movies.length > 0 ? (
             props.movies.map((movie) => (
               <li key={movie.imdbid} className="h-auto">
@@ -38,7 +38,7 @@ const Browser = (props) => {
 };
 
 Browser.getLayout = function getLayout(page) {
-  return <MainLayout>{page}</MainLayout>;
+  return <MainLayout title="Semua movies di Marica">{page}</MainLayout>;
 };
 
 export default Browser;

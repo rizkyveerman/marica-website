@@ -13,7 +13,7 @@ const Input = ({ ref, label, type, name, placeholder }) => {
         id={name}
         type={type}
         name={name}
-        className="px-5 py-3 rounded-2xl border border-arang dark:border-abu-terang placeholder:text-abu dark:placeholder:text-white focus:outline outline-semangka focus:border-semangka focus:text-semangka"
+        className="px-5 py-3 rounded-xl border border-arang/30 dark:border-abu-terang placeholder:text-sm placeholder:text-abu dark:placeholder:text-white focus:outline outline-semangka focus:border-semangka focus:text-semangka"
       />
     </>
   );

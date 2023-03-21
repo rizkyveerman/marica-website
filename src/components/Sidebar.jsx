@@ -7,7 +7,7 @@ const Sidebar = () => {
     <aside className="w-full h-full">
       <div className="md:block p-4 rounded-xl w-full h-full">
         <div className="h-full flex flex-col justify-between">
-          <ul className="pt-1 fixed left-0 right-0 bottom-0 h-24 bg-white flex justify-center item-start lg:grid border border-t-2">
+          <ul className="pt-1 md:pt-0 fixed left-0 right-0 bottom-0 md:relative h-24 md:h-0 bg-white flex justify-center md:justify-start item-start lg:grid border-t-2 md:border-0">
             <li className="hidden lg:block">
               <Logo />
             </li>
