@@ -1,7 +1,11 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    domains: ["m.media-amazon.com", "cdn.myanimelist.net"],
+    domains: [
+      "m.media-amazon.com",
+      "cdn.myanimelist.net",
+      "https://via.placeholder.com/",
+    ],
   },
   reactStrictMode: true,
   webpack(config) {

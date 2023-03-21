@@ -3,7 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import defaultProfile from "../../public/images/profile.jpg";
 import Button from "./Button";
-import LoginButton from "@/components/buttons/LoginButton";
+import halfMoon from "@/icons/half-moon.png";
 import TextInput from "./TextInput";
 
 const Navbar = () => {
@@ -45,7 +45,9 @@ const Navbar = () => {
               </li>
               <li className="p-4 rounded-lg bg-semangka/20 w-full flex justify-between items-center">
                 <button className="w-full text-left">Dark mode</button>
-                <div>tod</div>
+                <div>
+                  <Image src={halfMoon} alt="darkmode" width={32} height={32} />
+                </div>
               </li>
               <li onClick={() => setProfileMenu(!profileMenu)}>
                 <Link

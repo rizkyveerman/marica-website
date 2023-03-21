@@ -19,6 +19,7 @@ export async function getServerSideProps(ctx) {
   )
     .then((response) => response.json())
     .catch((err) => console.error(err));
+
   return {
     props: {
       movies,
@@ -27,7 +28,7 @@ export async function getServerSideProps(ctx) {
 }
 
 export default function Home({ movies }) {
-  // console.log("movies", movies.data);
+  console.log("movies", movies);
   return (
     <article>
       <section>
