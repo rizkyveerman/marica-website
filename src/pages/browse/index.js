@@ -16,7 +16,7 @@ const Browser = (props) => {
   return (
     <article>
       <section>
-        <ul className="grid grid-cols-4 gap-4">
+        <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
           {props.movies.length > 0 ? (
             props.movies.map((movie) => (
               <li key={movie.imdbid} className="h-auto">

@@ -34,9 +34,9 @@ const MainLayout = ({ children, title, icon }) => {
           <main className="relative w-full">
             <Navbar />
             <div className="p-4 bg-semangka/10 min-h-screen rounded-t-3xl md:rounded-t-none md:rounded-tl-3xl">
-              {/* <LoginButton /> */}
               {children}
             </div>
+            <Footer />
           </main>
         </div>
       </ModalContext.Provider>

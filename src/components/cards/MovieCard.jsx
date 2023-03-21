@@ -18,7 +18,9 @@ const MovieCard = ({ thumbnail, title, slug, rating, children }) => {
         />
       </div>
       <div className="py-4">
-        <p className="text-arang text-lg">{title}</p>
+        <p className="text-arang text-lg">
+          {title.length > 32 ? title.slice(0, 30) + "..." : title}
+        </p>
         <p className="text-arang text-sm">
           Ratings: <span className="font-bold">{rating}</span>⭐
         </p>
