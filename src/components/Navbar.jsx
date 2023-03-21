@@ -25,7 +25,7 @@ const Navbar = () => {
       </div>
       <div className="relative flex items-center gap-2">
         {profileMenu && (
-          <div className="absolute top-14 right-4 p-4 rounded-xl bg-white">
+          <div className="absolute top-14 right-4 p-4 rounded-xl bg-white dark:bg-bad-blueberry border-2   border-semangka/30">
             <ul className="grid gap-1 w-60 drop-shadow-xl">
               <li onClick={() => setProfileMenu(!profileMenu)}>
                 <Link
@@ -43,10 +43,9 @@ const Navbar = () => {
                   Settings
                 </Link>
               </li>
-              <li>
-                <button className="p-4 rounded-lg bg-semangka/20">
-                  Dark mode
-                </button>
+              <li className="p-4 rounded-lg bg-semangka/20 w-full flex justify-between items-center">
+                <button className="w-full text-left">Dark mode</button>
+                <div>tod</div>
               </li>
               <li onClick={() => setProfileMenu(!profileMenu)}>
                 <Link
