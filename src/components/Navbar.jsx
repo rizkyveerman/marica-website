@@ -99,10 +99,10 @@ const Navbar = () => {
             href="/subscription"
             className="flex justify-start items-center gap-1 w-full py-1 px-2 rounded-xl bg-semangka/10 text-xs"
           >
-            <Image src={pro} alt="pro-icon" width={24} height={24} />
+            <Image src={pro} alt="pro-icon" width={28} height={28} />
             <p>Upgrade ke Pro</p>
           </Link>
-          <Image src={bell} alt="bell-icon" width={24} height={24} />
+          <Image src={bell} alt="bell-icon" width={28} height={28} />
           <Image
             src={woman}
             alt="Rica"
