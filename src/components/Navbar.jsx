@@ -4,13 +4,15 @@ import bell from "@/icons/bell.png";
 import Logo from "./Logo";
 import Link from "next/link";
 import Image from "next/image";
-import defaultProfile from "../../public/images/profile.jpg";
+import woman from "@/icons/woman.png";
 import Button from "./buttons/Button";
-import halfMoon from "@/icons/half-moon.png";
+import lightmode from "@/images/lightmode.png";
+import darkmode from "@/images/darkmode.png";
 import TextInput from "./TextInput";
 
 const Navbar = () => {
   const [profileMenu, setProfileMenu] = useState(false);
+  const [isDarkmode, setIsDarkmode] = useState(false);
 
   return (
     <header className="relative p-4 flex justify-between items-center bg-white dark:bg-bad-semangka z-50">
@@ -46,12 +48,12 @@ const Navbar = () => {
       </div>
       <div className="relative flex items-center gap-2">
         {profileMenu && (
-          <div className="absolute top-14 right-4 p-4 rounded-xl bg-white dark:bg-bad-blueberry border-2   border-semangka/30">
-            <ul className="grid gap-1 w-60 drop-shadow-xl">
+          <div className="absolute z-[999] top-10 right-0 p-4 rounded-xl bg-white dark:bg-bad-blueberry border-2 border-semangka/40">
+            <ul className="border-b-2 border-semangka/20 pb-2 mb-3 grid gap-1 w-60 drop-shadow-xl">
               <li onClick={() => setProfileMenu(!profileMenu)}>
                 <Link
                   href="/my-profile"
-                  className="block p-4 hover:bg-semangka/10 rounded-lg cursor-pointer"
+                  className="block p-2 hover:bg-semangka/10 rounded-lg cursor-pointer"
                 >
                   My profile
                 </Link>
@@ -59,26 +61,37 @@ const Navbar = () => {
               <li onClick={() => setProfileMenu(!profileMenu)}>
                 <Link
                   href="/user-setting"
-                  className="block p-4 hover:bg-semangka/10 rounded-lg cursor-pointer"
+                  className="block p-2 hover:bg-semangka/10 rounded-lg cursor-pointer"
                 >
                   Settings
                 </Link>
               </li>
-              <li className="p-4 rounded-lg bg-semangka/20 w-full flex justify-between items-center">
-                <button className="w-full text-left">Dark mode</button>
-                <div>
-                  <Image src={halfMoon} alt="darkmode" width={32} height={32} />
-                </div>
-              </li>
+
               <li onClick={() => setProfileMenu(!profileMenu)}>
                 <Link
                   href="/"
-                  className="block p-4 hover:bg-semangka/10 rounded-lg cursor-pointer"
+                  className="block p-2 hover:bg-semangka/10 rounded-lg cursor-pointer"
                 >
                   Logout
                 </Link>
               </li>
             </ul>
+            <button
+              className="p-2 rounded-lg bg-semangka/10 w-full flex justify-between items-center"
+              type="button"
+              onClick={() => setIsDarkmode(!isDarkmode)}
+            >
+              <p className="w-full text-left">Dark mode</p>
+              <div>
+                <Image
+                  src={isDarkmode ? darkmode : lightmode}
+                  alt={isDarkmode ? "night mode" : "day mode"}
+                  width={200}
+                  height={32}
+                  className="rounded-lg"
+                />
+              </div>
+            </button>
           </div>
         )}
         <div className="w-full flex gap-2 md:gap-4 justify-end items-center">
@@ -91,11 +104,11 @@ const Navbar = () => {
           </Link>
           <Image src={bell} alt="bell-icon" width={24} height={24} />
           <Image
-            src={defaultProfile}
+            src={woman}
             alt="Rica"
-            width={50}
-            height={50}
-            className="rounded-full"
+            width={32}
+            height={32}
+            className="rounded-full bg-semangka cursor-pointer"
             onClick={() => setProfileMenu(!profileMenu)}
           />
         </div>
