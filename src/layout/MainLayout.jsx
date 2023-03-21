@@ -31,7 +31,7 @@ const MainLayout = ({ children, title, icon }) => {
           <div className="w-full grid place-content-center gap-4 bg-white lg:block lg:w-1/4 lg:h-screen fixed left-0 right-0 bottom-0 lg:sticky lg:top-0 lg:left-0 z-[999999]">
             <Sidebar />
           </div>
-          <main className="relative w-full">
+          <main id="container" className="relative w-full">
             <Navbar />
             <div className="p-4 bg-slate-100 min-h-screen rounded-t-3xl md:rounded-t-none md:rounded-tl-3xl md:rounded-bl-3xl">
               {children}
