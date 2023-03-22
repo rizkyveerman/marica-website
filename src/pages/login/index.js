@@ -1,8 +1,9 @@
 import Button from "@/components/buttons/Button";
+import Link from "next/link";
 import Footer from "@/components/Footer";
 import Logo from "@/components/Logo";
 import Image from "next/image";
-import movie from "@/images/movie.png";
+import watching from "@/images/watching.jpg";
 import { useState, useRef } from "react";
 import Input from "@/components/inputs/Input";
 
@@ -32,11 +33,14 @@ function LoginPage() {
 
   return (
     <>
-      <article className="grid grid-cols-1 md:grid-cols-2 h-screen bg-abu-terang">
+      <article className="grid grid-cols-1 md:grid-cols-2 h-screen bg-white">
         <section className="grid place-content-center p-4">
-          <div className="min-w-[350px] md:w-[450px] max-w-xl bg-white p-4 rounded-2xl grid gap-4">
-            <Logo styles="m-auto" />
-            <h3>Masuk ke Marica</h3>
+          <div className="z-10 min-w-[350px] md:w-96 max-w-lg bg-white p-4 rounded-2xl grid gap-4">
+            <h2>Masuk dulu, yuk!</h2>
+            <p className="text-slate-500 text-justify">
+              Masuk ke akun Marica kamu dan nikmati berbagai kategori film dan
+              series yang kamu suka!
+            </p>
             <form onSubmit={handleSubmit} className="grid grid-cols-1 gap-4">
               <Input
                 placeholder="Masukkan email"
@@ -54,6 +58,25 @@ function LoginPage() {
                 name="password"
                 onChange={(e) => setPassword(e.target.value)}
               />
+              <div className="flex justify-between items-center">
+                <div className="flex gap-1 items-center justify-start cursor-pointer">
+                  <input
+                    type="checkbox"
+                    name="remember-me"
+                    id="remember-me"
+                    className="w-4 h-4"
+                  />
+                  <label htmlFor="remember-me" className="text-slate-400">
+                    Remember me
+                  </label>
+                </div>
+                <Link
+                  href="/reset-password"
+                  className="text-pink-600 underline"
+                >
+                  Lupa password?
+                </Link>
+              </div>
               <Button
                 type="submit"
                 variant="primary"
@@ -62,18 +85,24 @@ function LoginPage() {
                 Masuk
               </Button>
             </form>
-            <p className="text-sm text-abu text-center mt-10">
-              Belum punya akun Marica?
+            <p className="text-sm text-abu text-center">
+              Belum punya akun Marica?{" "}
+              <Link href="/create-account" className="text-pink-600 underline">
+                Buat disini
+              </Link>
             </p>
-
-            <Button isLink type="secondary" href="/create-account">
-              Buat akun
-            </Button>
           </div>
         </section>
-
-        <section className="hidden md:grid w-full h-full bg-arang place-content-center">
-          <Image src={movie} alt="movie" />
+        <section className="w-full h-full p-4 hidden md:grid">
+          <div className="relative p-4 md:grid w-full h-full bg-arang place-content-center rounded-2xl overflow-hidden">
+            <Image
+              src={watching}
+              alt="movie"
+              fill
+              objectFit="cover"
+              objectPosition="center"
+            />
+          </div>
         </section>
       </article>
       <Footer />

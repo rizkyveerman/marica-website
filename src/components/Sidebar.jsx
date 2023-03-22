@@ -17,8 +17,8 @@ const Sidebar = () => {
   const router = useRouter();
 
   return (
-    <aside>
-      <div className="flex flex-col justify-between">
+    <aside className="h-full">
+      <div className="h-full flex flex-col justify-between">
         <ul className="relative left-0 right-0 bottom-0 border p-4 flex justify-between item-center gap-1 lg:grid grid-cols-1 md:border-0">
           <li className="hidden lg:block">
             <Logo />
@@ -93,21 +93,6 @@ const Sidebar = () => {
             >
               <FontAwesomeIcon icon={faBookmark} height={20} />
               <span className="hidden md:block">Watchlist</span>
-            </Link>
-          </li>
-          <li
-            className={`flex justify-start items-center hover:bg-pink-100 hover:text-semangka ${
-              router.route === "/user-setting"
-                ? "bg-gradient-to-t text-white hover:bg-gradient-to-t from-pink-600 to-pink-300 hover:text-white"
-                : "text-arang/80"
-            } rounded-xl lg:pl-4`}
-          >
-            <Link
-              className="flex gap-2 p-4 lg:py-4 lg:px-0 w-full"
-              href="/user-setting"
-            >
-              <FontAwesomeIcon icon={faGear} height={20} />
-              <span className="hidden md:block">Setting</span>
             </Link>
           </li>
         </ul>
