@@ -33,7 +33,7 @@ const MainLayout = ({ children, title, icon }) => {
           </div>
           <main id="container" className="relative w-full">
             <Navbar />
-            <div className="p-4 bg-slate-100 min-h-screen rounded-t-3xl md:rounded-t-none md:rounded-tl-3xl md:rounded-bl-3xl">
+            <div className="bg-slate-100 min-h-screen rounded-t-3xl md:rounded-t-none md:rounded-tl-3xl md:rounded-bl-3xl">
               {children}
             </div>
             <Footer />

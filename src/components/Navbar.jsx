@@ -22,7 +22,6 @@ const Navbar = () => {
           <Input placeholder="Coba cari Cocomelon..." type="text" />
           <Button>Cari</Button>
         </div>
-
         {/* <ul className="flex">
           <li>
             <Link

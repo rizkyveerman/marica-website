@@ -1,6 +1,7 @@
 import { loadMovies } from "@/libs/films/load-movies";
 import MovieCard from "@/components/cards/MovieCard";
 import MainLayout from "@/layout/MainLayout";
+import Tags from "@/components/cards/Tags";
 
 export async function getServerSideProps(ctx) {
   const movies = await loadMovies();
@@ -15,7 +16,18 @@ export async function getServerSideProps(ctx) {
 const Browser = (props) => {
   return (
     <article>
-      <section>
+      <header className="sticky top-0 z-50 bg-white drop-shadow-sm p-4">
+        <ul className="flex flex-wrap gap-2 justify-start items-center">
+          {["sports", "thriller", "action", "drama", "character", "fun"].map(
+            (tag, index) => (
+              <li key={index}>
+                <Tags>{tag}</Tags>
+              </li>
+            )
+          )}
+        </ul>
+      </header>
+      <section className="p-4">
         <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-4">
           {props.movies.length > 0 ? (
             props.movies.map((movie) => (
