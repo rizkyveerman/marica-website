@@ -6,6 +6,9 @@ import all from "@/icons/all.png";
 import activity from "@/icons/activity.png";
 import bookmark from "@/icons/bookmark.png";
 import help from "@/icons/help.png";
+import setting from "@/icons/settings.png";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 
 const Sidebar = () => {
   return (
@@ -16,14 +19,15 @@ const Sidebar = () => {
             <li className="hidden lg:block">
               <Logo />
             </li>
-            <li className="flex justify-start items-center hover:bg-semangka/10 rounded-xl lg:pl-4">
-              <Image
+            <li className="flex justify-start items-center hover:bg-semangka/10 hover:text-semangka text-arang/80 rounded-xl lg:pl-4">
+              {/* <Image
                 src={activity}
                 alt="activity"
                 width={18}
                 height={18}
                 className="w-8 md:w-[18px]"
-              />
+              /> */}
+              <FontAwesomeIcon icon={faEnvelope} height={20} />
               <Link
                 className="hidden md:block py-4 px-4 w-full"
                 href="/activities"
@@ -31,14 +35,8 @@ const Sidebar = () => {
                 Activities
               </Link>
             </li>
-            <li className="flex justify-start items-center hover:bg-semangka/10 rounded-xl lg:pl-4">
-              <Image
-                src={all}
-                alt="all"
-                width={18}
-                height={18}
-                className="w-8 md:w-[18px]"
-              />
+            <li className="flex justify-start items-center hover:bg-semangka/10 hover:text-semangka text-arang/80 rounded-xl lg:pl-4">
+              <FontAwesomeIcon icon={faEnvelope} height={20} />
               <Link
                 className="hidden md:block py-4 px-4 w-full"
                 href="/all-movies"
@@ -46,14 +44,8 @@ const Sidebar = () => {
                 Semua movies
               </Link>
             </li>
-            <li className="flex justify-start items-center hover:bg-semangka/10 rounded-xl lg:pl-4">
-              <Image
-                src={bookmark}
-                alt="bookmark"
-                width={18}
-                height={18}
-                className="w-8 md:w-[18px]"
-              />
+            <li className="flex justify-start items-center hover:bg-semangka/10 hover:text-semangka text-arang/80 rounded-xl lg:pl-4">
+              <FontAwesomeIcon icon={faEnvelope} height={20} />
               <Link
                 className="hidden md:block py-4 px-4 w-full"
                 href="/watchlist"
@@ -63,7 +55,8 @@ const Sidebar = () => {
             </li>
           </ul>
           <ul className="hidden lg:grid grid-cols-1 gap-1 pt-4 border-t-2 border-semangka/20">
-            <li className="flex justify-start items-center hover:bg-semangka/10 rounded-xl lg:pl-4">
+            <li className="flex justify-start items-center hover:bg-semangka/10 hover:text-semangka text-arang/80 rounded-xl lg:pl-4">
+              <FontAwesomeIcon icon={faEnvelope} height={20} />
               <Link
                 className="hidden md:block py-4 px-4 w-full"
                 href="/user-setting"
@@ -71,7 +64,8 @@ const Sidebar = () => {
                 Setting
               </Link>
             </li>
-            <li className="flex justify-start items-center hover:bg-semangka/10 rounded-xl lg:pl-4">
+            <li className="flex justify-start items-center hover:bg-semangka/10 hover:text-semangka text-arang/80 rounded-xl lg:pl-4">
+              <FontAwesomeIcon icon={faEnvelope} height={20} />
               <Link className="hidden md:block py-4 px-4 w-full" href="/help">
                 Help
               </Link>

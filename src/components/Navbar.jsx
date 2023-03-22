@@ -8,7 +8,6 @@ import woman from "@/icons/woman.png";
 import Button from "./buttons/Button";
 import lightmode from "@/images/lightmode.png";
 import darkmode from "@/images/darkmode.png";
-import TextInput from "./TextInput";
 import Input from "./inputs/Input";
 
 const Navbar = () => {
