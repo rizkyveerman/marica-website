@@ -1,6 +1,6 @@
 import React from "react";
 
-const Tags = ({ children }) => {
+const Tag = ({ children }) => {
   return (
     <div className="cursor-pointer py-1 px-2 text-sm rounded-full border-2 border-semangka/20">
       {children}
@@ -8,4 +8,4 @@ const Tags = ({ children }) => {
   );
 };
 
-export default Tags;
+export default Tag;

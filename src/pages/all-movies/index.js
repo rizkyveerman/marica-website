@@ -1,7 +1,7 @@
 import { loadMovies } from "@/libs/films/load-movies";
 import MovieCard from "@/components/cards/MovieCard";
 import MainLayout from "@/layout/MainLayout";
-import Tags from "@/components/cards/Tags";
+import Tag from "@/components/cards/Tag";
 
 export async function getServerSideProps(ctx) {
   const movies = await loadMovies();
@@ -21,7 +21,7 @@ const Browser = (props) => {
           {["sports", "thriller", "action", "drama", "character", "fun"].map(
             (tag, index) => (
               <li key={index}>
-                <Tags>{tag}</Tags>
+                <Tag>{tag}</Tag>
               </li>
             )
           )}
