@@ -18,9 +18,9 @@ const Sidebar = () => {
   console.log("router", router.route);
 
   return (
-    <aside className="relative w-full h-full before:absolute">
+    <aside className="w-full h-full">
       <div className="w-full h-full flex flex-col justify-between">
-        <ul className="p-4 w-full fixed left-0 right-0 bottom-0 md:relative h-24 md:h-0 flex justify-center md:justify-start item-start lg:grid grid-cols-1 md:border-0 gap-8 md:gap-1">
+        <ul className="p-4 w-full md:h-0 flex justify-between md:justify-start item-center gap-1 lg:grid grid-cols-1 md:border-0 md:gap-1">
           <li className="hidden lg:block">
             <Logo />
           </li>
@@ -38,9 +38,10 @@ const Sidebar = () => {
                 height={18}
                 className="w-8 md:w-[18px]"
               /> */}
-            <FontAwesomeIcon icon={faHome} height={20} />
-            <Link className="hidden md:block py-4 px-4 w-full" href="/">
-              Home
+
+            <Link className="block py-4 px-4 w-full" href="/">
+              <FontAwesomeIcon icon={faHome} height={20} />
+              <span className="hidden md:block">Home</span>
             </Link>
           </li>
           <li
@@ -57,12 +58,9 @@ const Sidebar = () => {
                 height={18}
                 className="w-8 md:w-[18px]"
               /> */}
-            <FontAwesomeIcon icon={faComments} height={20} />
-            <Link
-              className="hidden md:block py-4 px-4 w-full"
-              href="/activities"
-            >
-              Activities
+            <Link className="block py-4 px-4 w-full" href="/activities">
+              <FontAwesomeIcon icon={faComments} height={20} />
+              <span className="hidden md:block">Activities</span>
             </Link>
           </li>
           <li
@@ -72,12 +70,9 @@ const Sidebar = () => {
                 : "text-arang/80"
             } rounded-xl lg:pl-4`}
           >
-            <FontAwesomeIcon icon={faFilm} height={20} />
-            <Link
-              className="hidden md:block py-4 px-4 w-full"
-              href="/all-movies"
-            >
-              Semua movies
+            <Link className="block py-4 px-4 w-full" href="/all-movies">
+              <FontAwesomeIcon icon={faFilm} height={20} />
+              <span className="hidden md:block">Semua movies</span>
             </Link>
           </li>
           <li
@@ -87,12 +82,9 @@ const Sidebar = () => {
                 : "text-arang/80"
             } rounded-xl lg:pl-4`}
           >
-            <FontAwesomeIcon icon={faBookmark} height={20} />
-            <Link
-              className="hidden md:block py-4 px-4 w-full"
-              href="/watchlist"
-            >
-              Watchlist
+            <Link className="block py-4 px-4 w-full" href="/watchlist">
+              <FontAwesomeIcon icon={faBookmark} height={20} />
+              <span className="hidden md:block">Watchlist</span>
             </Link>
           </li>
           <li
@@ -102,12 +94,9 @@ const Sidebar = () => {
                 : "text-arang/80"
             } rounded-xl lg:pl-4`}
           >
-            <FontAwesomeIcon icon={faGear} height={20} />
-            <Link
-              className="hidden md:block py-4 px-4 w-full"
-              href="/user-setting"
-            >
-              Setting
+            <Link className="block py-4 px-4 w-full" href="/user-setting">
+              <FontAwesomeIcon icon={faGear} height={20} />
+              <span className="hidden md:block">Setting</span>
             </Link>
           </li>
         </ul>

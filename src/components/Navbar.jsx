@@ -104,16 +104,14 @@ const Navbar = () => {
         <div className="w-full flex gap-2 md:gap-4 justify-end items-center">
           <Link
             href="/subscription"
-            className="flex justify-start items-center gap-1 w-full py-1 px-2 rounded-xl bg-pink-100 text-xs"
+            className="text-pink-700 flex justify-start items-center gap-1 w-full py-1 px-2 rounded-xl bg-gradient-to-t from-pink-400 to-pink-200 text-xs border-2 border-pink-300 hover:text-white"
           >
             {/* <Image src={pro} alt="pro-icon" width={28} height={28} /> */}
-            <div className="text-orange-500 hover:text-semangka cursor-pointer">
-              <FontAwesomeIcon icon={faCrown} height={14} />
-            </div>
-            <p>Upgrade ke Pro</p>
+            <FontAwesomeIcon icon={faCrown} height={14} />
+            Upgrade ke Pro
           </Link>
           {/* <Image src={bell} alt="bell-icon" width={28} height={28} /> */}
-          <div className="hover:text-semangka cursor-pointer">
+          <div className="hover:text-pink-600 cursor-pointer">
             <FontAwesomeIcon icon={faBell} height={20} />
           </div>
           <Image
@@ -121,7 +119,7 @@ const Navbar = () => {
             alt="Rica"
             width={32}
             height={32}
-            className="rounded-full bg-gradient-to-r from-pink-600 to-pink-100 cursor-pointer"
+            className="rounded-full bg-pink-600 cursor-pointer"
             onClick={() => setProfileMenu(!profileMenu)}
           />
         </div>
