@@ -2,7 +2,7 @@ import React from "react";
 
 const Tag = ({ children }) => {
   return (
-    <div className="cursor-pointer py-1 px-2 text-sm rounded-full border-2 border-semangka/20">
+    <div className="bg-gradient-to-t from-pink-600 to-pink-400 text-white cursor-pointer py-1 px-2 text-xs rounded-full">
       {children}
     </div>
   );

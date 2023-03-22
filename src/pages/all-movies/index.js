@@ -18,13 +18,19 @@ const Browser = (props) => {
     <article>
       <header className="sticky top-0 z-50 bg-white drop-shadow-sm p-4">
         <ul className="flex flex-wrap gap-2 justify-start items-center">
-          {["sports", "thriller", "action", "drama", "character", "fun"].map(
-            (tag, index) => (
-              <li key={index}>
-                <Tag>{tag}</Tag>
-              </li>
-            )
-          )}
+          {[
+            "all",
+            "sports",
+            "thriller",
+            "action",
+            "drama",
+            "character",
+            "fun",
+          ].map((tag, index) => (
+            <li key={index}>
+              <Tag>{tag}</Tag>
+            </li>
+          ))}
         </ul>
       </header>
       <section className="p-4">
