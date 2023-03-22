@@ -31,8 +31,8 @@ export default function Home({ movies }) {
   console.log("movies", movies);
   return (
     <article>
-      <section>
-        <div className="relative w-full h-96 rounded-2xl bg-semangka/30 grid place-content-center overflow-hidden">
+      <section className="p-4">
+        <div className="relative w-full h-[60vh] rounded-2xl bg-semangka/30 grid place-content-center overflow-hidden">
           {movies.data.slice(0, 1).map((movie) => (
             <div key={movie.imdbid} className="h-auto">
               <Image
@@ -46,10 +46,42 @@ export default function Home({ movies }) {
           ))}
         </div>
       </section>
-      <section className="my-4">
-        <p className="text-xl font-semibold mb-4">Film gratis terpopuler</p>
+      <section className="p-4">
+        {" "}
+        <div className="flex justify-between items-center py-2">
+          <p className="text-xl font-semibold mb-4">Terpopuler</p>
+          <Link className="text-semangka underline" href="/all-movies">
+            Lihat semua
+          </Link>
+        </div>
         <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
           {movies.data.slice(0, 4).map((movie) => (
+            <li
+              key={movie.imdbid}
+              className="h-auto rounded-xl overflow-hidden"
+            >
+              <Link href="/" className="relative block max-w-xs h-72">
+                <Image
+                  src={movie.image}
+                  alt={movie.title}
+                  title={movie.title}
+                  fill
+                  objectFit="cover"
+                />
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </section>
+      <section className="p-4">
+        <div className="flex justify-between items-center py-2">
+          <p className="text-xl font-semibold mb-4">Direkomendasikan</p>
+          <Link className="text-semangka underline" href="/all-movies">
+            Lihat semua
+          </Link>
+        </div>
+        <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+          {movies.data.slice(0, 8).map((movie) => (
             <li
               key={movie.imdbid}
               className="h-auto rounded-xl overflow-hidden"
@@ -67,8 +99,14 @@ export default function Home({ movies }) {
           ))}
         </ul>
       </section>
-      <section className="my-4">
-        <p className="text-xl font-semibold mb-4">Terakhir ditambahkan</p>
+      <section className="p-4">
+        {" "}
+        <div className="flex justify-between items-center py-2">
+          <p className="text-xl font-semibold mb-4">Terakhir ditambahkan</p>
+          <Link className="text-semangka underline" href="/all-movies">
+            Lihat semua
+          </Link>
+        </div>
         <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
           {movies.data.slice(4, 8).map((movie) => (
             <li
@@ -88,29 +126,6 @@ export default function Home({ movies }) {
           ))}
         </ul>
       </section>
-
-      <section className="my-4">
-        <p className="text-xl font-semibold mb-4">Lainnya</p>
-        <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-          {movies.data.map((movie) => (
-            <li
-              key={movie.imdbid}
-              className="h-auto rounded-xl overflow-hidden"
-            >
-              <Link href="/" className="relative block w-full h-64">
-                <Image
-                  src={movie.image}
-                  alt={movie.title}
-                  title={movie.title}
-                  fill
-                  objectFit="cover"
-                />
-              </Link>
-            </li>
-          ))}
-        </ul>
-      </section>
-      <Button type="secondary">Cari semua film</Button>
     </article>
   );
 }
