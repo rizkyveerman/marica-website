@@ -1,77 +1,122 @@
 import React from "react";
+import { useRouter } from "next/router";
 import Link from "next/link";
 import Logo from "./Logo";
-import Image from "next/image";
-import all from "@/icons/all.png";
-import activity from "@/icons/activity.png";
-import bookmark from "@/icons/bookmark.png";
-import help from "@/icons/help.png";
-import setting from "@/icons/settings.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
+import {
+  faMagnifyingGlass,
+  faComments,
+  faFilm,
+  faBookmark,
+  faGear,
+  faQuestion,
+} from "@fortawesome/free-solid-svg-icons";
 
 const Sidebar = () => {
+  const router = useRouter();
+  console.log("router", router.route);
+
   return (
     <aside className="w-full h-full">
-      <div className="md:block p-4 rounded-xl w-full h-full">
-        <div className="h-full flex flex-col justify-between">
-          <ul className="pt-1 md:pt-0 fixed left-0 right-0 bottom-0 md:relative h-24 md:h-0 bg-white flex justify-center md:justify-start item-start lg:grid border-t-2 md:border-0 gap-8 md:gap-0">
-            <li className="hidden lg:block">
-              <Logo />
-            </li>
-            <li className="flex justify-start items-center hover:bg-semangka/10 hover:text-semangka text-arang/80 rounded-xl lg:pl-4">
-              {/* <Image
+      <div className="w-full h-full flex flex-col justify-between">
+        <ul className="p-4 w-full fixed left-0 right-0 bottom-0 md:relative h-24 md:h-0 flex justify-center md:justify-start item-start lg:grid grid-cols-1 md:border-0 gap-8 md:gap-1">
+          <li className="hidden lg:block">
+            <Logo />
+          </li>
+          <li
+            className={`flex justify-start items-center hover:bg-pink-100 hover:text-semangka ${
+              router.route === "/activities"
+                ? "bg-gradient-to-t text-white hover:bg-gradient-to-t from-pink-600 to-pink-300 hover:text-white"
+                : "text-arang/80"
+            } rounded-xl lg:pl-4`}
+          >
+            {/* <Image
                 src={activity}
                 alt="activity"
                 width={18}
                 height={18}
                 className="w-8 md:w-[18px]"
               /> */}
-              <FontAwesomeIcon icon={faEnvelope} height={20} />
-              <Link
-                className="hidden md:block py-4 px-4 w-full"
-                href="/activities"
-              >
-                Activities
-              </Link>
-            </li>
-            <li className="flex justify-start items-center hover:bg-semangka/10 hover:text-semangka text-arang/80 rounded-xl lg:pl-4">
-              <FontAwesomeIcon icon={faEnvelope} height={20} />
-              <Link
-                className="hidden md:block py-4 px-4 w-full"
-                href="/all-movies"
-              >
-                Semua movies
-              </Link>
-            </li>
-            <li className="flex justify-start items-center hover:bg-semangka/10 hover:text-semangka text-arang/80 rounded-xl lg:pl-4">
-              <FontAwesomeIcon icon={faEnvelope} height={20} />
-              <Link
-                className="hidden md:block py-4 px-4 w-full"
-                href="/watchlist"
-              >
-                Watchlist
-              </Link>
-            </li>
-          </ul>
-          <ul className="hidden lg:grid grid-cols-1 gap-1 pt-4 border-t-2 border-semangka/20">
-            <li className="flex justify-start items-center hover:bg-semangka/10 hover:text-semangka text-arang/80 rounded-xl lg:pl-4">
-              <FontAwesomeIcon icon={faEnvelope} height={20} />
-              <Link
-                className="hidden md:block py-4 px-4 w-full"
-                href="/user-setting"
-              >
-                Setting
-              </Link>
-            </li>
-            <li className="flex justify-start items-center hover:bg-semangka/10 hover:text-semangka text-arang/80 rounded-xl lg:pl-4">
-              <FontAwesomeIcon icon={faEnvelope} height={20} />
-              <Link className="hidden md:block py-4 px-4 w-full" href="/help">
-                Help
-              </Link>
-            </li>
-          </ul>
-        </div>
+            <FontAwesomeIcon icon={faComments} height={20} />
+            <Link
+              className="hidden md:block py-4 px-4 w-full"
+              href="/activities"
+            >
+              Activities
+            </Link>
+          </li>
+          <li
+            className={`flex justify-start items-center hover:bg-pink-100 hover:text-semangka ${
+              router.route === "/all-movies"
+                ? "bg-gradient-to-t text-white hover:bg-gradient-to-t from-pink-600 to-pink-300 hover:text-white"
+                : "text-arang/80"
+            } rounded-xl lg:pl-4`}
+          >
+            <FontAwesomeIcon icon={faFilm} height={20} />
+            <Link
+              className="hidden md:block py-4 px-4 w-full"
+              href="/all-movies"
+            >
+              Semua movies
+            </Link>
+          </li>
+          <li
+            className={`flex justify-start items-center hover:bg-pink-100 hover:text-semangka ${
+              router.route === "/watchlist"
+                ? "bg-gradient-to-t text-white hover:bg-gradient-to-t from-pink-600 to-pink-300 hover:text-white"
+                : "text-arang/80"
+            } rounded-xl lg:pl-4`}
+          >
+            <FontAwesomeIcon icon={faBookmark} height={20} />
+            <Link
+              className="hidden md:block py-4 px-4 w-full"
+              href="/watchlist"
+            >
+              Watchlist
+            </Link>
+          </li>
+          <li
+            className={`flex justify-start items-center hover:bg-pink-100 hover:text-semangka ${
+              router.route === "/user-setting"
+                ? "bg-gradient-to-t text-white hover:bg-gradient-to-t from-pink-600 to-pink-300 hover:text-white"
+                : "text-arang/80"
+            } rounded-xl lg:pl-4`}
+          >
+            <FontAwesomeIcon icon={faGear} height={20} />
+            <Link
+              className="hidden md:block py-4 px-4 w-full"
+              href="/user-setting"
+            >
+              Setting
+            </Link>
+          </li>
+        </ul>
+        <ul className="bg-gradient-to-tr from-pink-200 to-pink-100 hidden lg:grid grid-cols-1 gap-1 p-4 border-t-2 border-pink-200">
+          <li
+            className={`flex justify-start items-center hover:bg-pink-100 hover:text-semangka ${
+              router.route === "/about"
+                ? "bg-gradient-to-t text-white hover:bg-gradient-to-t from-pink-600 to-pink-300 hover:text-white"
+                : "text-arang/80"
+            } rounded-xl lg:pl-4`}
+          >
+            <FontAwesomeIcon icon={faQuestion} height={20} />
+            <Link className="hidden md:block py-4 px-4 w-full" href="/about">
+              Tentang Marica
+            </Link>
+          </li>
+          <li
+            className={`flex justify-start items-center hover:bg-pink-100 hover:text-semangka ${
+              router.route === "/help"
+                ? "bg-gradient-to-t text-white hover:bg-gradient-to-t from-pink-600 to-pink-300 hover:text-white"
+                : "text-arang/80"
+            } rounded-xl lg:pl-4`}
+          >
+            <FontAwesomeIcon icon={faQuestion} height={20} />
+            <Link className="hidden md:block py-4 px-4 w-full" href="/help">
+              Help
+            </Link>
+          </li>
+        </ul>
       </div>
     </aside>
   );

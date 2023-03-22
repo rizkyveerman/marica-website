@@ -2,7 +2,7 @@ import MainLayout from "@/layout/MainLayout";
 import React from "react";
 
 const Watchlist = () => {
-  return <div>Watchlist</div>;
+  return <section className="p-4">Watchlist</section>;
 };
 
 Watchlist.getLayout = function getLayout(page) {

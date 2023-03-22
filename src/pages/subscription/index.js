@@ -100,7 +100,7 @@ const Subscription = () => {
                 setMonthlyPlan(false);
               }}
             >
-              <p className="bg-semangka text-white rounded-lg px-3 text-sm py-1 flex-1 w-fit">
+              <p className="bg-gradient-to-r from-pink-600 to-pink-100 text-white rounded-lg px-3 text-sm py-1 flex-1 w-fit">
                 ⭐Direkomendasikan!
               </p>
               <div className="p-4">

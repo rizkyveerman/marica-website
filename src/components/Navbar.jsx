@@ -1,4 +1,10 @@
 import { useState } from "react";
+import {
+  faMagnifyingGlass,
+  faBell,
+  faCrown,
+} from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import pro from "@/icons/pro.png";
 import bell from "@/icons/bell.png";
 import Logo from "./Logo";
@@ -19,13 +25,15 @@ const Navbar = () => {
       <div className="hidden md:flex gap-1 justify-between items-center mr-4">
         <div className="flex gap-1">
           <Input placeholder="Coba cari Cocomelon..." type="text" />
-          <Button>Cari</Button>
+          <Button variant="secondary" isClicked={() => "search"}>
+            Cari
+          </Button>
         </div>
         {/* <ul className="flex">
           <li>
             <Link
               href="/about"
-              className="block p-4 hover:bg-semangka/10 rounded-lg cursor-pointer"
+              className="block p-4 hover:bg-pink-100 rounded-lg cursor-pointer"
             >
               Tentang Marica
             </Link>
@@ -33,7 +41,7 @@ const Navbar = () => {
           <li>
             <Link
               href="/blog"
-              className="block p-4 hover:bg-semangka/10 rounded-lg cursor-pointer"
+              className="block p-4 hover:bg-pink-100 rounded-lg cursor-pointer"
             >
               Blog
             </Link>
@@ -47,12 +55,12 @@ const Navbar = () => {
       </div>
       <div className="relative flex items-center gap-2">
         {profileMenu && (
-          <div className="absolute z-[999] top-10 right-0 p-4 rounded-xl bg-white dark:bg-bad-blueberry border-2 border-semangka/40">
-            <ul className="border-b-2 border-semangka/20 pb-2 mb-3 grid gap-1 w-60 drop-shadow-xl">
+          <div className="absolute z-[999] top-10 right-0 p-4 rounded-xl bg-white dark:bg-bad-blueberry border-2 border-pink-400">
+            <ul className="border-b-2 border-pink-200 pb-2 mb-3 grid gap-1 w-60 drop-shadow-xl">
               <li onClick={() => setProfileMenu(!profileMenu)}>
                 <Link
                   href="/my-profile"
-                  className="block p-2 hover:bg-semangka/10 rounded-lg cursor-pointer"
+                  className="block p-2 hover:bg-pink-100 rounded-lg cursor-pointer"
                 >
                   My profile
                 </Link>
@@ -60,7 +68,7 @@ const Navbar = () => {
               <li onClick={() => setProfileMenu(!profileMenu)}>
                 <Link
                   href="/user-setting"
-                  className="block p-2 hover:bg-semangka/10 rounded-lg cursor-pointer"
+                  className="block p-2 hover:bg-pink-100 rounded-lg cursor-pointer"
                 >
                   Settings
                 </Link>
@@ -69,14 +77,14 @@ const Navbar = () => {
               <li onClick={() => setProfileMenu(!profileMenu)}>
                 <Link
                   href="/"
-                  className="block p-2 hover:bg-semangka/10 rounded-lg cursor-pointer"
+                  className="block p-2 hover:bg-pink-100 rounded-lg cursor-pointer"
                 >
                   Logout
                 </Link>
               </li>
             </ul>
             <button
-              className="p-2 rounded-lg bg-semangka/10 w-full flex justify-between items-center"
+              className="p-2 rounded-lg bg-pink-100 w-full flex justify-between items-center"
               type="button"
               onClick={() => setIsDarkmode(!isDarkmode)}
             >
@@ -96,18 +104,24 @@ const Navbar = () => {
         <div className="w-full flex gap-2 md:gap-4 justify-end items-center">
           <Link
             href="/subscription"
-            className="flex justify-start items-center gap-1 w-full py-1 px-2 rounded-xl bg-semangka/10 text-xs"
+            className="flex justify-start items-center gap-1 w-full py-1 px-2 rounded-xl bg-pink-100 text-xs"
           >
-            <Image src={pro} alt="pro-icon" width={28} height={28} />
+            {/* <Image src={pro} alt="pro-icon" width={28} height={28} /> */}
+            <div className="text-orange-500 hover:text-semangka cursor-pointer">
+              <FontAwesomeIcon icon={faCrown} height={14} />
+            </div>
             <p>Upgrade ke Pro</p>
           </Link>
-          <Image src={bell} alt="bell-icon" width={28} height={28} />
+          {/* <Image src={bell} alt="bell-icon" width={28} height={28} /> */}
+          <div className="hover:text-semangka cursor-pointer">
+            <FontAwesomeIcon icon={faBell} height={20} />
+          </div>
           <Image
             src={woman}
             alt="Rica"
             width={32}
             height={32}
-            className="rounded-full bg-semangka cursor-pointer"
+            className="rounded-full bg-gradient-to-r from-pink-600 to-pink-100 cursor-pointer"
             onClick={() => setProfileMenu(!profileMenu)}
           />
         </div>

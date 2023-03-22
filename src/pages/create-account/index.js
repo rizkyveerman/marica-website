@@ -88,7 +88,7 @@ const CreateAccount = () => {
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="py-3 px-6 bg-semangka rounded-lg text-white"
+                    className="py-3 px-6 bg-gradient-to-r from-pink-600 to-pink-100 rounded-lg text-white"
                   >
                     Buat akun
                   </button>

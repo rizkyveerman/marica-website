@@ -2,7 +2,7 @@ import MainLayout from "@/layout/MainLayout";
 import React from "react";
 
 const Feed = () => {
-  return <div>Feed</div>;
+  return <section className="p-4">Feed</section>;
 };
 
 Feed.getLayout = function getLayout(page) {

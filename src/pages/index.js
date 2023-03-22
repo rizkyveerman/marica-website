@@ -32,7 +32,7 @@ export default function Home({ movies }) {
   return (
     <article>
       <section className="p-4">
-        <div className="relative w-full h-[60vh] rounded-2xl bg-semangka/30 grid place-content-center overflow-hidden">
+        <div className="relative w-full h-[60vh] rounded-2xl bg-pink-300 grid place-content-center overflow-hidden">
           {movies.data.slice(0, 1).map((movie) => (
             <div key={movie.imdbid} className="h-auto">
               <Image
