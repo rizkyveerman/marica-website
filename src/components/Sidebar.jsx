@@ -17,9 +17,9 @@ const Sidebar = () => {
   const router = useRouter();
 
   return (
-    <aside className="w-full h-full">
-      <div className="w-full h-full flex flex-col justify-between">
-        <ul className="p-4 w-full md:h-0 flex justify-between md:justify-start item-center gap-1 lg:grid grid-cols-1 md:border-0 md:gap-1">
+    <aside>
+      <div className="flex flex-col justify-between">
+        <ul className="relative left-0 right-0 bottom-0 border p-4 flex justify-between item-center gap-1 lg:grid grid-cols-1 md:border-0">
           <li className="hidden lg:block">
             <Logo />
           </li>
@@ -38,7 +38,7 @@ const Sidebar = () => {
                 className="w-8 md:w-[18px]"
               /> */}
 
-            <Link className="flex gap-2 py-4 w-full" href="/">
+            <Link className="flex gap-2 p-4 lg:py-4 lg:px-0 w-full" href="/">
               <FontAwesomeIcon icon={faHome} height={20} />
               <span className="hidden md:block">Home</span>
             </Link>
@@ -57,7 +57,10 @@ const Sidebar = () => {
                 height={18}
                 className="w-8 md:w-[18px]"
               /> */}
-            <Link className="flex gap-2 py-4 w-full" href="/activities">
+            <Link
+              className="flex gap-2 p-4 lg:py-4 lg:px-0 w-full"
+              href="/activities"
+            >
               <FontAwesomeIcon icon={faComments} height={20} />
               <span className="hidden md:block">Activities</span>
             </Link>
@@ -69,7 +72,10 @@ const Sidebar = () => {
                 : "text-arang/80"
             } rounded-xl lg:pl-4`}
           >
-            <Link className="flex gap-2 py-4 w-full" href="/all-movies">
+            <Link
+              className="flex gap-2 p-4 lg:py-4 lg:px-0 w-full"
+              href="/all-movies"
+            >
               <FontAwesomeIcon icon={faFilm} height={20} />
               <span className="hidden md:block">Semua movies</span>
             </Link>
@@ -81,7 +87,10 @@ const Sidebar = () => {
                 : "text-arang/80"
             } rounded-xl lg:pl-4`}
           >
-            <Link className="flex gap-2 py-4 w-full" href="/watchlist">
+            <Link
+              className="flex gap-2 p-4 lg:py-4 lg:px-0 w-full"
+              href="/watchlist"
+            >
               <FontAwesomeIcon icon={faBookmark} height={20} />
               <span className="hidden md:block">Watchlist</span>
             </Link>
@@ -93,7 +102,10 @@ const Sidebar = () => {
                 : "text-arang/80"
             } rounded-xl lg:pl-4`}
           >
-            <Link className="flex gap-2 py-4 w-full" href="/user-setting">
+            <Link
+              className="flex gap-2 p-4 lg:py-4 lg:px-0 w-full"
+              href="/user-setting"
+            >
               <FontAwesomeIcon icon={faGear} height={20} />
               <span className="hidden md:block">Setting</span>
             </Link>
@@ -107,7 +119,10 @@ const Sidebar = () => {
                 : "text-arang/80"
             } rounded-xl lg:pl-4`}
           >
-            <Link className="flex gap-2 py-4 w-full" href="/about">
+            <Link
+              className="flex gap-2 p-4 lg:py-4 lg:px-0 w-full"
+              href="/about"
+            >
               <FontAwesomeIcon icon={faCircleInfo} height={20} />
               <span className="hidden md:block">Tentang Marica</span>
             </Link>
@@ -119,7 +134,10 @@ const Sidebar = () => {
                 : "text-arang/80"
             } rounded-xl lg:pl-4`}
           >
-            <Link className="flex gap-2 py-4 w-full" href="/help">
+            <Link
+              className="flex gap-2 p-4 lg:py-4 lg:px-0 w-full"
+              href="/help"
+            >
               <FontAwesomeIcon icon={faQuestion} height={20} />
               <span className="hidden md:block">Help</span>
             </Link>

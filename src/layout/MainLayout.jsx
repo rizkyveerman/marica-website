@@ -28,7 +28,7 @@ const MainLayout = ({ children, title, icon }) => {
         }}
       >
         <div className="flex">
-          <div className="w-full grid place-content-center gap-4 bg-white lg:block lg:w-1/4 lg:h-screen fixed left-0 right-0 bottom-0 lg:sticky lg:top-0 lg:left-0 z-[999999]">
+          <div className="grid grid-cols-1 place-content-center gap-4 bg-white lg:block lg:w-1/4 lg:h-screen fixed left-0 right-0 bottom-0 lg:sticky lg:top-0 lg:left-0 z-[999999]">
             <Sidebar />
           </div>
           <main id="container" className="relative w-full">
