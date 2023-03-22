@@ -1,10 +1,11 @@
 import { useState } from "react";
+import Image from "next/image";
+import background from "@/images/background.jpg";
 import { ModalContext } from "@/libs/context/modal-context";
 import Head from "next/head";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Sidebar from "@/components/Sidebar";
-import LoginButton from "@/components/buttons/LoginButton";
 
 const MainLayout = ({ children, title, icon }) => {
   const [showModal, setShowModal] = useState(false);
@@ -27,7 +28,7 @@ const MainLayout = ({ children, title, icon }) => {
           toggleModal: toggleModalHandler,
         }}
       >
-        <div className="flex">
+        <div id="container" className="flex">
           <div className="max-w-xs grid grid-cols-1 place-content-center gap-4 bg-white lg:block lg:w-1/4 lg:h-screen fixed left-0 right-0 bottom-0 lg:sticky lg:top-0 lg:left-0 z-[999999]">
             <Sidebar />
           </div>
@@ -38,6 +39,14 @@ const MainLayout = ({ children, title, icon }) => {
             </div>
             <Footer />
           </main>
+          <Image
+            src={background}
+            fill
+            objectFit="cover"
+            objectPosition="center"
+            alt="background-gradient"
+            className="-z-50"
+          />
         </div>
       </ModalContext.Provider>
     </>

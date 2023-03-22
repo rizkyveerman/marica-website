@@ -1,7 +1,7 @@
+import background from "@/images/background.jpg";
 import Button from "@/components/buttons/Button";
 import Link from "next/link";
 import Footer from "@/components/Footer";
-import Logo from "@/components/Logo";
 import Image from "next/image";
 import watching from "@/images/watching.jpg";
 import { useState, useRef } from "react";
@@ -104,6 +104,14 @@ function LoginPage() {
             />
           </div>
         </section>
+        <Image
+          src={background}
+          fill
+          objectFit="cover"
+          objectPosition="center"
+          alt="background-gradient"
+          className="-z-50"
+        />
       </article>
       <Footer />
     </>
