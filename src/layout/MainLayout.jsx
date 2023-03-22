@@ -34,19 +34,19 @@ const MainLayout = ({ children, title, icon }) => {
           </div>
           <main id="container" className="relative w-full">
             <Navbar />
-            <div className="bg-slate-100 min-h-screen rounded-t-3xl md:rounded-t-none md:rounded-tl-3xl md:rounded-bl-3xl">
+            <div className="relative min-h-screen rounded-t-3xl md:rounded-t-none md:rounded-tl-3xl md:rounded-bl-3xl">
               {children}
+              {/* <Image
+                src={background}
+                fill
+                objectFit="cover"
+                objectPosition="center"
+                alt="background-gradient"
+                className="-z-50 rounded-t-3xl md:rounded-t-none md:rounded-tl-3xl md:rounded-bl-3xl"
+              /> */}
             </div>
             <Footer />
           </main>
-          <Image
-            src={background}
-            fill
-            objectFit="cover"
-            objectPosition="center"
-            alt="background-gradient"
-            className="-z-50"
-          />
         </div>
       </ModalContext.Provider>
     </>
