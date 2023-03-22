@@ -16,7 +16,7 @@ const Sidebar = () => {
             <li className="hidden lg:block">
               <Logo />
             </li>
-            <li className="flex justify-start items-center">
+            <li className="flex justify-start items-center hover:bg-semangka/10 rounded-xl lg:pl-4">
               <Image
                 src={activity}
                 alt="activity"
@@ -25,13 +25,13 @@ const Sidebar = () => {
                 className="w-8 md:w-[18px]"
               />
               <Link
-                className="hidden md:block py-4 px-4 hover:bg-semangka/10 rounded-xl lg:pl-4"
+                className="hidden md:block py-4 px-4 w-full"
                 href="/activities"
               >
                 Activities
               </Link>
             </li>
-            <li className="flex justify-start items-center">
+            <li className="flex justify-start items-center hover:bg-semangka/10 rounded-xl lg:pl-4">
               <Image
                 src={all}
                 alt="all"
@@ -40,13 +40,13 @@ const Sidebar = () => {
                 className="w-8 md:w-[18px]"
               />
               <Link
-                className="hidden md:block py-4 px-4 hover:bg-semangka/10 rounded-xl lg:pl-4"
+                className="hidden md:block py-4 px-4 w-full"
                 href="/all-movies"
               >
                 Semua movies
               </Link>
             </li>
-            <li className="flex justify-start items-center">
+            <li className="flex justify-start items-center hover:bg-semangka/10 rounded-xl lg:pl-4">
               <Image
                 src={bookmark}
                 alt="bookmark"
@@ -55,27 +55,28 @@ const Sidebar = () => {
                 className="w-8 md:w-[18px]"
               />
               <Link
-                className="hidden md:block py-4 px-4 hover:bg-semangka/10 rounded-xl lg:pl-4"
+                className="hidden md:block py-4 px-4 w-full"
                 href="/watchlist"
               >
                 Watchlist
               </Link>
             </li>
           </ul>
-          <div className="hidden lg:grid grid-cols-1 gap-1 pt-4 border-t-2 border-semangka/20">
-            <Link
-              className="block py-4 px-4 hover:bg-semangka/10 rounded-xl lg:pl-4"
-              href="/user-setting"
-            >
-              Setting
-            </Link>
-            <Link
-              className="block py-4 hover:bg-semangka/10 rounded-xl pl-4"
-              href="/help"
-            >
-              Help
-            </Link>
-          </div>
+          <ul className="hidden lg:grid grid-cols-1 gap-1 pt-4 border-t-2 border-semangka/20">
+            <li className="flex justify-start items-center hover:bg-semangka/10 rounded-xl lg:pl-4">
+              <Link
+                className="hidden md:block py-4 px-4 w-full"
+                href="/user-setting"
+              >
+                Setting
+              </Link>
+            </li>
+            <li className="flex justify-start items-center hover:bg-semangka/10 rounded-xl lg:pl-4">
+              <Link className="hidden md:block py-4 px-4 w-full" href="/help">
+                Help
+              </Link>
+            </li>
+          </ul>
         </div>
       </div>
     </aside>
