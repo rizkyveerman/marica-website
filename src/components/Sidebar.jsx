@@ -15,7 +15,6 @@ import {
 
 const Sidebar = () => {
   const router = useRouter();
-  console.log("router", router.route);
 
   return (
     <aside className="w-full h-full">
@@ -39,7 +38,7 @@ const Sidebar = () => {
                 className="w-8 md:w-[18px]"
               /> */}
 
-            <Link className="block py-4 px-4 w-full" href="/">
+            <Link className="flex gap-2 py-4 w-full" href="/">
               <FontAwesomeIcon icon={faHome} height={20} />
               <span className="hidden md:block">Home</span>
             </Link>
@@ -58,7 +57,7 @@ const Sidebar = () => {
                 height={18}
                 className="w-8 md:w-[18px]"
               /> */}
-            <Link className="block py-4 px-4 w-full" href="/activities">
+            <Link className="flex gap-2 py-4 w-full" href="/activities">
               <FontAwesomeIcon icon={faComments} height={20} />
               <span className="hidden md:block">Activities</span>
             </Link>
@@ -70,7 +69,7 @@ const Sidebar = () => {
                 : "text-arang/80"
             } rounded-xl lg:pl-4`}
           >
-            <Link className="block py-4 px-4 w-full" href="/all-movies">
+            <Link className="flex gap-2 py-4 w-full" href="/all-movies">
               <FontAwesomeIcon icon={faFilm} height={20} />
               <span className="hidden md:block">Semua movies</span>
             </Link>
@@ -82,7 +81,7 @@ const Sidebar = () => {
                 : "text-arang/80"
             } rounded-xl lg:pl-4`}
           >
-            <Link className="block py-4 px-4 w-full" href="/watchlist">
+            <Link className="flex gap-2 py-4 w-full" href="/watchlist">
               <FontAwesomeIcon icon={faBookmark} height={20} />
               <span className="hidden md:block">Watchlist</span>
             </Link>
@@ -94,7 +93,7 @@ const Sidebar = () => {
                 : "text-arang/80"
             } rounded-xl lg:pl-4`}
           >
-            <Link className="block py-4 px-4 w-full" href="/user-setting">
+            <Link className="flex gap-2 py-4 w-full" href="/user-setting">
               <FontAwesomeIcon icon={faGear} height={20} />
               <span className="hidden md:block">Setting</span>
             </Link>
@@ -108,9 +107,9 @@ const Sidebar = () => {
                 : "text-arang/80"
             } rounded-xl lg:pl-4`}
           >
-            <FontAwesomeIcon icon={faCircleInfo} height={20} />
-            <Link className="hidden md:block py-4 px-4 w-full" href="/about">
-              Tentang Marica
+            <Link className="flex gap-2 py-4 w-full" href="/about">
+              <FontAwesomeIcon icon={faCircleInfo} height={20} />
+              <span className="hidden md:block">Tentang Marica</span>
             </Link>
           </li>
           <li
@@ -120,9 +119,9 @@ const Sidebar = () => {
                 : "text-arang/80"
             } rounded-xl lg:pl-4`}
           >
-            <FontAwesomeIcon icon={faQuestion} height={20} />
-            <Link className="hidden md:block py-4 px-4 w-full" href="/help">
-              Help
+            <Link className="flex gap-2 py-4 w-full" href="/help">
+              <FontAwesomeIcon icon={faQuestion} height={20} />
+              <span className="hidden md:block">Help</span>
             </Link>
           </li>
         </ul>
