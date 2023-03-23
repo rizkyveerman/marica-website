@@ -5,6 +5,7 @@ const nextConfig = {
       "m.media-amazon.com",
       "cdn.myanimelist.net",
       "https://via.placeholder.com/",
+      "i.ytimg.com",
     ],
   },
   reactStrictMode: true,

@@ -4,16 +4,16 @@ import MainLayout from "@/layout/MainLayout";
 import Tag from "@/components/cards/Tag";
 
 export async function getServerSideProps(ctx) {
-  const movies = await loadMovies();
+  const videos = await loadMovies();
 
   return {
     props: {
-      movies,
+      videos,
     },
   };
 }
 
-const Browser = (props) => {
+const Browser = ({ videos }) => {
   return (
     <article>
       <header className="sticky top-0 z-50 bg-white drop-shadow-sm p-4">
@@ -35,19 +35,19 @@ const Browser = (props) => {
       </header>
       <section className="p-4">
         <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-4">
-          {props.movies.length > 0 ? (
-            props.movies.map((movie) => (
-              <li key={movie.imdbid} className="h-auto">
+          {videos.items.length > 0 ? (
+            videos.items.map((video) => (
+              <li key={video.id} className="h-auto">
                 <MovieCard
-                  thumbnail={movie.image}
-                  slug={`/browse/${movie.id}`}
-                  title={movie.title}
-                  rating={movie.rating}
+                  thumbnail={video.snippet.thumbnails.high.url}
+                  slug={`/browse/${video.id}`}
+                  title={video.snippet.title}
+                  rating={video.rating}
                 />
               </li>
             ))
           ) : (
-            <p>No movies found</p>
+            <p>No videos found</p>
           )}
         </ul>
       </section>

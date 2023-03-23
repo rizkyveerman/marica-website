@@ -18,6 +18,7 @@ const MovieCard = ({ thumbnail, title, slug, rating, children }) => {
           fill
           objectFit="cover"
           className="thumbnail hover:scale-125 transition-transform"
+          priority
         />
       </div>
       <div className="py-4">

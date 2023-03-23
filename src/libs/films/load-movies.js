@@ -1,17 +1,10 @@
 export async function loadMovies() {
-  const options = {
-    method: "GET",
-    headers: {
-      "X-RapidAPI-Key": "67bab0cae7msh55022c298b7ebc4p12216bjsnbe8224d9d264",
-      "X-RapidAPI-Host": "anime-db.p.rapidapi.com",
-    },
-  };
-
-  const movies = await fetch(
-    "https://anime-db.p.rapidapi.com/anime?page=1&size=10&search=Fullmetal&genres=Fantasy%2CDrama&sortBy=ranking&sortOrder=asc",
-    options
+  // --header 'Authorization: Bearer [YOUR_ACCESS_TOKEN]' \
+  // --header 'Accept: application/json' \
+  const videos = await fetch(
+    `https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&id=Ks-_Mh1QhMc%2Cc0KYU2j0TM4%2CeIho2S0ZahI&key=${process.env.API_KEY}`
   )
     .then((response) => response.json())
     .catch((err) => console.error(err));
-  return movies.data;
+  return videos;
 }

@@ -4,43 +4,36 @@ import Image from "next/image";
 import MovieCard from "@/components/cards/MovieCard";
 import Link from "next/link";
 
-export async function getServerSideProps(ctx) {
-  const options = {
-    method: "GET",
-    headers: {
-      "X-RapidAPI-Key": "67bab0cae7msh55022c298b7ebc4p12216bjsnbe8224d9d264",
-      "X-RapidAPI-Host": "anime-db.p.rapidapi.com",
-    },
-  };
 
-  const movies = await fetch(
-    "https://anime-db.p.rapidapi.com/anime?page=1&size=10&search=Fullmetal&genres=Fantasy%2CDrama&sortBy=ranking&sortOrder=asc",
-    options
+export async function getServerSideProps(ctx) {
+  const videos = await fetch(
+    `https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&id=Ks-_Mh1QhMc%2Cc0KYU2j0TM4%2CeIho2S0ZahI&key=${process.env.API_KEY}`
   )
     .then((response) => response.json())
     .catch((err) => console.error(err));
 
   return {
     props: {
-      movies,
+      videos,
     },
   };
 }
 
-export default function Home({ movies }) {
-  console.log("movies", movies);
+export default function Home({ videos }) {
+  console.log("videos", videos.items);
   return (
     <article>
       <section className="p-4">
         <div className="relative w-full h-[60vh] rounded-2xl bg-pink-300 grid place-content-center overflow-hidden">
-          {movies.data.slice(0, 1).map((movie) => (
-            <div key={movie.imdbid} className="h-auto">
+          {videos.items.slice(0, 1).map((video) => (
+            <div key={video.id} className="h-auto">
+              {video.snippet.title}
               <Image
-                src={movie.image}
-                alt={movie.title}
+                src={video.snippet.thumbnails.high.url}
+                alt={video.snippet.title}
                 fill
                 objectFit="cover"
-                objectPosition="top"
+                objectPosition="center"
               />
             </div>
           ))}
@@ -55,16 +48,16 @@ export default function Home({ movies }) {
           </Link>
         </div>
         <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-          {movies.data.slice(0, 4).map((movie) => (
+          {videos.items.map((video) => (
             <li
-              key={movie.imdbid}
+              key={video.imdbid}
               className="h-auto rounded-xl overflow-hidden"
             >
               <Link href="/" className="relative block max-w-xs h-72">
                 <Image
-                  src={movie.image}
-                  alt={movie.title}
-                  title={movie.title}
+                  src={video.snippet.thumbnails.high.url}
+                  alt={video.snippet.title}
+                  title={video.snippet.title}
                   fill
                   objectFit="cover"
                 />
@@ -81,16 +74,13 @@ export default function Home({ movies }) {
           </Link>
         </div>
         <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-          {movies.data.slice(0, 8).map((movie) => (
-            <li
-              key={movie.imdbid}
-              className="h-auto rounded-xl overflow-hidden"
-            >
+          {videos.items.map((video) => (
+            <li key={video.id} className="h-auto rounded-xl overflow-hidden">
               <Link href="/" className="relative block w-full h-64">
                 <Image
-                  src={movie.image}
-                  alt={movie.title}
-                  title={movie.title}
+                  src={video.snippet.thumbnails.high.url}
+                  alt={video.snippet.title}
+                  title={video.snippet.title}
                   fill
                   objectFit="cover"
                 />
@@ -108,16 +98,13 @@ export default function Home({ movies }) {
           </Link>
         </div>
         <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-          {movies.data.slice(4, 8).map((movie) => (
-            <li
-              key={movie.imdbid}
-              className="h-auto rounded-xl overflow-hidden"
-            >
+          {videos.items.map((video) => (
+            <li key={video.id} className="h-auto rounded-xl overflow-hidden">
               <Link href="/" className="relative block w-full h-64">
                 <Image
-                  src={movie.image}
-                  alt={movie.title}
-                  title={movie.title}
+                  src={video.snippet.thumbnails.high.url}
+                  alt={video.snippet.title}
+                  title={video.snippet.title}
                   fill
                   objectFit="cover"
                 />
