@@ -3,7 +3,6 @@ import Footer from "@/components/Footer";
 import Logo from "@/components/Logo";
 import Image from "next/image";
 import { Form, Formik, Field, ErrorMessage } from "formik";
-import movie from "@/images/movie.png";
 
 const CreateAccount = () => {
   return (
