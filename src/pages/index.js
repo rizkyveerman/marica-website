@@ -4,7 +4,6 @@ import Image from "next/image";
 import MovieCard from "@/components/cards/MovieCard";
 import Link from "next/link";
 
-
 export async function getServerSideProps(ctx) {
   const videos = await fetch(
     `https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&id=Ks-_Mh1QhMc%2Cc0KYU2j0TM4%2CeIho2S0ZahI&key=${process.env.API_KEY}`
@@ -53,7 +52,7 @@ export default function Home({ videos }) {
               key={video.imdbid}
               className="h-auto rounded-xl overflow-hidden"
             >
-              <Link href="/" className="relative block max-w-xs h-72">
+              <Link href="/" className="relative block h-72">
                 <Image
                   src={video.snippet.thumbnails.high.url}
                   alt={video.snippet.title}
