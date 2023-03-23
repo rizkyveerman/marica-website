@@ -1,6 +1,6 @@
 import watching from "@/images/watching.jpg";
 import Button from "@/components/buttons/Button";
-import Footer from "@/components/Footer";
+import Footer from "@/widgets/Footer";
 import Logo from "@/components/Logo";
 import Image from "next/image";
 import { Form, Formik, Field, ErrorMessage } from "formik";

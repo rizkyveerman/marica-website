@@ -1,7 +1,7 @@
 import background from "@/images/background.jpg";
 import Button from "@/components/buttons/Button";
 import Link from "next/link";
-import Footer from "@/components/Footer";
+import Footer from "@/widgets/Footer";
 import Image from "next/image";
 import watching from "@/images/watching.jpg";
 import { useState, useRef } from "react";
