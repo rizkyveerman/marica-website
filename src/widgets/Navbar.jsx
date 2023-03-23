@@ -5,16 +5,14 @@ import {
   faCrown,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import pro from "@/icons/pro.png";
-import bell from "@/icons/bell.png";
-import Logo from "./Logo";
+import Logo from "../components/Logo";
 import Link from "next/link";
 import Image from "next/image";
 import woman from "@/icons/woman.png";
-import Button from "./buttons/Button";
+import Button from "@/components/buttons/Button";
 import lightmode from "@/images/lightmode.png";
 import darkmode from "@/images/darkmode.png";
-import Input from "./inputs/Input";
+import Input from "@/components/inputs/Input";
 
 const Navbar = () => {
   const [profileMenu, setProfileMenu] = useState(false);

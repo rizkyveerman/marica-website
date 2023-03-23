@@ -1,7 +1,7 @@
 import React from "react";
 import { useRouter } from "next/router";
 import Link from "next/link";
-import Logo from "./Logo";
+import Logo from "@/components/Logo";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faHome,
