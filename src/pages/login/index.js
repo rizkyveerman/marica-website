@@ -94,7 +94,7 @@ function LoginPage() {
           </div>
         </section>
         <section className="w-full h-full p-4 hidden md:grid">
-          <div className="relative p-4 md:grid w-full h-full bg-arang place-content-center rounded-2xl overflow-hidden">
+          <div className="relative p-4 md:grid w-full h-full place-content-center rounded-2xl overflow-hidden">
             <Image
               src={watching}
               alt="movie"

@@ -1,3 +1,4 @@
+import watching from "@/images/watching.jpg";
 import Button from "@/components/buttons/Button";
 import Footer from "@/components/Footer";
 import Logo from "@/components/Logo";
@@ -102,8 +103,16 @@ const CreateAccount = () => {
             </Button>
           </div>
         </section>
-        <section className="hidden md:grid w-full h-full bg-arang place-content-center">
-          <Image src={movie} alt="movie" />
+        <section className="w-full h-full p-4 hidden md:grid">
+          <div className="relative p-4 md:grid w-full h-full place-content-center rounded-2xl overflow-hidden">
+            <Image
+              src={watching}
+              alt="movie"
+              fill
+              objectFit="cover"
+              objectPosition="center"
+            />
+          </div>
         </section>
       </article>
       <Footer />
