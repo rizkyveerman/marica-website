@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
+import ThemeContext from "@/store/theme-context";
 import {
   faMagnifyingGlass,
   faBell,
@@ -16,7 +17,8 @@ import Input from "@/components/inputs/Input";
 
 const Navbar = () => {
   const [profileMenu, setProfileMenu] = useState(false);
-  const [isDarkmode, setIsDarkmode] = useState(false);
+  const themeCtx = useContext(ThemeContext);
+  console.log("theme = ", themeCtx);
 
   return (
     <header className="relative p-4 flex justify-between items-center bg-white dark:bg-bad-semangka z-50">
@@ -84,13 +86,13 @@ const Navbar = () => {
             <button
               className="p-2 rounded-lg bg-pink-100 w-full flex justify-between items-center"
               type="button"
-              onClick={() => setIsDarkmode(!isDarkmode)}
+              onClick={() => themeCtx.toggleTheme()}
             >
               <p className="w-full text-left">Dark mode</p>
               <div>
                 <Image
-                  src={isDarkmode ? darkmode : lightmode}
-                  alt={isDarkmode ? "night mode" : "day mode"}
+                  src={themeCtx ? lightmode : darkmode}
+                  alt={themeCtx ? "day mode" : "night mode"}
                   width={200}
                   height={32}
                   className="rounded-lg"
