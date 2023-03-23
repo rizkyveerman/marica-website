@@ -1,5 +1,7 @@
 import { useState, useContext } from "react";
-import ThemeContext from "@/store/theme-context";
+import { useDispatch, useSelector } from "react-redux";
+import { toggleTheme } from "@/store/slices/theme";
+
 import {
   faMagnifyingGlass,
   faBell,
@@ -17,7 +19,9 @@ import Input from "@/components/inputs/Input";
 
 const Navbar = () => {
   const [profileMenu, setProfileMenu] = useState(false);
-  const { theme, toggleTheme } = useContext(ThemeContext);
+  const dispatch = useDispatch();
+  const appTheme = useSelector((state) => state.theme.theme);
+  console.log("theme= ", appTheme);
 
   return (
     <header className="relative p-4 flex justify-between items-center bg-white dark:bg-bad-semangka z-50">
@@ -85,13 +89,13 @@ const Navbar = () => {
             <button
               className="p-2 rounded-lg bg-pink-100 w-full flex justify-between items-center"
               type="button"
-              onClick={() => toggleTheme}
+              onClick={() => dispatch(toggleTheme())}
             >
               <p className="w-full text-left">Dark mode</p>
               <div>
                 <Image
-                  src={theme === "light" ? lightmode : darkmode}
-                  alt={theme === "light" ? "day mode" : "night mode"}
+                  src={appTheme === "light" ? lightmode : darkmode}
+                  alt={appTheme === "light" ? "day mode" : "night mode"}
                   width={200}
                   height={32}
                   className="rounded-lg"

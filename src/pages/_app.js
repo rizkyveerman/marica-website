@@ -1,11 +1,12 @@
-import { ThemeContextProvider } from "@/store/theme-context";
+import { Provider } from "react-redux";
+import store from "@/store/store";
 import "@/styles/globals.css";
 
 export default function App({ Component, pageProps }) {
   const getLayout = Component.getLayout || ((page) => page);
   return getLayout(
-    <ThemeContextProvider>
+    <Provider store={store}>
       <Component {...pageProps} />
-    </ThemeContextProvider>
+    </Provider>
   );
 }
