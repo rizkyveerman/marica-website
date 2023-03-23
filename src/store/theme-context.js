@@ -1,13 +1,13 @@
 import { createContext, useState } from "react";
 
 const ThemeContext = createContext({
-  //false: lightmode
-  //true: darkmode
+  //false: lightmode, true: darkmode
   theme: false,
   toggleTheme: () => {},
 });
 
-export const ThemeContextProvider = ({ children }) => {
+export const ThemeContextProvider = (props) => {
+  //false: lightmode, true: darkmode
   const [theme, setTheme] = useState(false);
 
   const themeHandler = () => {
@@ -15,13 +15,15 @@ export const ThemeContextProvider = ({ children }) => {
     console.log("toggled!");
   };
 
-  const context = {
-    theme: theme,
-    toggleTheme: themeHandler,
-  };
-
   return (
-    <ThemeContext.Provider value={context}>{children}</ThemeContext.Provider>
+    <ThemeContext.Provider
+      value={{
+        theme,
+        toggleTheme: themeHandler,
+      }}
+    >
+      {props.children}
+    </ThemeContext.Provider>
   );
 };
 
