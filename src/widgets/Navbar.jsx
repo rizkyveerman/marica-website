@@ -18,7 +18,7 @@ import Input from "@/components/inputs/Input";
 const Navbar = () => {
   const [profileMenu, setProfileMenu] = useState(false);
   const themeCtx = useContext(ThemeContext);
-  console.log("theme = ", themeCtx);
+  console.log("theme = ", themeCtx.toggleTheme);
 
   return (
     <header className="relative p-4 flex justify-between items-center bg-white dark:bg-bad-semangka z-50">
@@ -86,7 +86,7 @@ const Navbar = () => {
             <button
               className="p-2 rounded-lg bg-pink-100 w-full flex justify-between items-center"
               type="button"
-              onClick={() => themeCtx.toggleTheme()}
+              onClick={() => themeCtx.toggleTheme}
             >
               <p className="w-full text-left">Dark mode</p>
               <div>

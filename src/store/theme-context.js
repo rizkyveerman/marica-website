@@ -10,10 +10,13 @@ const ThemeContext = createContext({
 export const ThemeContextProvider = ({ children }) => {
   const [theme, setTheme] = useState(false);
 
-  const themeHandler = () => setTheme(!theme);
+  const themeHandler = () => {
+    setTheme(!theme);
+    console.log("toggled!");
+  };
 
   const context = {
-    theme,
+    theme: theme,
     toggleTheme: themeHandler,
   };
 

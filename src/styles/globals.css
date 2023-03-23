@@ -47,3 +47,10 @@ h3 {
 h4 {
   @apply text-xl font-normal uppercase tracking-widest;
 }
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: black;
+    color: white;
+  }
+}
