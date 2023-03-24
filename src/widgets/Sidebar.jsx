@@ -4,6 +4,7 @@ import Link from "next/link";
 import Logo from "@/components/Logo";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
+  faHome,
   faArrowUpRightDots,
   faFilm,
   faTableCells,
@@ -58,16 +59,29 @@ const Sidebar = () => {
       <div className="w-full h-full flex lg:flex-col justify-center lg:justify-between items-center lg:items-start">
         <div className="w-full flex lg:flex-col">
           <ul className="w-full relative p-4 flex justify-between item-center gap-1 lg:grid grid-cols-1 ">
-            <li>
-              <p className="hidden md:block text-xs uppercase tracking-widest">
-                menu
-              </p>
+            <li
+              className={`flex lg:hidden justify-start items-center hover:bg-pink-100 hover:text-semangka ${
+                router.route === "/"
+                  ? "bg-gradient-to-t text-white hover:bg-gradient-to-t from-pink-600 to-pink-300 hover:text-white"
+                  : "text-arang/80"
+              } rounded-xl lg:pl-4`}
+            >
+              <Link
+                className="flex items-center gap-2 p-4 lg:py-4 lg:px-0 w-full"
+                href="/"
+              >
+                <FontAwesomeIcon icon={faHome} height={14} />
+                <span className="hidden md:block">Home</span>
+              </Link>
+            </li>
+            <li className="hidden md:block">
+              <p className="text-xs uppercase tracking-widest">menu</p>
             </li>
             {menus.map((menu, index) => (
               <li
                 key={index}
                 className={`flex justify-start items-center hover:bg-pink-100 hover:text-semangka ${
-                  router.route === "/all-movies"
+                  router.route === `/${menu.path}`
                     ? "bg-gradient-to-t text-white hover:bg-gradient-to-t from-pink-600 to-pink-300 hover:text-white"
                     : "text-arang/80"
                 } rounded-xl lg:pl-4`}
@@ -85,7 +99,7 @@ const Sidebar = () => {
               className={`flex justify-start items-center hover:bg-pink-100 bg-gradient-to-t hover:text-pink-600 text-arang/80 rounded-xl lg:pl-4`}
             >
               <button className="flex items-center gap-2 p-4 lg:py-4 lg:px-0 w-full">
-                <FontAwesomeIcon icon={faQuestion} height={14} />
+                <FontAwesomeIcon icon={faBars} height={14} />
                 <span className="hidden md:block">Menu</span>
               </button>
             </li>
