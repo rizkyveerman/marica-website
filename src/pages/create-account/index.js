@@ -27,10 +27,16 @@ const CreateAccount = () => {
                 return errors;
               }}
               onSubmit={(values, { setSubmitting }) => {
-                setTimeout(() => {
-                  alert(JSON.stringify(values, null, 2));
-                  setSubmitting(false);
-                }, 400);
+                // setTimeout(() => {
+                //   alert(JSON.stringify(values, null, 2));
+                //   setSubmitting(false);
+                // }, 400);
+                console.log("values: ", values.firstname);
+                console.log("values: ", values.lastname);
+                console.log(
+                  "values: ",
+                  values.firstname + " " + values.lastname
+                );
               }}
             >
               {({ isSubmitting }) => (
