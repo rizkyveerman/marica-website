@@ -6,6 +6,8 @@ import Image from "next/image";
 import watching from "@/images/watching.jpg";
 
 function LoginPage() {
+  const passwordRegex = /^[A-Za-z\d@$!%*?&]{8,}$/;
+
   return (
     <>
       <article className="grid grid-cols-1 md:grid-cols-2 h-screen">
@@ -30,13 +32,18 @@ function LoginPage() {
                 } else if (
                   !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)
                 ) {
-                  errors.email = "";
+                  errors.email =
+                    "Email tidak valid! Pastikan kamu email kamu tepat!";
                 }
 
                 //password validation
                 if (!values.password) {
                   errors.password = "required";
+                } else if (!passwordRegex.test(values.password)) {
+                  errors.password =
+                    "Panjang minimal password adalah 8 karakter.";
                 }
+
                 return errors;
               }}
               onSubmit={async (values, { setSubmitting }) => {
