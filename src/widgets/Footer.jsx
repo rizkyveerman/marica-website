@@ -22,7 +22,7 @@ const footerLinks = [
 
 const Footer = () => {
   return (
-    <footer className="px-4 py-4 pb-28 md:pb-4 bg-white w-full grid gap-4">
+    <footer className="px-4 py-4 pb-28 md:pb-4 md:p-8 bg-white w-full grid gap-4">
       <div className="w-full flex flex-col md:flex-row justify-between items-center">
         <div className="flex flex-col md:flex-row gap-2 items-center">
           <Logo />
