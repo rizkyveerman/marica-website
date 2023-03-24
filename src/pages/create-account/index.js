@@ -9,40 +9,6 @@ import Image from "next/image";
 import { Form, Formik, Field, ErrorMessage } from "formik";
 
 const CreateAccount = () => {
-  const [firstname, setFirstname] = useState("");
-  const [lastname, setLastname] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-
-  const firstnameRef = useRef();
-  const lastnameRef = useRef();
-  const emailRef = useRef();
-  const passwordRef = useRef();
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    // Send login request to backend
-    const fullname = firstname + " " + lastname;
-
-    const response = await fetch(
-      "https://marica-backend.vercel.app/api/v1/user",
-      {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          nama: fullname,
-          password,
-          email,
-        }),
-      }
-    )
-      .then((res) => console.log("res", res))
-      .catch((err) => console.log("err", err));
-
-    // Handle response
-    // const data = await response.json();
-    // console.log(data);
-  };
   return (
     <>
       <article className="grid grid-cols-1 md:grid-cols-2 min-h-screen">
@@ -50,79 +16,38 @@ const CreateAccount = () => {
           <div className="w-full max-w-lg p-4 rounded-2xl grid gap-4">
             <Logo styles="m-auto" />
             <h3>Buat akun Marica Gratis!</h3>
-            <form
-              onSubmit={handleSubmit}
-              className="w-full grid grid-cols-1 gap-4"
-            >
-              <Input
-                placeholder="Nama depan"
-                ref={firstnameRef}
-                label="Firstname"
-                type="text"
-                name="firstname"
-                onChange={(e) => setFirstname(e)}
-              />
-              <Input
-                placeholder="Nama belakang"
-                ref={lastnameRef}
-                label="Lastname"
-                type="lastname"
-                name="lastname"
-                onChange={(e) => setLastname(e)}
-              />
-              <Input
-                placeholder="Email"
-                ref={emailRef}
-                label="Email"
-                type="email"
-                name="email"
-                onChange={(e) => setEmail(e)}
-              />
-              <Input
-                placeholder="Buat password"
-                ref={passwordRef}
-                label="Password"
-                type="password"
-                name="password"
-                onChange={(e) => setPassword(e)}
-              />
-              <div className="flex justify-between items-center">
-                <div className="flex gap-1 items-center justify-start cursor-pointer">
-                  <input
-                    type="checkbox"
-                    name="remember-me"
-                    id="remember-me"
-                    className="w-4 h-4"
-                  />
-                  <label htmlFor="remember-me" className="text-slate-400">
-                    Remember me
-                  </label>
-                </div>
-                <Link
-                  href="/reset-password"
-                  className="text-pink-600 underline"
-                >
-                  Lupa password?
-                </Link>
-              </div>
-              <Button
-                type="submit"
-                variant="primary"
-                isClicked={() => "clicked"}
-              >
-                Buat akun
-              </Button>
-            </form>
-            {/* <Formik
-              initialValues={{ email: "", password: "" }}
+            <Formik
+              initialValues={{
+                email: "",
+                password: "",
+                firstname: "",
+                lastname: "",
+              }}
               validate={(values) => {
                 const errors = {};
+
+                //firstname validation
+                if (!values.firstname) {
+                  errors.firstname = "required";
+                }
+
+                //lastname validation
+                if (!values.lastname) {
+                  errors.lastname = "required";
+                }
+
+                //email validation
                 if (!values.email) {
                   errors.email = "required";
                 } else if (
                   !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)
                 ) {
-                  errors.email = "Invalid email address";
+                  errors.email = "";
+                }
+
+                //password validation
+                if (!values.password) {
+                  errors.password = "required";
                 }
                 return errors;
               }}
@@ -155,7 +80,7 @@ const CreateAccount = () => {
                       <Field
                         type="text"
                         name="firstname"
-                        className="w-full py-3 px-6 rounded-lg bg-abu-terang"
+                        className="focus:text-pink-600 focus:outline-2 text-slate-700 focus:outline-pink-600 w-full py-3 px-6 rounded-lg bg-abu-terang"
                       />
                       <ErrorMessage
                         name="firstname"
@@ -168,7 +93,7 @@ const CreateAccount = () => {
                       <Field
                         type="text"
                         name="lastname"
-                        className="w-full py-3 px-6 rounded-lg bg-abu-terang"
+                        className="focus:text-pink-600 focus:outline-2 text-slate-700 focus:outline-pink-600 w-full py-3 px-6 rounded-lg bg-abu-terang"
                       />
                       <ErrorMessage
                         name="lastname"
@@ -182,7 +107,7 @@ const CreateAccount = () => {
                     <Field
                       type="email"
                       name="email"
-                      className="w-full py-3 px-6 rounded-lg bg-abu-terang"
+                      className="focus:text-pink-600 focus:outline-2 text-slate-700 focus:outline-pink-600 w-full py-3 px-6 rounded-lg bg-abu-terang"
                     />
                     <ErrorMessage
                       name="email"
@@ -195,20 +120,25 @@ const CreateAccount = () => {
                     <Field
                       type="password"
                       name="password"
-                      className="py-3 px-6 rounded-lg bg-abu-terang"
+                      className="focus:text-pink-600 focus:outline-2 text-slate-700 focus:outline-pink-600 py-3 px-6 rounded-lg bg-abu-terang"
                     />
-                    <ErrorMessage name="password" component="div" />
+                    <ErrorMessage
+                      name="password"
+                      component="div"
+                      className="m-auto absolute top-full p-2 rounded-xl bg-red-100 text-red-600 before:block before:absolute before:left-1/2 before:bottom-full before:w-3 before:h-3 before:bg-red-100 before:translate-y-1/2 before:-translate-x-1/2 before:rotate-45 before:rounded-sm z-10"
+                    />
                   </div>
-                  <button
+                  <Button
                     type="submit"
+                    variant="primary"
                     disabled={isSubmitting}
                     isClicked={() => "clicked"}
                   >
                     Buat akun
-                  </button>
+                  </Button>
                 </Form>
               )}
-            </Formik> */}
+            </Formik>
             <p className="text-sm text-abu text-center mt-10">
               Sudah punya akun Marica?
             </p>
