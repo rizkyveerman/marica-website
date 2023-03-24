@@ -15,23 +15,19 @@ function LoginPage() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-    // console.log(username);
-    // console.log(password);
-
     // Send login request to backend
-    // const response = await fetch(
-    //   "https://marica-backend.vercel.app/api/v1/user/login",
-    //   {
-    //     method: "POST",
-    //     headers: { "Content-Type": "application/json" },
-    //     body: JSON.stringify({ identifier: username, password }),
-    //   }
-    // );
+    const response = await fetch(
+      "https://marica-backend.vercel.app/api/v1/user/login",
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ identifier: username, password }),
+      }
+    );
 
-    // // Handle response
-    // const data = await response.json();
-    // console.log(data);
+    // Handle response
+    const data = await response.json();
+    console.log(data);
   };
 
   return (
