@@ -26,36 +26,15 @@ const Navbar = () => {
   return (
     <header className="relative p-4 flex justify-between items-center bg-white z-50">
       <div className="hidden md:flex gap-1 justify-between items-center mr-4">
+        <Logo />
         <div className="flex gap-1">
           <Input placeholder="Coba cari Cocomelon..." type="text" />
           <Button variant="secondary" isClicked={() => "search"}>
             Cari
           </Button>
         </div>
-        {/* <ul className="flex">
-          <li>
-            <Link
-              href="/about"
-              className="block p-4 hover:bg-pink-100 rounded-lg cursor-pointer"
-            >
-              Tentang Marica
-            </Link>
-          </li>
-          <li>
-            <Link
-              href="/blog"
-              className="block p-4 hover:bg-pink-100 rounded-lg cursor-pointer"
-            >
-              Blog
-            </Link>
-          </li>
-        </ul> */}
       </div>
-      <div className="block md:hidden">
-        <div className="block md:hidden">
-          <Logo />
-        </div>
-      </div>
+
       <div className="relative flex items-center gap-2">
         {profileMenu && (
           <div className="absolute z-[999] top-10 right-0 p-4 rounded-xl bg-white border-2 border-pink-400">
