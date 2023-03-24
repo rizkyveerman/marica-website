@@ -9,6 +9,9 @@ import Image from "next/image";
 import { Form, Formik, Field, ErrorMessage } from "formik";
 
 const CreateAccount = () => {
+  const passwordRegex =
+    /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+
   return (
     <>
       <article className="grid grid-cols-1 md:grid-cols-2 min-h-screen">
@@ -42,12 +45,16 @@ const CreateAccount = () => {
                 } else if (
                   !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)
                 ) {
-                  errors.email = "";
+                  errors.email =
+                    "Email tidak valid! sepertinya kamu melupakan simbol @";
                 }
 
                 //password validation
                 if (!values.password) {
                   errors.password = "required";
+                } else if (!passwordRegex.test(values.password)) {
+                  errors.password =
+                    "Password harus terdiri dari huruf kecil, huruf kapital, angka, dan simbol @$!%*?&";
                 }
                 return errors;
               }}
