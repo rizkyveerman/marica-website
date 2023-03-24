@@ -42,15 +42,17 @@ function LoginPage() {
               series yang kamu suka!
             </p>
             <Formik
-              initialValues={{ email: "", password: "" }}
+              initialValues={{ username: "", password: "" }}
               validate={(values) => {
                 const errors = {};
-                if (!values.email) {
-                  errors.email = "required";
+                if (!values.username) {
+                  errors.username = "required";
                 } else if (
-                  !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)
+                  !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(
+                    values.username
+                  )
                 ) {
-                  errors.email = "Invalid email address";
+                  errors.username = "Invalid username";
                 }
                 return errors;
               }}
@@ -78,14 +80,14 @@ function LoginPage() {
               {({ isSubmitting }) => (
                 <Form className="grid grid-cols-1 gap-4 w-full">
                   <div className="email w-full relative grid gap-2">
-                    <p>Masukkan email</p>
+                    <p>Masukkan username</p>
                     <Field
-                      type="email"
-                      name="email"
+                      type="text"
+                      name="text"
                       className="w-full py-3 px-6 rounded-lg bg-abu-terang"
                     />
                     <ErrorMessage
-                      name="email"
+                      name="text"
                       component="div"
                       className="m-auto absolute top-full p-2 rounded-xl bg-red-100 text-red-600 before:block before:absolute before:left-1/2 before:bottom-full before:w-3 before:h-3 before:bg-red-100 before:translate-y-1/2 before:-translate-x-1/2 before:rotate-45 before:rounded-sm z-10"
                     />
