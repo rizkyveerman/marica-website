@@ -10,7 +10,7 @@ function LoginPage() {
     <>
       <article className="grid grid-cols-1 md:grid-cols-2 h-screen">
         <section className="grid place-content-center p-4">
-          <div className="z-10 min-w-[350px] md:w-96 max-w-lg p-4 rounded-2xl grid gap-4">
+          <div className="min-w-[350px] md:w-96 max-w-lg p-4 rounded-2xl grid gap-4">
             <h2>Masuk dulu, yuk!</h2>
             <p className="text-slate-500 text-justify">
               Masuk ke akun Marica kamu dan nikmati berbagai kategori film dan

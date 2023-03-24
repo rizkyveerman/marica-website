@@ -13,7 +13,7 @@ const CreateAccount = () => {
     <>
       <article className="grid grid-cols-1 md:grid-cols-2 min-h-screen">
         <section className="grid place-content-center p-4">
-          <div className="w-full max-w-lg p-4 rounded-2xl grid gap-4">
+          <div className="min-w-[350px] md:w-96 max-w-lg p-4 rounded-2xl grid gap-4">
             <Logo styles="m-auto" />
             <h3>Buat akun Marica Gratis!</h3>
             <Formik
@@ -139,12 +139,12 @@ const CreateAccount = () => {
                 </Form>
               )}
             </Formik>
-            <p className="text-sm text-abu text-center mt-10">
-              Sudah punya akun Marica?
+            <p className="text-sm text-abu text-center">
+              Sudah punya akun Marica?{" "}
+              <Link href="/login" className="text-pink-600 underline">
+                Masuk disini
+              </Link>
             </p>
-            <Button isLink type="secondary" href="/login">
-              Masuk
-            </Button>
           </div>
         </section>
         <section className="w-full h-full p-4 hidden md:grid">
