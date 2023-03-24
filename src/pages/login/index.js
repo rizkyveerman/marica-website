@@ -40,7 +40,7 @@ function LoginPage() {
               Masuk ke akun Marica kamu dan nikmati berbagai kategori film dan
               series yang kamu suka!
             </p>
-            <form onSubmit={handleSubmit} className="grid grid-cols-1 gap-4">
+            {/* <form onSubmit={handleSubmit} className="grid grid-cols-1 gap-4">
               <Input
                 placeholder="Username"
                 ref={usernameRef}
@@ -83,7 +83,8 @@ function LoginPage() {
               >
                 Masuk
               </Button>
-            </form>
+            </form> */}
+            
             <p className="text-sm text-abu text-center">
               Belum punya akun Marica?{" "}
               <Link href="/create-account" className="text-pink-600 underline">
