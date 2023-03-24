@@ -54,11 +54,25 @@ function LoginPage() {
                 }
                 return errors;
               }}
-              onSubmit={(values, { setSubmitting }) => {
-                setTimeout(() => {
-                  alert(JSON.stringify(values, null, 2));
-                  setSubmitting(false);
-                }, 400);
+              onSubmit={async (values, { setSubmitting }) => {
+                // setTimeout(() => {
+                //   alert(JSON.stringify(values, null, 2));
+                //   setSubmitting(false);
+                // }, 400);
+
+                // Send login request to backend
+                const response = await fetch(
+                  "https://marica-backend.vercel.app/api/v1/user/login",
+                  {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ identifier: username, password }),
+                  }
+                );
+
+                // Handle response
+                const data = await response.json();
+                console.log(data);
               }}
             >
               {({ isSubmitting }) => (
