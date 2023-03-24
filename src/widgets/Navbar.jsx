@@ -24,18 +24,17 @@ const Navbar = () => {
   console.log("theme= ", appTheme);
 
   return (
-    <header className="relative p-4 flex justify-between items-center bg-white z-50">
-      <div className="hidden md:flex gap-1 justify-between items-center mr-4">
+    <header className="w-full relative p-4 flex justify-between items-center bg-white z-50">
+      <div className="w-full flex gap-1 justify-between items-center mr-4">
         <Logo />
-        <div className="flex gap-1">
+        <div className="hidden lg:flex gap-1">
           <Input placeholder="Coba cari Cocomelon..." type="text" />
           <Button variant="secondary" isClicked={() => "search"}>
             Cari
           </Button>
         </div>
       </div>
-
-      <div className="relative flex items-center gap-2">
+      <div className="relative w-full h-full flex justify-between items-center gap-2">
         {profileMenu && (
           <div className="absolute z-[999] top-10 right-0 p-4 rounded-xl bg-white border-2 border-pink-400">
             <ul className="border-b-2 border-pink-200 pb-2 mb-3 grid gap-1 w-60 drop-shadow-xl">
@@ -86,7 +85,7 @@ const Navbar = () => {
         <div className="w-full flex gap-2 md:gap-4 justify-end items-center">
           <Link
             href="/subscription"
-            className="text-pink-700 flex justify-start items-center gap-1 w-full py-1 px-2 rounded-xl bg-gradient-to-t from-pink-400 to-pink-200 text-xs border-2 border-pink-300 hover:text-white"
+            className="text-pink-700 flex justify-start items-center gap-1 w-fit py-1 px-2 rounded-xl bg-gradient-to-t from-pink-400 to-pink-200 text-xs border-2 border-pink-300 hover:text-white"
           >
             {/* <Image src={pro} alt="pro-icon" width={28} height={28} /> */}
             <FontAwesomeIcon icon={faCrown} height={14} />

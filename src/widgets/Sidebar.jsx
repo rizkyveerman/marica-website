@@ -74,7 +74,7 @@ const Sidebar = () => {
                 <span className="hidden md:block">Home</span>
               </Link>
             </li>
-            <li className="hidden md:block">
+            <li className="hidden lg:block">
               <p className="text-xs uppercase tracking-widest">menu</p>
             </li>
             {menus.map((menu, index) => (
