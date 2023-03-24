@@ -1,4 +1,7 @@
 import watching from "@/images/watching.jpg";
+import { useRef, useState } from "react";
+import Link from "next/link";
+import Input from "@/components/inputs/Input";
 import Button from "@/components/buttons/Button";
 import Footer from "@/widgets/Footer";
 import Logo from "@/components/Logo";
@@ -6,14 +9,111 @@ import Image from "next/image";
 import { Form, Formik, Field, ErrorMessage } from "formik";
 
 const CreateAccount = () => {
+  const [firstname, setFirstname] = useState("");
+  const [lastname, setLastname] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const firstnameRef = useRef();
+  const lastnameRef = useRef();
+  const emailRef = useRef();
+  const passwordRef = useRef();
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    // Send login request to backend
+    const fullname = firstname + " " + lastname;
+
+    const response = await fetch(
+      "https://marica-backend.vercel.app/api/v1/user",
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          nama: fullname,
+          password,
+          email,
+        }),
+      }
+    )
+      .then((res) => console.log("res", res))
+      .catch((err) => console.log("err", err));
+
+    // Handle response
+    // const data = await response.json();
+    // console.log(data);
+  };
   return (
     <>
       <article className="grid grid-cols-1 md:grid-cols-2 min-h-screen">
         <section className="grid place-content-center p-4">
-          <div className="w-full max-w-xl p-4 rounded-2xl grid gap-4">
+          <div className="w-full max-w-lg p-4 rounded-2xl grid gap-4">
             <Logo styles="m-auto" />
             <h3>Buat akun Marica Gratis!</h3>
-            <Formik
+            <form
+              onSubmit={handleSubmit}
+              className="w-full grid grid-cols-1 gap-4"
+            >
+              <Input
+                placeholder="Nama depan"
+                ref={firstnameRef}
+                label="Firstname"
+                type="text"
+                name="firstname"
+                onChange={(e) => setFirstname(e)}
+              />
+              <Input
+                placeholder="Nama belakang"
+                ref={lastnameRef}
+                label="Lastname"
+                type="lastname"
+                name="lastname"
+                onChange={(e) => setLastname(e)}
+              />
+              <Input
+                placeholder="Email"
+                ref={emailRef}
+                label="Email"
+                type="email"
+                name="email"
+                onChange={(e) => setEmail(e)}
+              />
+              <Input
+                placeholder="Buat password"
+                ref={passwordRef}
+                label="Password"
+                type="password"
+                name="password"
+                onChange={(e) => setPassword(e)}
+              />
+              <div className="flex justify-between items-center">
+                <div className="flex gap-1 items-center justify-start cursor-pointer">
+                  <input
+                    type="checkbox"
+                    name="remember-me"
+                    id="remember-me"
+                    className="w-4 h-4"
+                  />
+                  <label htmlFor="remember-me" className="text-slate-400">
+                    Remember me
+                  </label>
+                </div>
+                <Link
+                  href="/reset-password"
+                  className="text-pink-600 underline"
+                >
+                  Lupa password?
+                </Link>
+              </div>
+              <Button
+                type="submit"
+                variant="primary"
+                isClicked={() => "clicked"}
+              >
+                Buat akun
+              </Button>
+            </form>
+            {/* <Formik
               initialValues={{ email: "", password: "" }}
               validate={(values) => {
                 const errors = {};
@@ -26,17 +126,25 @@ const CreateAccount = () => {
                 }
                 return errors;
               }}
-              onSubmit={(values, { setSubmitting }) => {
-                // setTimeout(() => {
-                //   alert(JSON.stringify(values, null, 2));
-                //   setSubmitting(false);
-                // }, 400);
-                console.log("values: ", values.firstname);
-                console.log("values: ", values.lastname);
-                console.log(
-                  "values: ",
-                  values.firstname + " " + values.lastname
+              onSubmit={async (values, { setSubmitting }) => {
+                const fullname = values.firstname + " " + values.lastname;
+
+                const response = await fetch(
+                  "https://marica-backend.vercel.app/api/v1/user",
+                  {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({
+                      nama: fullname,
+                      password: values.password,
+                      email: values.email,
+                    }),
+                  }
                 );
+
+                // Handle response
+                const data = await response.json();
+                console.log(data);
               }}
             >
               {({ isSubmitting }) => (
@@ -91,17 +199,16 @@ const CreateAccount = () => {
                     />
                     <ErrorMessage name="password" component="div" />
                   </div>
-                  <Button
+                  <button
                     type="submit"
-                    variant="primary"
                     disabled={isSubmitting}
                     isClicked={() => "clicked"}
                   >
-                    Masuk
-                  </Button>
+                    Buat akun
+                  </button>
                 </Form>
               )}
-            </Formik>
+            </Formik> */}
             <p className="text-sm text-abu text-center mt-10">
               Sudah punya akun Marica?
             </p>
