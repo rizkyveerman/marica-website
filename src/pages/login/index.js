@@ -52,7 +52,7 @@ function LoginPage() {
               />
               <Input
                 placeholder="Masukkan password"
-                ref={usernameRef}
+                ref={passwordRef}
                 label="Password"
                 type="password"
                 name="password"
