@@ -8,9 +8,9 @@ import { Form, Formik, Field, ErrorMessage } from "formik";
 const CreateAccount = () => {
   return (
     <>
-      <article className="grid grid-cols-1 md:grid-cols-2 min-h-screen bg-abu-terang">
+      <article className="grid grid-cols-1 md:grid-cols-2 min-h-screen">
         <section className="grid place-content-center p-4">
-          <div className="w-full max-w-xl bg-white p-4 rounded-2xl grid gap-4">
+          <div className="w-full max-w-xl p-4 rounded-2xl grid gap-4">
             <Logo styles="m-auto" />
             <h3>Buat akun Marica Gratis!</h3>
             <Formik
@@ -41,7 +41,7 @@ const CreateAccount = () => {
                       <Field
                         type="text"
                         name="firstname"
-                        className="w-full py-3 px-6 rounded-lg bg-abu-terang dark:bg-bad-semangka"
+                        className="w-full py-3 px-6 rounded-lg bg-abu-terang"
                       />
                       <ErrorMessage
                         name="firstname"
@@ -54,7 +54,7 @@ const CreateAccount = () => {
                       <Field
                         type="text"
                         name="lastname"
-                        className="w-full py-3 px-6 rounded-lg bg-abu-terang dark:bg-bad-semangka"
+                        className="w-full py-3 px-6 rounded-lg bg-abu-terang"
                       />
                       <ErrorMessage
                         name="lastname"
@@ -68,7 +68,7 @@ const CreateAccount = () => {
                     <Field
                       type="email"
                       name="email"
-                      className="w-full py-3 px-6 rounded-lg bg-abu-terang dark:bg-bad-semangka"
+                      className="w-full py-3 px-6 rounded-lg bg-abu-terang"
                     />
                     <ErrorMessage
                       name="email"
@@ -81,17 +81,18 @@ const CreateAccount = () => {
                     <Field
                       type="password"
                       name="password"
-                      className="py-3 px-6 rounded-lg bg-abu-terang dark:bg-bad-semangka"
+                      className="py-3 px-6 rounded-lg bg-abu-terang"
                     />
                     <ErrorMessage name="password" component="div" />
                   </div>
-                  <button
+                  <Button
                     type="submit"
+                    variant="primary"
                     disabled={isSubmitting}
-                    className="py-3 px-6 bg-gradient-to-r from-pink-600 to-pink-100 rounded-lg text-white"
+                    isClicked={() => "clicked"}
                   >
-                    Buat akun
-                  </button>
+                    Masuk
+                  </Button>
                 </Form>
               )}
             </Formik>

@@ -24,7 +24,7 @@ const Navbar = () => {
   console.log("theme= ", appTheme);
 
   return (
-    <header className="relative p-4 flex justify-between items-center bg-white dark:bg-bad-semangka z-50">
+    <header className="relative p-4 flex justify-between items-center bg-white z-50">
       <div className="hidden md:flex gap-1 justify-between items-center mr-4">
         <div className="flex gap-1">
           <Input placeholder="Coba cari Cocomelon..." type="text" />
@@ -58,7 +58,7 @@ const Navbar = () => {
       </div>
       <div className="relative flex items-center gap-2">
         {profileMenu && (
-          <div className="absolute z-[999] top-10 right-0 p-4 rounded-xl bg-white dark:bg-bad-blueberry border-2 border-pink-400">
+          <div className="absolute z-[999] top-10 right-0 p-4 rounded-xl bg-white border-2 border-pink-400">
             <ul className="border-b-2 border-pink-200 pb-2 mb-3 grid gap-1 w-60 drop-shadow-xl">
               <li onClick={() => setProfileMenu(!profileMenu)}>
                 <Link

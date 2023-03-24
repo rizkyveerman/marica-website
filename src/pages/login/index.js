@@ -77,13 +77,7 @@ function LoginPage() {
                   Lupa password?
                 </Link>
               </div>
-              <Button
-                type="submit"
-                variant="primary"
-                isClicked={() => "clicked"}
-              >
-                Masuk
-              </Button>
+            
             </form>
             <p className="text-sm text-abu text-center">
               Belum punya akun Marica?{" "}

@@ -35,7 +35,7 @@ const Login = () => {
                 <Field
                   type="email"
                   name="email"
-                  className="w-full py-3 px-6 rounded-lg bg-abu-terang dark:bg-bad-semangka"
+                  className="w-full py-3 px-6 rounded-lg bg-abu-terang"
                 />
                 <ErrorMessage
                   name="email"
@@ -48,7 +48,7 @@ const Login = () => {
                 <Field
                   type="password"
                   name="password"
-                  className="py-3 px-6 rounded-lg bg-abu-terang dark:bg-bad-semangka"
+                  className="py-3 px-6 rounded-lg bg-abu-terang"
                 />
                 <ErrorMessage name="password" component="div" />
               </div>

@@ -29,10 +29,7 @@ const Footer = () => {
           <ul className="flex flex-col md:flex-row items-center md:items-start gap-4 text-arang">
             {footerLinks.map((link) => (
               <li key={link.pathname}>
-                <Link
-                  href={link.link}
-                  className="dark:text-white hover:text-semangka text-sm"
-                >
+                <Link href={link.link} className="hover:text-semangka text-sm">
                   {link.pathname}
                 </Link>
               </li>
@@ -88,7 +85,7 @@ const Footer = () => {
         </div>
       </div>
       <div className="border-t-2 border-pink-100 pt-4 flex flex-col justify-start items-center md:flex-row md:justify-between md:items-start gap-4">
-        <p className="text-sm text-center dark:text-white md:text-left">
+        <p className="text-sm text-center md:text-left">
           © 2023 Marica dan entitas-entitas terkaitnya. Hak Cipta Dilindungi
           Undang-Undang.
         </p>

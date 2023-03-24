@@ -16,6 +16,11 @@
     "Fira Mono", "Droid Sans Mono", "Courier New", monospace;
 }
 
+html,
+body {
+  background-color: white;
+}
+
 h1,
 h2,
 h3,
@@ -46,11 +51,4 @@ h3 {
 
 h4 {
   @apply text-xl font-normal uppercase tracking-widest;
-}
-
-@media (prefers-color-scheme: dark) {
-  body {
-    background-color: black;
-    color: white;
-  }
 }
