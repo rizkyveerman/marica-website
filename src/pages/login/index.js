@@ -16,19 +16,22 @@ function LoginPage() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Send login request to backend
-    const response = await fetch(
-      "https://marica-backend.vercel.app/api/v1/user/login",
-      {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ identifier: username, password }),
-      }
-    );
+    // console.log(username);
+    // console.log(password);
 
-    // Handle response
-    const data = await response.json();
-    console.log(data);
+    // Send login request to backend
+    // const response = await fetch(
+    //   "https://marica-backend.vercel.app/api/v1/user/login",
+    //   {
+    //     method: "POST",
+    //     headers: { "Content-Type": "application/json" },
+    //     body: JSON.stringify({ identifier: username, password }),
+    //   }
+    // );
+
+    // // Handle response
+    // const data = await response.json();
+    // console.log(data);
   };
 
   return (
@@ -48,7 +51,7 @@ function LoginPage() {
                 label="Username"
                 type="text"
                 name="username"
-                onChange={(e) => setUsername(e.target.value)}
+                onChange={(e) => setUsername(e)}
               />
               <Input
                 placeholder="Masukkan password"
@@ -56,7 +59,7 @@ function LoginPage() {
                 label="Password"
                 type="password"
                 name="password"
-                onChange={(e) => setPassword(e.target.value)}
+                onChange={(e) => setPassword(e)}
               />
               <div className="flex justify-between items-center">
                 <div className="flex gap-1 items-center justify-start cursor-pointer">
