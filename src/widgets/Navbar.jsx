@@ -27,12 +27,12 @@ const Navbar = () => {
     <header className="w-full relative p-4 flex justify-between items-center bg-white z-50">
       <div className="w-full flex gap-1 justify-between items-center mr-4">
         <Logo />
-        <div className="hidden lg:flex gap-1">
+        {/* <div className="hidden lg:flex gap-1">
           <Input placeholder="Coba cari Cocomelon..." type="text" />
           <Button variant="secondary" isClicked={() => "search"}>
             Cari
           </Button>
-        </div>
+        </div> */}
       </div>
       <div className="relative w-full h-full flex justify-between items-center gap-2">
         {profileMenu && (
