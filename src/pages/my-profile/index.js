@@ -1,4 +1,5 @@
 import { useState } from "react";
+import ChildCard from "@/components/cards/ChildCard";
 import MainLayout from "@/layout/MainLayout";
 import { Tab } from "@headlessui/react";
 import Image from "next/image";
@@ -40,15 +41,19 @@ const MyProfile = () => {
       <section className="w-full px-4 py-8">
         <Tab.Group>
           <Tab.List className="flex">
-            <Tab className="px-5 py-3 rounded-xl outline-none text-slate-600 ui-selected:text-white ui-selected:bg-gradient-to-t from-pink-600 to-pink-400">
+            <Tab className="px-5 py-2 rounded-xl outline-none text-slate-600 ui-selected:text-white ui-selected:bg-gradient-to-t from-pink-600 to-pink-400">
               Data anak
             </Tab>
-            <Tab className="px-5 py-3 rounded-xl outline-none text-slate-600 ui-selected:text-white ui-selected:bg-gradient-to-t from-pink-600 to-pink-400">
+            <Tab className="px-5 py-2 rounded-xl outline-none text-slate-600 ui-selected:text-white ui-selected:bg-gradient-to-t from-pink-600 to-pink-400">
               Statistik anak
             </Tab>
           </Tab.List>
-          <Tab.Panels className="p-4">
-            <Tab.Panel>anakku joko lorem</Tab.Panel>
+          <Tab.Panels className="max-w-2xl p-4">
+            <Tab.Panel className="grid gap-4">
+              {[1, 2, 3].map((index) => (
+                <ChildCard key={index} />
+              ))}
+            </Tab.Panel>
             <Tab.Panel>statistik</Tab.Panel>
           </Tab.Panels>
         </Tab.Group>
