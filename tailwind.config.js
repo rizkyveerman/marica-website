@@ -36,5 +36,5 @@ module.exports = {
       },
     },
   },
-  plugins: [require("daisyui"), require("@headlessui/tailwindcss")],
+  plugins: [require("@headlessui/tailwindcss")],
 };
