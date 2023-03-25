@@ -39,17 +39,14 @@ export default function Home({ videos }) {
       </section>
       <section className="p-4">
         <div className="flex justify-between items-center py-2">
-          <p className="text-xl font-semibold mb-4">Terpopuler</p>
-          <Link className="text-semangka underline" href="/all-movies">
+          <h4 className="text-xl font-semibold mb-4">Terpopuler</h4>
+          <Link className="text-pink-600 underline" href="/all-movies">
             Lihat semua
           </Link>
         </div>
         <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
           {videos.items.map((video) => (
-            <li
-              key={video.imdbid}
-              className="h-auto rounded-xl overflow-hidden"
-            >
+            <li key={video.id} className="h-auto rounded-xl overflow-hidden">
               <Link href="/" className="relative block h-72">
                 <Image
                   src={video.snippet.thumbnails.high.url}
@@ -65,8 +62,8 @@ export default function Home({ videos }) {
       </section>
       <section className="p-4">
         <div className="flex justify-between items-center py-2">
-          <p className="text-xl font-semibold mb-4">Direkomendasikan</p>
-          <Link className="text-semangka underline" href="/all-movies">
+          <h4 className="text-xl font-semibold mb-4">Direkomendasikan</h4>
+          <Link className="text-pink-600 underline" href="/all-movies">
             Lihat semua
           </Link>
         </div>
@@ -87,10 +84,9 @@ export default function Home({ videos }) {
         </ul>
       </section>
       <section className="p-4">
-        {" "}
         <div className="flex justify-between items-center py-2">
-          <p className="text-xl font-semibold mb-4">Terakhir ditambahkan</p>
-          <Link className="text-semangka underline" href="/all-movies">
+          <h4 className="text-xl font-semibold mb-4">Terakhir ditambahkan</h4>
+          <Link className="text-pink-600 underline" href="/all-movies">
             Lihat semua
           </Link>
         </div>

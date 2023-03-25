@@ -69,7 +69,7 @@ const Sidebar = () => {
             {menus.map((menu, index) => (
               <li
                 key={index}
-                className={`flex justify-start items-center hover:bg-pink-100 hover:text-semangka ${
+                className={`flex justify-start items-center hover:bg-pink-100 hover:text-pink-600 ${
                   router.route === `/${menu.path}`
                     ? "bg-gradient-to-t text-white hover:bg-gradient-to-t from-pink-600 to-pink-300 hover:text-white"
                     : "text-arang/80"
@@ -102,7 +102,7 @@ const Sidebar = () => {
             {libraries.map((menu, index) => (
               <li
                 key={index}
-                className={`flex justify-start items-center hover:bg-pink-100 hover:text-semangka ${
+                className={`flex justify-start items-center hover:bg-pink-100 hover:text-pink-600 ${
                   router.route === `/${menu.path}`
                     ? "bg-gradient-to-t text-white hover:bg-gradient-to-t from-pink-600 to-pink-300 hover:text-white"
                     : "text-arang/80"
@@ -121,7 +121,7 @@ const Sidebar = () => {
         </div>
         <ul className="border-t border-slate-300 w-full hidden p-4 lg:grid grid-cols-1">
           <li
-            className={`flex justify-start items-center hover:bg-pink-100 hover:text-semangka ${
+            className={`flex justify-start items-center hover:bg-pink-100 hover:text-pink-600 ${
               router.route === "/help"
                 ? "bg-gradient-to-t text-white hover:bg-gradient-to-t from-pink-600 to-pink-300 hover:text-white"
                 : "text-arang/80"

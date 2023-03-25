@@ -80,9 +80,9 @@ const Navbar = () => {
             className="text-pink-700 flex justify-start items-center gap-1 w-fit py-1 px-2 rounded-xl bg-gradient-to-t from-pink-400 to-pink-200 text-xs border-2 border-pink-300 hover:text-white"
           >
             <FontAwesomeIcon icon={faCrown} height={14} />
-            <p>Upgrade ke Pro</p>
+            <p className="text-white">Upgrade ke Pro</p>
           </Link>
-          <div className="hover:text-pink-600 cursor-pointer">
+          <div className="hover:text-pink-600 text-slate-600 cursor-pointer">
             <FontAwesomeIcon icon={faBell} height={20} />
           </div>
           <div

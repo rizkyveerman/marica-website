@@ -29,7 +29,7 @@ const Footer = () => {
           <ul className="flex flex-col md:flex-row items-center md:items-start gap-4 text-arang">
             {footerLinks.map((link) => (
               <li key={link.pathname}>
-                <Link href={link.link} className="hover:text-semangka text-sm">
+                <Link href={link.link} className="hover:text-pink-600 text-sm">
                   {link.pathname}
                 </Link>
               </li>

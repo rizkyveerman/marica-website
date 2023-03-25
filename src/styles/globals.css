@@ -35,20 +35,25 @@ input,
 button {
   font-family: "Nunito", sans-serif;
   font-weight: 500;
+  @apply text-slate-400;
 }
 
 h1 {
-  @apply text-5xl font-semibold;
+  @apply text-5xl font-semibold text-slate-700;
 }
 
 h2 {
-  @apply text-4xl font-semibold;
+  @apply text-4xl font-semibold text-slate-700;
 }
 
 h3 {
-  @apply text-2xl font-semibold;
+  @apply text-2xl font-semibold text-slate-700;
 }
 
 h4 {
+  @apply text-xl font-semibold text-slate-700;
+}
+
+h5 {
   @apply text-xl font-normal uppercase tracking-widest;
 }
