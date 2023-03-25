@@ -1,4 +1,6 @@
+import { useState } from "react";
 import MainLayout from "@/layout/MainLayout";
+import { Tab } from "@headlessui/react";
 import Image from "next/image";
 import woman from "@/icons/woman.png";
 import Button from "@/components/buttons/Button";
@@ -8,7 +10,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 const MyProfile = () => {
   return (
     <article>
-      <section className="px-4 py-16">
+      <section className="px-4 pt-16 pb-8">
         <div className="flex justify-center items-center gap-4">
           <Image
             src={woman}
@@ -34,11 +36,22 @@ const MyProfile = () => {
             </div>
           </div>
         </div>
-        <div className="">
-          <ul>
-            <li></li>
-          </ul>
-        </div>
+      </section>
+      <section className="w-full px-4 py-8">
+        <Tab.Group>
+          <Tab.List className="flex">
+            <Tab className="px-5 py-3 rounded-xl outline-none text-slate-600 ui-selected:text-white ui-selected:bg-gradient-to-t from-pink-600 to-pink-400">
+              Data anak
+            </Tab>
+            <Tab className="px-5 py-3 rounded-xl outline-none text-slate-600 ui-selected:text-white ui-selected:bg-gradient-to-t from-pink-600 to-pink-400">
+              Statistik anak
+            </Tab>
+          </Tab.List>
+          <Tab.Panels className="p-4">
+            <Tab.Panel>anakku joko lorem</Tab.Panel>
+            <Tab.Panel>statistik</Tab.Panel>
+          </Tab.Panels>
+        </Tab.Group>
       </section>
     </article>
   );
