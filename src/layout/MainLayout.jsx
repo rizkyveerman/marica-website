@@ -17,7 +17,7 @@ const MainLayout = ({ children, title, icon }) => {
       </Head>
       <Provider store={store}>
         <Navbar />
-        <div id="container" className="flex relative w-full">
+        <div id="container" className="h-full flex relative w-full">
           <div className="grid grid-cols-1 place-content-center gap-4 bg-white lg:block lg:w-1/4 lg:h-screen fixed left-0 right-0 bottom-0 lg:sticky lg:top-0 lg:left-0 z-[999999]">
             <Sidebar />
           </div>
