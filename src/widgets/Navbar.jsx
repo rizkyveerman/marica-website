@@ -23,23 +23,17 @@ const Navbar = () => {
 
   return (
     <header className="w-full relative p-4 flex justify-between items-center bg-white z-50">
-      <div className="w-full flex gap-1 justify-between items-center mr-4">
+      <div className="w-fit flex gap-1 justify-between items-center">
         <Logo />
-        {/* <div className="hidden lg:flex gap-1">
-          <Input placeholder="Coba cari Cocomelon..." type="text" />
-          <Button variant="secondary" isClicked={() => "search"}>
-            Cari
-          </Button>
-        </div> */}
       </div>
       <div className="relative w-full h-full flex justify-between items-center gap-2">
         {profileMenu && (
-          <div className="absolute z-[999999] top-10 right-0 p-4 rounded-xl bg-white border-2 border-pink-400">
-            <ul className="border-b-2 border-pink-200 pb-2 mb-3 grid gap-1 w-60 drop-shadow-xl">
+          <div className="max-w-xs w-fit absolute z-[999999] top-10 right-0 p-4 rounded-xl bg-white border-2 border-pink-400">
+            <ul className="border-b-2 border-pink-200 pb-2 mb-3 grid gap-1 w-full drop-shadow-xl">
               <li onClick={() => setProfileMenu(!profileMenu)}>
                 <Link
                   href="/my-profile"
-                  className="block p-2 hover:bg-pink-100 rounded-lg cursor-pointer"
+                  className="block p-2 hover:bg-pink-100 rounded-lg cursor-pointer text-slate-600"
                 >
                   My profile
                 </Link>
@@ -47,7 +41,7 @@ const Navbar = () => {
               <li onClick={() => setProfileMenu(!profileMenu)}>
                 <Link
                   href="/user-setting"
-                  className="block p-2 hover:bg-pink-100 rounded-lg cursor-pointer"
+                  className="block p-2 hover:bg-pink-100 rounded-lg cursor-pointer text-slate-600"
                 >
                   Settings
                 </Link>
@@ -56,14 +50,14 @@ const Navbar = () => {
               <li onClick={() => setProfileMenu(!profileMenu)}>
                 <Link
                   href="/"
-                  className="block p-2 hover:bg-pink-100 rounded-lg cursor-pointer"
+                  className="block p-2 hover:bg-pink-100 rounded-lg cursor-pointer text-slate-600"
                 >
                   Logout
                 </Link>
               </li>
             </ul>
             <button
-              className="p-2 rounded-lg bg-pink-100 w-full flex justify-between items-center"
+              className="p-2 rounded-lg text-slate-600 bg-pink-100 w-full flex justify-between items-center"
               type="button"
               onClick={() => dispatch(toggleTheme())}
             >
@@ -86,7 +80,7 @@ const Navbar = () => {
             className="text-pink-700 flex justify-start items-center gap-1 w-fit py-1 px-2 rounded-xl bg-gradient-to-t from-pink-400 to-pink-200 text-xs border-2 border-pink-300 hover:text-white"
           >
             <FontAwesomeIcon icon={faCrown} height={14} />
-            Upgrade ke Pro
+            <p>Upgrade ke Pro</p>
           </Link>
           <div className="hover:text-pink-600 cursor-pointer">
             <FontAwesomeIcon icon={faBell} height={20} />
@@ -102,8 +96,8 @@ const Navbar = () => {
               height={32}
               className="rounded-full bg-pink-600"
             />
-            <p className="flex items-center gap-2">
-              <span>Vania</span>
+            <p className="text-slate-600 hidden lg:flex items-center gap-2">
+              <span>Maria</span>
               <FontAwesomeIcon icon={faCaretDown} height={14} />
             </p>
           </div>
