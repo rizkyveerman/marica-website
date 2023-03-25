@@ -1,8 +1,9 @@
+import Fallback from "@/components/user-responses/Fallback";
 import MainLayout from "@/layout/MainLayout";
 import React from "react";
 
 const Likes = () => {
-  return <section className="p-4">Likes</section>;
+  return <Fallback />;
 };
 
 Likes.getLayout = function getLayout(page) {

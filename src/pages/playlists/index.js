@@ -1,12 +1,9 @@
+import Fallback from "@/components/user-responses/Fallback";
 import MainLayout from "@/layout/MainLayout";
 import React from "react";
 
 const Playlists = () => {
-  return (
-    <article>
-      <section className="p-4">Playlists</section>
-    </article>
-  );
+  return <Fallback />;
 };
 
 Playlists.getLayout = function getLayout(page) {

@@ -1,12 +1,9 @@
+import Fallback from "@/components/user-responses/Fallback";
 import MainLayout from "@/layout/MainLayout";
 import React from "react";
 
 const Help = () => {
-  return (
-    <article>
-      <section className="p-4">Help</section>
-    </article>
-  );
+  return <Fallback />;
 };
 
 Help.getLayout = function getLayout(page) {

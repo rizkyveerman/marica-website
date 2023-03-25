@@ -1,8 +1,8 @@
+import Fallback from "@/components/user-responses/Fallback";
 import MainLayout from "@/layout/MainLayout";
-import React from "react";
 
 const Trendings = () => {
-  return <section className="p-4">Trendings</section>;
+  return <Fallback />;
 };
 
 Trendings.getLayout = function getLayout(page) {

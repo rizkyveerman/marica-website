@@ -27,9 +27,9 @@ const menus = [
     path: "all-movies",
   },
   {
-    name: "Trending",
+    name: "Trendings",
     icon: faArrowUpRightDots,
-    path: "trending",
+    path: "trendings",
   },
 ];
 const libraries = [

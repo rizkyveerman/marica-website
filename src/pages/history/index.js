@@ -1,11 +1,8 @@
+import Fallback from "@/components/user-responses/Fallback";
 import MainLayout from "@/layout/MainLayout";
 
 const History = () => {
-  return (
-    <article>
-      <section className="p-4">History</section>
-    </article>
-  );
+  return <Fallback />;
 };
 
 History.getLayout = function getLayout(page) {
