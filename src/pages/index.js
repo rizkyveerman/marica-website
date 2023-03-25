@@ -19,7 +19,6 @@ export async function getServerSideProps(ctx) {
 }
 
 export default function Home({ videos }) {
-  console.log("videos", videos.items);
   return (
     <article>
       <section className="p-4">
@@ -39,7 +38,6 @@ export default function Home({ videos }) {
         </div>
       </section>
       <section className="p-4">
-        {" "}
         <div className="flex justify-between items-center py-2">
           <p className="text-xl font-semibold mb-4">Terpopuler</p>
           <Link className="text-semangka underline" href="/all-movies">

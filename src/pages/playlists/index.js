@@ -1,16 +1,16 @@
 import MainLayout from "@/layout/MainLayout";
 import React from "react";
 
-const Help = () => {
+const Playlists = () => {
   return (
     <article>
-      <section className="p-4">Help</section>
+      <section className="p-4">Playlists</section>
     </article>
   );
 };
 
-Help.getLayout = function getLayout(page) {
+Playlists.getLayout = function getLayout(page) {
   return <MainLayout>{page}</MainLayout>;
 };
 
-export default Help;
+export default Playlists;

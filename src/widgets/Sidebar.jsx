@@ -6,20 +6,24 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faHome,
   faArrowUpRightDots,
-  faFilm,
-  faTableCells,
-  faListOl,
+  faCompass,
+  faFolderPlus,
   faHeart,
   faComments,
-  faGear,
+  faClockRotateLeft,
   faQuestion,
   faBars,
 } from "@fortawesome/free-solid-svg-icons";
 
 const menus = [
   {
-    name: "Semua film",
-    icon: faFilm,
+    name: "Home",
+    icon: faHome,
+    path: "",
+  },
+  {
+    name: "Jelajahi Marica",
+    icon: faCompass,
     path: "all-movies",
   },
   {
@@ -27,27 +31,27 @@ const menus = [
     icon: faArrowUpRightDots,
     path: "trending",
   },
-  {
-    name: "Kategori",
-    icon: faTableCells,
-    path: "categories",
-  },
 ];
 const libraries = [
   {
     name: "Aktifitas",
     icon: faComments,
-    path: "activity",
+    path: "activities",
   },
   {
-    name: "Playlist",
-    icon: faListOl,
-    path: "playlist",
+    name: "Koleksi saya",
+    icon: faFolderPlus,
+    path: "playlists",
   },
   {
     name: "Disukai",
     icon: faHeart,
     path: "likes",
+  },
+  {
+    name: "Riwayat tontonan",
+    icon: faClockRotateLeft,
+    path: "history",
   },
 ];
 
@@ -59,21 +63,6 @@ const Sidebar = () => {
       <div className="w-full h-full flex lg:flex-col justify-center lg:justify-between items-center lg:items-start">
         <div className="w-full flex lg:flex-col">
           <ul className="w-full relative p-4 flex justify-between item-center gap-1 lg:grid grid-cols-1 ">
-            <li
-              className={`flex lg:hidden justify-start items-center hover:bg-pink-100 hover:text-semangka ${
-                router.route === "/"
-                  ? "bg-gradient-to-t text-white hover:bg-gradient-to-t from-pink-600 to-pink-300 hover:text-white"
-                  : "text-arang/80"
-              } rounded-xl lg:pl-4`}
-            >
-              <Link
-                className="flex items-center gap-2 p-4 lg:py-4 lg:px-0 w-full"
-                href="/"
-              >
-                <FontAwesomeIcon icon={faHome} height={14} />
-                <span className="hidden md:block">Home</span>
-              </Link>
-            </li>
             <li className="hidden lg:block">
               <p className="text-xs uppercase tracking-widest">menu</p>
             </li>
@@ -96,11 +85,11 @@ const Sidebar = () => {
               </li>
             ))}
             <li
-              className={`flex justify-start items-center hover:bg-pink-100 bg-gradient-to-t hover:text-pink-600 text-arang/80 rounded-xl lg:pl-4`}
+              className={`md:hidden flex justify-start items-center hover:bg-pink-100 bg-gradient-to-t hover:text-pink-600 text-arang/80 rounded-xl lg:pl-4`}
             >
               <button className="flex items-center gap-2 p-4 lg:py-4 lg:px-0 w-full">
                 <FontAwesomeIcon icon={faBars} height={14} />
-                <span className="hidden md:block">Menu</span>
+                <span>Menu</span>
               </button>
             </li>
           </ul>
@@ -114,7 +103,7 @@ const Sidebar = () => {
               <li
                 key={index}
                 className={`flex justify-start items-center hover:bg-pink-100 hover:text-semangka ${
-                  router.route === "/all-movies"
+                  router.route === `/${menu.path}`
                     ? "bg-gradient-to-t text-white hover:bg-gradient-to-t from-pink-600 to-pink-300 hover:text-white"
                     : "text-arang/80"
                 } rounded-xl lg:pl-4`}
@@ -130,10 +119,10 @@ const Sidebar = () => {
             ))}
           </ul>
         </div>
-        <ul className="hidden p-4 lg:grid grid-cols-1">
+        <ul className="border-t border-slate-300 w-full hidden p-4 lg:grid grid-cols-1">
           <li
             className={`flex justify-start items-center hover:bg-pink-100 hover:text-semangka ${
-              router.route === "/all-movies"
+              router.route === "/help"
                 ? "bg-gradient-to-t text-white hover:bg-gradient-to-t from-pink-600 to-pink-300 hover:text-white"
                 : "text-arang/80"
             } rounded-xl lg:pl-4`}
