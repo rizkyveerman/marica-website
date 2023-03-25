@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { toggleTheme } from "@/store/slices/theme";
 
 import {
-  faMagnifyingGlass,
+  faCaretDown,
   faBell,
   faCrown,
 } from "@fortawesome/free-solid-svg-icons";
@@ -15,13 +15,11 @@ import woman from "@/icons/woman.png";
 import Button from "@/components/buttons/Button";
 import lightmode from "@/images/lightmode.png";
 import darkmode from "@/images/darkmode.png";
-import Input from "@/components/inputs/Input";
 
 const Navbar = () => {
   const [profileMenu, setProfileMenu] = useState(false);
   const dispatch = useDispatch();
   const appTheme = useSelector((state) => state.theme.theme);
-  console.log("theme= ", appTheme);
 
   return (
     <header className="w-full relative p-4 flex justify-between items-center bg-white z-50">
@@ -36,7 +34,7 @@ const Navbar = () => {
       </div>
       <div className="relative w-full h-full flex justify-between items-center gap-2">
         {profileMenu && (
-          <div className="absolute z-[999] top-10 right-0 p-4 rounded-xl bg-white border-2 border-pink-400">
+          <div className="absolute z-[999999] top-10 right-0 p-4 rounded-xl bg-white border-2 border-pink-400">
             <ul className="border-b-2 border-pink-200 pb-2 mb-3 grid gap-1 w-60 drop-shadow-xl">
               <li onClick={() => setProfileMenu(!profileMenu)}>
                 <Link
@@ -87,22 +85,28 @@ const Navbar = () => {
             href="/subscription"
             className="text-pink-700 flex justify-start items-center gap-1 w-fit py-1 px-2 rounded-xl bg-gradient-to-t from-pink-400 to-pink-200 text-xs border-2 border-pink-300 hover:text-white"
           >
-            {/* <Image src={pro} alt="pro-icon" width={28} height={28} /> */}
             <FontAwesomeIcon icon={faCrown} height={14} />
             Upgrade ke Pro
           </Link>
-          {/* <Image src={bell} alt="bell-icon" width={28} height={28} /> */}
           <div className="hover:text-pink-600 cursor-pointer">
             <FontAwesomeIcon icon={faBell} height={20} />
           </div>
-          <Image
-            src={woman}
-            alt="Rica"
-            width={32}
-            height={32}
-            className="rounded-full bg-pink-600 cursor-pointer"
+          <div
+            className="flex items-center gap-2 cursor-pointer"
             onClick={() => setProfileMenu(!profileMenu)}
-          />
+          >
+            <Image
+              src={woman}
+              alt="Rica"
+              width={32}
+              height={32}
+              className="rounded-full bg-pink-600"
+            />
+            <p className="flex items-center gap-2">
+              <span>Vania</span>
+              <FontAwesomeIcon icon={faCaretDown} height={14} />
+            </p>
+          </div>
         </div>
         {/* is login? */}
         {/* <Button isLink type="button" variant="secondary" href="/login">

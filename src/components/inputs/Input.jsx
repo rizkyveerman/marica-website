@@ -3,7 +3,7 @@ import propTypes from "prop-types";
 
 const Input = ({ ref, label, type, name, onChange, placeholder }) => {
   return (
-    <>
+    <div>
       <label htmlFor={name} className="text-arang">
         {label}
       </label>
@@ -16,7 +16,7 @@ const Input = ({ ref, label, type, name, onChange, placeholder }) => {
         onChange={(e) => onChange(e.target.value)}
         className="px-5 py-3 bg-transparent rounded-xl border border-arang/30 placeholder:text-sm placeholder:text-abu focus:outline outline-semangka focus:border-semangka focus:text-semangka"
       />
-    </>
+    </div>
   );
 };
 

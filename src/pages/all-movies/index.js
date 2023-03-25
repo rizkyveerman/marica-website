@@ -2,6 +2,7 @@ import { loadMovies } from "@/libs/films/load-movies";
 import MovieCard from "@/components/cards/MovieCard";
 import MainLayout from "@/layout/MainLayout";
 import Tag from "@/components/cards/Tag";
+import Input from "@/components/inputs/Input";
 
 export async function getServerSideProps(ctx) {
   const videos = await loadMovies();
@@ -16,10 +17,11 @@ export async function getServerSideProps(ctx) {
 const Browser = ({ videos }) => {
   return (
     <article>
-      <header className="sticky top-0 z-50 bg-white drop-shadow-sm p-4">
-        <ul className="flex flex-wrap gap-2 justify-start items-center">
+      <header className="w-full border sticky top-0 z-10 bg-white drop-shadow-sm p-4 flex justify-between items-center">
+        <Input type="text" placeholder="Cari film..." name="search" />
+        <select className="p-4 bg-slate-100 rounded-lg">
           {[
-            "all",
+            "Pilih kategori",
             "sports",
             "thriller",
             "action",
@@ -27,11 +29,11 @@ const Browser = ({ videos }) => {
             "character",
             "fun",
           ].map((tag, index) => (
-            <li key={index}>
+            <option key={index} value={tag}>
               <Tag>{tag}</Tag>
-            </li>
+            </option>
           ))}
-        </ul>
+        </select>
       </header>
       <section className="p-4">
         <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-4">
