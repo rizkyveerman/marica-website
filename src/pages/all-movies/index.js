@@ -18,7 +18,12 @@ const Browser = ({ videos }) => {
   return (
     <article>
       <header className="w-full border sticky top-0 z-10 bg-white drop-shadow-sm p-4 flex justify-between items-center">
-        <Input type="text" placeholder="Cari film..." name="search" />
+        <Input
+          type="text"
+          placeholder="Cari film..."
+          name="search"
+          onChange={(e) => e}
+        />
         <select className="p-4 bg-slate-100 rounded-lg">
           {[
             "Pilih kategori",
