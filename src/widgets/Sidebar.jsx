@@ -64,16 +64,18 @@ const Sidebar = () => {
         <div className="w-full flex lg:flex-col">
           <ul className="w-full relative p-4 flex justify-between item-center gap-1 lg:grid grid-cols-1 ">
             <li className="hidden lg:block">
-              <p className="text-xs uppercase tracking-widest">menu</p>
+              <p className="text-xs text-slate-400 uppercase tracking-widest">
+                menu
+              </p>
             </li>
             {menus.map((menu, index) => (
               <li
                 key={index}
-                className={`flex justify-start items-center hover:bg-pink-100 hover:text-pink-600 ${
+                className={`flex justify-start items-center text-slate-600 hover:bg-pink-100 hover:text-pink-600 rounded-xl lg:pl-4 ${
                   router.route === `/${menu.path}`
-                    ? "bg-gradient-to-t text-white hover:bg-gradient-to-t from-pink-600 to-pink-300 hover:text-white"
-                    : "text-arang/80"
-                } rounded-xl lg:pl-4`}
+                    ? "bg-gradient-to-t text-white from-pink-600 to-pink-300"
+                    : ""
+                }`}
               >
                 <Link
                   className="flex items-center gap-2 p-4 lg:py-4 lg:px-0 w-full"
@@ -95,18 +97,18 @@ const Sidebar = () => {
           </ul>
           <ul className="hidden w-full relative bottom-0 p-4 gap-1 lg:grid grid-cols-1 ">
             <li>
-              <p className="hidden md:block text-xs uppercase tracking-widest">
+              <p className="hidden md:block text-xs text-slate-400 uppercase tracking-widest">
                 libraries
               </p>
             </li>
             {libraries.map((menu, index) => (
               <li
                 key={index}
-                className={`flex justify-start items-center hover:bg-pink-100 hover:text-pink-600 ${
+                className={`flex justify-start items-center text-slate-600 hover:bg-pink-100 hover:text-pink-600 rounded-xl lg:pl-4 ${
                   router.route === `/${menu.path}`
                     ? "bg-gradient-to-t text-white hover:bg-gradient-to-t from-pink-600 to-pink-300 hover:text-white"
-                    : "text-arang/80"
-                } rounded-xl lg:pl-4`}
+                    : ""
+                }`}
               >
                 <Link
                   className="flex items-center gap-2 p-4 lg:py-4 lg:px-0 w-full"
@@ -121,10 +123,10 @@ const Sidebar = () => {
         </div>
         <ul className="border-t border-slate-300 w-full hidden p-4 lg:grid grid-cols-1">
           <li
-            className={`flex justify-start items-center hover:bg-pink-100 hover:text-pink-600 ${
+            className={`flex justify-start items-center text-slate-600 hover:bg-pink-100 hover:text-pink-600 ${
               router.route === "/help"
                 ? "bg-gradient-to-t text-white hover:bg-gradient-to-t from-pink-600 to-pink-300 hover:text-white"
-                : "text-arang/80"
+                : ""
             } rounded-xl lg:pl-4`}
           >
             <Link
