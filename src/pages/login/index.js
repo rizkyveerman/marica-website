@@ -1,5 +1,6 @@
 import { ErrorMessage, Formik, Form, Field } from "formik";
 import { useDispatch, useSelector } from "react-redux";
+import axios from "axios";
 import Button from "@/components/buttons/Button";
 import Link from "next/link";
 import Footer from "@/widgets/Footer";
@@ -28,14 +29,9 @@ function LoginPage() {
               validate={(values) => {
                 const errors = {};
 
-                //email validation
-                if (!values.email) {
-                  errors.email = "required";
-                } else if (
-                  !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)
-                ) {
-                  errors.email =
-                    "Email tidak valid! Pastikan email kamu kamu tepat!";
+                //username validation
+                if (!values.username) {
+                  errors.username = "required";
                 }
 
                 //password validation
@@ -75,14 +71,14 @@ function LoginPage() {
                 <Form className="grid grid-cols-1 gap-4 w-full">
                   <div className="flex gap-4"></div>
                   <div className="email w-full relative grid gap-2">
-                    <p>Masukkan email</p>
+                    <p>Masukkan username</p>
                     <Field
-                      type="email"
-                      name="email"
+                      type="username"
+                      name="username"
                       className="focus:text-pink-600 focus:outline-2 text-slate-700 focus:outline-pink-600 w-full py-3 px-6 rounded-lg bg-abu-terang"
                     />
                     <ErrorMessage
-                      name="email"
+                      name="username"
                       component="div"
                       className="m-auto absolute top-full p-2 rounded-xl bg-red-100 text-red-600 before:block before:absolute before:left-1/2 before:bottom-full before:w-3 before:h-3 before:bg-red-100 before:translate-y-1/2 before:-translate-x-1/2 before:rotate-45 before:rounded-sm z-10"
                     />
