@@ -1,12 +1,13 @@
 import { ErrorMessage, Formik, Form, Field } from "formik";
+import { useDispatch, useSelector } from "react-redux";
 import Button from "@/components/buttons/Button";
 import Link from "next/link";
 import Footer from "@/widgets/Footer";
 import Image from "next/image";
 import watching from "@/images/watching.jpg";
-import { headers } from "next.config";
 
 function LoginPage() {
+  const dispatch = useDispatch();
   const passwordRegex = /^[A-Za-z\d@$!%*?&]{8,}$/;
 
   return (
@@ -62,6 +63,7 @@ function LoginPage() {
                     }
                   )
                   .then(function (response) {
+                    dispatch(response);
                     console.log(response);
                   })
                   .catch(function (error) {
