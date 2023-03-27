@@ -4,6 +4,7 @@ import Link from "next/link";
 import Footer from "@/widgets/Footer";
 import Image from "next/image";
 import watching from "@/images/watching.jpg";
+import { headers } from "next.config";
 
 function LoginPage() {
   const passwordRegex = /^[A-Za-z\d@$!%*?&]{8,}$/;
@@ -33,7 +34,7 @@ function LoginPage() {
                   !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)
                 ) {
                   errors.email =
-                    "Email tidak valid! Pastikan kamu email kamu tepat!";
+                    "Email tidak valid! Pastikan email kamu kamu tepat!";
                 }
 
                 //password validation
@@ -46,21 +47,26 @@ function LoginPage() {
 
                 return errors;
               }}
-              onSubmit={async (values, { setSubmitting }) => {
-                const response = await fetch(
-                  "https://marica-backend.vercel.app/api/v1/user/login",
-                  {
-                    method: "POST",
-                    headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify({
+              onSubmit={(values, { setSubmitting }) => {
+                axios
+                  .post(
+                    "https://marica-backend.vercel.app/api/v1/user/login",
+                    {
                       password: values.password,
                       email: values.email,
-                    }),
-                  }
-                );
-
-                // Handle response
-                const data = await response.json();
+                    },
+                    {
+                      headers: {
+                        "Content-Type": "application/json",
+                      },
+                    }
+                  )
+                  .then(function (response) {
+                    console.log(response);
+                  })
+                  .catch(function (error) {
+                    console.log(error);
+                  });
               }}
             >
               {({ isSubmitting }) => (
