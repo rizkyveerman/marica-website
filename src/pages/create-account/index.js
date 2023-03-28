@@ -13,7 +13,7 @@ const CreateAccount = () => {
   const [isFeedbackOpen, setIsFeedbackOpen] = useState(false);
   const [feedback, setFeedback] = useState({
     status: true,
-    message: "Feedback",
+    message: "",
   });
   //TODO: add all symbol for regex (include dot and others!)
   const passwordRegex =
@@ -91,16 +91,18 @@ const CreateAccount = () => {
                     email: values.email,
                   })
                   .then((response) => {
-                    return {
+                    setIsFeedbackOpen(true);
+                    setFeedback({
                       status: true,
                       message: `Yay, akun ${values.fullname} berhasil dibuat! Yuk masuk`,
-                    };
+                    });
                   })
                   .catch((err) => {
-                    return {
-                      status: false,
+                    setIsFeedbackOpen(true);
+                    setFeedback({
+                      status: true,
                       message: `Yah gagal buat akun! ${err} Yuk coba lagi!`,
-                    };
+                    });
                   });
               }}
             >
