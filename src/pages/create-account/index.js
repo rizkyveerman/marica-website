@@ -10,8 +10,9 @@ import { Form, Formik, Field, ErrorMessage } from "formik";
 import axios from "axios";
 
 const CreateAccount = () => {
+  //TODO: add all symbol for regex (include dot and others!)
   const passwordRegex =
-    /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+    /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&.(){}|\/,-+=&^$#<>:;'"`~])[A-Za-z\d@$!%*?&]{8,}$/;
 
   return (
     <>
