@@ -22,11 +22,12 @@ export const login =
     } catch (error) {
       dispatch(
         setError(
-          error.message && error.response.data.message
-            ? error.response.data.message
-            : error.message
-            ? error.message
-            : "Aduh ada sedikit masalah, Coba lagi yuk!"
+          // error.message && error.response.data.message
+          //   ? error.response.data.message
+          //   : error.message
+          //   ? error.message
+          //   : "Aduh ada sedikit masalah, Coba lagi yuk!"
+          "Aduh ada sedikit masalah, Coba lagi yuk!"
         )
       );
     }
