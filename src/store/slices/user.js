@@ -16,10 +16,37 @@ const userSlice = createSlice({
     setLoading: (state) => {
       state.isLoading = true;
     },
-    userLogin: (state, { payload }) => {
-      state.isLoading = false;
-      state.error = null;
-      state.userInfo = payload;
+    userLogin: async (state, { payload }) => {
+      console.log("payload", payload);
+      try {
+        const config = {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        };
+
+        const { data } = await axios.post(
+          "https://marica-backend.vercel.app/api/v1/user/login",
+          { identifier: payload.username, password: payload.password },
+          config
+        );
+
+        state.userInfo = data;
+        localStorage.setItem("userInfo", JSON.stringify(data));
+
+        state.isLoading = false;
+        state.error = null;
+      } catch (error) {
+        dispatch(
+          setError(
+            error.message && error.response.data.message
+              ? error.response.data.message
+              : error.message
+              ? error.message
+              : "Aduh ada sedikit masalah, Coba lagi yuk!"
+          )
+        );
+      }
     },
     userLogout: (state, { payload }) => {
       state.isLoading = false;
@@ -27,11 +54,14 @@ const userSlice = createSlice({
       state.userInfo = null;
     },
     setError: (state, { payload }) => {
-      state.isLoading = false;
       state.error = payload;
+      state.isLoading = false;
     },
   },
 });
 
-export const { setLoading, userLogin, userLogout } = userSlice.actions;
+export const { setLoading, userLogin, userLogout, setError } =
+  userSlice.actions;
 export default userSlice.reducer;
+
+export const userSelector = (state) => state.user;

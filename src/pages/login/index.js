@@ -9,10 +9,10 @@ import Footer from "@/widgets/Footer";
 import Image from "next/image";
 import watching from "@/images/watching.jpg";
 import { login } from "@/store/actions/user-actions";
+import { userLogin } from "@/store/slices/user";
 
 function LoginPage() {
   const dispatch = useDispatch();
-  // const passwordRegex = /^[A-Za-z\d@$!%*?&]{8,}$/;
   const router = useRouter();
   const { error, isLoading, userInfo } = useSelector((state) => state.user);
 
@@ -32,7 +32,6 @@ function LoginPage() {
               Masuk ke akun Marica kamu dan nikmati berbagai kategori film dan
               series yang kamu suka!
             </p>
-            {/* tesCoba12! */}
             <Formik
               initialValues={{
                 username: "",
@@ -56,8 +55,9 @@ function LoginPage() {
 
                 return errors;
               }}
-              onSubmit={(values, { setSubmitting }) => {
-                login(values.username, values.password);
+              onSubmit={(values) => {
+                console.log("values", values);
+                dispatch(userLogin(values));
               }}
             >
               {({ isSubmitting }) => (
