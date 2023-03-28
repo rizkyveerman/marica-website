@@ -22,7 +22,7 @@ const CreateAccount = () => {
   return (
     <>
       <article className="grid grid-cols-1 md:grid-cols-2 min-h-screen">
-        {isFeedbackOpen && (
+        {/* {isFeedbackOpen && (
           <section
             className={`max-w-[320px] rounded-xl ${
               feedback.status === "Error" ? "bg-pink-600" : "bg-green-600"
@@ -47,8 +47,7 @@ const CreateAccount = () => {
               )}
             </div>
           </section>
-        )}
-
+        )} */}
         <section className="grid place-content-center p-4">
           <div className="min-w-[350px] md:w-96 max-w-lg p-4 rounded-2xl grid gap-4">
             <Logo styles="m-auto" />
@@ -110,6 +109,8 @@ const CreateAccount = () => {
                           ? response.message
                           : `Yay, akun ${values.fullname} berhasil dibuat! Yuk masuk`,
                     });
+
+                    console.log("response", response);
                   })
                   .catch((err) => {
                     setIsFeedbackOpen(true);

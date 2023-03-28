@@ -31,6 +31,7 @@ function LoginPage() {
               Masuk ke akun Marica kamu dan nikmati berbagai kategori film dan
               series yang kamu suka!
             </p>
+            {/* tesCoba12! */}
             <Formik
               initialValues={{
                 username: "",
@@ -59,7 +60,7 @@ function LoginPage() {
                   .post(
                     "https://marica-backend.vercel.app/api/v1/user/login",
                     {
-                      username: values.username,
+                      identifier: values.username,
                       password: values.password,
                     },
                     {
