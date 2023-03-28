@@ -1,5 +1,6 @@
 import { ErrorMessage, Formik, Form, Field } from "formik";
-import { useDispatch, useSelector } from "react-redux";
+import { signIn } from "next-auth/react";
+import { useDispatch } from "react-redux";
 import axios from "axios";
 import Button from "@/components/buttons/Button";
 import Link from "next/link";
@@ -14,7 +15,7 @@ function LoginPage() {
   return (
     <>
       <article className="grid grid-cols-1 md:grid-cols-2 h-screen">
-        <section className="grid place-content-center p-4">
+        <section className="relative grid place-content-center p-4">
           <div className="min-w-[350px] md:w-96 max-w-lg p-4 rounded-2xl grid gap-4">
             <h2>Masuk dulu, yuk!</h2>
             <p className="text-slate-500 text-justify">
@@ -23,7 +24,7 @@ function LoginPage() {
             </p>
             <Formik
               initialValues={{
-                email: "",
+                username: "",
                 password: "",
               }}
               validate={(values) => {
@@ -37,34 +38,19 @@ function LoginPage() {
                 //password validation
                 if (!values.password) {
                   errors.password = "required";
-                } else if (!passwordRegex.test(values.password)) {
-                  errors.password =
-                    "Panjang minimal password adalah 8 karakter.";
+                } else if (values.password < 8) {
+                  errors.password = "Panjang password minimal 8 karakter";
                 }
 
                 return errors;
               }}
-              onSubmit={(values, { setSubmitting }) => {
-                axios
-                  .post(
-                    "https://marica-backend.vercel.app/api/v1/user/login",
-                    {
-                      password: values.password,
-                      email: values.email,
-                    },
-                    {
-                      headers: {
-                        "Content-Type": "application/json",
-                      },
-                    }
-                  )
-                  .then(function (response) {
-                    dispatch(response);
-                    console.log(response);
-                  })
-                  .catch(function (error) {
-                    console.log(error);
-                  });
+              onSubmit={async (values, { setSubmitting }) => {
+                const login = await signIn("credentials", {
+                  username: values.username,
+                  password: values.password,
+                });
+
+                if (login.error) alert(login.error);
               }}
             >
               {({ isSubmitting }) => (
@@ -100,7 +86,7 @@ function LoginPage() {
                     type="submit"
                     variant="primary"
                     disabled={isSubmitting}
-                    isClicked={() => "clicked"}
+                    isClicked={() => "login"}
                   >
                     Masuk
                   </Button>

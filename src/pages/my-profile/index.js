@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useSelector } from "react-redux";
+import { getSession, useSession } from "next-auth/react";
 import ChildCard from "@/components/cards/ChildCard";
 import MainLayout from "@/layout/MainLayout";
 import { Tab } from "@headlessui/react";
@@ -7,8 +8,14 @@ import woman from "@/icons/woman.png";
 import Button from "@/components/buttons/Button";
 import { faEdit } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import axios from "axios";
 
+//protected
 const MyProfile = () => {
+  const { data: session } = useSession();
+  const user = useSelector((state) => state.authSlice);
+
+  console.log("user", session);
   return (
     <article>
       <section className="px-4 pt-16 pb-8">
@@ -65,5 +72,32 @@ const MyProfile = () => {
 MyProfile.getLayout = function getLayout(page) {
   return <MainLayout>{page}</MainLayout>;
 };
+
+export async function getServerSideProps(context) {
+  const session = await getSession(context);
+  if (!session) {
+    return {
+      redirect: {
+        destination: "/login",
+        permanent: false,
+      },
+    };
+  }
+
+  const { data } = await axios.get(
+    "https://marica-backend.vercel.app/api/v1/user/login",
+    {
+      headers: {
+        Authorization: `Bearer ${session.accessToken}`,
+      },
+    }
+  );
+
+  return {
+    props: {
+      data,
+    },
+  };
+}
 
 export default MyProfile;

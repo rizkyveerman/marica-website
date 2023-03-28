@@ -20,93 +20,94 @@ export async function getServerSideProps(ctx) {
 
 export default function Home({ videos }) {
   return (
-    <article>
-      <section className="p-4">
-        <div className="relative w-full h-[60vh] rounded-2xl bg-pink-300 grid place-content-center overflow-hidden">
-          {videos.items.slice(0, 1).map((video) => (
-            <div key={video.id} className="h-auto">
-              {video.snippet.title}
-              <Image
-                src={video.snippet.thumbnails.high.url}
-                alt={video.snippet.title}
-                fill
-                objectFit="cover"
-                objectPosition="center"
-              />
-            </div>
-          ))}
-        </div>
-      </section>
-      <section className="p-4">
-        <div className="flex justify-between items-center py-2">
-          <h4 className="text-xl font-semibold mb-4">Terpopuler</h4>
-          <Link className="text-pink-600 underline" href="/all-movies">
-            Lihat semua
-          </Link>
-        </div>
-        <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-          {videos.items.map((video) => (
-            <li key={video.id} className="h-auto rounded-xl overflow-hidden">
-              <Link href="/" className="relative block h-72">
-                <Image
-                  src={video.snippet.thumbnails.high.url}
-                  alt={video.snippet.title}
-                  title={video.snippet.title}
-                  fill
-                  objectFit="cover"
-                />
-              </Link>
-            </li>
-          ))}
-        </ul>
-      </section>
-      <section className="p-4">
-        <div className="flex justify-between items-center py-2">
-          <h4 className="text-xl font-semibold mb-4">Direkomendasikan</h4>
-          <Link className="text-pink-600 underline" href="/all-movies">
-            Lihat semua
-          </Link>
-        </div>
-        <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-          {videos.items.map((video) => (
-            <li key={video.id} className="h-auto rounded-xl overflow-hidden">
-              <Link href="/" className="relative block w-full h-64">
-                <Image
-                  src={video.snippet.thumbnails.high.url}
-                  alt={video.snippet.title}
-                  title={video.snippet.title}
-                  fill
-                  objectFit="cover"
-                />
-              </Link>
-            </li>
-          ))}
-        </ul>
-      </section>
-      <section className="p-4">
-        <div className="flex justify-between items-center py-2">
-          <h4 className="text-xl font-semibold mb-4">Terakhir ditambahkan</h4>
-          <Link className="text-pink-600 underline" href="/all-movies">
-            Lihat semua
-          </Link>
-        </div>
-        <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-          {videos.items.map((video) => (
-            <li key={video.id} className="h-auto rounded-xl overflow-hidden">
-              <Link href="/" className="relative block w-full h-64">
-                <Image
-                  src={video.snippet.thumbnails.high.url}
-                  alt={video.snippet.title}
-                  title={video.snippet.title}
-                  fill
-                  objectFit="cover"
-                />
-              </Link>
-            </li>
-          ))}
-        </ul>
-      </section>
-    </article>
+    <>Homepage</>
+    // <article>
+    //   <section className="p-4">
+    //     <div className="relative w-full h-[60vh] rounded-2xl bg-pink-300 grid place-content-center overflow-hidden">
+    //       {videos.items.slice(0, 1).map((video) => (
+    //         <div key={video.id} className="h-auto">
+    //           {video.snippet.title}
+    //           <Image
+    //             src={video.snippet.thumbnails.high.url}
+    //             alt={video.snippet.title}
+    //             fill
+    //             objectFit="cover"
+    //             objectPosition="center"
+    //           />
+    //         </div>
+    //       ))}
+    //     </div>
+    //   </section>
+    //   <section className="p-4">
+    //     <div className="flex justify-between items-center py-2">
+    //       <h4 className="text-xl font-semibold mb-4">Terpopuler</h4>
+    //       <Link className="text-pink-600 underline" href="/all-movies">
+    //         Lihat semua
+    //       </Link>
+    //     </div>
+    //     <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+    //       {videos.items.map((video) => (
+    //         <li key={video.id} className="h-auto rounded-xl overflow-hidden">
+    //           <Link href="/" className="relative block h-72">
+    //             <Image
+    //               src={video.snippet.thumbnails.high.url}
+    //               alt={video.snippet.title}
+    //               title={video.snippet.title}
+    //               fill
+    //               objectFit="cover"
+    //             />
+    //           </Link>
+    //         </li>
+    //       ))}
+    //     </ul>
+    //   </section>
+    //   <section className="p-4">
+    //     <div className="flex justify-between items-center py-2">
+    //       <h4 className="text-xl font-semibold mb-4">Direkomendasikan</h4>
+    //       <Link className="text-pink-600 underline" href="/all-movies">
+    //         Lihat semua
+    //       </Link>
+    //     </div>
+    //     <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+    //       {videos.items.map((video) => (
+    //         <li key={video.id} className="h-auto rounded-xl overflow-hidden">
+    //           <Link href="/" className="relative block w-full h-64">
+    //             <Image
+    //               src={video.snippet.thumbnails.high.url}
+    //               alt={video.snippet.title}
+    //               title={video.snippet.title}
+    //               fill
+    //               objectFit="cover"
+    //             />
+    //           </Link>
+    //         </li>
+    //       ))}
+    //     </ul>
+    //   </section>
+    //   <section className="p-4">
+    //     <div className="flex justify-between items-center py-2">
+    //       <h4 className="text-xl font-semibold mb-4">Terakhir ditambahkan</h4>
+    //       <Link className="text-pink-600 underline" href="/all-movies">
+    //         Lihat semua
+    //       </Link>
+    //     </div>
+    //     <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+    //       {videos.items.map((video) => (
+    //         <li key={video.id} className="h-auto rounded-xl overflow-hidden">
+    //           <Link href="/" className="relative block w-full h-64">
+    //             <Image
+    //               src={video.snippet.thumbnails.high.url}
+    //               alt={video.snippet.title}
+    //               title={video.snippet.title}
+    //               fill
+    //               objectFit="cover"
+    //             />
+    //           </Link>
+    //         </li>
+    //       ))}
+    //     </ul>
+    //   </section>
+    // </article>
   );
 }
 
