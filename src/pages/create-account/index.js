@@ -10,9 +10,9 @@ import { Form, Formik, Field, ErrorMessage } from "formik";
 import axios from "axios";
 
 const CreateAccount = () => {
-  const [isFeedbackOpen, setIsFeedbackOpen] = useState(false);
+  const [isFeedbackOpen, setIsFeedbackOpen] = useState(true);
   const [feedback, setFeedback] = useState({
-    status: true,
+    status: "",
     message: "",
   });
   //TODO: add all symbol for regex (include dot and others!)
@@ -25,16 +25,27 @@ const CreateAccount = () => {
         {isFeedbackOpen && (
           <section
             className={`max-w-[320px] rounded-xl ${
-              feedback.status ? "bg-green-600" : "bg-pink-600"
+              feedback.status === "Error" ? "bg-pink-600" : "bg-green-600"
             } z-50 p-4 fixed top-4 left-1/2 -translate-x-1/2 w-fit h-auto text-white grid gap-4`}
           >
             <div>{feedback.message}</div>
-            <Button
-              className="text-white border-white"
-              isClicked={() => "!open"}
-            >
-              Tutup
-            </Button>
+            <div className="flex justify-start items-center gap-4">
+              {feedback.status === "Error" ? (
+                <Button
+                  className="text-white border-white"
+                  isClicked={() => setIsFeedbackOpen(false)}
+                >
+                  Coba lagi
+                </Button>
+              ) : (
+                <Button
+                  className="text-white border-white"
+                  isClicked={() => setIsFeedbackOpen(false)}
+                >
+                  Masuk
+                </Button>
+              )}
+            </div>
           </section>
         )}
 
@@ -93,16 +104,15 @@ const CreateAccount = () => {
                   .then((response) => {
                     setIsFeedbackOpen(true);
                     setFeedback({
-                      status: true,
-                      message: `Yay, akun ${values.fullname} berhasil dibuat! Yuk masuk`,
+                      status: response.type,
+                      message:
+                        response.type === "Error"
+                          ? response.message
+                          : `Yay, akun ${values.fullname} berhasil dibuat! Yuk masuk`,
                     });
                   })
                   .catch((err) => {
-                    setIsFeedbackOpen(true);
-                    setFeedback({
-                      status: true,
-                      message: `Yah gagal buat akun! ${err} Yuk coba lagi!`,
-                    });
+                    console.log("err", err);
                   });
               }}
             >
