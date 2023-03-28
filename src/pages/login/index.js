@@ -59,8 +59,8 @@ function LoginPage() {
                   .post(
                     "https://marica-backend.vercel.app/api/v1/user/login",
                     {
+                      username: values.username,
                       password: values.password,
-                      email: values.email,
                     },
                     {
                       headers: {
