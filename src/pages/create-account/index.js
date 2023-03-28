@@ -10,7 +10,7 @@ import { Form, Formik, Field, ErrorMessage } from "formik";
 import axios from "axios";
 
 const CreateAccount = () => {
-  const [isFeedbackOpen, setIsFeedbackOpen] = useState(true);
+  const [isFeedbackOpen, setIsFeedbackOpen] = useState(false);
   const [feedback, setFeedback] = useState({
     status: "",
     message: "",
@@ -112,7 +112,11 @@ const CreateAccount = () => {
                     });
                   })
                   .catch((err) => {
-                    console.log("err", err);
+                    setIsFeedbackOpen(true);
+                    setFeedback({
+                      status: err.type,
+                      message: err.message,
+                    });
                   });
               }}
             >
