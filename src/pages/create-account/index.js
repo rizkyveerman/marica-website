@@ -10,6 +10,11 @@ import { Form, Formik, Field, ErrorMessage } from "formik";
 import axios from "axios";
 
 const CreateAccount = () => {
+  const [isFeedbackOpen, setIsFeedbackOpen] = useState(false);
+  const [feedback, setFeedback] = useState({
+    status: true,
+    message: "Feedback",
+  });
   //TODO: add all symbol for regex (include dot and others!)
   const passwordRegex =
     /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
@@ -17,6 +22,22 @@ const CreateAccount = () => {
   return (
     <>
       <article className="grid grid-cols-1 md:grid-cols-2 min-h-screen">
+        {isFeedbackOpen && (
+          <section
+            className={`max-w-[320px] rounded-xl ${
+              feedback.status ? "bg-green-600" : "bg-pink-600"
+            } z-50 p-4 fixed top-4 left-1/2 -translate-x-1/2 w-fit h-auto text-white grid gap-4`}
+          >
+            <div>{feedback.message}</div>
+            <Button
+              className="text-white border-white"
+              isClicked={() => "!open"}
+            >
+              Tutup
+            </Button>
+          </section>
+        )}
+
         <section className="grid place-content-center p-4">
           <div className="min-w-[350px] md:w-96 max-w-lg p-4 rounded-2xl grid gap-4">
             <Logo styles="m-auto" />
@@ -69,8 +90,18 @@ const CreateAccount = () => {
                     password: values.password,
                     email: values.email,
                   })
-                  .then((response) => alert(response))
-                  .catch((err) => console.log(err));
+                  .then((response) => {
+                    return {
+                      status: true,
+                      message: `Yay, akun ${values.fullname} berhasil dibuat! Yuk masuk`,
+                    };
+                  })
+                  .catch((err) => {
+                    return {
+                      status: false,
+                      message: `Yah gagal buat akun! ${err} Yuk coba lagi!`,
+                    };
+                  });
               }}
             >
               {({ isSubmitting }) => (
