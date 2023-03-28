@@ -1,7 +1,7 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import theme from "./slices/theme";
-import authSlice from "./slices/auth-slice";
+import user from "./slices/user";
 
-const reducer = combineReducers({ theme, authSlice });
+const reducer = combineReducers({ theme, user });
 
 export default configureStore({ reducer });
