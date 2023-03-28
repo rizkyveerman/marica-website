@@ -1,6 +1,7 @@
 import { ErrorMessage, Formik, Form, Field } from "formik";
-import { signIn } from "next-auth/react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { useRouter } from "next/router";
+import { useEffect } from "react";
 import axios from "axios";
 import Button from "@/components/buttons/Button";
 import Link from "next/link";
@@ -10,7 +11,15 @@ import watching from "@/images/watching.jpg";
 
 function LoginPage() {
   const dispatch = useDispatch();
-  const passwordRegex = /^[A-Za-z\d@$!%*?&]{8,}$/;
+  // const passwordRegex = /^[A-Za-z\d@$!%*?&]{8,}$/;
+  const router = useRouter();
+  const { error, isLoading, userInfo } = useSelector((state) => state.user);
+
+  useEffect(() => {
+    if (userInfo) {
+      if (router.route === "/login") router.push("/users");
+    }
+  }, [router, userInfo]);
 
   return (
     <>
@@ -38,19 +47,34 @@ function LoginPage() {
                 //password validation
                 if (!values.password) {
                   errors.password = "required";
-                } else if (values.password < 8) {
-                  errors.password = "Panjang password minimal 8 karakter";
+                } else if (values.password < 0) {
+                  errors.password =
+                    "Panjang password harus lebih dari 8 karakter";
                 }
 
                 return errors;
               }}
               onSubmit={async (values, { setSubmitting }) => {
-                const login = await signIn("credentials", {
-                  username: values.username,
-                  password: values.password,
-                });
-
-                if (login.error) alert(login.error);
+                await axios
+                  .post(
+                    "https://marica-backend.vercel.app/api/v1/user/login",
+                    {
+                      password: values.password,
+                      email: values.email,
+                    },
+                    {
+                      headers: {
+                        "Content-Type": "application/json",
+                      },
+                    }
+                  )
+                  .then(function (response) {
+                    dispatch(response);
+                    console.log(response);
+                  })
+                  .catch(function (error) {
+                    console.log(error);
+                  });
               }}
             >
               {({ isSubmitting }) => (

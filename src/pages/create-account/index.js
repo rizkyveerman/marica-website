@@ -59,10 +59,10 @@ const CreateAccount = () => {
                 }
                 return errors;
               }}
-              onSubmit={(values, { setSubmitting }) => {
+              onSubmit={async (values, { setSubmitting }) => {
                 const fullname = values.firstname + " " + values.lastname;
 
-                axios
+                await axios
                   .post("https://marica-backend.vercel.app/api/v1/user", {
                     nama: fullname,
                     password: values.password,
@@ -70,20 +70,6 @@ const CreateAccount = () => {
                   })
                   .then((response) => console.log("create user:> ", response))
                   .catch((err) => console.log(err));
-
-                // const response = await fetch({
-                //   method: "POST",
-                //   headers: { "Content-Type": "application/json" },
-                //   body: JSON.stringify({
-                //     nama: fullname,
-                //     password: values.password,
-                //     email: values.email,
-                //   }),
-                // });
-
-                // Handle response
-                // const data = await response.json();
-                // console.log(data);
               }}
             >
               {({ isSubmitting }) => (

@@ -10,7 +10,7 @@ export async function getStaticProps() {
   };
 }
 
-const Profile = ({ users }) => {
+const Children = ({ users }) => {
   return (
     <article className="bg-abu-terang">
       <section className="w-full min-h-screen p-4 grid place-content-center">
@@ -40,4 +40,4 @@ const Profile = ({ users }) => {
   );
 };
 
-export default Profile;
+export default Children;
