@@ -10,11 +10,9 @@ import { Form, Formik, Field, ErrorMessage } from "formik";
 import axios from "axios";
 
 const CreateAccount = () => {
-  const [isFeedbackOpen, setIsFeedbackOpen] = useState(false);
-  const [feedback, setFeedback] = useState({
-    status: "",
-    message: "",
-  });
+  const [notification, setNotification] = useState(false);
+  const [feedback, setFeedback] = useState({ status: "", message: "" });
+
   //TODO: add all symbol for regex (include dot and others!)
   const passwordRegex =
     /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
@@ -22,7 +20,7 @@ const CreateAccount = () => {
   return (
     <>
       <article className="grid grid-cols-1 md:grid-cols-2 min-h-screen">
-        {/* {isFeedbackOpen && (
+        {notification && (
           <section
             className={`max-w-[320px] rounded-xl ${
               feedback.status === "Error" ? "bg-pink-600" : "bg-green-600"
@@ -33,21 +31,22 @@ const CreateAccount = () => {
               {feedback.status === "Error" ? (
                 <Button
                   className="text-white border-white"
-                  isClicked={() => setIsFeedbackOpen(false)}
+                  isClicked={() => setNotification(false)}
                 >
                   Coba lagi
                 </Button>
               ) : (
                 <Button
                   className="text-white border-white"
-                  isClicked={() => setIsFeedbackOpen(false)}
+                  isLink
+                  href="/login"
                 >
                   Masuk
                 </Button>
               )}
             </div>
           </section>
-        )} */}
+        )}
         <section className="grid place-content-center p-4">
           <div className="min-w-[350px] md:w-96 max-w-lg p-4 rounded-2xl grid gap-4">
             <Logo styles="m-auto" />
@@ -91,7 +90,7 @@ const CreateAccount = () => {
                 }
                 return errors;
               }}
-              onSubmit={async (values, { setSubmitting }) => {
+              onSubmit={async (values) => {
                 const fullname = values.firstname + " " + values.lastname;
 
                 await axios
@@ -101,7 +100,7 @@ const CreateAccount = () => {
                     email: values.email,
                   })
                   .then((response) => {
-                    setIsFeedbackOpen(true);
+                    setNotification(true);
                     setFeedback({
                       status: response.type,
                       message:
@@ -113,7 +112,7 @@ const CreateAccount = () => {
                     console.log("response", response);
                   })
                   .catch((err) => {
-                    setIsFeedbackOpen(true);
+                    setNotification(true);
                     setFeedback({
                       status: err.type,
                       message: err.message,
@@ -204,6 +203,7 @@ const CreateAccount = () => {
               fill
               objectFit="cover"
               objectPosition="center"
+              priority
             />
           </div>
         </section>
