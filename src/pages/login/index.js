@@ -57,7 +57,7 @@ function LoginPage() {
                 return errors;
               }}
               onSubmit={(values, { setSubmitting }) => {
-                dispatch(login(values.username, values.password));
+                login(values.username, values.password);
                 console.log(response);
               }}
             >
