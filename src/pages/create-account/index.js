@@ -1,4 +1,5 @@
 import watching from "@/images/watching.jpg";
+import { useRouter } from "next/router";
 import { useRef, useState } from "react";
 import Link from "next/link";
 import Input from "@/components/inputs/Input";
@@ -12,6 +13,7 @@ import axios from "axios";
 const CreateAccount = () => {
   const [notification, setNotification] = useState(false);
   const [feedback, setFeedback] = useState({ status: "", message: "" });
+  const router = useRouter();
 
   //TODO: add all symbol for regex (include dot and others!)
   const passwordRegex =
@@ -20,7 +22,7 @@ const CreateAccount = () => {
   return (
     <>
       <article className="grid grid-cols-1 md:grid-cols-2 min-h-screen">
-        {notification && (
+        {/* {notification && (
           <section
             className={`max-w-[320px] rounded-xl ${
               feedback.status === "Error" ? "bg-pink-600" : "bg-green-600"
@@ -46,7 +48,7 @@ const CreateAccount = () => {
               )}
             </div>
           </section>
-        )}
+        )} */}
         <section className="grid place-content-center p-4">
           <div className="min-w-[350px] md:w-96 max-w-lg p-4 rounded-2xl grid gap-4">
             <Logo styles="m-auto" />
@@ -100,24 +102,10 @@ const CreateAccount = () => {
                     email: values.email,
                   })
                   .then((response) => {
-                    setNotification(true);
-                    setFeedback({
-                      status: response.type,
-                      message:
-                        response.type === "Error"
-                          ? response.message
-                          : `Yay, akun ${values.fullname} berhasil dibuat! Yuk masuk`,
-                    });
-
-                    console.log("response", response);
+                    //redirecting to login page
+                    router.push("/login");
                   })
-                  .catch((err) => {
-                    setNotification(true);
-                    setFeedback({
-                      status: err.type,
-                      message: err.message,
-                    });
-                  });
+                  .catch((err) => {});
               }}
             >
               {({ isSubmitting }) => (
