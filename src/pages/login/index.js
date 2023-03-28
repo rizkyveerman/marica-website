@@ -57,7 +57,7 @@ function LoginPage() {
               }}
               onSubmit={(values) => {
                 console.log("values", values);
-                dispatch(userLogin(values));
+                dispatch(login(values));
               }}
             >
               {({ isSubmitting }) => (
