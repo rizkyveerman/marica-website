@@ -69,7 +69,7 @@ const CreateAccount = () => {
                     password: values.password,
                     email: values.email,
                   })
-                  .then((response) => console.log("create user:> ", response))
+                  .then((response) => alert(response))
                   .catch((err) => console.log(err));
               }}
             >
