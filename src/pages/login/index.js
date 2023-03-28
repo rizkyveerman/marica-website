@@ -56,27 +56,9 @@ function LoginPage() {
 
                 return errors;
               }}
-              onSubmit={async (values, { setSubmitting }) => {
-                await axios
-                  .post(
-                    "https://marica-backend.vercel.app/api/v1/user/login",
-                    {
-                      identifier: values.username,
-                      password: values.password,
-                    },
-                    {
-                      headers: {
-                        "Content-Type": "application/json",
-                      },
-                    }
-                  )
-                  .then(function (response) {
-                    dispatch(login(response));
-                    console.log(response);
-                  })
-                  .catch(function (error) {
-                    console.log(error);
-                  });
+              onSubmit={(values, { setSubmitting }) => {
+                dispatch(login(values.username, values.password));
+                console.log(response);
               }}
             >
               {({ isSubmitting }) => (

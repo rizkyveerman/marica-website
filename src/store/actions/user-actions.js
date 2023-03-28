@@ -10,7 +10,11 @@ export const login = (username, password) => {
         },
       };
 
-      const { data } = await axios.post("api", { username, password }, config);
+      const { data } = await axios.post(
+        "https://marica-backend.vercel.app/api/v1/user/login",
+        { identifier: username, password },
+        config
+      );
       dispatch(userLogin(data));
       localStorage.setItem("userInfo", JSON.stringify(data));
     } catch (error) {
