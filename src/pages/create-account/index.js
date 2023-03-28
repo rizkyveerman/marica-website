@@ -7,6 +7,7 @@ import Footer from "@/widgets/Footer";
 import Logo from "@/components/Logo";
 import Image from "next/image";
 import { Form, Formik, Field, ErrorMessage } from "formik";
+import axios from "axios";
 
 const CreateAccount = () => {
   const passwordRegex =
@@ -58,25 +59,31 @@ const CreateAccount = () => {
                 }
                 return errors;
               }}
-              onSubmit={async (values, { setSubmitting }) => {
+              onSubmit={(values, { setSubmitting }) => {
                 const fullname = values.firstname + " " + values.lastname;
 
-                const response = await fetch(
-                  "https://marica-backend.vercel.app/api/v1/user",
-                  {
-                    method: "POST",
-                    headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify({
-                      nama: fullname,
-                      password: values.password,
-                      email: values.email,
-                    }),
-                  }
-                );
+                axios
+                  .post("https://marica-backend.vercel.app/api/v1/user", {
+                    nama: fullname,
+                    password: values.password,
+                    email: values.email,
+                  })
+                  .then((response) => console.log("create user:> ", response))
+                  .catch((err) => console.log(err));
+
+                // const response = await fetch({
+                //   method: "POST",
+                //   headers: { "Content-Type": "application/json" },
+                //   body: JSON.stringify({
+                //     nama: fullname,
+                //     password: values.password,
+                //     email: values.email,
+                //   }),
+                // });
 
                 // Handle response
-                const data = await response.json();
-                console.log(data);
+                // const data = await response.json();
+                // console.log(data);
               }}
             >
               {({ isSubmitting }) => (
