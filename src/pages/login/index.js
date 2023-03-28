@@ -58,7 +58,6 @@ function LoginPage() {
               }}
               onSubmit={(values, { setSubmitting }) => {
                 login(values.username, values.password);
-                console.log(response);
               }}
             >
               {({ isSubmitting }) => (
