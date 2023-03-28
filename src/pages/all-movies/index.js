@@ -17,7 +17,7 @@ export async function getServerSideProps(ctx) {
 const Browser = ({ videos }) => {
   return (
     <article>
-      <header className="w-full border sticky top-0 z-10 bg-white drop-shadow-sm p-4 flex justify-between items-center">
+      <header className="w-full sticky top-0 z-10 bg-white drop-shadow-sm p-4 flex justify-between items-center">
         <Input
           type="text"
           placeholder="Cari film..."
@@ -41,21 +41,67 @@ const Browser = ({ videos }) => {
         </select>
       </header>
       <section className="p-4">
-        <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-4">
-          {videos.items.length > 0 ? (
-            videos.items.map((video) => (
-              <li key={video.id} className="h-auto">
-                <MovieCard
-                  thumbnail={video.snippet.thumbnails.high.url}
-                  slug={`/browse/${video.id}`}
-                  title={video.snippet.title}
-                  rating={video.rating}
-                />
-              </li>
-            ))
-          ) : (
-            <p>No videos found</p>
-          )}
+        <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          <li className="h-auto w-full">
+            <iframe
+              className="h-52 w-full rounded-xl"
+              src="https://www.youtube.com/embed/5higYnVi4Ro"
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen
+            ></iframe>
+          </li>
+          <li className="h-auto w-full">
+            <iframe
+              className="h-52 w-full rounded-xl"
+              src="https://www.youtube.com/embed/U0wTDK0VOeY"
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen
+            ></iframe>
+          </li>
+          <li className="h-auto w-full">
+            <iframe
+              className="h-52 w-full rounded-xl"
+              src="https://www.youtube.com/embed/Qto1u_uetiw"
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen
+            ></iframe>
+          </li>
+          <li className="h-auto w-full">
+            <iframe
+              className="h-52 w-full rounded-xl"
+              src="https://www.youtube.com/embed/aTq0QOZM_Ik"
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen
+            ></iframe>
+          </li>
+          <li className="h-auto w-full">
+            <iframe
+              className="h-52 w-full rounded-xl"
+              src="https://www.youtube.com/embed/HnVWyCp5Jd4"
+              title="YouTube video player"
+              frameborder="0"
+              allow="fullscreen; accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen
+            ></iframe>
+          </li>
+          <li className="h-auto w-full">
+            <iframe
+              className="h-52 w-full rounded-xl"
+              src="https://www.youtube.com/embed/H09PmP5tsy8"
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen
+            ></iframe>
+          </li>
         </ul>
       </section>
     </article>
