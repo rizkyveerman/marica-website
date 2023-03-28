@@ -8,6 +8,7 @@ import Link from "next/link";
 import Footer from "@/widgets/Footer";
 import Image from "next/image";
 import watching from "@/images/watching.jpg";
+import { login } from "@/store/actions/user-actions";
 
 function LoginPage() {
   const dispatch = useDispatch();
@@ -70,7 +71,7 @@ function LoginPage() {
                     }
                   )
                   .then(function (response) {
-                    dispatch(response);
+                    dispatch(login(response));
                     console.log(response);
                   })
                   .catch(function (error) {
