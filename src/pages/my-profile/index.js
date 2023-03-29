@@ -1,16 +1,20 @@
 import { useSelector } from "react-redux";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faMedal } from "@fortawesome/free-solid-svg-icons";
+import Link from "next/link";
 import ChildCard from "@/components/cards/ChildCard";
 import MainLayout from "@/layout/MainLayout";
 import { Tab } from "@headlessui/react";
 import Image from "next/image";
 import woman from "@/icons/woman.png";
+import boy from "@/icons/boy.png";
+import girl from "@/icons/girl.png";
 import Button from "@/components/buttons/Button";
 import {
   faEdit,
   faIdCard,
   faLocationDot,
 } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 //protected
 const MyProfile = (props) => {
@@ -57,11 +61,114 @@ const MyProfile = (props) => {
               Statistik anak
             </Tab>
           </Tab.List>
-          <Tab.Panels className="max-w-2xl p-4">
-            <Tab.Panel className="grid gap-4">
-              {[1, 2, 3].map((index) => (
-                <ChildCard key={index} />
-              ))}
+          <Tab.Panels className="py-4 md:p-4">
+            <Tab.Panel className="grid lg:grid-cols-2 gap-4">
+              {/* children */}
+              <div
+                className={`bg-white p-4 rounded-xl flex gap-4 cursor-pointer`}
+              >
+                <Image
+                  src={boy}
+                  width={100}
+                  height={100}
+                  alt="username"
+                  title="username"
+                  className="bg-blue-300 p-2 pb-0 rounded-lg h-[100px] w-[100px]"
+                />
+                <div className="text-slate-600 flex flex-col gap-4">
+                  <div className="flex justify-between items-center">
+                    <p className="text-xl">Dion W</p>
+                    <p className="flex gap-1 items-center">
+                      <span className="text-amber-800">
+                        <FontAwesomeIcon icon={faMedal} width={20} />
+                      </span>
+                      65
+                    </p>
+                  </div>
+                  <div>
+                    <p className="text-slate-400">
+                      Tertarik dengan menggambar perspektif. Bercita-cita
+                      menjadi product designer.
+                    </p>
+                    <Link
+                      href="/:id"
+                      className="underline text-slate-500 hover:text-pink-600"
+                    >
+                      Detail
+                    </Link>
+                  </div>
+                </div>
+              </div>
+              <div
+                className={`bg-white p-4 rounded-xl flex gap-4 cursor-pointer`}
+              >
+                <Image
+                  src={boy}
+                  width={100}
+                  height={100}
+                  alt="username"
+                  title="username"
+                  className="bg-blue-300 p-2 pb-0 rounded-lg h-[100px] w-[100px]"
+                />
+                <div className="text-slate-600 flex flex-col gap-4">
+                  <div className="flex justify-between items-center">
+                    <p className="text-xl">Ed Sheeran</p>
+                    <p className="flex gap-1 items-center">
+                      <span className="text-amber-500">
+                        <FontAwesomeIcon icon={faMedal} width={20} />
+                      </span>
+                      1150
+                    </p>
+                  </div>
+                  <div>
+                    <p className="text-slate-400">
+                      Tertarik dengan menggambar perspektif. Bercita-cita
+                      menjadi product designer.
+                    </p>
+                    <Link
+                      href="/:id"
+                      className="underline text-slate-500 hover:text-pink-600"
+                    >
+                      Detail
+                    </Link>
+                  </div>
+                </div>
+              </div>
+              <div
+                className={`bg-white p-4 rounded-xl flex gap-4 cursor-pointer`}
+              >
+                <Image
+                  src={girl}
+                  width={100}
+                  height={100}
+                  alt="username"
+                  title="username"
+                  className="bg-blue-300 p-2 pb-0 rounded-lg h-[100px] w-[100px]"
+                />
+                <div className="text-slate-600 flex flex-col gap-4">
+                  <div className="flex justify-between items-center">
+                    <p className="text-xl">Taylor Swift</p>
+                    <p className="flex gap-1 items-center">
+                      <span className="text-slate-500">
+                        <FontAwesomeIcon icon={faMedal} width={20} />
+                      </span>
+                      430
+                    </p>
+                  </div>
+                  <div>
+                    <p className="text-slate-400">
+                      Tertarik dengan menggambar perspektif. Bercita-cita
+                      menjadi product designer.
+                    </p>
+                    <Link
+                      href="/:id"
+                      className="underline text-slate-500 hover:text-pink-600"
+                    >
+                      Detail
+                    </Link>
+                  </div>
+                </div>
+              </div>
             </Tab.Panel>
             <Tab.Panel>statistik</Tab.Panel>
           </Tab.Panels>
