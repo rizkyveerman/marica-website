@@ -113,6 +113,7 @@ const Sidebar = () => {
                   <Link
                     className="flex items-center gap-2 p-4 lg:py-4 lg:px-0 w-full"
                     href={`/${menu.path}`}
+                    onClick={() => setIsMobileMenuOpen((prev) => !prev)}
                   >
                     <FontAwesomeIcon icon={menu.icon} height={16} />
                     <span>{menu.name}</span>
