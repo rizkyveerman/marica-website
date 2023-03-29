@@ -1,53 +1,60 @@
 import React from "react";
-import { loadMovies } from "@/libs/films/load-movies";
-import { loadMovie } from "@/libs/films/load-movie";
-import { useRouter } from "next/router";
+import Image from "next/image";
+import hero2 from "@/images/hero-2.png";
+import MainLayout from "@/layout/MainLayout";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Link from "next/link";
 
 const MoviesDetails = ({ movie }) => {
-  const router = useRouter();
-
-  const { slug } = router;
-
   return (
-    <section className="max-w-7xl mx-auto my-0 border">
-      <div>
-        <iframe
-          width="560"
-          height="315"
-          src="https://www.youtube.com/embed/eqLySEpHZew"
-          title="YouTube video player"
-          frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          allowfullscreen
-        ></iframe>
-      </div>
-    </section>
+    <articles className="p-4">
+      <section className="relative h-[60vh] overflow-hidden rounded-xl">
+        <Image
+          src={hero2}
+          alt="thumbnail"
+          fill
+          objectFit="cover"
+          objectPosition="center"
+        />
+      </section>
+      <section>
+        <div>
+          <h3>Episode</h3>
+          <ul>
+            {[1, 2, 3].map((index) => (
+              <li key={index}>
+                <div className="text-slate-600 flex flex-col gap-4">
+                  <div className="flex justify-between items-center">
+                    <p className="text-xl">Dion W</p>
+                    <p className="flex gap-1 items-center">
+                      <span className="text-amber-800"></span>
+                      65
+                    </p>
+                  </div>
+                  <div>
+                    <p className="text-slate-400">
+                      Tertarik dengan menggambar perspektif. Bercita-cita
+                      menjadi product designer.
+                    </p>
+                    <Link
+                      href="/:id"
+                      className="underline text-slate-500 hover:text-pink-600"
+                    >
+                      Detail
+                    </Link>
+                  </div>
+                </div>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+    </articles>
   );
 };
 
-// export async function getStaticPaths() {
-//   const movies = await loadMovies();
-
-//   const moviesPaths = movies.map((movie) => {
-//     return {
-//       params: {
-//         id: movie.id.toString(),
-//       },
-//     };
-//   });
-
-//   console.log("moviesPaths", moviesPaths);
-
-//   return { paths: moviesPaths, fallback: false };
-// }
-
-// export async function getStaticProps(ctx) {
-//   const id = ctx.params.id;
-//   const movie = loadMovie(id);
-
-//   return {
-//     props: { movie },
-//   };
-// }
+MoviesDetails.getLayout = function getLayout(page) {
+  return <MainLayout title="video">{page}</MainLayout>;
+};
 
 export default MoviesDetails;
