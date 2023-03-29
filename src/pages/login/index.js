@@ -1,7 +1,7 @@
 import { ErrorMessage, Formik, Form, Field } from "formik";
 import { useDispatch, useSelector } from "react-redux";
 import { useRouter } from "next/router";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 import Button from "@/components/buttons/Button";
 import Link from "next/link";
@@ -9,14 +9,19 @@ import Footer from "@/widgets/Footer";
 import Image from "next/image";
 import watching from "@/images/watching.jpg";
 import { login } from "@/store/actions/user-actions";
-import { userLogin } from "@/store/slices/user";
 import PasswordGuide from "@/components/inputs/PasswordGuide";
 import Logo from "@/components/Logo";
+import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 function LoginPage() {
+  const [showPassword, setShowPassword] = useState(true);
   const dispatch = useDispatch();
   const router = useRouter();
   const { error, isLoading, userInfo } = useSelector((state) => state.user);
+
+  const passwordRegex =
+    /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
 
   useEffect(() => {
     if (userInfo) {
@@ -51,9 +56,9 @@ function LoginPage() {
                 //password validation
                 if (!values.password) {
                   errors.password = "required";
-                } else if (values.password < 0) {
+                } else if (!passwordRegex.test(values.password)) {
                   errors.password =
-                    "Panjang password harus lebih dari 8 karakter";
+                    "Password harus terdiri dari huruf kecil, huruf kapital, angka, dan simbol";
                 }
 
                 return errors;
@@ -88,11 +93,21 @@ function LoginPage() {
                         Lupa password?
                       </Link>
                     </div>
-                    <Field
-                      type="password"
-                      name="password"
-                      className="focus:text-pink-600 focus:outline-2 text-slate-700 focus:outline-pink-600 py-3 px-6 rounded-lg bg-abu-terang"
-                    />
+                    <div className="relative w-full">
+                      <FontAwesomeIcon
+                        icon={showPassword ? faEye : faEyeSlash}
+                        height={14}
+                        className={`${
+                          showPassword ? "text-pink-600" : "text-slate-400"
+                        } absolute right-4 top-1/2 -translate-y-1/2`}
+                        onClick={() => setShowPassword(!showPassword)}
+                      />
+                      <Field
+                        type={showPassword ? "text" : "password"}
+                        name="password"
+                        className="w-full focus:text-pink-600 focus:outline-2 text-slate-700 focus:outline-pink-600 py-3 px-6 rounded-lg bg-abu-terang"
+                      />
+                    </div>
                     <PasswordGuide />
                     <ErrorMessage
                       name="password"

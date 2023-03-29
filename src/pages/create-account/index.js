@@ -1,9 +1,9 @@
 import watching from "@/images/watching.jpg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 import { useRouter } from "next/router";
-import { useRef, useState } from "react";
+import { useState } from "react";
 import Link from "next/link";
-import Input from "@/components/inputs/Input";
 import Button from "@/components/buttons/Button";
 import Footer from "@/widgets/Footer";
 import Logo from "@/components/Logo";
@@ -13,11 +13,11 @@ import axios from "axios";
 import PasswordGuide from "@/components/inputs/PasswordGuide";
 
 const CreateAccount = () => {
+  const [showPassword, setShowPassword] = useState(true);
   const [notification, setNotification] = useState(false);
   const [feedback, setFeedback] = useState({ status: "", message: "" });
   const router = useRouter();
 
-  //TODO: add all symbol for regex (include dot and others!)
   const passwordRegex =
     /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
 
@@ -155,11 +155,21 @@ const CreateAccount = () => {
                   </div>
                   <div className="password w-full relative grid gap-2">
                     <p>Masukkan password</p>
-                    <Field
-                      type="password"
-                      name="password"
-                      className="focus:text-pink-600 focus:outline-2 text-slate-700 focus:outline-pink-600 py-3 px-6 rounded-lg bg-abu-terang"
-                    />
+                    <div className="relative w-full">
+                      <FontAwesomeIcon
+                        icon={showPassword ? faEye : faEyeSlash}
+                        height={14}
+                        className={`${
+                          showPassword ? "text-pink-600" : "text-slate-400"
+                        } absolute right-4 top-1/2 -translate-y-1/2`}
+                        onClick={() => setShowPassword(!showPassword)}
+                      />
+                      <Field
+                        type={showPassword ? "text" : "password"}
+                        name="password"
+                        className="w-full focus:text-pink-600 focus:outline-2 text-slate-700 focus:outline-pink-600 py-3 px-6 rounded-lg bg-abu-terang"
+                      />
+                    </div>
                     <PasswordGuide />
                     <ErrorMessage
                       name="password"
