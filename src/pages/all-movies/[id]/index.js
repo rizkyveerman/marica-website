@@ -1,15 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 import videoThumbnail from "@/images/video-thumbnail.png";
 import episode1 from "@/images/episode1.png";
 import episode2 from "@/images/episode2.png";
 import episode3 from "@/images/episode3.png";
 import MainLayout from "@/layout/MainLayout";
+import { faPlay } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Link from "next/link";
 import Button from "@/components/buttons/Button";
 
 const MoviesDetails = ({ movie }) => {
+  const [isHoveringEps, setIsHoveringEps] = useState(false);
   return (
     <articles>
       <section className="p-4 h-[60vh]">
@@ -21,7 +23,7 @@ const MoviesDetails = ({ movie }) => {
               arcu blandit. Scelerisque iaculis arcu turpis non quam. A
               elementum in aliquam morbi morbi semper dui.
             </p>
-            <Button className="w-fit text-white border-white">
+            <Button icon={faPlay} className="w-fit text-white border-white">
               Tonton sekarang
             </Button>
           </div>
@@ -38,8 +40,9 @@ const MoviesDetails = ({ movie }) => {
       <section className="p-4">
         <div>
           <h3>Episode</h3>
+          {/* //TODO add play icon when hovering the episode item */}
           <ul className="py-4 grid gap-4">
-            <li className="bg-white rounded-xl p-4 gap-4 flex flex-col md:flex-row">
+            <li className="hover:cursor-pointer bg-white rounded-xl p-4 gap-4 flex flex-col md:flex-row">
               <Image
                 src={episode1}
                 alt="episode 1"
@@ -66,11 +69,24 @@ const MoviesDetails = ({ movie }) => {
               </div>
             </li>
             <li className="bg-white rounded-xl p-4 gap-4 flex flex-col md:flex-row">
-              <Image
-                src={episode2}
-                alt="episode 2"
-                className="rounded-md w-full h-auto md:w-52 md:h-32 object-cover object-center"
-              />
+              <div
+                className="hover:cursor-pointer relative"
+                onMouseEnter={() => setIsHoveringEps(true)}
+                onMouseLeave={() => setIsHoveringEps(false)}
+              >
+                {isHoveringEps && (
+                  <FontAwesomeIcon
+                    icon={faPlay}
+                    height={24}
+                    className="text-white absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
+                  />
+                )}
+                <Image
+                  src={episode2}
+                  alt="episode 2"
+                  className="rounded-md w-full h-auto aspect-video object-cover object-center"
+                />
+              </div>
               <div className=" text-slate-600 flex flex-col">
                 <p className="text-xl md:text-2xl">
                   <span className="text-pink-600 text-base">Ep.2</span> Mimpi
@@ -92,7 +108,7 @@ const MoviesDetails = ({ movie }) => {
                 </div>
               </div>
             </li>
-            <li className="bg-white rounded-xl p-4 gap-4 flex flex-col md:flex-row">
+            <li className="hover:cursor-pointer bg-white rounded-xl p-4 gap-4 flex flex-col md:flex-row">
               <Image
                 src={episode3}
                 alt="episode 3"
