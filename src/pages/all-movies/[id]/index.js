@@ -7,25 +7,44 @@ import episode3 from "@/images/episode3.png";
 import MainLayout from "@/layout/MainLayout";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Link from "next/link";
+import Button from "@/components/buttons/Button";
 
 const MoviesDetails = ({ movie }) => {
   return (
-    <articles className="p-4">
-      <section className="relative h-[60vh] overflow-hidden rounded-xl">
-        <Image
-          src={videoThumbnail}
-          alt="thumbnail"
-          fill
-          objectFit="cover"
-          objectPosition="center"
-        />
+    <articles>
+      <section className="p-4 h-[60vh]">
+        <div className="w-full h-full relative overflow-hidden rounded-xl">
+          <div className="absolute left-0 right-0 top-0 bottom-0 z-50 p-4 md:p-8 lg:p-12 flex flex-col justify-end">
+            <h1 className="text-white mb-8">The Soul</h1>
+            <p className="text-white mb-2 max-w-lg">
+              Lorem ipsum dolor sit amet consectetur. Facilisis ornare convallis
+              arcu blandit. Scelerisque iaculis arcu turpis non quam. A
+              elementum in aliquam morbi morbi semper dui.
+            </p>
+            <Button className="w-fit text-white border-white">
+              Tonton sekarang
+            </Button>
+          </div>
+          <div className="absolute left-0 right-0 top-0 bottom-0 bg-gradient-to-t from-blue-600/50 to-blue-600/0 z-40"></div>
+          <Image
+            src={videoThumbnail}
+            alt="thumbnail"
+            fill
+            objectFit="cover"
+            objectPosition="center"
+          />
+        </div>
       </section>
       <section className="p-4">
         <div>
           <h3>Episode</h3>
           <ul className="py-4 grid gap-4">
-            <li className="bg-white rounded-xl p-4 gap-4 flex">
-              <Image src={episode1} alt="episode 1" width={202} height={120} />
+            <li className="bg-white rounded-xl p-4 gap-4 flex-row flex-col lg:flex">
+              <Image
+                src={episode1}
+                alt="episode 1"
+                className="rounded-lg w-full h-auto md:w-52 md:h-32 object-cover object-center"
+              />
               <div className=" text-slate-600 flex flex-col">
                 <p className="text-xl">Episode 1</p>
                 <div>
