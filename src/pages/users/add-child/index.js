@@ -1,10 +1,10 @@
+import { faAdd } from "@fortawesome/free-solid-svg-icons";
 import { ErrorMessage, Formik, Form, Field } from "formik";
 import { useDispatch, useSelector } from "react-redux";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
 import axios from "axios";
 import Button from "@/components/buttons/Button";
-import Link from "next/link";
 import Footer from "@/widgets/Footer";
 import Image from "next/image";
 import watching from "@/images/watching.jpg";
@@ -131,11 +131,11 @@ function CreateChildAccount() {
                     <p>Tanggal lahir</p>
                     <Field
                       type="date"
-                      name="username"
+                      name="date"
                       className="focus:text-pink-600 focus:outline-2 text-slate-700 focus:outline-pink-600 w-full py-3 px-6 rounded-lg bg-abu-terang"
                     />
                     <ErrorMessage
-                      name="username"
+                      name="date"
                       component="div"
                       className="m-auto absolute top-full p-2 rounded-xl bg-red-100 text-red-600 before:block before:absolute before:left-1/2 before:bottom-full before:w-3 before:h-3 before:bg-red-100 before:translate-y-1/2 before:-translate-x-1/2 before:rotate-45 before:rounded-sm z-10"
                     />
