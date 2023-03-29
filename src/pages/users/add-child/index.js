@@ -27,10 +27,13 @@ function CreateChildAccount() {
         <section className="grid place-content-center p-4">
           <div className="min-w-[350px] md:w-96 max-w-lg p-4 rounded-2xl grid gap-4">
             <Logo styles="m-auto" />
-            <h3>Buat akun Marica Gratis!</h3>
+            <h3>Buat akun anak!</h3>
+            <p className="text-slate-500">
+              Tambahkan akun anak agar pengalaman menonton mereka dapat
+              dipersonalisasikan.
+            </p>
             <Formik
               initialValues={{
-                password: "",
                 firstname: "",
                 lastname: "",
                 birthDate: "",
@@ -58,15 +61,6 @@ function CreateChildAccount() {
                 if (!values.birthDate) {
                   errors.birthDate = "required";
                 }
-
-                //password validation
-                if (!values.password) {
-                  errors.password = "required";
-                } else if (!passwordRegex.test(values.password)) {
-                  errors.password =
-                    "Password harus terdiri dari huruf kecil, huruf kapital, angka, dan simbol @$!%*?&";
-                }
-                return errors;
               }}
               onSubmit={async (values) => {
                 const fullname = values.firstname + " " + values.lastname;
@@ -83,8 +77,11 @@ function CreateChildAccount() {
                   .then((response) => {
                     //redirecting to select user account page
                     router.push("/users");
+                    console.log("response", response);
                   })
-                  .catch((err) => {});
+                  .catch((err) => {
+                    console.log("err", err);
+                  });
               }}
             >
               {({ isSubmitting }) => (
@@ -143,19 +140,6 @@ function CreateChildAccount() {
                       className="m-auto absolute top-full p-2 rounded-xl bg-red-100 text-red-600 before:block before:absolute before:left-1/2 before:bottom-full before:w-3 before:h-3 before:bg-red-100 before:translate-y-1/2 before:-translate-x-1/2 before:rotate-45 before:rounded-sm z-10"
                     />
                   </div>
-                  <div className="w-full relative grid gap-2">
-                    <p>Buat password</p>
-                    <Field
-                      type="password"
-                      name="password"
-                      className="focus:text-pink-600 focus:outline-2 text-slate-700 focus:outline-pink-600 py-3 px-6 rounded-lg bg-abu-terang"
-                    />
-                    <ErrorMessage
-                      name="password"
-                      component="div"
-                      className="m-auto absolute top-full p-2 rounded-xl bg-red-100 text-red-600 before:block before:absolute before:left-1/2 before:bottom-full before:w-3 before:h-3 before:bg-red-100 before:translate-y-1/2 before:-translate-x-1/2 before:rotate-45 before:rounded-sm z-10"
-                    />
-                  </div>
                   <Button
                     type="submit"
                     variant="primary"
@@ -167,12 +151,6 @@ function CreateChildAccount() {
                 </Form>
               )}
             </Formik>
-            <p className="text-sm text-abu text-center">
-              Sudah punya akun Marica?{" "}
-              <Link href="/login" className="text-pink-600 underline">
-                Masuk disini
-              </Link>
-            </p>
           </div>
         </section>
         <section className="w-full h-full p-4 hidden md:grid">
