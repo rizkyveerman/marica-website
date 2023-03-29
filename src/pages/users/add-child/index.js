@@ -11,15 +11,7 @@ import watching from "@/images/watching.jpg";
 import Logo from "@/components/Logo";
 
 function CreateChildAccount() {
-  const dispatch = useDispatch();
   const router = useRouter();
-  const { error, isLoading, userInfo } = useSelector((state) => state.user);
-
-  useEffect(() => {
-    if (userInfo) {
-      if (router.route === "/login") router.push("/users");
-    }
-  }, [router, userInfo]);
 
   return (
     <>
@@ -131,11 +123,11 @@ function CreateChildAccount() {
                     <p>Tanggal lahir</p>
                     <Field
                       type="date"
-                      name="date"
+                      name="birthDate"
                       className="focus:text-pink-600 focus:outline-2 text-slate-700 focus:outline-pink-600 w-full py-3 px-6 rounded-lg bg-abu-terang"
                     />
                     <ErrorMessage
-                      name="date"
+                      name="birthDate"
                       component="div"
                       className="m-auto absolute top-full p-2 rounded-xl bg-red-100 text-red-600 before:block before:absolute before:left-1/2 before:bottom-full before:w-3 before:h-3 before:bg-red-100 before:translate-y-1/2 before:-translate-x-1/2 before:rotate-45 before:rounded-sm z-10"
                     />
