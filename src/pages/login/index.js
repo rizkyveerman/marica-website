@@ -10,6 +10,7 @@ import Image from "next/image";
 import watching from "@/images/watching.jpg";
 import { login } from "@/store/actions/user-actions";
 import { userLogin } from "@/store/slices/user";
+import PasswordGuide from "@/components/inputs/PasswordGuide";
 
 function LoginPage() {
   const dispatch = useDispatch();
@@ -83,6 +84,7 @@ function LoginPage() {
                       name="password"
                       className="focus:text-pink-600 focus:outline-2 text-slate-700 focus:outline-pink-600 py-3 px-6 rounded-lg bg-abu-terang"
                     />
+                    <PasswordGuide />
                     <ErrorMessage
                       name="password"
                       component="div"

@@ -1,4 +1,5 @@
 import watching from "@/images/watching.jpg";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useRouter } from "next/router";
 import { useRef, useState } from "react";
 import Link from "next/link";
@@ -9,6 +10,7 @@ import Logo from "@/components/Logo";
 import Image from "next/image";
 import { Form, Formik, Field, ErrorMessage } from "formik";
 import axios from "axios";
+import PasswordGuide from "@/components/inputs/PasswordGuide";
 
 const CreateAccount = () => {
   const [notification, setNotification] = useState(false);
@@ -158,6 +160,7 @@ const CreateAccount = () => {
                       name="password"
                       className="focus:text-pink-600 focus:outline-2 text-slate-700 focus:outline-pink-600 py-3 px-6 rounded-lg bg-abu-terang"
                     />
+                    <PasswordGuide />
                     <ErrorMessage
                       name="password"
                       component="div"
