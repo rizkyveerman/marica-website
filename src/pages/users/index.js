@@ -1,3 +1,4 @@
+import Button from "@/components/buttons/Button";
 import Link from "next/link";
 import React from "react";
 
@@ -17,7 +18,7 @@ const Children = ({ users }) => {
         <h2 className="mb-8">Siapa yang menonton?</h2>
         <div className="flex justify-center gap-4">
           <ul className="grid grid-cols-4 gap-4">
-            {users.map((user) => (
+            {users.slice(0, 3).map((user) => (
               <li key={user.id}>
                 <Link href={`/users/${user.id}`} className="block">
                   <div className="h-20 w-20 bg-mangga rounded-lg"></div>
@@ -25,9 +26,10 @@ const Children = ({ users }) => {
                 </Link>
               </li>
             ))}
+
             <div>
               <Link
-                href="/add-kids"
+                href="/users/add-child"
                 className="h-20 w-20 border grid place-content-center border-mangga rounded-lg text-2xl"
               >
                 +
