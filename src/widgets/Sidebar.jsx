@@ -81,7 +81,7 @@ const Sidebar = () => {
                   className="flex items-center gap-2 p-4 lg:py-4 lg:px-0 w-full"
                   href={`/${menu.path}`}
                 >
-                  <FontAwesomeIcon icon={menu.icon} height={14} />
+                  <FontAwesomeIcon icon={menu.icon} height={16} />
                   <span className="hidden md:block">{menu.name}</span>
                 </Link>
               </li>
@@ -89,9 +89,8 @@ const Sidebar = () => {
             <li
               className={`md:hidden flex justify-start items-center hover:bg-pink-100 bg-gradient-to-t hover:text-pink-600 text-arang/80 rounded-xl lg:pl-4`}
             >
-              <button className="flex items-center gap-2 p-4 lg:py-4 lg:px-0 w-full">
-                <FontAwesomeIcon icon={faBars} height={14} />
-                <span>Menu</span>
+              <button className="w-12 h-12 grid place-content-center p-2 md:p-4 lg:py-4 lg:px-0">
+                <FontAwesomeIcon icon={faBars} height={16} />
               </button>
             </li>
           </ul>
@@ -114,7 +113,7 @@ const Sidebar = () => {
                   className="flex items-center gap-2 p-4 lg:py-4 lg:px-0 w-full"
                   href={`/${menu.path}`}
                 >
-                  <FontAwesomeIcon icon={menu.icon} height={14} />
+                  <FontAwesomeIcon icon={menu.icon} height={16} />
                   <span className="hidden md:block">{menu.name}</span>
                 </Link>
               </li>
@@ -133,7 +132,7 @@ const Sidebar = () => {
               className="flex items-center gap-2 p-4 lg:py-4 lg:px-0 w-full"
               href="/help"
             >
-              <FontAwesomeIcon icon={faQuestion} height={14} />
+              <FontAwesomeIcon icon={faQuestion} height={16} />
               <span className="hidden md:block">Help</span>
             </Link>
           </li>
