@@ -24,7 +24,7 @@ const Button = ({
       } flex justify-center items-center gap-1 px-5 py-2 rounded-xl`}
       onClick={isLink ? null : () => isClicked()}
     >
-      <FontAwesomeIcon icon={icon} height={14} className="mr-1" />
+      {icon && <FontAwesomeIcon icon={icon} height={14} className="mr-1" />}
       {isLink ? <Link href={href}>{children}</Link> : <span>{children}</span>}
     </button>
   );
