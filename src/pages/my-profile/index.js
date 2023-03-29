@@ -62,7 +62,7 @@ const MyProfile = (props) => {
             </Tab>
           </Tab.List>
           <Tab.Panels className="py-4 md:p-4">
-            <Tab.Panel className="grid lg:grid-cols-2 gap-4">
+            <Tab.Panel className="grid md:grid-cols-2 gap-4">
               {/* children */}
               <div
                 className={`bg-white p-4 rounded-xl flex gap-4 cursor-pointer`}
