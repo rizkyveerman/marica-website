@@ -11,6 +11,7 @@ import watching from "@/images/watching.jpg";
 import { login } from "@/store/actions/user-actions";
 import { userLogin } from "@/store/slices/user";
 import PasswordGuide from "@/components/inputs/PasswordGuide";
+import Logo from "@/components/Logo";
 
 function LoginPage() {
   const dispatch = useDispatch();
@@ -28,6 +29,7 @@ function LoginPage() {
       <article className="grid grid-cols-1 md:grid-cols-2 h-screen">
         <section className="relative grid place-content-center p-4">
           <div className="min-w-[350px] md:w-96 max-w-lg p-4 rounded-2xl grid gap-4">
+            <Logo />
             <h2>Masuk dulu, yuk!</h2>
             <p className="text-slate-500 text-justify">
               Masuk ke akun Marica kamu dan nikmati berbagai kategori film dan
@@ -63,7 +65,6 @@ function LoginPage() {
             >
               {({ isSubmitting }) => (
                 <Form className="grid grid-cols-1 gap-4 w-full">
-                  <div className="flex gap-4"></div>
                   <div className="email w-full relative grid gap-2">
                     <p>Masukkan username</p>
                     <Field
@@ -78,7 +79,15 @@ function LoginPage() {
                     />
                   </div>
                   <div className="password w-full relative grid gap-2">
-                    <p>Masukkan password</p>
+                    <div className="flex justify-between items-center">
+                      <p>Masukkan password</p>
+                      <Link
+                        href="/reset-password"
+                        className="text-pink-600 underline text-sm"
+                      >
+                        Lupa password?
+                      </Link>
+                    </div>
                     <Field
                       type="password"
                       name="password"

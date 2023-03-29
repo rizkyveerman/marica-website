@@ -53,7 +53,7 @@ const CreateAccount = () => {
         )} */}
         <section className="grid place-content-center p-4">
           <div className="min-w-[350px] md:w-96 max-w-lg p-4 rounded-2xl grid gap-4">
-            <Logo styles="m-auto" />
+            <Logo />
             <h3>Buat akun Marica Gratis!</h3>
             <Formik
               initialValues={{
