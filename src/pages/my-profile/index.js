@@ -22,7 +22,7 @@ const MyProfile = (props) => {
   return (
     <article>
       <section className="px-4 pt-16 pb-8">
-        <div className="flex justify-start items-start gap-4">
+        <div className="flex flex-col md:flex-row justify-center items-center md:justify-start md:items-start gap-4">
           <Image
             src={woman}
             alt="user profile"
@@ -32,22 +32,24 @@ const MyProfile = (props) => {
             className="bg-pink-300 rounded-full"
           />
           <div>
-            <div className="flex gap-4">
+            <div className="flex w-full justify-center items-center md:justify-start md:items-start gap-4">
               <h3>Maria V.</h3>
               <Button className="text-xs">Edit profile</Button>
             </div>
-            <p className="max-w-sm text-slate-500 mt-4">
+            <p className="max-w-sm text-center md:text-left text-slate-500 mt-4">
               Lorem ipsum dolor sit amet consectetur. Lorem vitae tincidunt
               scelerisque purus dui integer.
             </p>
-            <p className="text-slate-500 flex gap-2 text-sm">
-              <FontAwesomeIcon icon={faIdCard} width={14} />
-              Guru
-            </p>
-            <p className="text-slate-500 flex gap-2 text-sm">
-              <FontAwesomeIcon icon={faLocationDot} width={14} />
-              Sleman, Yogyakarta
-            </p>
+            <div className="flex justify-center items-center md:justify-start gap-4">
+              <p className="text-slate-500 flex gap-2 text-sm">
+                <FontAwesomeIcon icon={faIdCard} width={14} />
+                Guru
+              </p>
+              <p className="text-slate-500 flex gap-2 text-sm">
+                <FontAwesomeIcon icon={faLocationDot} width={12} />
+                Sleman, Yogyakarta
+              </p>
+            </div>
           </div>
         </div>
       </section>
