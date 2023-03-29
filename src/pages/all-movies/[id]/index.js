@@ -39,14 +39,43 @@ const MoviesDetails = ({ movie }) => {
         <div>
           <h3>Episode</h3>
           <ul className="py-4 grid gap-4">
-            <li className="bg-white rounded-xl p-4 gap-4 flex-row flex-col lg:flex">
+            <li className="bg-white rounded-xl p-4 gap-4 flex flex-col md:flex-row">
               <Image
                 src={episode1}
                 alt="episode 1"
-                className="rounded-lg w-full h-auto md:w-52 md:h-32 object-cover object-center"
+                className="rounded-md w-full h-auto md:w-52 md:h-32 object-cover object-center"
               />
               <div className=" text-slate-600 flex flex-col">
-                <p className="text-xl">Episode 1</p>
+                <p className="text-xl md:text-2xl">
+                  <span className="text-pink-600 text-base">Ep.1</span> John
+                  mencari jati diri
+                </p>
+                <div>
+                  <p className="text-slate-400">
+                    Lorem ipsum dolor sit amet consectetur. Facilisis ornare
+                    convallis arcu blandit. Scelerisque iaculis arcu turpis non
+                    quam.
+                  </p>
+                  <Link
+                    href="/:id"
+                    className="underline text-slate-500 hover:text-pink-600"
+                  >
+                    Detail
+                  </Link>
+                </div>
+              </div>
+            </li>
+            <li className="bg-white rounded-xl p-4 gap-4 flex flex-col md:flex-row">
+              <Image
+                src={episode2}
+                alt="episode 2"
+                className="rounded-md w-full h-auto md:w-52 md:h-32 object-cover object-center"
+              />
+              <div className=" text-slate-600 flex flex-col">
+                <p className="text-xl md:text-2xl">
+                  <span className="text-pink-600 text-base">Ep.2</span> Mimpi
+                  yang Sempurna
+                </p>
                 <div>
                   <p className="text-slate-400">
                     Lorem ipsum dolor sit amet consectetur. Facilisis ornare
@@ -63,36 +92,21 @@ const MoviesDetails = ({ movie }) => {
                 </div>
               </div>
             </li>
-            <li className="bg-white rounded-xl p-4 gap-4 flex">
-              <Image src={episode2} alt="episode 1" width={202} height={120} />
+            <li className="bg-white rounded-xl p-4 gap-4 flex flex-col md:flex-row">
+              <Image
+                src={episode3}
+                alt="episode 3"
+                className="rounded-md w-full h-auto md:w-52 md:h-32 object-cover object-center"
+              />
               <div className=" text-slate-600 flex flex-col">
-                <p className="text-xl">Episode 2</p>
+                <p className="text-xl md:text-2xl">
+                  <span className="text-pink-600 text-base">Ep.3</span> Hidup
+                  dengan Hobi
+                </p>
                 <div>
                   <p className="text-slate-400">
                     Lorem ipsum dolor sit amet consectetur. Facilisis ornare
-                    convallis arcu blandit. Scelerisque iaculis arcu turpis non
-                    quam. A elementum in aliquam morbi morbi semper dui. Justo
-                    pellentesque ac aenean rutrum amet vulputate fringilla dui.
-                  </p>
-                  <Link
-                    href="/:id"
-                    className="underline text-slate-500 hover:text-pink-600"
-                  >
-                    Detail
-                  </Link>
-                </div>
-              </div>
-            </li>
-            <li className="bg-white rounded-xl p-4 gap-4 flex">
-              <Image src={episode3} alt="episode 1" width={202} height={120} />
-              <div className=" text-slate-600 flex flex-col">
-                <p className="text-xl">Episode 3</p>
-                <div>
-                  <p className="text-slate-400">
-                    Lorem ipsum dolor sit amet consectetur. Facilisis ornare
-                    convallis arcu blandit. Scelerisque iaculis arcu turpis non
-                    quam. A elementum in aliquam morbi morbi semper dui. Justo
-                    pellentesque ac aenean rutrum amet vulputate fringilla dui.
+                    convallis arcu blandit.
                   </p>
                   <Link
                     href="/:id"
