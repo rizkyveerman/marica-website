@@ -5,9 +5,12 @@ import { Tab } from "@headlessui/react";
 import Image from "next/image";
 import woman from "@/icons/woman.png";
 import Button from "@/components/buttons/Button";
-import { faEdit } from "@fortawesome/free-solid-svg-icons";
+import {
+  faEdit,
+  faIdCard,
+  faLocationDot,
+} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import axios from "axios";
 
 //protected
 const MyProfile = (props) => {
@@ -15,29 +18,32 @@ const MyProfile = (props) => {
   return (
     <article>
       <section className="px-4 pt-16 pb-8">
-        <div className="flex justify-center items-center gap-4">
+        <div className="flex justify-start items-start gap-4">
           <Image
             src={woman}
             alt="user profile"
             title="username"
-            width={200}
-            height={200}
+            width={150}
+            height={150}
             className="bg-pink-300 rounded-full"
           />
-          <div className="flex flex-col gap-2">
-            <div className="mb-4">
-              <h3 className="text-slate-700 font-bold">Maria V.</h3>
-              <p className="text-sm">Yogyakarta, ID</p>
+          <div>
+            <div className="flex gap-4">
+              <h3>Maria V.</h3>
+              <Button className="text-xs">Edit profile</Button>
             </div>
-            <p>Mobile Design, UI / Visual Design, Web Design</p>
-            <div>
-              <Button
-                type="secondary"
-                icon={<FontAwesomeIcon icon={faEdit} height={14} />}
-              >
-                Edit profile
-              </Button>
-            </div>
+            <p className="max-w-sm text-slate-500 mt-4">
+              Lorem ipsum dolor sit amet consectetur. Lorem vitae tincidunt
+              scelerisque purus dui integer.
+            </p>
+            <p className="text-slate-500 flex gap-2 text-sm">
+              <FontAwesomeIcon icon={faIdCard} width={14} />
+              Guru
+            </p>
+            <p className="text-slate-500 flex gap-2 text-sm">
+              <FontAwesomeIcon icon={faLocationDot} width={14} />
+              Sleman, Yogyakarta
+            </p>
           </div>
         </div>
       </section>
