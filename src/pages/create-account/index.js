@@ -13,7 +13,7 @@ import axios from "axios";
 import PasswordGuide from "@/components/inputs/PasswordGuide";
 
 const CreateAccount = () => {
-  const [showPassword, setShowPassword] = useState(true);
+  const [showPassword, setShowPassword] = useState(false);
   const [notification, setNotification] = useState(false);
   const [feedback, setFeedback] = useState({ status: "", message: "" });
   const router = useRouter();

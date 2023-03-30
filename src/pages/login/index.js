@@ -15,7 +15,7 @@ import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 function LoginPage() {
-  const [showPassword, setShowPassword] = useState(true);
+  const [showPassword, setShowPassword] = useState(false);
   const dispatch = useDispatch();
   const router = useRouter();
   const { error, isLoading, userInfo } = useSelector((state) => state.user);
@@ -64,7 +64,6 @@ function LoginPage() {
                 return errors;
               }}
               onSubmit={(values) => {
-                console.log("values", values);
                 dispatch(login(values));
               }}
             >
@@ -121,7 +120,7 @@ function LoginPage() {
                     disabled={isSubmitting}
                     isClicked={() => "login"}
                   >
-                    Masuk
+                    {isLoading ? "Tunggu bentar..." : "Masuk"}
                   </Button>
                 </Form>
               )}
@@ -129,7 +128,7 @@ function LoginPage() {
             <p className="text-sm text-abu text-center">
               Belum punya akun Marica?{" "}
               <Link href="/create-account" className="text-pink-600 underline">
-                Buat disini
+                Buat dulu
               </Link>
             </p>
           </div>
