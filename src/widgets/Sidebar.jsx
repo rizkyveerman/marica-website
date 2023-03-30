@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useSelector } from "react-redux";
 import { useRouter } from "next/router";
 import Link from "next/link";
 import Logo from "@/components/Logo";
@@ -57,6 +58,7 @@ const libraries = [
 
 const Sidebar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const { isLoading, error, userInfo } = useSelector((state) => state.user);
   const router = useRouter();
 
   return (
@@ -99,8 +101,39 @@ const Sidebar = () => {
             </li>
           </ul>
           {/* mobile */}
-          {isMobileMenuOpen && (
-            <ul className="w-fit fixed bg-white border-2 border-pink-500 right-4 bottom-24 rounded-xl p-4 gap-1 lg:grid grid-cols-1">
+          {userInfo
+            ? isMobileMenuOpen && (
+                <ul className="w-fit fixed bg-white border-2 border-pink-500 right-4 bottom-24 rounded-xl p-4 gap-1 lg:grid grid-cols-1">
+                  {libraries.map((menu, index) => (
+                    <li
+                      key={index}
+                      className={`flex justify-start items-center text-slate-600 hover:bg-pink-100 hover:text-pink-600 rounded-xl lg:pl-4 ${
+                        router.route === `/${menu.path}`
+                          ? "bg-gradient-to-t text-white hover:bg-gradient-to-t from-pink-600 to-pink-300 hover:text-white"
+                          : ""
+                      }`}
+                    >
+                      <Link
+                        className="flex items-center gap-2 p-4 lg:py-4 lg:px-0 w-full"
+                        href={`/${menu.path}`}
+                        onClick={() => setIsMobileMenuOpen((prev) => !prev)}
+                      >
+                        <FontAwesomeIcon icon={menu.icon} height={16} />
+                        <span>{menu.name}</span>
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              )
+            : undefined}
+          {/* desktop */}
+          {userInfo && (
+            <ul className="hidden w-full relative bottom-0 p-4 gap-1 lg:grid grid-cols-1 ">
+              <li>
+                <p className="hidden md:block text-xs text-slate-400 uppercase tracking-widest">
+                  libraries
+                </p>
+              </li>
               {libraries.map((menu, index) => (
                 <li
                   key={index}
@@ -113,41 +146,14 @@ const Sidebar = () => {
                   <Link
                     className="flex items-center gap-2 p-4 lg:py-4 lg:px-0 w-full"
                     href={`/${menu.path}`}
-                    onClick={() => setIsMobileMenuOpen((prev) => !prev)}
                   >
                     <FontAwesomeIcon icon={menu.icon} height={16} />
-                    <span>{menu.name}</span>
+                    <span className="hidden md:block">{menu.name}</span>
                   </Link>
                 </li>
               ))}
             </ul>
           )}
-          {/* desktop */}
-          <ul className="hidden w-full relative bottom-0 p-4 gap-1 lg:grid grid-cols-1 ">
-            <li>
-              <p className="hidden md:block text-xs text-slate-400 uppercase tracking-widest">
-                libraries
-              </p>
-            </li>
-            {libraries.map((menu, index) => (
-              <li
-                key={index}
-                className={`flex justify-start items-center text-slate-600 hover:bg-pink-100 hover:text-pink-600 rounded-xl lg:pl-4 ${
-                  router.route === `/${menu.path}`
-                    ? "bg-gradient-to-t text-white hover:bg-gradient-to-t from-pink-600 to-pink-300 hover:text-white"
-                    : ""
-                }`}
-              >
-                <Link
-                  className="flex items-center gap-2 p-4 lg:py-4 lg:px-0 w-full"
-                  href={`/${menu.path}`}
-                >
-                  <FontAwesomeIcon icon={menu.icon} height={16} />
-                  <span className="hidden md:block">{menu.name}</span>
-                </Link>
-              </li>
-            ))}
-          </ul>
         </div>
         <ul className="border-t border-slate-300 w-full hidden p-4 lg:grid grid-cols-1">
           <li
