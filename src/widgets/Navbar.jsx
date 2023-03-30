@@ -21,6 +21,7 @@ const Navbar = () => {
   const dispatch = useDispatch();
   const appTheme = useSelector((state) => state.theme.theme);
   const { isLoading, error, userInfo } = useSelector((state) => state.user);
+  console.log("userInfo: ", userInfo);
 
   return (
     <header className="w-full relative p-4 flex justify-between items-center bg-white z-50">
@@ -103,7 +104,7 @@ const Navbar = () => {
                 className="rounded-full bg-pink-600"
               />
               <p className="text-slate-600 hidden lg:flex items-center gap-2">
-                <span>Maria</span>
+                <span>{userInfo.nama}</span>
                 <FontAwesomeIcon icon={faCaretDown} height={14} />
               </p>
             </div>
