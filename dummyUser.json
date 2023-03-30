@@ -1,0 +1,19 @@
+{
+  "name": "OK!",
+  "message": "Login Success!",
+  "data": {
+    "_id": "6422a0c5c6a6fa13eb2ec149",
+    "nama": "Rizky Firman Syah",
+    "userType": "orangtua",
+    "email": "rizfirsy@gmail.com",
+    "imageID": "profile.png",
+    "essentials": {
+      "username": "rizfirsy44",
+      "password": "$2a$05$taRv49vy0RrquJGF2GPqpu4tHWldZRXMNAA6i4Xv3rGTvyUXoFH/m",
+      "dataBilling": [],
+      "kidsAnalytics": []
+    },
+    "validated": true,
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2ODAxNjE1MjQsImV4cCI6MTY4MDc2NjMyNH0.vg-lcvCiXO4EfenHLG7uTeD3QP2W4D2yqq6JGdEXY1I"
+  }
+}
