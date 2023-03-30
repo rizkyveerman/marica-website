@@ -21,7 +21,6 @@ const Navbar = () => {
   const dispatch = useDispatch();
   const appTheme = useSelector((state) => state.theme.theme);
   const { isLoading, error, userInfo } = useSelector((state) => state.user);
-  console.log("userInfo: ", userInfo);
 
   return (
     <header className="w-full relative p-4 flex justify-between items-center bg-white z-50">

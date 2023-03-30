@@ -2,7 +2,6 @@ import { useSelector } from "react-redux";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMedal } from "@fortawesome/free-solid-svg-icons";
 import Link from "next/link";
-import ChildCard from "@/components/cards/ChildCard";
 import MainLayout from "@/layout/MainLayout";
 import { Tab } from "@headlessui/react";
 import Image from "next/image";
@@ -18,7 +17,8 @@ import {
 
 //protected
 const MyProfile = (props) => {
-  console.log("props", props);
+  const { isLoading, error, userInfo } = useSelector((state) => state.user);
+
   return (
     <article>
       <section className="px-4 pt-16 pb-8">
@@ -33,7 +33,7 @@ const MyProfile = (props) => {
           />
           <div>
             <div className="flex w-full justify-center items-center md:justify-start md:items-start gap-4">
-              <h3>Maria V.</h3>
+              <h3>{userInfo.data.nama}</h3>
               <Button className="text-xs">Edit profile</Button>
             </div>
             <p className="max-w-sm text-center md:text-left text-slate-500 mt-4">
