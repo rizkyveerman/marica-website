@@ -26,6 +26,11 @@ const userSlice = createSlice({
       state.isLoading = false;
       state.error = null;
     },
+    userRegister: (state, { payload }) => {
+      state.userInfo = payload;
+      state.isLoading = false;
+      state.error = null;
+    },
     setError: (state, { payload }) => {
       state.error = payload;
       state.isLoading = false;

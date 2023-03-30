@@ -1,4 +1,6 @@
 import watching from "@/images/watching.jpg";
+import { register } from "@/store/actions/user-actions";
+import { useDispatch, useSelector } from "react-redux";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 import { useRouter } from "next/router";
@@ -9,14 +11,13 @@ import Footer from "@/widgets/Footer";
 import Logo from "@/components/Logo";
 import Image from "next/image";
 import { Form, Formik, Field, ErrorMessage } from "formik";
-import axios from "axios";
 import PasswordGuide from "@/components/inputs/PasswordGuide";
 
 const CreateAccount = () => {
   const [showPassword, setShowPassword] = useState(false);
-  const [notification, setNotification] = useState(false);
-  const [feedback, setFeedback] = useState({ status: "", message: "" });
   const router = useRouter();
+  const dispatch = useDispatch();
+  const { isLoading } = useSelector((state) => state.login);
 
   const passwordRegex =
     /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
@@ -94,20 +95,8 @@ const CreateAccount = () => {
                 }
                 return errors;
               }}
-              onSubmit={async (values) => {
-                const fullname = values.firstname + " " + values.lastname;
-
-                await axios
-                  .post("https://marica-backend.vercel.app/api/v1/user", {
-                    nama: fullname,
-                    password: values.password,
-                    email: values.email,
-                  })
-                  .then((response) => {
-                    //redirecting to login page
-                    router.push("/login");
-                  })
-                  .catch((err) => {});
+              onSubmit={(values) => {
+                dispatch(register(values));
               }}
             >
               {({ isSubmitting }) => (
@@ -183,7 +172,7 @@ const CreateAccount = () => {
                     disabled={isSubmitting}
                     isClicked={() => "clicked"}
                   >
-                    Buat akun
+                    {isLoading ? "Tunggu bentar..." : "Buat akun"}
                   </Button>
                 </Form>
               )}
