@@ -42,7 +42,7 @@ export const login =
     }
   };
 
-export const register = ({ username, password }) => {
+export const register = ({ firstname, lastname, email, password }) => {
   const fullname = firstname + " " + lastname;
   async (dispatch) => {
     dispatch(setLoading(true));
