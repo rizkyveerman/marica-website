@@ -182,7 +182,7 @@ const CreateAccount = () => {
                         Tunggu sebentar
                       </span>
                     ) : (
-                      "Masuk"
+                      "Buat akun"
                     )}
                   </Button>
                 </Form>
