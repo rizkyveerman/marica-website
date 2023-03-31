@@ -15,10 +15,8 @@ import {
   faEye,
   faEyeSlash,
   faSpinner,
-  faClose,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { setError } from "@/store/slices/user";
 
 function LoginPage() {
   const [showPassword, setShowPassword] = useState(false);
@@ -37,17 +35,7 @@ function LoginPage() {
 
   return (
     <>
-      {error && (
-        <div className="fixed top-4 left-4 right-4 text-white bg-pink-600 z-50 w-fit p-4 rounded-xl flex items-center gap-4">
-          <p>{error}</p>
-          <div
-            className="cursor-pointer w-6 h-6 grid place-content-center hover:bg-white hover:text-pink-600 rounded-full"
-            onClick={() => dispatch(setError(null))}
-          >
-            <FontAwesomeIcon icon={faClose} height={16} />
-          </div>
-        </div>
-      )}
+      <div className="fixed top-4">{error}</div>
       <article className="grid grid-cols-1 md:grid-cols-2 h-screen">
         <section className="relative grid place-content-center p-4">
           <div className="min-w-[350px] md:w-96 max-w-lg p-4 rounded-2xl grid gap-4">

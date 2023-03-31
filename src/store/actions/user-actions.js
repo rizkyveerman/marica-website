@@ -28,7 +28,12 @@ export const login =
     } catch (error) {
       dispatch(
         setError(
-          error ? error.message : "Aduh ada sedikit masalah, Coba lagi yuk!"
+          // error.message && error.response.data.message
+          //   ? error.response.data.message
+          //   : error.message
+          //   ? error.message
+          //   : "Aduh ada sedikit masalah, Coba lagi yuk!"
+          "Aduh ada sedikit masalah, Coba lagi yuk!"
         )
       );
     }
@@ -52,13 +57,15 @@ export const register = ({ firstname, lastname, email, password }) => {
         config
       );
       dispatch(userRegister(data));
-
-      console.log("data terdaftar: ", data);
     } catch (error) {
-      console.log("register error: ", error);
       dispatch(
         setError(
-          error ? error.message : "Aduh ada sedikit masalah, Coba lagi yuk!"
+          // error.message && error.response.data.message
+          //   ? error.response.data.message
+          //   : error.message
+          //   ? error.message
+          //   : "Aduh ada sedikit masalah, Coba lagi yuk!"
+          "Aduh ada sedikit masalah, Coba lagi yuk!"
         )
       );
     }
