@@ -101,30 +101,9 @@ const CreateAccount = () => {
                 }
                 return errors;
               }}
-              onSubmit={async (values) => {
-                const fullname = values.firstname + " " + values.lastname;
-
-                try {
-                  dispatch(setLoading(true));
-                  const config = {
-                    headers: {
-                      "Content-Type": "application/json",
-                    },
-                  };
-
-                  const { data } = await axios.post(
-                    "https://marica-backend.vercel.app/api/v1/user",
-                    {
-                      nama: fullname,
-                      email: values.email,
-                      password: values.password,
-                    },
-                    config
-                  );
-                  console.log("register: ", data);
-                } catch (error) {
-                  console.log("error", error);
-                }
+              onSubmit={(values) => {
+                dispatch(register(values));
+                router.push("/login");
               }}
             >
               {({ isSubmitting }) => (

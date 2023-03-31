@@ -7,6 +7,8 @@ import {
   setLoading,
 } from "../slices/user";
 
+const apiRoute = "https://marica-backend.vercel.app/api/v1";
+
 export const login =
   ({ username, password }) =>
   async (dispatch) => {
@@ -19,7 +21,7 @@ export const login =
       };
 
       const { data } = await axios.post(
-        "https://marica-backend.vercel.app/api/v1/user/login",
+        apiRoute + "/user/login",
         { identifier: username, password },
         config
       );
@@ -27,14 +29,14 @@ export const login =
       localStorage.setItem("userInfo", JSON.stringify(data));
       console.log("login: ", data);
     } catch (error) {
+      console.log("error", error.response);
       dispatch(
         setError(
-          // error.message && error.response.data.message
-          //   ? error.response.data.message
-          //   : error.message
-          //   ? error.message
-          //   : "Aduh ada sedikit masalah, Coba lagi yuk!"
-          "Aduh ada sedikit masalah, Coba lagi yuk!"
+          error.message && error.response
+            ? error.response
+            : error.message
+            ? error.message
+            : "Aduh ada sedikit masalah, Coba lagi yuk!"
         )
       );
     }
@@ -53,21 +55,19 @@ export const register = ({ firstname, lastname, email, password }) => {
       };
 
       const { data } = await axios.post(
-        "https://marica-backend.vercel.app/api/v1/user",
-        { identifier: fullname, email, password },
+        apiRoute + "/user",
+        { nama: fullname, email, password },
         config
       );
-      dispatch(userRegister(data));
       console.log("register: ", data);
     } catch (error) {
       dispatch(
         setError(
-          // error.message && error.response.data.message
-          //   ? error.response.data.message
-          //   : error.message
-          //   ? error.message
-          //   : "Aduh ada sedikit masalah, Coba lagi yuk!"
-          "Aduh ada sedikit masalah, Coba lagi yuk!"
+          error.message && error.response
+            ? error.response
+            : error.message
+            ? error.message
+            : "Aduh ada sedikit masalah, Coba lagi yuk!"
         )
       );
     }
