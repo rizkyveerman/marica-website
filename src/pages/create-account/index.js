@@ -1,4 +1,5 @@
 import watching from "@/images/watching.jpg";
+import axios from "axios";
 import { register } from "@/store/actions/user-actions";
 import { useDispatch, useSelector } from "react-redux";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -14,6 +15,7 @@ import { Form, Formik, Field, ErrorMessage } from "formik";
 import PasswordGuide from "@/components/inputs/PasswordGuide";
 
 const CreateAccount = () => {
+  const [registerError, setRegisterError] = useState({});
   const [showPassword, setShowPassword] = useState(false);
   const router = useRouter();
   const dispatch = useDispatch();
@@ -25,33 +27,6 @@ const CreateAccount = () => {
   return (
     <>
       <article className="grid grid-cols-1 md:grid-cols-2 min-h-screen">
-        {/* {notification && (
-          <section
-            className={`max-w-[320px] rounded-xl ${
-              feedback.status === "Error" ? "bg-pink-600" : "bg-green-600"
-            } z-50 p-4 fixed top-4 left-1/2 -translate-x-1/2 w-fit h-auto text-white grid gap-4`}
-          >
-            <div>{feedback.message}</div>
-            <div className="flex justify-start items-center gap-4">
-              {feedback.status === "Error" ? (
-                <Button
-                  className="text-white border-white"
-                  isClicked={() => setNotification(false)}
-                >
-                  Coba lagi
-                </Button>
-              ) : (
-                <Button
-                  className="text-white border-white"
-                  isLink
-                  href="/login"
-                >
-                  Masuk
-                </Button>
-              )}
-            </div>
-          </section>
-        )} */}
         <section className="grid place-content-center p-4">
           <div className="min-w-[350px] md:w-96 max-w-lg p-4 rounded-2xl grid gap-4">
             <Logo />
@@ -95,8 +70,31 @@ const CreateAccount = () => {
                 }
                 return errors;
               }}
-              onSubmit={(values) => {
-                dispatch(register(values));
+              onSubmit={async (values) => {
+                // dispatch(register(values));
+                const fullname = values.firstname + " " + values.lastname;
+
+                try {
+                  const config = {
+                    headers: {
+                      "Content-Type": "application/json",
+                    },
+                  };
+
+                  const { data } = await axios.post(
+                    "https://marica-backend.vercel.app/api/v1/user",
+                    {
+                      identifier: fullname,
+                      email: values.email,
+                      password: values.password,
+                    },
+                    config
+                  );
+
+                  router.push("/login");
+                } catch (error) {
+                  console.log("register error: ", error);
+                }
               }}
             >
               {({ isSubmitting }) => (

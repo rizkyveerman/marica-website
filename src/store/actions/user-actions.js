@@ -17,7 +17,7 @@ export const login =
           "Content-Type": "application/json",
         },
       };
-      
+
       const { data } = await axios.post(
         "https://marica-backend.vercel.app/api/v1/user/login",
         { identifier: username, password },
@@ -53,6 +53,7 @@ export const register = ({ firstname, lastname, email, password }) => {
       );
       dispatch(userRegister(data));
     } catch (error) {
+      console.log("register error: ", error);
       dispatch(
         setError(
           error ? error.message : "Aduh ada sedikit masalah, Coba lagi yuk!"

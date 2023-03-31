@@ -5,6 +5,7 @@ import { ErrorMessage, Field, Formik, Form } from "formik";
 import { useSelector, useDispatch } from "react-redux";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faClose } from "@fortawesome/free-solid-svg-icons";
+import { setError } from "@/store/slices/user";
 
 const Children = () => {
   const { isLoading, error, userInfo } = useSelector((state) => state.user);
@@ -102,13 +103,10 @@ const Children = () => {
                     username: values.username,
                   }
                 )
-                .then((response) => {
-                  //redirecting to select user account page
-                  router.push("/users");
-                  console.log("response", response);
-                })
+                .then((response) => response)
                 .catch((err) => {
-                  console.log("err", err);
+                  setError(err);
+                  console.log("add child error: ", error);
                 });
             }}
           >
