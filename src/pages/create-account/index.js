@@ -1,8 +1,13 @@
 import watching from "@/images/watching.jpg";
-import { register } from "@/store/actions/user-actions";
+import axios from "axios";
+import { register, setError } from "@/store/actions/user-actions";
 import { useDispatch, useSelector } from "react-redux";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
+import {
+  faEye,
+  faEyeSlash,
+  faSpinner,
+} from "@fortawesome/free-solid-svg-icons";
 import { useRouter } from "next/router";
 import { useState } from "react";
 import Link from "next/link";
@@ -12,12 +17,13 @@ import Logo from "@/components/Logo";
 import Image from "next/image";
 import { Form, Formik, Field, ErrorMessage } from "formik";
 import PasswordGuide from "@/components/inputs/PasswordGuide";
+import { setLoading } from "@/store/slices/user";
 
 const CreateAccount = () => {
   const [showPassword, setShowPassword] = useState(false);
   const router = useRouter();
   const dispatch = useDispatch();
-  const { isLoading } = useSelector((state) => state.user);
+  const { isLoading, error, setError } = useSelector((state) => state.user);
 
   const passwordRegex =
     /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
@@ -95,8 +101,30 @@ const CreateAccount = () => {
                 }
                 return errors;
               }}
-              onSubmit={(values) => {
-                dispatch(register(values));
+              onSubmit={async (values) => {
+                const fullname = values.firstname + " " + values.lastname;
+
+                try {
+                  dispatch(setLoading(true));
+                  const config = {
+                    headers: {
+                      "Content-Type": "application/json",
+                    },
+                  };
+
+                  const { data } = await axios.post(
+                    "https://marica-backend.vercel.app/api/v1/user",
+                    {
+                      nama: fullname,
+                      email: values.email,
+                      password: values.password,
+                    },
+                    config
+                  );
+                  console.log("register: ", data);
+                } catch (error) {
+                  console.log("error", error);
+                }
               }}
             >
               {({ isSubmitting }) => (
@@ -173,18 +201,18 @@ const CreateAccount = () => {
                     isClicked={() => "clicked"}
                   >
                     {isLoading ? (
-                      <span className="flex items-center gap-2">
-                        {
+                      <p className="flex items-center gap-2">
+                        <span>
                           <FontAwesomeIcon
                             icon={faSpinner}
                             height={16}
                             className="text-white animate-spin"
                           />
-                        }
-                        Tunggu sebentar
-                      </span>
+                        </span>
+                        <span>Tunggu sebentar</span>
+                      </p>
                     ) : (
-                      "Masuk"
+                      "Buat akun"
                     )}
                   </Button>
                 </Form>
