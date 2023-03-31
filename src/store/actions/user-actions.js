@@ -1,11 +1,5 @@
 import axios from "axios";
-import {
-  userLogin,
-  userRegister,
-  userLogout,
-  setError,
-  setLoading,
-} from "../slices/user";
+import { userLogin, userLogout, setError, setLoading } from "../slices/user";
 
 const apiRoute = "https://marica-backend.vercel.app/api/v1";
 
@@ -42,7 +36,7 @@ export const login =
     }
   };
 
-export const register = (name, email, password) => {
+export const register = (email, password) => {
   async (dispatch) => {
     dispatch(setLoading(true));
     try {
@@ -54,7 +48,7 @@ export const register = (name, email, password) => {
 
       const { data } = await axios.post(
         apiRoute + "/user",
-        { name, password, email },
+        { name: "Rizky Games", password, email },
         config
       );
       dispatch(userLogin(data));

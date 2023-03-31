@@ -29,7 +29,7 @@ function LoginPage() {
 
   useEffect(() => {
     if (userInfo) {
-      if (router.route === "/login") router.push("/users");
+      if (router.route === "/login") router.push("/");
     }
   }, [router, userInfo]);
 
