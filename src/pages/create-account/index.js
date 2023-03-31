@@ -92,7 +92,7 @@ const CreateAccount = () => {
                   };
 
                   const { data } = await axios.post(
-                    apiRoute + "/user",
+                    "https://marica-backend.vercel.app/api/v1/user",
                     {
                       name: fullname,
                       password: values.password,
