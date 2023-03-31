@@ -97,7 +97,6 @@ const CreateAccount = () => {
               }}
               onSubmit={(values) => {
                 dispatch(register(values));
-                
               }}
             >
               {({ isSubmitting }) => (
