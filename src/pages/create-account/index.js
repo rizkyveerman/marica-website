@@ -84,7 +84,7 @@ const CreateAccount = () => {
                   const { data } = await axios.post(
                     "https://marica-backend.vercel.app/api/v1/user",
                     {
-                      identifier: fullname,
+                      nama: fullname,
                       email: values.email,
                       password: values.password,
                     },
