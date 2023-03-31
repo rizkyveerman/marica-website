@@ -6,7 +6,7 @@ import { useSelector, useDispatch } from "react-redux";
 
 const Children = () => {
   const { isLoading, error, userInfo } = useSelector((state) => state.user);
-  const children = userInfo.data;
+  const children = userInfo;
   console.log("children", children);
 
   return (
