@@ -15,14 +15,14 @@ const Children = () => {
         <h2 className="mb-8">Siapa yang menonton?</h2>
         <div className="flex justify-center gap-4">
           <ul className="grid grid-cols-4 gap-4">
-            {children.map((child) => (
-              <li key={child._id}>
-                <Link href={`/users/${child._id}`} className="block">
-                  <div className="h-20 w-20 bg-mangga rounded-lg"></div>
-                  <p className="">Joko</p>
-                </Link>
-              </li>
-            ))}
+            {/* {children.map((child) => ( */}
+            <li>
+              <Link href={`/users/${6}`} className="block">
+                <div className="h-20 w-20 bg-mangga rounded-lg"></div>
+                <p className="">Joko</p>
+              </Link>
+            </li>
+            {/* ))} */}
 
             <div>
               <Link
