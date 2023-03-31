@@ -42,9 +42,8 @@ export const login =
     }
   };
 
-export const register = ({ firstname, lastname, email, password }) => {
+export const register = ({ username, password }) => {
   const fullname = firstname + " " + lastname;
-
   async (dispatch) => {
     dispatch(setLoading(true));
     try {
@@ -56,11 +55,14 @@ export const register = ({ firstname, lastname, email, password }) => {
 
       const { data } = await axios.post(
         apiRoute + "/user",
-        { nama: fullname, email, password },
+        { name: fullname, password, email },
         config
       );
+      dispatch(userLogin(data));
+      localStorage.setItem("userInfo", JSON.stringify(data));
       console.log("register: ", data);
     } catch (error) {
+      console.log("error", error);
       dispatch(
         setError(
           error.message && error.response

@@ -23,41 +23,22 @@ const CreateAccount = () => {
   const [showPassword, setShowPassword] = useState(false);
   const router = useRouter();
   const dispatch = useDispatch();
-  const { isLoading, error, setError } = useSelector((state) => state.user);
+  const { isLoading, error, setError, userInfo } = useSelector(
+    (state) => state.user
+  );
 
   const passwordRegex =
     /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
 
+  useEffect(() => {
+    if (userInfo) {
+      if (router.route === "/register") router.push("/");
+    }
+  }, [router, userInfo]);
+
   return (
     <>
       <article className="grid grid-cols-1 md:grid-cols-2 min-h-screen">
-        {/* {notification && (
-          <section
-            className={`max-w-[320px] rounded-xl ${
-              feedback.status === "Error" ? "bg-pink-600" : "bg-green-600"
-            } z-50 p-4 fixed top-4 left-1/2 -translate-x-1/2 w-fit h-auto text-white grid gap-4`}
-          >
-            <div>{feedback.message}</div>
-            <div className="flex justify-start items-center gap-4">
-              {feedback.status === "Error" ? (
-                <Button
-                  className="text-white border-white"
-                  isClicked={() => setNotification(false)}
-                >
-                  Coba lagi
-                </Button>
-              ) : (
-                <Button
-                  className="text-white border-white"
-                  isLink
-                  href="/login"
-                >
-                  Masuk
-                </Button>
-              )}
-            </div>
-          </section>
-        )} */}
         <section className="grid place-content-center p-4">
           <div className="min-w-[350px] md:w-96 max-w-lg p-4 rounded-2xl grid gap-4">
             <Logo />
@@ -103,7 +84,6 @@ const CreateAccount = () => {
               }}
               onSubmit={(values) => {
                 dispatch(register(values));
-                router.push("/login");
               }}
             >
               {({ isSubmitting }) => (
