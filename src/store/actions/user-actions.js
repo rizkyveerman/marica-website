@@ -42,36 +42,38 @@ export const login =
     }
   };
 
-export const register = ({ firstname, lastname, email, password }) => {
-  const fullname = firstname + " " + lastname;
-  async (dispatch) => {
-    dispatch(setLoading(true));
-    try {
-      const config = {
-        headers: {
-          "Content-Type": "application/json",
-        },
-      };
+export const register = (values) => {
+  console.log("regis: ", values);
+  // { firstname, lastname, email, password }
+  // const fullname = firstname + " " + lastname;
+  // async (dispatch) => {
+  //   dispatch(setLoading(true));
+  //   try {
+  //     const config = {
+  //       headers: {
+  //         "Content-Type": "application/json",
+  //       },
+  //     };
 
-      const { data } = await axios.post(
-        apiRoute + "/user",
-        { name: fullname, password, email },
-        config
-      );
-      dispatch(userLogin(data));
-      localStorage.setItem("userInfo", JSON.stringify(data));
-      console.log("register: ", data);
-    } catch (error) {
-      console.log("error", error);
-      dispatch(
-        setError(
-          error.message && error.response
-            ? error.response
-            : error.message
-            ? error.message
-            : "Aduh ada sedikit masalah, Coba lagi yuk!"
-        )
-      );
-    }
-  };
+  //     const { data } = await axios.post(
+  //       apiRoute + "/user",
+  //       { name: fullname, password, email },
+  //       config
+  //     );
+  //     dispatch(userLogin(data));
+  //     localStorage.setItem("userInfo", JSON.stringify(data));
+  //     console.log("register: ", data);
+  //   } catch (error) {
+  //     console.log("error", error);
+  //     dispatch(
+  //       setError(
+  //         error.message && error.response
+  //           ? error.response
+  //           : error.message
+  //           ? error.message
+  //           : "Aduh ada sedikit masalah, Coba lagi yuk!"
+  //       )
+  //     );
+  //   }
+  // };
 };
