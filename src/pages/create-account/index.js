@@ -1,6 +1,5 @@
 import watching from "@/images/watching.jpg";
-import axios from "axios";
-import { register, setError } from "@/store/actions/user-actions";
+import { register } from "@/store/actions/user-actions";
 import { useDispatch, useSelector } from "react-redux";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
