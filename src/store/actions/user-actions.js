@@ -57,6 +57,8 @@ export const register = ({ firstname, lastname, email, password }) => {
         config
       );
       dispatch(userRegister(data));
+
+      console.log("data terdaftar: ", data);
     } catch (error) {
       dispatch(
         setError(
