@@ -16,7 +16,7 @@ const Children = () => {
     <article className={`bg-abu-terang`}>
       <section
         className={`${
-          isFormShown ? "-translate-x-72" : ""
+          isFormShown ? "-translate-x-72 skew-y-2" : ""
         } w-full min-h-screen p-4 grid place-content-center transition-transform`}
       >
         <h2 className="mb-8">Siapa yang menonton?</h2>
@@ -45,7 +45,7 @@ const Children = () => {
       {isFormShown && (
         <div className="fixed bottom-4 right-4 bg-white min-w-[350px] md:w-96 max-w-lg p-4 rounded-2xl grid gap-4">
           <div className="w-full flex justify-between items-center">
-            <h3 className="text-slate-700">Buat akun anak!</h3>{" "}
+            <h3 className="text-slate-700">Buat akun anak!</h3>
             <FontAwesomeIcon
               icon={faClose}
               className="text-slate-300 text-2xl hover:text-pink-500 cursor-pointer"

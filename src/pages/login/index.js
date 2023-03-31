@@ -11,7 +11,11 @@ import watching from "@/images/watching.jpg";
 import { login } from "@/store/actions/user-actions";
 import PasswordGuide from "@/components/inputs/PasswordGuide";
 import Logo from "@/components/Logo";
-import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
+import {
+  faEye,
+  faEyeSlash,
+  faSpinner,
+} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 function LoginPage() {
@@ -31,6 +35,7 @@ function LoginPage() {
 
   return (
     <>
+      <div className="fixed top-4">{error}</div>
       <article className="grid grid-cols-1 md:grid-cols-2 h-screen">
         <section className="relative grid place-content-center p-4">
           <div className="min-w-[350px] md:w-96 max-w-lg p-4 rounded-2xl grid gap-4">
@@ -120,7 +125,20 @@ function LoginPage() {
                     disabled={isSubmitting}
                     isClicked={() => "login"}
                   >
-                    {isLoading ? "Tunggu bentar..." : "Masuk"}
+                    {isLoading ? (
+                      <span className="flex items-center gap-2">
+                        {
+                          <FontAwesomeIcon
+                            icon={faSpinner}
+                            height={16}
+                            className="text-white animate-spin"
+                          />
+                        }
+                        Tunggu sebentar
+                      </span>
+                    ) : (
+                      "Masuk"
+                    )}
                   </Button>
                 </Form>
               )}

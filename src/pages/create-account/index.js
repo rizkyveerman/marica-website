@@ -172,7 +172,20 @@ const CreateAccount = () => {
                     disabled={isSubmitting}
                     isClicked={() => "clicked"}
                   >
-                    {isLoading ? "Tunggu bentar..." : "Buat akun"}
+                    {isLoading ? (
+                      <span className="flex items-center gap-2">
+                        {
+                          <FontAwesomeIcon
+                            icon={faSpinner}
+                            height={16}
+                            className="text-white animate-spin"
+                          />
+                        }
+                        Tunggu sebentar
+                      </span>
+                    ) : (
+                      "Masuk"
+                    )}
                   </Button>
                 </Form>
               )}
