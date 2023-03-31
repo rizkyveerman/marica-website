@@ -25,6 +25,7 @@ export const login =
       );
       dispatch(userLogin(data));
       localStorage.setItem("userInfo", JSON.stringify(data));
+      console.log("login: ", data);
     } catch (error) {
       dispatch(
         setError(
@@ -57,6 +58,7 @@ export const register = ({ firstname, lastname, email, password }) => {
         config
       );
       dispatch(userRegister(data));
+      console.log("register: ", data);
     } catch (error) {
       dispatch(
         setError(
