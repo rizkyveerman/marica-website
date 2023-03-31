@@ -16,12 +16,14 @@ const Children = () => {
     <article className={`bg-abu-terang`}>
       <section
         className={`${
-          isFormShown ? "-translate-x-72 skew-y-2" : ""
+          isFormShown ? "lg:translate-x-72 lg:skew-x-4 lg:-skew-y-2" : ""
         } w-full min-h-screen p-4 grid place-content-center transition-transform`}
       >
         <h2 className="mb-8">Siapa yang menonton?</h2>
         <div className="flex justify-center gap-4">
-          <ul className={`grid grid-cols-4 gap-4`}>
+          <ul
+            className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4`}
+          >
             {/* {children.map((child) => ( */}
             <li>
               <Link href={`/users/${6}`} className="block">
@@ -43,7 +45,7 @@ const Children = () => {
       </section>
       {/* form add children */}
       {isFormShown && (
-        <div className="fixed bottom-4 right-4 bg-white min-w-[350px] md:w-96 max-w-lg p-4 rounded-2xl grid gap-4">
+        <div className="fixed bottom-4 right-4 left-4 bg-white md:min-w-[350px] max-w-lg p-4 rounded-2xl grid gap-4">
           <div className="w-full flex justify-between items-center">
             <h3 className="text-slate-700">Buat akun anak!</h3>
             <FontAwesomeIcon
@@ -165,6 +167,9 @@ const Children = () => {
                     component="div"
                     className="m-auto absolute top-full p-2 rounded-xl bg-red-100 text-red-600 before:block before:absolute before:left-1/2 before:bottom-full before:w-3 before:h-3 before:bg-red-100 before:translate-y-1/2 before:-translate-x-1/2 before:rotate-45 before:rounded-sm z-10"
                   />
+                  <div className="text-slate-700 text-sm ml-6">
+                    <p>bulan - tanggal - lahir</p>
+                  </div>
                 </div>
                 <Button
                   type="submit"
