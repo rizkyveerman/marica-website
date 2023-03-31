@@ -48,6 +48,7 @@ const Children = () => {
             <h3 className="text-slate-700">Buat akun anak!</h3>
             <FontAwesomeIcon
               icon={faClose}
+              height={32}
               className="text-slate-300 text-2xl hover:text-pink-500 cursor-pointer"
               title="tutup"
               onClick={() => setIsFormShown(false)}
