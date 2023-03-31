@@ -9,7 +9,7 @@ import {
   faSpinner,
 } from "@fortawesome/free-solid-svg-icons";
 import { useRouter } from "next/router";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import Button from "@/components/buttons/Button";
 import Footer from "@/widgets/Footer";
@@ -17,7 +17,6 @@ import Logo from "@/components/Logo";
 import Image from "next/image";
 import { Form, Formik, Field, ErrorMessage } from "formik";
 import PasswordGuide from "@/components/inputs/PasswordGuide";
-import { setLoading } from "@/store/slices/user";
 
 const CreateAccount = () => {
   const [showPassword, setShowPassword] = useState(false);
