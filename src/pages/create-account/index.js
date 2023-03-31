@@ -1,4 +1,5 @@
 import watching from "@/images/watching.jpg";
+import axios from "axios";
 import { setLoading } from "@/store/slices/user";
 import { useDispatch, useSelector } from "react-redux";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
