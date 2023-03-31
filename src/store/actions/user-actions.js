@@ -42,8 +42,7 @@ export const login =
     }
   };
 
-export const register = (firstname, lastname, email, password) => {
-  const fullname = firstname + " " + lastname;
+export const register = (name, email, password) => {
   async (dispatch) => {
     dispatch(setLoading(true));
     try {
@@ -55,7 +54,7 @@ export const register = (firstname, lastname, email, password) => {
 
       const { data } = await axios.post(
         apiRoute + "/user",
-        { name: fullname, password, email },
+        { name, password, email },
         config
       );
       dispatch(userLogin(data));

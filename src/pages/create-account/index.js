@@ -81,14 +81,8 @@ const CreateAccount = () => {
                 return errors;
               }}
               onSubmit={(values) => {
-                dispatch(
-                  register(
-                    values.firstname,
-                    values.lastname,
-                    values.email,
-                    values.password
-                  )
-                );
+                const fullname = values.firstname + " " + values.lastname;
+                dispatch(register(fullname, values.email, values.password));
               }}
             >
               {({ isSubmitting }) => (
