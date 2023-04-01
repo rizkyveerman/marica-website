@@ -5,7 +5,12 @@ import episode1 from "@/images/episode1.png";
 import episode2 from "@/images/episode2.png";
 import episode3 from "@/images/episode3.png";
 import MainLayout from "@/layout/MainLayout";
-import { faPlay } from "@fortawesome/free-solid-svg-icons";
+import {
+  faPlay,
+  faHeart,
+  faListCheck,
+  faShare,
+} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Link from "next/link";
 import Button from "@/components/buttons/Button";
@@ -43,11 +48,18 @@ const MoviesDetails = ({ movie }) => {
           {/* //TODO add play icon when hovering the episode item */}
           <ul className="py-4 grid gap-4">
             <li className="hover:cursor-pointer bg-white rounded-xl p-4 gap-4 flex flex-col md:flex-row">
-              <Image
-                src={episode1}
-                alt="episode 1"
-                className="rounded-md w-full h-auto md:w-52 md:h-32 object-cover object-center"
-              />
+              <div className="relative min-w-max rounded-md w-full h-auto md:w-52 overflow-hidden">
+                <div className="absolute bottom-0 left-0 right-0 p-4 bg-white/20 backdrop-blur-sm text-white/60 flex gap-4 justify-center items-center rounded-b-md">
+                  <FontAwesomeIcon icon={faHeart} height={16} />
+                  <FontAwesomeIcon icon={faListCheck} height={16} />
+                  <FontAwesomeIcon icon={faShare} height={16} />
+                </div>
+                <Image
+                  src={episode1}
+                  alt="episode 1"
+                  className="w-max object-cover object-center"
+                />
+              </div>
               <div className=" text-slate-600 flex flex-col">
                 <p className="text-xl md:text-2xl">
                   <span className="text-pink-600 text-base">Ep.1</span> John
@@ -68,36 +80,28 @@ const MoviesDetails = ({ movie }) => {
                 </div>
               </div>
             </li>
-            <li className="bg-white rounded-xl p-4 gap-4 flex flex-col md:flex-row">
-              <div
-                className="hover:cursor-pointer relative"
-                onMouseEnter={() => setIsHoveringEps(true)}
-                onMouseLeave={() => setIsHoveringEps(false)}
-              >
-                {isHoveringEps && (
-                  <FontAwesomeIcon
-                    icon={faPlay}
-                    height={24}
-                    className="text-white absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
-                  />
-                )}
+            <li className="hover:cursor-pointer bg-white rounded-xl p-4 gap-4 flex flex-col md:flex-row">
+              <div className="relative min-w-max rounded-md w-full h-auto md:w-52 overflow-hidden">
+                <div className="absolute bottom-0 left-0 right-0 p-4 bg-white/20 backdrop-blur-sm text-white/60 flex gap-4 justify-center items-center rounded-b-md">
+                  <FontAwesomeIcon icon={faHeart} height={16} />
+                  <FontAwesomeIcon icon={faListCheck} height={16} />
+                  <FontAwesomeIcon icon={faShare} height={16} />
+                </div>
                 <Image
                   src={episode2}
                   alt="episode 2"
-                  className="rounded-md w-full h-auto aspect-video object-cover object-center"
+                  className="w-max object-cover object-center"
                 />
               </div>
               <div className=" text-slate-600 flex flex-col">
                 <p className="text-xl md:text-2xl">
                   <span className="text-pink-600 text-base">Ep.2</span> Mimpi
-                  yang Sempurna
+                  yang Kurang Sempurna
                 </p>
                 <div>
                   <p className="text-slate-400">
                     Lorem ipsum dolor sit amet consectetur. Facilisis ornare
-                    convallis arcu blandit. Scelerisque iaculis arcu turpis non
-                    quam. A elementum in aliquam morbi morbi semper dui. Justo
-                    pellentesque ac aenean rutrum amet vulputate fringilla dui.
+                    convallis arcu blandit.
                   </p>
                   <Link
                     href="/:id"
@@ -109,11 +113,18 @@ const MoviesDetails = ({ movie }) => {
               </div>
             </li>
             <li className="hover:cursor-pointer bg-white rounded-xl p-4 gap-4 flex flex-col md:flex-row">
-              <Image
-                src={episode3}
-                alt="episode 3"
-                className="rounded-md w-full h-auto md:w-52 md:h-32 object-cover object-center"
-              />
+              <div className="relative min-w-max rounded-md w-full h-auto md:w-52 overflow-hidden">
+                <div className="absolute bottom-0 left-0 right-0 p-4 bg-white/20 backdrop-blur-sm text-white/60 flex gap-4 justify-center items-center rounded-b-md">
+                  <FontAwesomeIcon icon={faHeart} height={16} />
+                  <FontAwesomeIcon icon={faListCheck} height={16} />
+                  <FontAwesomeIcon icon={faShare} height={16} />
+                </div>
+                <Image
+                  src={episode3}
+                  alt="episode 3"
+                  className="w-max object-cover object-center"
+                />
+              </div>
               <div className=" text-slate-600 flex flex-col">
                 <p className="text-xl md:text-2xl">
                   <span className="text-pink-600 text-base">Ep.3</span> Hidup
