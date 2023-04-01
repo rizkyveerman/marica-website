@@ -17,6 +17,7 @@ import Logo from "@/components/Logo";
 import Image from "next/image";
 import { Form, Formik, Field, ErrorMessage } from "formik";
 import PasswordGuide from "@/components/inputs/PasswordGuide";
+import { register } from "@/store/actions/user-actions";
 
 const CreateAccount = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -82,39 +83,7 @@ const CreateAccount = () => {
                 return errors;
               }}
               onSubmit={async (values) => {
-                const fullname = values.firstname + " " + values.lastname;
-                dispatch(setLoading(true));
-                try {
-                  const config = {
-                    headers: {
-                      "Content-Type": "application/json",
-                    },
-                  };
-
-                  const { data } = await axios.post(
-                    "https://marica-backend.vercel.app/api/v1/user",
-                    {
-                      name: fullname,
-                      password: values.password,
-                      email: values.email,
-                    },
-                    config
-                  );
-                  dispatch(userLogin(data));
-                  localStorage.setItem("userInfo", JSON.stringify(data));
-                  console.log("register: ", data);
-                } catch (error) {
-                  console.log("error", error);
-                  dispatch(
-                    setError(
-                      error.message && error.response
-                        ? error.response
-                        : error.message
-                        ? error.message
-                        : "Aduh ada sedikit masalah, Coba lagi yuk!"
-                    )
-                  );
-                }
+                dispatch(register(values));
               }}
             >
               {({ isSubmitting }) => (
