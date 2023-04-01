@@ -1,4 +1,8 @@
-import { combineReducers, configureStore } from "@reduxjs/toolkit";
+import {
+  applyMiddleware,
+  combineReducers,
+  configureStore,
+} from "@reduxjs/toolkit";
 import theme from "./slices/theme";
 import user from "./slices/user";
 

@@ -36,11 +36,8 @@ export const login =
     }
   };
 
-export const register = ({ firstname, lastname, email, password }) => {
-  console.log("firstname", firstname);
-  console.log("lastname", lastname);
-  console.log("email", email);
-  console.log("password", password);
+export const register =
+  ({ firstname, lastname, email, password }) =>
   async (dispatch) => {
     dispatch(setLoading(true));
     try {
@@ -71,4 +68,3 @@ export const register = ({ firstname, lastname, email, password }) => {
       );
     }
   };
-};
