@@ -49,7 +49,7 @@ export const register =
 
       const { data } = await axios.post(
         apiRoute + "/user",
-        { name: `${firstname} ${lastname}`, password, email },
+        { nama: `${firstname} ${lastname}`, password, email },
         config
       );
       dispatch(userLogin(data));
