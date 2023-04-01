@@ -1,4 +1,7 @@
+import { useEffect } from "react";
+import { useRouter } from "next/router";
 import MainLayout from "@/layout/MainLayout";
+import { useDispatch, useSelector } from "react-redux";
 import hero1 from "@/images/hero-1.png";
 import hero2 from "@/images/hero-2.png";
 import Button from "@/components/buttons/Button";
@@ -6,21 +9,17 @@ import Image from "next/image";
 import MovieCard from "@/components/cards/MovieCard";
 import Link from "next/link";
 
-export async function getServerSideProps(ctx) {
-  const videos = await fetch(
-    `https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&id=Ks-_Mh1QhMc%2Cc0KYU2j0TM4%2CeIho2S0ZahI&key=${process.env.API_KEY}`
-  )
-    .then((response) => response.json())
-    .catch((err) => console.error(err));
+export default function Home() {
+  const { userInfo, error, isLoading } = useSelector((state) => state.user);
+  const router = useRouter();
 
-  return {
-    props: {
-      videos,
-    },
-  };
-}
+  //TODO don't force user to login when the register bug was fixed!
+  useEffect(() => {
+    if (!userInfo) {
+      router.push("/login");
+    }
+  });
 
-export default function Home({ videos }) {
   return (
     <article>
       <section className="p-4">
