@@ -19,12 +19,15 @@ import axios from "axios";
 import ReactPlayer from "react-player/youtube";
 
 const MoviesDetails = ({ movie }) => {
-  const [isHoveringEps, setIsHoveringEps] = useState(false);
+  const [isPlay, setIsPlay] = useState(false);
   return (
     <articles>
-      {/* <VideoPlayer src="https://www.youtube.com/watch?v=FUqttxtk8y0" /> */}
-      <ReactPlayer src="https://www.youtube.com/watch?v=FUqttxtk8y0" />
-      <section className="p-4 h-[60vh]">
+      <section className="p-4 h-fit rounded-xl overflow-hidden">
+        <video controls className={`block w-full rounded-xl`}>
+          <source src="/videos/video1.mp4" type="video/mp4" />
+        </video>
+      </section>
+      {/* <section className="p-4 h-[60vh]">
         <div className="w-full h-full relative overflow-hidden rounded-xl">
           <div className="absolute left-0 right-0 top-0 bottom-0 z-50 p-4 md:p-8 lg:p-12 flex flex-col justify-end">
             <h1 className="text-white mb-8">The Soul</h1>
@@ -33,7 +36,11 @@ const MoviesDetails = ({ movie }) => {
               arcu blandit. Scelerisque iaculis arcu turpis non quam. A
               elementum in aliquam morbi morbi semper dui.
             </p>
-            <Button icon={faPlay} className="w-fit text-white border-white">
+            <Button
+              icon={faPlay}
+              className="w-fit text-white border-white"
+              isClicked={() => "clicked"}
+            >
               Tonton sekarang
             </Button>
           </div>
@@ -46,7 +53,7 @@ const MoviesDetails = ({ movie }) => {
             objectPosition="center"
           />
         </div>
-      </section>
+      </section> */}
       <section className="p-4">
         <div>
           <h3>Episode</h3>
