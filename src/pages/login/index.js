@@ -47,8 +47,7 @@ function LoginPage() {
             </p>
             <Formik
               initialValues={{
-                email: "",
-                username: "",
+                identifier: "",
                 password: "",
               }}
               validate={(values) => {
@@ -88,12 +87,12 @@ function LoginPage() {
                   <div className="email w-full relative grid gap-2">
                     <p>Masukkan username atau email</p>
                     <Field
-                      type="username"
-                      name="username"
+                      type="identifier"
+                      name="identifier"
                       className="focus:text-pink-600 focus:outline-2 text-slate-700 focus:outline-pink-600 w-full py-3 px-6 rounded-lg bg-abu-terang"
                     />
                     <ErrorMessage
-                      name="username"
+                      name="identifier"
                       component="div"
                       className="m-auto absolute top-full p-2 rounded-xl bg-red-100 text-red-600 before:block before:absolute before:left-1/2 before:bottom-full before:w-3 before:h-3 before:bg-red-100 before:translate-y-1/2 before:-translate-x-1/2 before:rotate-45 before:rounded-sm z-10"
                     />
