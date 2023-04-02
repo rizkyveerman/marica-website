@@ -15,12 +15,15 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Link from "next/link";
 import Button from "@/components/buttons/Button";
 import VideoPlayer from "@/components/players/VideoPlayer";
+import axios from "axios";
+import ReactPlayer from "react-player/youtube";
 
 const MoviesDetails = ({ movie }) => {
   const [isHoveringEps, setIsHoveringEps] = useState(false);
   return (
     <articles>
-      {/* <VideoPlayer src="/videos/video.mp4" /> */}
+      {/* <VideoPlayer src="https://www.youtube.com/watch?v=FUqttxtk8y0" /> */}
+      <ReactPlayer src="https://www.youtube.com/watch?v=FUqttxtk8y0" />
       <section className="p-4 h-[60vh]">
         <div className="w-full h-full relative overflow-hidden rounded-xl">
           <div className="absolute left-0 right-0 top-0 bottom-0 z-50 p-4 md:p-8 lg:p-12 flex flex-col justify-end">
