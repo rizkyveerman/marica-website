@@ -15,6 +15,7 @@ import Image from "next/image";
 import woman from "@/icons/woman.png";
 import lightmode from "@/images/lightmode.png";
 import darkmode from "@/images/darkmode.png";
+import { logout } from "@/store/actions/user-actions";
 
 const Navbar = () => {
   const [profileMenu, setProfileMenu] = useState(false);
@@ -36,7 +37,7 @@ const Navbar = () => {
                   href="/my-profile"
                   className="block p-2 hover:bg-pink-100 rounded-lg cursor-pointer text-slate-600"
                 >
-                  My profile
+                  Profile saya
                 </Link>
               </li>
               <li onClick={() => setProfileMenu(!profileMenu)}>
@@ -44,16 +45,21 @@ const Navbar = () => {
                   href="/user-setting"
                   className="block p-2 hover:bg-pink-100 rounded-lg cursor-pointer text-slate-600"
                 >
-                  Settings
+                  Pengaturan
                 </Link>
               </li>
 
-              <li onClick={() => setProfileMenu(!profileMenu)}>
+              <li
+                onClick={() => {
+                  dispatch(logout());
+                  setProfileMenu(!profileMenu);
+                }}
+              >
                 <Link
-                  href="/"
+                  href="/login"
                   className="block p-2 hover:bg-pink-100 rounded-lg cursor-pointer text-slate-600"
                 >
-                  Logout
+                  Keluar
                 </Link>
               </li>
             </ul>
