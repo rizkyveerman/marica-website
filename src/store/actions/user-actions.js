@@ -35,7 +35,7 @@ export const register =
     }
   };
 export const login =
-  ({ username, password }) =>
+  ({ username, email, password }) =>
   async (dispatch) => {
     dispatch(setLoading(true));
     try {
