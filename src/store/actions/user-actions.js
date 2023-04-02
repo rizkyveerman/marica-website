@@ -65,12 +65,13 @@ export const login =
       );
     }
   };
+
 export const logout =
   ({ username, password }) =>
   async (dispatch) => {
     dispatch(setLoading(true));
     try {
-      dispatch(userLogout(null));
+      dispatch(userLogout());
       localStorage.setItem("userInfo", null);
     } catch (error) {
       dispatch(
