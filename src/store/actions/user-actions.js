@@ -66,22 +66,20 @@ export const login =
     }
   };
 
-export const logout =
-  ({ username, password }) =>
-  async (dispatch) => {
-    dispatch(setLoading(true));
-    try {
-      dispatch(userLogout());
-      localStorage.setItem("userInfo", null);
-    } catch (error) {
-      dispatch(
-        setError(
-          error.message && error.response
-            ? error.response
-            : error.message
-            ? error.message
-            : "Aduh ada sedikit masalah, Coba lagi yuk!"
-        )
-      );
-    }
-  };
+export const logout = () => async (dispatch) => {
+  dispatch(setLoading(true));
+  try {
+    dispatch(userLogout());
+    localStorage.setItem("userInfo", null);
+  } catch (error) {
+    dispatch(
+      setError(
+        error.message && error.response
+          ? error.response
+          : error.message
+          ? error.message
+          : "Aduh ada sedikit masalah, Coba lagi yuk!"
+      )
+    );
+  }
+};

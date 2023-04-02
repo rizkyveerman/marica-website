@@ -21,7 +21,7 @@ const userSlice = createSlice({
       state.isLoading = false;
       state.error = null;
     },
-    userLogout: (state, { payload }) => {
+    userLogout: (state) => {
       state.userInfo = null;
       state.isLoading = false;
       state.error = null;
