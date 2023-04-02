@@ -28,9 +28,7 @@ function LoginPage() {
     /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
 
   useEffect(() => {
-    if (userInfo) {
-      if (router.route === "/login") router.push("/");
-    }
+    if (userInfo) router.push("/");
   }, [router, userInfo]);
 
   return (
@@ -53,19 +51,9 @@ function LoginPage() {
               validate={(values) => {
                 const errors = {};
 
-                //email validation
-                if (!values.email) {
-                  errors.email = "required";
-                } else if (
-                  !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)
-                ) {
-                  errors.email =
-                    "Email tidak valid! sepertinya kamu melupakan simbol @";
-                }
-
-                //username validation
-                if (!values.username) {
-                  errors.username = "required";
+                //identifier validation
+                if (!values.identifier) {
+                  errors.identifier = "required";
                 }
 
                 //password validation
