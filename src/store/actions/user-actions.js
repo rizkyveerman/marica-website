@@ -47,7 +47,7 @@ export const login =
 
       const { data } = await axios.post(
         `${apiRoute}/user/login`,
-        { identifier: username, password, email },
+        { identifier: username || email, password },
         config
       );
       dispatch(userLogin(data));

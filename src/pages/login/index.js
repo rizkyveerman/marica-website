@@ -86,7 +86,7 @@ function LoginPage() {
               {({ isSubmitting }) => (
                 <Form className="grid grid-cols-1 gap-4 w-full">
                   <div className="email w-full relative grid gap-2">
-                    <p>Masukkan username</p>
+                    <p>Masukkan username atau email</p>
                     <Field
                       type="username"
                       name="username"
