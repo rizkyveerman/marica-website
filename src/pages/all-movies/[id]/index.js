@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import Image from "next/image";
 import videoThumbnail from "@/images/video-thumbnail.png";
 import episode1 from "@/images/episode1.png";
@@ -20,10 +20,23 @@ import ReactPlayer from "react-player/youtube";
 
 const MoviesDetails = ({ movie }) => {
   const [isPlay, setIsPlay] = useState(false);
+  const videoRef = useRef();
+
+  const handleMetaData = (e) => {
+    const video = videoRef.current;
+    if (!video) return;
+    console.log("video", video);
+  };
+
   return (
     <articles>
       <section className="p-4 h-fit rounded-xl overflow-hidden">
-        <video controls className={`block w-full rounded-xl`}>
+        <video
+          controls
+          className={`block w-full rounded-xl`}
+          ref={videoRef}
+          onLoadedMetadata={handleMetaData}
+        >
           <source src="/videos/video1.mp4" type="video/mp4" />
         </video>
       </section>
