@@ -51,25 +51,26 @@ export const login =
         },
       };
 
-      const { data } = await axios.post(
+      const { data, status, statusText } = await axios.post(
         `${apiRoute}/user/login`,
         { identifier, password },
         config
       );
+
       dispatch(userLogin(data));
       localStorage.setItem("userInfo", JSON.stringify(data));
       localStorage.setItem("token", JSON.stringify(data.data.token));
     } catch (error) {
-      console.log("error", error.response);
-      dispatch(
-        setError(
-          error.message && error.response
-            ? error.response
-            : error.message
-            ? error.message
-            : "Aduh ada sedikit masalah, Coba lagi yuk!"
-        )
-      );
+      dispatch(setStatus(error.response.status));
+      // dispatch(
+      //   setError(
+      //     error.message && error.response
+      //       ? error.response
+      //       : error.message
+      //       ? error.message
+      //       : "Aduh ada sedikit masalah, Coba lagi yuk!"
+      //   )
+      // );
     }
   };
 

@@ -1,5 +1,5 @@
 import watching from "@/images/watching.jpg";
-import axios from "axios";
+import { routeRedirect } from "@/libs/route-redirect";
 import { setLoading } from "@/store/slices/user";
 import { useDispatch, useSelector } from "react-redux";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -24,7 +24,7 @@ const CreateAccount = () => {
   const [showPassword, setShowPassword] = useState(false);
   const router = useRouter();
   const dispatch = useDispatch();
-  const { isLoading, error, setError, userInfo, status } = useSelector(
+  const { isLoading, error, userInfo, status } = useSelector(
     (state) => state.user
   );
 
@@ -32,10 +32,11 @@ const CreateAccount = () => {
     /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
 
   useEffect(() => {
-    if (userInfo) {
-      if (router.route === "/register") router.push("/");
+    if (error) {
+      return;
     }
-  }, [router, userInfo]);
+    routeRedirect(router, userInfo);
+  }, [error, router, userInfo]);
 
   return (
     <>

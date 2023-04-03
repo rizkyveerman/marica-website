@@ -2,7 +2,7 @@ import { ErrorMessage, Formik, Form, Field } from "formik";
 import { useDispatch, useSelector } from "react-redux";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
-import axios from "axios";
+import { routeRedirect } from "@/libs/route-redirect";
 import Button from "@/components/buttons/Button";
 import Link from "next/link";
 import Footer from "@/widgets/Footer";
@@ -15,24 +15,50 @@ import {
   faEye,
   faEyeSlash,
   faSpinner,
+  faSquareUpRight,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { setError } from "@/store/slices/user";
 
 function LoginPage() {
   const [showPassword, setShowPassword] = useState(false);
   const dispatch = useDispatch();
   const router = useRouter();
-  const { error, isLoading, userInfo } = useSelector((state) => state.user);
+  const { error, isLoading, userInfo, status } = useSelector(
+    (state) => state.user
+  );
 
   const passwordRegex =
     /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
 
   useEffect(() => {
-    if (userInfo) router.push("/");
-  }, [router, userInfo]);
+    if (error) {
+      return;
+    }
+    routeRedirect(router, userInfo);
+  }, [error, router, userInfo]);
 
   return (
     <>
+      {status === 400 && (
+        <section className="z-50 fixed left-0 top-0 bottom-0 right-0 bg-white/50 backdrop-blur-sm grid place-content-center">
+          <div
+            className={`p-4 rounded-xl bg-red-500 grid place-content-center`}
+          >
+            <p className="text-white max-w-xs text-center mb-4">
+              Eh kamu belum masuk. Kamu belum punya akun Marica ya?😔
+            </p>
+            <Button
+              icon={faSquareUpRight}
+              isLink
+              href="/create-account"
+              className="border-white text-white hover:bg-white hover:text-red-500 hover:border-none"
+            >
+              Buat akun dulu
+            </Button>
+          </div>
+        </section>
+      )}
       <div className="fixed top-4">{error}</div>
       <article className="grid grid-cols-1 md:grid-cols-2 h-screen">
         <section className="relative grid place-content-center p-4">
