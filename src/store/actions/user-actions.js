@@ -21,6 +21,7 @@ export const register =
       );
       dispatch(userLogin(data));
       localStorage.setItem("userInfo", JSON.stringify(data));
+      localStorage.setItem("token", JSON.stringify(data.data.token));
     } catch (error) {
       console.log("error", error);
       dispatch(
@@ -52,6 +53,7 @@ export const login =
       );
       dispatch(userLogin(data));
       localStorage.setItem("userInfo", JSON.stringify(data));
+      localStorage.setItem("token", JSON.stringify(data.data.token));
     } catch (error) {
       console.log("error", error.response);
       dispatch(
@@ -70,7 +72,8 @@ export const logout = () => async (dispatch) => {
   dispatch(setLoading(true));
   try {
     dispatch(userLogout());
-    localStorage.setItem("userInfo", null);
+    localStorage.removeItem("userInfo");
+    localStorage.removeItem("token");
   } catch (error) {
     dispatch(
       setError(
