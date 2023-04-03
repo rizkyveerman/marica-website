@@ -155,8 +155,8 @@ function LoginPage() {
               src={watching}
               alt="movie"
               fill
-              objectFit="cover"
-              objectPosition="center"
+              className="object-cover object-center"
+              placeholder="blur"
             />
           </div>
         </section>

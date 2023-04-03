@@ -209,10 +209,10 @@ const CreateAccount = () => {
             <Image
               src={watching}
               alt="movie"
-              fill
-              objectFit="cover"
-              objectPosition="center"
               priority
+              fill
+              className="object-cover object-center"
+              placeholder="blur"
             />
           </div>
         </section>
