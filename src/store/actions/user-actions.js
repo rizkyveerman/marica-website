@@ -1,7 +1,7 @@
 import axios from "axios";
 import { userLogin, userLogout, setError, setLoading } from "../slices/user";
 
-const apiRoute = "https://marica-backend.vercel.app/api/v1";
+const apiRoute = "http://localhost:4000/api/v1";
 
 export const register =
   ({ firstname, lastname, email, password }) =>
@@ -14,14 +14,13 @@ export const register =
         },
       };
 
-      const { data } = await axios.post(
-        apiRoute + "/user",
+      await axios.post(
+        `${apiRoute}/user`,
         { nama: `${firstname} ${lastname}`, password, email },
         config
       );
-      dispatch(userLogin(data));
-      localStorage.setItem("userInfo", JSON.stringify(data));
-      localStorage.setItem("token", JSON.stringify(data.data.token));
+
+      window.location.replace("http://localhost:3000/login");
     } catch (error) {
       console.log("error", error);
       dispatch(

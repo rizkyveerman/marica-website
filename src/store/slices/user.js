@@ -2,6 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   isLoading: false,
+  status: null,
   error: null,
   userInfo:
     typeof window !== "undefined"
@@ -15,6 +16,9 @@ const userSlice = createSlice({
   reducers: {
     setLoading: (state) => {
       state.isLoading = true;
+    },
+    setStatus: (state, { payload }) => {
+      state.isLoading = payload;
     },
     userLogin: (state, { payload }) => {
       state.userInfo = payload;
@@ -38,8 +42,14 @@ const userSlice = createSlice({
   },
 });
 
-export const { setLoading, userLogin, userLogout, setError, userRegister } =
-  userSlice.actions;
+export const {
+  setLoading,
+  userLogin,
+  userLogout,
+  setError,
+  setStatus,
+  userRegister,
+} = userSlice.actions;
 export default userSlice.reducer;
 
 export const userSelector = (state) => state.user;
