@@ -1,5 +1,11 @@
 import axios from "axios";
-import { userLogin, userLogout, setError, setLoading } from "../slices/user";
+import {
+  userLogin,
+  userLogout,
+  setError,
+  setLoading,
+  setStatus,
+} from "../slices/user";
 
 const apiRoute = "http://localhost:4000/api/v1";
 
@@ -14,13 +20,12 @@ export const register =
         },
       };
 
-      await axios.post(
+      const data = await axios.post(
         `${apiRoute}/user`,
         { nama: `${firstname} ${lastname}`, password, email },
         config
       );
-
-      window.location.replace("http://localhost:3000/login");
+      dispatch(setStatus(data.status));
     } catch (error) {
       console.log("error", error);
       dispatch(

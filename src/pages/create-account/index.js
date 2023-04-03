@@ -4,6 +4,7 @@ import { setLoading } from "@/store/slices/user";
 import { useDispatch, useSelector } from "react-redux";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
+  faCircleCheck,
   faEye,
   faEyeSlash,
   faSpinner,
@@ -23,7 +24,7 @@ const CreateAccount = () => {
   const [showPassword, setShowPassword] = useState(false);
   const router = useRouter();
   const dispatch = useDispatch();
-  const { isLoading, error, setError, userInfo } = useSelector(
+  const { isLoading, error, setError, userInfo, status } = useSelector(
     (state) => state.user
   );
 
@@ -38,6 +39,24 @@ const CreateAccount = () => {
 
   return (
     <>
+      {status === 201 && (
+        <section className="z-50 fixed left-0 top-0 bottom-0 right-0 bg-white/50 backdrop-blur-sm grid place-content-center">
+          <div className="p-4 rounded-xl bg-green-500 grid place-content-center">
+            <p className="text-white max-w-xs text-center mb-4">
+              Berhasil buat akun! Silahkan cek email kamu untuk verifikasi akun
+              dan kemudian login ke Marica😊. Terimakasih!
+            </p>
+            <Button
+              icon={faCircleCheck}
+              isLink
+              href="/login"
+              className="border-white text-white hover:bg-white hover:text-green-500 hover:border-none"
+            >
+              Saya sudah verifikasi
+            </Button>
+          </div>
+        </section>
+      )}
       <article className="grid grid-cols-1 md:grid-cols-2 min-h-screen">
         <section className="grid place-content-center p-4">
           <div className="min-w-[350px] md:w-96 max-w-lg p-4 rounded-2xl grid gap-4">

@@ -18,7 +18,8 @@ const userSlice = createSlice({
       state.isLoading = true;
     },
     setStatus: (state, { payload }) => {
-      state.isLoading = payload;
+      state.status = payload;
+      state.isLoading = false;
     },
     userLogin: (state, { payload }) => {
       state.userInfo = payload;
