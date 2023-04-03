@@ -26,6 +26,7 @@ export const register =
         config
       );
       dispatch(setStatus(data.status));
+      console.log("data", data.data.type);
     } catch (error) {
       console.log("error", error);
       dispatch(

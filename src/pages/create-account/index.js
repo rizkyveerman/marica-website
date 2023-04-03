@@ -41,10 +41,15 @@ const CreateAccount = () => {
     <>
       {status === 201 && (
         <section className="z-50 fixed left-0 top-0 bottom-0 right-0 bg-white/50 backdrop-blur-sm grid place-content-center">
-          <div className="p-4 rounded-xl bg-green-500 grid place-content-center">
+          <div
+            className={`p-4 rounded-xl ${
+              status === 201 ? "bg-green-500" : "bg-red-500"
+            } grid place-content-center`}
+          >
             <p className="text-white max-w-xs text-center mb-4">
-              Berhasil buat akun! Silahkan cek email kamu untuk verifikasi akun
-              dan kemudian login ke Marica😊. Terimakasih!
+              {status === 201
+                ? "Berhasil buat akun! Silahkan cek email kamu untuk verifikasi akun dan kemudian login ke Marica😊. Terimakasih!"
+                : "Yah gagal buat akun, mungkin email sudah digunakan, coba email lain yuk!"}
             </p>
             <Button
               icon={faCircleCheck}
@@ -57,6 +62,7 @@ const CreateAccount = () => {
           </div>
         </section>
       )}
+
       <article className="grid grid-cols-1 md:grid-cols-2 min-h-screen">
         <section className="grid place-content-center p-4">
           <div className="min-w-[350px] md:w-96 max-w-lg p-4 rounded-2xl grid gap-4">
