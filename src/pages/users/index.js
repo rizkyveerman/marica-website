@@ -5,16 +5,24 @@ import { ErrorMessage, Field, Formik, Form } from "formik";
 import { useSelector, useDispatch } from "react-redux";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faClose } from "@fortawesome/free-solid-svg-icons";
-import { setError } from "@/store/slices/user";
+import { childRegister, setError } from "@/store/slices/user";
+import { addChild } from "@/store/actions/user-actions";
+import Navbar from "@/widgets/Navbar";
 
 const Children = () => {
-  const { isLoading, error, userInfo } = useSelector((state) => state.user);
+  const { isLoading, error, userInfo, status } = useSelector(
+    (state) => state.user
+  );
+  const dispatch = useDispatch();
   const [isFormShown, setIsFormShown] = useState(false);
   const children = userInfo;
   console.log("children", children);
 
   return (
-    <article className={`bg-abu-terang`}>
+    <article className={`bg-abu-terang overflow-hidden`}>
+      <section className="absolute left-0 right-0">
+        <Navbar />
+      </section>
       <section
         className={`${
           isFormShown ? "lg:translate-x-72 lg:skew-x-4 lg:-skew-y-2" : ""
@@ -25,15 +33,14 @@ const Children = () => {
           <ul
             className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4`}
           >
-            {/* {children.map((child) => ( */}
-            <li>
-              <Link href={`/users/${6}`} className="block">
-                <div className="h-20 w-20 bg-pink-600 rounded-lg"></div>
-                <p className="">Joko</p>
-              </Link>
-            </li>
-            {/* ))} */}
-
+            {/* {children.map((child) => (
+              <li key={index}>
+                <Link href={`/users/${6}`} className="block">
+                  <div className="h-20 w-20 bg-pink-600 rounded-lg"></div>
+                  <p className="">{child.nama}</p>
+                </Link>
+              </li>
+            ))} */}
             <div
               className="cursor-pointer h-20 w-20 border grid place-content-center border-slate-300 hover:border-pink-600 hover:text-pink-600 rounded-lg text-2xl"
               title="Tambahkan anak"
@@ -65,16 +72,10 @@ const Children = () => {
             initialValues={{
               firstname: "",
               lastname: "",
-              birthDate: "",
-              username: "",
+              birthdate: "",
             }}
             validate={(values) => {
               const errors = {};
-
-              //username validation
-              if (!values.username) {
-                errors.username = "required";
-              }
 
               //firstname validation
               if (!values.firstname) {
@@ -87,28 +88,11 @@ const Children = () => {
               }
 
               //birthdate validation
-              if (!values.birthDate) {
-                errors.birthDate = "required";
+              if (!values.birthdate) {
+                errors.birthdate = "required";
               }
             }}
-            onSubmit={async (values) => {
-              const fullname = values.firstname + " " + values.lastname;
-
-              await axios
-                .post(
-                  `https://marica-backend.vercel.app/api/v1/user/${userInfo.data._id}/anak`,
-                  {
-                    nama: fullname,
-                    lahir: values.birthDate,
-                    username: values.username,
-                  }
-                )
-                .then((response) => response)
-                .catch((err) => {
-                  setError(err);
-                  console.log("add child error: ", error);
-                });
-            }}
+            onSubmit={(values) => dispatch(addChild(values))}
           >
             {({ isSubmitting }) => (
               <Form className="grid grid-cols-1 gap-4 w-full">
@@ -141,27 +125,14 @@ const Children = () => {
                   </div>
                 </div>
                 <div className="w-full relative grid gap-2">
-                  <p className="text-slate-700">Buat nama pengguna</p>
-                  <Field
-                    type="text"
-                    name="username"
-                    className="focus:text-pink-600 focus:outline-2 text-slate-700 focus:outline-pink-600 w-full py-3 px-6 rounded-lg bg-abu-terang"
-                  />
-                  <ErrorMessage
-                    name="username"
-                    component="div"
-                    className="m-auto absolute top-full p-2 rounded-xl bg-red-100 text-red-600 before:block before:absolute before:left-1/2 before:bottom-full before:w-3 before:h-3 before:bg-red-100 before:translate-y-1/2 before:-translate-x-1/2 before:rotate-45 before:rounded-sm z-10"
-                  />
-                </div>
-                <div className="w-full relative grid gap-2">
                   <p className="text-slate-700">Tanggal lahir</p>
                   <Field
                     type="date"
-                    name="birthDate"
+                    name="birthdate"
                     className="focus:text-pink-600 focus:outline-2 text-slate-700 focus:outline-pink-600 w-full py-3 px-6 rounded-lg bg-abu-terang"
                   />
                   <ErrorMessage
-                    name="birthDate"
+                    name="birthdate"
                     component="div"
                     className="m-auto absolute top-full p-2 rounded-xl bg-red-100 text-red-600 before:block before:absolute before:left-1/2 before:bottom-full before:w-3 before:h-3 before:bg-red-100 before:translate-y-1/2 before:-translate-x-1/2 before:rotate-45 before:rounded-sm z-10"
                   />

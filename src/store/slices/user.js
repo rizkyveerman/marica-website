@@ -36,6 +36,11 @@ const userSlice = createSlice({
       state.isLoading = false;
       state.error = null;
     },
+    childRegister: (state, { payload }) => {
+      state.userInfo = payload;
+      state.isLoading = false;
+      state.error = null;
+    },
     setError: (state, { payload }) => {
       state.error = payload;
       state.isLoading = false;
@@ -50,6 +55,7 @@ export const {
   setError,
   setStatus,
   userRegister,
+  childRegister,
 } = userSlice.actions;
 export default userSlice.reducer;
 

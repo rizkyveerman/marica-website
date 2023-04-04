@@ -5,6 +5,7 @@ import {
   setError,
   setLoading,
   setStatus,
+  childRegister,
 } from "../slices/user";
 
 const apiRoute = "http://localhost:4000/api/v1";
@@ -92,3 +93,26 @@ export const logout = () => async (dispatch) => {
     );
   }
 };
+
+export const addChild =
+  ({ firstname, lastname, birthdate }) =>
+  async (dispatch) => {
+    dispatch(setLoading(true));
+
+    console.log("firstname, birthdate", firstname, birthdate);
+
+    try {
+      const config = {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      };
+
+      const { data } = await axios.post(
+        `${apiRoute}/user/anak`,
+        { nama: `${firstname} ${lastname}`, lahir: birthdate },
+        config
+      );
+      dispatch(childRegister(data));
+    } catch (error) {}
+  };

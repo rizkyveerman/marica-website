@@ -109,7 +109,7 @@ const Navbar = () => {
                 className="rounded-full bg-pink-600"
               />
               <p className="text-slate-600 hidden lg:flex items-center gap-2">
-                <span>{userInfo.data.nama}</span>
+                <span>{userInfo.data.essentials.username}</span>
                 <FontAwesomeIcon icon={faCaretDown} height={14} />
               </p>
             </div>
