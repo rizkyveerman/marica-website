@@ -16,7 +16,7 @@ const ChildCard = () => {
         height={100}
         alt="username"
         title="username"
-        className="bg-blue-300 p-2 pb-0 rounded-lg h-[100px] w-[100px]"
+        className="bg-sky-300 p-2 pb-0 rounded-lg h-[100px] w-[100px]"
       />
       <div className="text-slate-600 flex flex-col gap-4">
         <div className="flex justify-between items-center">
@@ -35,7 +35,7 @@ const ChildCard = () => {
           </p>
           <Link
             href="/:id"
-            className="underline text-slate-500 hover:text-pink-600"
+            className="underline text-slate-500 hover:text-sky-600"
           >
             Detail
           </Link>

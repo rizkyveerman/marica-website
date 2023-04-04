@@ -28,14 +28,14 @@ const EpisodeCard = ({ imageUrl, title, synopsis, slug }) => {
       </div>
       <div className=" text-slate-600 flex flex-col">
         <p className="text-xl md:text-2xl">
-          <span className="text-pink-600 text-base">Ep.2</span>
+          <span className="text-sky-600 text-base">Ep.2</span>
           {title}
         </p>
         <div>
           <p className="text-slate-400">{synopsis}</p>
           <Link
             href={slug}
-            className="underline text-slate-500 hover:text-pink-600"
+            className="underline text-slate-500 hover:text-sky-600"
           >
             Detail
           </Link>

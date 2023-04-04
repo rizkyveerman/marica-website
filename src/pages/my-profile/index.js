@@ -29,7 +29,7 @@ const MyProfile = (props) => {
             title="username"
             width={150}
             height={150}
-            className="bg-pink-300 rounded-full"
+            className="bg-sky-300 rounded-full"
           />
           <div>
             <div className="flex w-full justify-center items-center md:justify-start md:items-start gap-4">
@@ -56,10 +56,10 @@ const MyProfile = (props) => {
       <section className="w-full px-4 py-8">
         <Tab.Group>
           <Tab.List className="flex">
-            <Tab className="px-5 py-2 rounded-xl outline-none text-slate-600 ui-selected:text-white ui-selected:bg-gradient-to-t from-pink-600 to-pink-400">
+            <Tab className="px-5 py-2 rounded-xl outline-none text-slate-600 ui-selected:text-white ui-selected:bg-gradient-to-t from-sky-600 to-sky-400">
               Data anak
             </Tab>
-            <Tab className="px-5 py-2 rounded-xl outline-none text-slate-600 ui-selected:text-white ui-selected:bg-gradient-to-t from-pink-600 to-pink-400">
+            <Tab className="px-5 py-2 rounded-xl outline-none text-slate-600 ui-selected:text-white ui-selected:bg-gradient-to-t from-sky-600 to-sky-400">
               Statistik anak
             </Tab>
           </Tab.List>
@@ -75,7 +75,7 @@ const MyProfile = (props) => {
                   height={100}
                   alt="username"
                   title="username"
-                  className="bg-blue-300 p-2 pb-0 rounded-lg h-[100px] w-[100px]"
+                  className="bg-sky-300 p-2 pb-0 rounded-lg h-[100px] w-[100px]"
                 />
                 <div className="text-slate-600 flex flex-col gap-4">
                   <div className="flex justify-between items-center">
@@ -94,7 +94,7 @@ const MyProfile = (props) => {
                     </p>
                     <Link
                       href="/:id"
-                      className="underline text-slate-500 hover:text-pink-600"
+                      className="underline text-slate-500 hover:text-sky-600"
                     >
                       Detail
                     </Link>
@@ -110,7 +110,7 @@ const MyProfile = (props) => {
                   height={100}
                   alt="username"
                   title="username"
-                  className="bg-blue-300 p-2 pb-0 rounded-lg h-[100px] w-[100px]"
+                  className="bg-sky-300 p-2 pb-0 rounded-lg h-[100px] w-[100px]"
                 />
                 <div className="text-slate-600 flex flex-col gap-4">
                   <div className="flex justify-between items-center">
@@ -129,7 +129,7 @@ const MyProfile = (props) => {
                     </p>
                     <Link
                       href="/:id"
-                      className="underline text-slate-500 hover:text-pink-600"
+                      className="underline text-slate-500 hover:text-sky-600"
                     >
                       Detail
                     </Link>
@@ -145,7 +145,7 @@ const MyProfile = (props) => {
                   height={100}
                   alt="username"
                   title="username"
-                  className="bg-blue-300 p-2 pb-0 rounded-lg h-[100px] w-[100px]"
+                  className="bg-sky-300 p-2 pb-0 rounded-lg h-[100px] w-[100px]"
                 />
                 <div className="text-slate-600 flex flex-col gap-4">
                   <div className="flex justify-between items-center">
@@ -164,7 +164,7 @@ const MyProfile = (props) => {
                     </p>
                     <Link
                       href="/:id"
-                      className="underline text-slate-500 hover:text-pink-600"
+                      className="underline text-slate-500 hover:text-sky-600"
                     >
                       Detail
                     </Link>

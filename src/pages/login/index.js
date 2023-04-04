@@ -103,7 +103,7 @@ function LoginPage() {
                     <Field
                       type="identifier"
                       name="identifier"
-                      className="focus:text-pink-600 focus:outline-2 text-slate-700 focus:outline-pink-600 w-full py-3 px-6 rounded-lg bg-abu-terang"
+                      className="focus:text-sky-600 focus:outline-2 text-slate-700 focus:outline-sky-600 w-full py-3 px-6 rounded-lg bg-abu-terang"
                     />
                     <ErrorMessage
                       name="identifier"
@@ -116,7 +116,7 @@ function LoginPage() {
                       <p>Masukkan password</p>
                       <Link
                         href="/reset-password"
-                        className="text-pink-600 underline text-sm"
+                        className="text-sky-600 underline text-sm"
                       >
                         Lupa password?
                       </Link>
@@ -126,14 +126,14 @@ function LoginPage() {
                         icon={showPassword ? faEye : faEyeSlash}
                         height={14}
                         className={`${
-                          showPassword ? "text-pink-600" : "text-slate-400"
+                          showPassword ? "text-sky-600" : "text-slate-400"
                         } absolute right-4 top-1/2 -translate-y-1/2`}
                         onClick={() => setShowPassword(!showPassword)}
                       />
                       <Field
                         type={showPassword ? "text" : "password"}
                         name="password"
-                        className="w-full focus:text-pink-600 focus:outline-2 text-slate-700 focus:outline-pink-600 py-3 px-6 rounded-lg bg-abu-terang"
+                        className="w-full focus:text-sky-600 focus:outline-2 text-slate-700 focus:outline-sky-600 py-3 px-6 rounded-lg bg-abu-terang"
                       />
                     </div>
                     <PasswordGuide />
@@ -169,7 +169,7 @@ function LoginPage() {
             </Formik>
             <p className="text-sm text-abu text-center">
               Belum punya akun Marica?{" "}
-              <Link href="/create-account" className="text-pink-600 underline">
+              <Link href="/create-account" className="text-sky-600 underline">
                 Buat dulu
               </Link>
             </p>

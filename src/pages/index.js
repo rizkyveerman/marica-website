@@ -23,7 +23,7 @@ export default function Home() {
   return (
     <article>
       <section className="p-4">
-        <div className="relative w-full h-[60vh] rounded-2xl bg-pink-300 grid place-content-center overflow-hidden">
+        <div className="relative w-full h-[60vh] rounded-2xl bg-sky-300 grid place-content-center overflow-hidden">
           <Image
             src={hero1}
             alt="hero"
@@ -37,7 +37,7 @@ export default function Home() {
       <section className="p-4">
         <div className="flex justify-between items-center py-2">
           <h4 className="text-xl font-semibold mb-4">Terpopuler</h4>
-          <Link className="text-pink-600 underline" href="/all-movies">
+          <Link className="text-sky-600 underline" href="/all-movies">
             Lihat semua
           </Link>
         </div>
@@ -77,7 +77,7 @@ export default function Home() {
       <section className="p-4">
         <div className="flex justify-between items-center py-2">
           <h4 className="text-xl font-semibold mb-4">Direkomendasikan</h4>
-          <Link className="text-pink-600 underline" href="/all-movies">
+          <Link className="text-sky-600 underline" href="/all-movies">
             Lihat semua
           </Link>
         </div>
@@ -117,7 +117,7 @@ export default function Home() {
       <section className="p-4">
         <div className="flex justify-between items-center py-2">
           <h4 className="text-xl font-semibold mb-4">Terakhir ditambahkan</h4>
-          <Link className="text-pink-600 underline" href="/all-movies">
+          <Link className="text-sky-600 underline" href="/all-movies">
             Lihat semua
           </Link>
         </div>

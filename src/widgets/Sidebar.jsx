@@ -74,9 +74,9 @@ const Sidebar = () => {
             {menus.map((menu, index) => (
               <li
                 key={index}
-                className={`flex justify-start items-center text-slate-600 hover:bg-pink-100 hover:text-pink-600 rounded-xl lg:pl-4 ${
+                className={`flex justify-start items-center text-slate-600 hover:bg-sky-100 hover:text-sky-600 rounded-xl lg:pl-4 ${
                   router.route === `/${menu.path}`
-                    ? "bg-gradient-to-t text-white from-pink-600 to-pink-300"
+                    ? "bg-gradient-to-t text-white from-sky-600 to-sky-300"
                     : ""
                 }`}
               >
@@ -90,7 +90,7 @@ const Sidebar = () => {
               </li>
             ))}
             <li
-              className={`md:hidden flex justify-start items-center hover:bg-pink-100 bg-gradient-to-t hover:text-pink-600 text-arang/80 rounded-xl lg:pl-4`}
+              className={`md:hidden flex justify-start items-center hover:bg-sky-100 bg-gradient-to-t hover:text-sky-600 text-arang/80 rounded-xl lg:pl-4`}
             >
               <button
                 className="w-12 h-12 grid place-content-center p-2 md:p-4 lg:py-4 lg:px-0"
@@ -103,13 +103,13 @@ const Sidebar = () => {
           {/* mobile */}
           {userInfo
             ? isMobileMenuOpen && (
-                <ul className="w-fit fixed bg-white border-2 border-pink-500 right-4 bottom-24 rounded-xl p-4 gap-1 lg:grid grid-cols-1">
+                <ul className="w-fit fixed bg-white border-2 border-sky-500 right-4 bottom-24 rounded-xl p-4 gap-1 lg:grid grid-cols-1">
                   {libraries.map((menu, index) => (
                     <li
                       key={index}
-                      className={`flex justify-start items-center text-slate-600 hover:bg-pink-100 hover:text-pink-600 rounded-xl lg:pl-4 ${
+                      className={`flex justify-start items-center text-slate-600 hover:bg-sky-100 hover:text-sky-600 rounded-xl lg:pl-4 ${
                         router.route === `/${menu.path}`
-                          ? "bg-gradient-to-t text-white hover:bg-gradient-to-t from-pink-600 to-pink-300 hover:text-white"
+                          ? "bg-gradient-to-t text-white hover:bg-gradient-to-t from-sky-600 to-sky-300 hover:text-white"
                           : ""
                       }`}
                     >
@@ -137,9 +137,9 @@ const Sidebar = () => {
               {libraries.map((menu, index) => (
                 <li
                   key={index}
-                  className={`flex justify-start items-center text-slate-600 hover:bg-pink-100 hover:text-pink-600 rounded-xl lg:pl-4 ${
+                  className={`flex justify-start items-center text-slate-600 hover:bg-sky-100 hover:text-sky-600 rounded-xl lg:pl-4 ${
                     router.route === `/${menu.path}`
-                      ? "bg-gradient-to-t text-white hover:bg-gradient-to-t from-pink-600 to-pink-300 hover:text-white"
+                      ? "bg-gradient-to-t text-white hover:bg-gradient-to-t from-sky-600 to-sky-300 hover:text-white"
                       : ""
                   }`}
                 >
@@ -157,9 +157,9 @@ const Sidebar = () => {
         </div>
         <ul className="border-t border-slate-300 w-full hidden p-4 lg:grid grid-cols-1">
           <li
-            className={`flex justify-start items-center text-slate-600 hover:bg-pink-100 hover:text-pink-600 ${
+            className={`flex justify-start items-center text-slate-600 hover:bg-sky-100 hover:text-sky-600 ${
               router.route === "/help"
-                ? "bg-gradient-to-t text-white hover:bg-gradient-to-t from-pink-600 to-pink-300 hover:text-white"
+                ? "bg-gradient-to-t text-white hover:bg-gradient-to-t from-sky-600 to-sky-300 hover:text-white"
                 : ""
             } rounded-xl lg:pl-4`}
           >

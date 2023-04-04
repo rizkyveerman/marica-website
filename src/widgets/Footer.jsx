@@ -22,14 +22,14 @@ const footerLinks = [
 
 const Footer = () => {
   return (
-    <footer className="px-4 py-4 pb-28 md:pb-4 md:p-8 bg-white w-full grid gap-4">
+    <footer className="dark px-4 py-4 pb-28 md:pb-4 md:p-8 bg-white dark:bg-slate-800 w-full grid gap-4">
       <div className="w-full flex flex-col md:flex-row justify-between items-center">
         <div className="flex flex-col md:flex-row gap-2 items-center">
           <Logo />
           <ul className="flex flex-col md:flex-row items-center md:items-start gap-4 text-arang">
             {footerLinks.map((link) => (
               <li key={link.pathname}>
-                <Link href={link.link} className="hover:text-pink-600 text-sm">
+                <Link href={link.link} className="hover:text-sky-600 text-sm">
                   {link.pathname}
                 </Link>
               </li>
@@ -39,7 +39,7 @@ const Footer = () => {
         <div className="">
           <p className="mb-2 text-sm">Unduh aplikasi Marica</p>
           <ul className="flex items-center gap-4">
-            <li className="bg-gradient-to-r from-pink-600 to-pink-400 rounded-lg grid place-content-center">
+            <li className="bg-gradient-to-r from-sky-600 to-sky-400 rounded-lg grid place-content-center">
               <Link
                 className="py-1 px-2 flex items-center"
                 href="http://play.google.com/"
@@ -59,7 +59,7 @@ const Footer = () => {
                 <p className="text-white text-sm">Playstore</p>
               </Link>
             </li>
-            <li className="bg-gradient-to-r from-pink-600 to-pink-400 rounded-lg grid place-content-center">
+            <li className="bg-gradient-to-r from-sky-600 to-sky-400 rounded-lg grid place-content-center">
               <Link
                 className="py-1 px-2 flex items-center"
                 href="http://appstore.com/"
@@ -84,13 +84,13 @@ const Footer = () => {
           </ul>
         </div>
       </div>
-      <div className="border-t-2 border-pink-100 pt-4 flex flex-col justify-start items-center md:flex-row md:justify-between md:items-start gap-4">
+      <div className="border-t-2 border-sky-100 pt-4 flex flex-col justify-start items-center md:flex-row md:justify-between md:items-start gap-4">
         <p className="text-sm text-center md:text-left">
           © 2023 Marica dan entitas-entitas terkaitnya. Hak Cipta Dilindungi
           Undang-Undang.
         </p>
         <ul className="flex items-center gap-4">
-          <li className="p-1 border-2 border-pink-200 rounded-lg grid place-content-center">
+          <li className="p-1 border-2 border-sky-200 rounded-lg grid place-content-center">
             <Link href="http://facebook.com/">
               <svg
                 width="24"
@@ -106,7 +106,7 @@ const Footer = () => {
               </svg>
             </Link>
           </li>
-          <li className="p-1 border-2 border-pink-200 rounded-lg grid place-content-center">
+          <li className="p-1 border-2 border-sky-200 rounded-lg grid place-content-center">
             <Link href="http://instagram.com/">
               <svg
                 width="24"
@@ -128,7 +128,7 @@ const Footer = () => {
               </svg>
             </Link>
           </li>
-          <li className="p-1 border-2 border-pink-200 rounded-lg grid place-content-center">
+          <li className="p-1 border-2 border-sky-200 rounded-lg grid place-content-center">
             <Link href="http://youtube.com/">
               <svg
                 width="24"

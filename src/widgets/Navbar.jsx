@@ -24,18 +24,18 @@ const Navbar = () => {
   const { isLoading, error, userInfo } = useSelector((state) => state.user);
 
   return (
-    <header className="w-full relative p-4 flex justify-between items-center bg-white z-50">
+    <header className="w-full relative p-4 flex justify-between items-center bg-white dark:bg-slate-800 z-50">
       <div className="w-fit flex gap-1 justify-between items-center">
         <Logo />
       </div>
       <div className="relative w-full h-full flex justify-between items-center gap-2">
         {profileMenu && (
-          <div className="max-w-xs w-fit absolute z-[999999] top-10 right-0 p-4 rounded-xl bg-white border-2 border-pink-400">
-            <ul className="border-b-2 border-pink-200 pb-2 mb-3 grid gap-1 w-full drop-shadow-xl">
+          <div className="max-w-xs w-fit absolute z-[999999] top-10 right-0 p-4 rounded-xl bg-white dark:bg-slate-800 border-2 border-sky-400">
+            <ul className="border-b-2 border-sky-200 pb-2 mb-3 grid gap-1 w-full drop-shadow-xl">
               <li onClick={() => setProfileMenu(!profileMenu)}>
                 <Link
                   href="/my-profile"
-                  className="block p-2 hover:bg-pink-100 rounded-lg cursor-pointer text-slate-600"
+                  className="block p-2 hover:bg-sky-100 rounded-lg cursor-pointer text-slate-600"
                 >
                   Profile saya
                 </Link>
@@ -43,7 +43,7 @@ const Navbar = () => {
               <li onClick={() => setProfileMenu(!profileMenu)}>
                 <Link
                   href="/user-setting"
-                  className="block p-2 hover:bg-pink-100 rounded-lg cursor-pointer text-slate-600"
+                  className="block p-2 hover:bg-sky-100 rounded-lg cursor-pointer text-slate-600"
                 >
                   Pengaturan
                 </Link>
@@ -57,14 +57,14 @@ const Navbar = () => {
               >
                 <Link
                   href="/login"
-                  className="block p-2 hover:bg-pink-100 rounded-lg cursor-pointer text-slate-600"
+                  className="block p-2 hover:bg-sky-100 rounded-lg cursor-pointer text-slate-600"
                 >
                   Keluar
                 </Link>
               </li>
             </ul>
             <button
-              className="p-2 rounded-lg text-slate-600 bg-pink-100 w-full flex justify-between items-center"
+              className="p-2 rounded-lg text-slate-600 bg-sky-100 w-full flex justify-between items-center"
               type="button"
               onClick={() => dispatch(toggleTheme())}
             >
@@ -85,14 +85,14 @@ const Navbar = () => {
           {userInfo && (
             <Link
               href="/subscription"
-              className="text-pink-700 flex justify-start items-center gap-1 w-fit py-1 px-2 rounded-xl bg-gradient-to-t from-pink-400 to-pink-200 text-xs border-2 border-pink-300 hover:text-white"
+              className="text-sky-700 flex justify-start items-center gap-1 w-fit py-1 px-2 rounded-xl bg-gradient-to-t from-sky-400 to-sky-200 text-xs border-2 border-sky-300 hover:text-white"
             >
               <FontAwesomeIcon icon={faCrown} height={14} />
               <p className="text-white">Upgrade ke Pro</p>
             </Link>
           )}
           {userInfo && (
-            <div className="hover:text-pink-600 text-slate-600 cursor-pointer">
+            <div className="hover:text-sky-600 text-slate-600 cursor-pointer">
               <FontAwesomeIcon icon={faBell} height={20} />
             </div>
           )}
@@ -106,7 +106,7 @@ const Navbar = () => {
                 alt="Rica"
                 width={32}
                 height={32}
-                className="rounded-full bg-pink-600"
+                className="rounded-full bg-sky-600"
               />
               <p className="text-slate-600 hidden lg:flex items-center gap-2">
                 <span>{userInfo.data.essentials.username}</span>

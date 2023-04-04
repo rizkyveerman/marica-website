@@ -120,7 +120,7 @@ const CreateAccount = () => {
                       <Field
                         type="text"
                         name="firstname"
-                        className="focus:text-pink-600 focus:outline-2 text-slate-700 focus:outline-pink-600 w-full py-3 px-6 rounded-lg bg-abu-terang"
+                        className="focus:text-sky-600 focus:outline-2 text-slate-700 focus:outline-sky-600 w-full py-3 px-6 rounded-lg bg-abu-terang"
                       />
                       <ErrorMessage
                         name="firstname"
@@ -133,7 +133,7 @@ const CreateAccount = () => {
                       <Field
                         type="text"
                         name="lastname"
-                        className="focus:text-pink-600 focus:outline-2 text-slate-700 focus:outline-pink-600 w-full py-3 px-6 rounded-lg bg-abu-terang"
+                        className="focus:text-sky-600 focus:outline-2 text-slate-700 focus:outline-sky-600 w-full py-3 px-6 rounded-lg bg-abu-terang"
                       />
                       <ErrorMessage
                         name="lastname"
@@ -147,7 +147,7 @@ const CreateAccount = () => {
                     <Field
                       type="email"
                       name="email"
-                      className="focus:text-pink-600 focus:outline-2 text-slate-700 focus:outline-pink-600 w-full py-3 px-6 rounded-lg bg-abu-terang"
+                      className="focus:text-sky-600 focus:outline-2 text-slate-700 focus:outline-sky-600 w-full py-3 px-6 rounded-lg bg-abu-terang"
                     />
                     <ErrorMessage
                       name="email"
@@ -162,14 +162,14 @@ const CreateAccount = () => {
                         icon={showPassword ? faEye : faEyeSlash}
                         height={14}
                         className={`${
-                          showPassword ? "text-pink-600" : "text-slate-400"
+                          showPassword ? "text-sky-600" : "text-slate-400"
                         } absolute right-4 top-1/2 -translate-y-1/2`}
                         onClick={() => setShowPassword(!showPassword)}
                       />
                       <Field
                         type={showPassword ? "text" : "password"}
                         name="password"
-                        className="w-full focus:text-pink-600 focus:outline-2 text-slate-700 focus:outline-pink-600 py-3 px-6 rounded-lg bg-abu-terang"
+                        className="w-full focus:text-sky-600 focus:outline-2 text-slate-700 focus:outline-sky-600 py-3 px-6 rounded-lg bg-abu-terang"
                       />
                     </div>
                     <PasswordGuide />
@@ -205,7 +205,7 @@ const CreateAccount = () => {
             </Formik>
             <p className="text-sm text-abu text-center">
               Sudah punya akun Marica?{" "}
-              <Link href="/login" className="text-pink-600 underline">
+              <Link href="/login" className="text-sky-600 underline">
                 Masuk disini
               </Link>
             </p>

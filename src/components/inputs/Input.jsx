@@ -14,7 +14,7 @@ const Input = ({ ref, label, type, name, onChange, placeholder }) => {
         type={type}
         name={name}
         onChange={(e) => onChange(e.target.value)}
-        className="px-5 py-3 bg-transparent rounded-xl border border-arang/30 placeholder:text-sm placeholder:text-abu focus:outline outline-pink-600 focus:border-pink-600 focus:text-pink-600"
+        className="px-5 py-3 bg-transparent rounded-xl border border-arang/30 placeholder:text-sm placeholder:text-abu focus:outline outline-sky-600 focus:border-sky-600 focus:text-sky-600"
       />
     </div>
   );

@@ -36,13 +36,13 @@ const Children = () => {
             {/* {children.map((child) => (
               <li key={index}>
                 <Link href={`/users/${6}`} className="block">
-                  <div className="h-20 w-20 bg-pink-600 rounded-lg"></div>
+                  <div className="h-20 w-20 bg-sky-600 rounded-lg"></div>
                   <p className="">{child.nama}</p>
                 </Link>
               </li>
             ))} */}
             <div
-              className="cursor-pointer h-20 w-20 border grid place-content-center border-slate-300 hover:border-pink-600 hover:text-pink-600 rounded-lg text-2xl"
+              className="cursor-pointer h-20 w-20 border grid place-content-center border-slate-300 hover:border-sky-600 hover:text-sky-600 rounded-lg text-2xl"
               title="Tambahkan anak"
               onClick={() => setIsFormShown(true)}
             >
@@ -59,7 +59,7 @@ const Children = () => {
             <FontAwesomeIcon
               icon={faClose}
               height={32}
-              className="text-slate-300 text-2xl hover:text-pink-500 cursor-pointer"
+              className="text-slate-300 text-2xl hover:text-sky-500 cursor-pointer"
               title="tutup"
               onClick={() => setIsFormShown(false)}
             />
@@ -102,7 +102,7 @@ const Children = () => {
                     <Field
                       type="text"
                       name="firstname"
-                      className="focus:text-pink-600 focus:outline-2 text-slate-700 focus:outline-pink-600 w-full py-3 px-6 rounded-lg bg-abu-terang"
+                      className="focus:text-sky-600 focus:outline-2 text-slate-700 focus:outline-sky-600 w-full py-3 px-6 rounded-lg bg-abu-terang"
                     />
                     <ErrorMessage
                       name="firstname"
@@ -115,7 +115,7 @@ const Children = () => {
                     <Field
                       type="text"
                       name="lastname"
-                      className="focus:text-pink-600 focus:outline-2 text-slate-700 focus:outline-pink-600 w-full py-3 px-6 rounded-lg bg-abu-terang"
+                      className="focus:text-sky-600 focus:outline-2 text-slate-700 focus:outline-sky-600 w-full py-3 px-6 rounded-lg bg-abu-terang"
                     />
                     <ErrorMessage
                       name="lastname"
@@ -129,7 +129,7 @@ const Children = () => {
                   <Field
                     type="date"
                     name="birthdate"
-                    className="focus:text-pink-600 focus:outline-2 text-slate-700 focus:outline-pink-600 w-full py-3 px-6 rounded-lg bg-abu-terang"
+                    className="focus:text-sky-600 focus:outline-2 text-slate-700 focus:outline-sky-600 w-full py-3 px-6 rounded-lg bg-abu-terang"
                   />
                   <ErrorMessage
                     name="birthdate"

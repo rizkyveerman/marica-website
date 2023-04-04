@@ -57,7 +57,7 @@ const MoviesDetails = ({ movie }) => {
               Tonton sekarang
             </Button>
           </div>
-          <div className="absolute left-0 right-0 top-0 bottom-0 bg-gradient-to-t from-blue-600/50 to-blue-600/0 z-40"></div>
+          <div className="absolute left-0 right-0 top-0 bottom-0 bg-gradient-to-t from-sky-600/50 to-sky-600/0 z-40"></div>
           <Image
             src={videoThumbnail}
             alt="thumbnail"
@@ -87,7 +87,7 @@ const MoviesDetails = ({ movie }) => {
               </div>
               <div className=" text-slate-600 flex flex-col">
                 <p className="text-xl md:text-2xl">
-                  <span className="text-pink-600 text-base">Ep.1</span> John
+                  <span className="text-sky-600 text-base">Ep.1</span> John
                   mencari jati diri
                 </p>
                 <div>
@@ -98,7 +98,7 @@ const MoviesDetails = ({ movie }) => {
                   </p>
                   <Link
                     href="/:id"
-                    className="underline text-slate-500 hover:text-pink-600"
+                    className="underline text-slate-500 hover:text-sky-600"
                   >
                     Detail
                   </Link>
@@ -120,7 +120,7 @@ const MoviesDetails = ({ movie }) => {
               </div>
               <div className=" text-slate-600 flex flex-col">
                 <p className="text-xl md:text-2xl">
-                  <span className="text-pink-600 text-base">Ep.2</span> Mimpi
+                  <span className="text-sky-600 text-base">Ep.2</span> Mimpi
                   yang Kurang Sempurna
                 </p>
                 <div>
@@ -130,7 +130,7 @@ const MoviesDetails = ({ movie }) => {
                   </p>
                   <Link
                     href="/:id"
-                    className="underline text-slate-500 hover:text-pink-600"
+                    className="underline text-slate-500 hover:text-sky-600"
                   >
                     Detail
                   </Link>
@@ -152,7 +152,7 @@ const MoviesDetails = ({ movie }) => {
               </div>
               <div className=" text-slate-600 flex flex-col">
                 <p className="text-xl md:text-2xl">
-                  <span className="text-pink-600 text-base">Ep.3</span> Hidup
+                  <span className="text-sky-600 text-base">Ep.3</span> Hidup
                   dengan Hobi
                 </p>
                 <div>
@@ -162,7 +162,7 @@ const MoviesDetails = ({ movie }) => {
                   </p>
                   <Link
                     href="/:id"
-                    className="underline text-slate-500 hover:text-pink-600"
+                    className="underline text-slate-500 hover:text-sky-600"
                   >
                     Detail
                   </Link>
