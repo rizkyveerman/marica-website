@@ -7,6 +7,7 @@ import Button from "@/components/buttons/Button";
 import Link from "next/link";
 import Footer from "@/widgets/Footer";
 import Image from "next/image";
+import Login from "@/images/Login.png";
 import watching from "@/images/watching.jpg";
 import { login } from "@/store/actions/user-actions";
 import PasswordGuide from "@/components/inputs/PasswordGuide";
@@ -178,8 +179,8 @@ function LoginPage() {
         <section className="w-full h-full p-4 hidden md:grid">
           <div className="relative p-4 md:grid w-full h-full place-content-center rounded-2xl overflow-hidden">
             <Image
-              src={watching}
-              alt="movie"
+              src={Login}
+              alt="login"
               fill
               className="object-cover object-center"
               placeholder="blur"
