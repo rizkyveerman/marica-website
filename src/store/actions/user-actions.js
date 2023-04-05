@@ -41,6 +41,7 @@ export const register =
       );
     }
   };
+
 export const login =
   ({ identifier, password }) =>
   async (dispatch) => {
@@ -116,3 +117,39 @@ export const addChild =
       dispatch(childRegister(data));
     } catch (error) {}
   };
+
+export const loginAsChild = (childId) => async (dispatch) => {
+  //1. loading
+  dispatch(setLoading(true));
+  try {
+    const config = {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    };
+
+    //2. get child data
+    const { data, status, statusText } = await axios.get(
+      `${apiRoute}/user/anak?idAnak=${childId}`,
+      { identifier, password },
+      config
+    );
+    console.log("data", data);
+
+    //3. store the child data and token to redux & local storage
+    dispatch(userLogin(data));
+    localStorage.setItem("userInfo", JSON.stringify(data));
+    localStorage.setItem("token", JSON.stringify(data.data.token));
+  } catch (error) {
+    dispatch(setStatus(error.response.status));
+    dispatch(
+      setError(
+        error.message && error.response
+          ? error.response
+          : error.message
+          ? error.message
+          : "Aduh ada sedikit masalah, Coba lagi yuk!"
+      )
+    );
+  }
+};
