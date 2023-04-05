@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import { ErrorMessage, Field, Formik, Form } from "formik";
 import { useSelector, useDispatch } from "react-redux";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faClose } from "@fortawesome/free-solid-svg-icons";
+import { faClose, faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import { childRegister, setError } from "@/store/slices/user";
 import { addChild } from "@/store/actions/user-actions";
 import Navbar from "@/widgets/Navbar";
@@ -20,14 +20,20 @@ const Children = () => {
 
   return (
     <article className={`bg-abu-terang overflow-hidden`}>
-      <section className="absolute left-0 right-0">
-        <Navbar />
-      </section>
       <section
         className={`${
           isFormShown ? "lg:translate-x-72 lg:skew-x-4 lg:-skew-y-2" : ""
         } w-full min-h-screen p-4 grid place-content-center transition-transform`}
       >
+        <Button
+          className="w-fit"
+          icon={faArrowLeft}
+          variant="tertiary"
+          isLink
+          href="/"
+        >
+          Kembali
+        </Button>
         <h2 className="mb-8">Siapa yang menonton?</h2>
         <div className="flex justify-center gap-4">
           <ul

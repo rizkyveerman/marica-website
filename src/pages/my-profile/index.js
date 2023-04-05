@@ -14,10 +14,17 @@ import {
   faIdCard,
   faLocationDot,
 } from "@fortawesome/free-solid-svg-icons";
+import { useEffect } from "react";
+import { useRouter } from "next/router";
 
 //protected
 const MyProfile = (props) => {
   const { isLoading, error, userInfo } = useSelector((state) => state.user);
+  const router = useRouter();
+  console.log("userInfo", userInfo);
+  useEffect(() => {
+    if (!userInfo) router.push("/login");
+  }, [router, userInfo]);
 
   return (
     <article>
@@ -34,13 +41,12 @@ const MyProfile = (props) => {
           <div>
             <div className="flex w-full justify-center items-center md:justify-start md:items-start gap-4">
               <h3>{userInfo.data.nama}</h3>
-              <Button className="text-xs">Edit profile</Button>
             </div>
             <p className="max-w-sm text-center md:text-left text-slate-500 mt-4">
               Lorem ipsum dolor sit amet consectetur. Lorem vitae tincidunt
               scelerisque purus dui integer.
             </p>
-            <div className="flex justify-center items-center md:justify-start gap-4">
+            <div className="flex justify-center items-center md:justify-start gap-4 mb-4">
               <p className="text-slate-500 flex gap-2 text-sm">
                 <FontAwesomeIcon icon={faIdCard} width={14} />
                 Guru
@@ -50,6 +56,9 @@ const MyProfile = (props) => {
                 Sleman, Yogyakarta
               </p>
             </div>
+            <Button variant="secondary" icon={faEdit} isLink href="/edit">
+              Edit profile
+            </Button>
           </div>
         </div>
       </section>

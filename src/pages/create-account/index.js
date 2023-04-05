@@ -63,7 +63,6 @@ const CreateAccount = () => {
           </div>
         </section>
       )}
-
       <article className="grid grid-cols-1 md:grid-cols-2 min-h-screen">
         <section className="grid place-content-center p-4">
           <div className="min-w-[350px] md:w-96 max-w-lg p-4 rounded-2xl grid gap-4">
