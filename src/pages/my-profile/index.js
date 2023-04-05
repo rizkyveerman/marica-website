@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faMedal } from "@fortawesome/free-solid-svg-icons";
+import { faAdd, faMedal } from "@fortawesome/free-solid-svg-icons";
 import Link from "next/link";
 import MainLayout from "@/layout/MainLayout";
 import { Tab } from "@headlessui/react";
@@ -180,6 +180,15 @@ const MyProfile = (props) => {
                   </div>
                 </div>
               </div>
+              <Button
+                variant="secondary"
+                isLink
+                href="/users"
+                className="border-dashed transition-all hover:bg-blue-100"
+                icon={faAdd}
+              >
+                Tambahkan akun anak
+              </Button>
             </Tab.Panel>
             <Tab.Panel>statistik</Tab.Panel>
           </Tab.Panels>

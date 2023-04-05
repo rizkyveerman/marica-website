@@ -30,7 +30,7 @@ const Children = () => {
           icon={faArrowLeft}
           variant="tertiary"
           isLink
-          href="/"
+          href="/my-profile"
         >
           Kembali
         </Button>
