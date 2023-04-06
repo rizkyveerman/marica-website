@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import { ErrorMessage, Field, Formik, Form } from "formik";
 import { useSelector, useDispatch } from "react-redux";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faClose, faArrowLeft } from "@fortawesome/free-solid-svg-icons";
+import { faClose, faArrowLeft, faAdd } from "@fortawesome/free-solid-svg-icons";
 import { childRegister, setError } from "@/store/slices/user";
 import { addChild } from "@/store/actions/user-actions";
 import Navbar from "@/widgets/Navbar";
@@ -15,8 +15,7 @@ const Children = () => {
   );
   const dispatch = useDispatch();
   const [isFormShown, setIsFormShown] = useState(false);
-  const children = userInfo;
-  console.log("children", children);
+  const children = false;
 
   return (
     <article className={`bg-abu-terang overflow-hidden`}>
@@ -25,30 +24,25 @@ const Children = () => {
           isFormShown ? "lg:translate-x-72 lg:skew-x-4 lg:-skew-y-2" : ""
         } w-full min-h-screen p-4 grid place-content-center transition-transform`}
       >
-        <Button
-          className="w-fit"
-          icon={faArrowLeft}
-          variant="tertiary"
-          isLink
-          href="/my-profile"
-        >
-          Kembali
-        </Button>
         <h2 className="mb-8">Siapa yang menonton?</h2>
-        <div className="flex justify-center gap-4">
-          <ul
-            className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4`}
-          >
-            {/* {children.map((child) => (
+        <div className="grid gap-4">
+          {!children ? (
+            <p className="text-slate-600">Belum ada akun anak</p>
+          ) : (
+            children.map((child) => (
               <li key={index}>
                 <Link href={`/users/${6}`} className="block">
                   <div className="h-20 w-20 bg-sky-600 rounded-lg"></div>
                   <p className="">{child.nama}</p>
                 </Link>
               </li>
-            ))} */}
+            ))
+          )}
+          <ul
+            className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4`}
+          >
             <div
-              className="cursor-pointer h-20 w-20 border grid place-content-center border-slate-300 hover:border-sky-600 hover:text-sky-600 rounded-lg text-2xl"
+              className="cursor-pointer h-20 w-20 border border-dashed grid place-content-center border-slate-400 hover:border-sky-600 hover:text-sky-600 hover:bg-sky-100 rounded-lg text-2xl"
               title="Tambahkan anak"
               onClick={() => setIsFormShown(true)}
             >

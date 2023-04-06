@@ -118,21 +118,14 @@ export const addChild =
     } catch (error) {}
   };
 
-export const loginAsChild = (childId) => async (dispatch) => {
+export const selectKid = (childId) => async (dispatch) => {
   //1. loading
   dispatch(setLoading(true));
-  try {
-    const config = {
-      headers: {
-        "Content-Type": "application/json",
-      },
-    };
 
+  try {
     //2. get child data
     const { data, status, statusText } = await axios.get(
-      `${apiRoute}/user/anak?idAnak=${childId}`,
-      { identifier, password },
-      config
+      `${apiRoute}/user/anak?idAnak=${childId}`
     );
     console.log("data", data);
 
