@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import MainLayout from "@/layout/MainLayout";
 import { useDispatch, useSelector } from "react-redux";
@@ -8,6 +8,7 @@ import Button from "@/components/buttons/Button";
 import Image from "next/image";
 import MovieCard from "@/components/cards/MovieCard";
 import Link from "next/link";
+import Carousel from "react-multi-carousel";
 
 export default function Home() {
   const { userInfo, error, isLoading } = useSelector((state) => state.user);
@@ -33,126 +34,6 @@ export default function Home() {
             required
           />
         </div>
-      </section>
-      <section className="p-4">
-        <div className="flex justify-between items-center py-2">
-          <h4 className="text-xl font-semibold mb-4">Terpopuler</h4>
-          <Link className="text-sky-600 underline" href="/browse">
-            Lihat semua
-          </Link>
-        </div>
-        <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-          <li className="h-auto w-full">
-            <iframe
-              className="h-52 w-full rounded-xl"
-              src="https://www.youtube.com/embed/nu3LJFW94yg"
-              title="YouTube video player"
-              frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowfullscreen
-            ></iframe>
-          </li>
-          <li className="h-auto w-full">
-            <iframe
-              className="h-52 w-full rounded-xl"
-              src="https://www.youtube.com/embed/eqLySEpHZew"
-              title="YouTube video player"
-              frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowfullscreen
-            ></iframe>
-          </li>
-          <li className="h-auto w-full">
-            <iframe
-              className="h-52 w-full rounded-xl"
-              src="https://www.youtube.com/embed/fc1xsOr9Zek"
-              title="YouTube video player"
-              frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowfullscreen
-            ></iframe>
-          </li>
-        </ul>
-      </section>
-      <section className="p-4">
-        <div className="flex justify-between items-center py-2">
-          <h4 className="text-xl font-semibold mb-4">Direkomendasikan</h4>
-          <Link className="text-sky-600 underline" href="/browse">
-            Lihat semua
-          </Link>
-        </div>
-        <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-          <li className="h-auto w-full">
-            <iframe
-              className="h-52 w-full rounded-xl"
-              src="https://www.youtube.com/embed/W2_Cfqthq_M"
-              title="YouTube video player"
-              frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowfullscreen
-            ></iframe>
-          </li>
-          <li className="h-auto w-full">
-            <iframe
-              className="h-52 w-full rounded-xl"
-              src="https://www.youtube.com/embed/DTR-SptSdGE"
-              title="YouTube video player"
-              frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowfullscreen
-            ></iframe>
-          </li>
-          <li className="h-auto w-full">
-            <iframe
-              className="h-52 w-full rounded-xl"
-              src="https://www.youtube.com/embed/B-ytMSuwbf8"
-              title="YouTube video player"
-              frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowfullscreen
-            ></iframe>
-          </li>
-        </ul>
-      </section>
-      <section className="p-4">
-        <div className="flex justify-between items-center py-2">
-          <h4 className="text-xl font-semibold mb-4">Terakhir ditambahkan</h4>
-          <Link className="text-sky-600 underline" href="/browse">
-            Lihat semua
-          </Link>
-        </div>
-        <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-          <li className="h-auto w-full">
-            <iframe
-              className="h-52 w-full rounded-xl"
-              src="https://www.youtube.com/embed/5higYnVi4Ro"
-              title="YouTube video player"
-              frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowfullscreen
-            ></iframe>
-          </li>
-          <li className="h-auto w-full">
-            <iframe
-              className="h-52 w-full rounded-xl"
-              src="https://www.youtube.com/embed/U0wTDK0VOeY"
-              title="YouTube video player"
-              frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowfullscreen
-            ></iframe>
-          </li>
-          <li className="h-auto w-full">
-            <iframe
-              className="h-52 w-full rounded-xl"
-              src="https://www.youtube.com/embed/Qto1u_uetiw"
-              title="YouTube video player"
-              frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowfullscreen
-            ></iframe>
-          </li>
-        </ul>
       </section>
     </article>
   );
