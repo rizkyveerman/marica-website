@@ -25,7 +25,7 @@ const menus = [
   {
     name: "Jelajahi Marica",
     icon: faCompass,
-    path: "all-movies",
+    path: "browse",
   },
   {
     name: "Trendings",
