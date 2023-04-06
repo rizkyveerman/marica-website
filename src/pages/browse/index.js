@@ -48,7 +48,7 @@ const Browser = ({ videos }) => {
               title="YouTube video player"
               frameborder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowfullscreen
+              allowFullScreen
             ></iframe>
           </li>
           <li className="h-auto w-full">
@@ -58,7 +58,7 @@ const Browser = ({ videos }) => {
               title="YouTube video player"
               frameborder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowfullscreen
+              allowFullScreen
             ></iframe>
           </li>
           <li className="h-auto w-full">
@@ -68,7 +68,7 @@ const Browser = ({ videos }) => {
               title="YouTube video player"
               frameborder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowfullscreen
+              allowFullScreen
             ></iframe>
           </li>
           <li className="h-auto w-full">
@@ -78,7 +78,7 @@ const Browser = ({ videos }) => {
               title="YouTube video player"
               frameborder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowfullscreen
+              allowFullScreen
             ></iframe>
           </li>
           <li className="h-auto w-full">
@@ -88,7 +88,7 @@ const Browser = ({ videos }) => {
               title="YouTube video player"
               frameborder="0"
               allow="fullscreen; accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowfullscreen
+              allowFullScreen
             ></iframe>
           </li>
           <li className="h-auto w-full">
@@ -98,7 +98,7 @@ const Browser = ({ videos }) => {
               title="YouTube video player"
               frameborder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowfullscreen
+              allowFullScreen
             ></iframe>
           </li>
         </ul>
