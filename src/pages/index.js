@@ -15,15 +15,6 @@ export default function Home() {
   const { userInfo, error, isLoading } = useSelector((state) => state.user);
   const router = useRouter();
 
-  // //TODO don't force user to login when the register bug was fixed!
-
-  useEffect(() => {
-    if (error) {
-      return;
-    }
-    routeRedirect(router, userInfo);
-  }, [error, router, userInfo]);
-
   return (
     <article>
       <section className="p-4">
