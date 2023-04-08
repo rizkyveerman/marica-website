@@ -7,7 +7,7 @@ import {
   setStatus,
 } from "../slices/user";
 
-const apiRoute = "http://localhost:4000/api/v1";
+const apiRoute = "https://marica-backend.vercel.app/api/v1";
 
 export const addKid =
   ({ firstname, lastname, birthdate }) =>

@@ -9,8 +9,8 @@ const initialState = {
       ? JSON.parse(localStorage.getItem("kidInfo"))
       : null,
 };
-
-const userSlice = createSlice({
+//TODO: continue how to add kid to api
+const kidSlice = createSlice({
   name: "kid",
   initialState,
   reducers: {
@@ -28,7 +28,7 @@ const userSlice = createSlice({
   },
 });
 
-export const { setLoading, setKidInfo, setError } = userSlice.actions;
-export default userSlice.reducer;
+export const { setLoading, setKidInfo, setError } = kidSlice.actions;
+export default kidSlice.reducer;
 
 export const userSelector = (state) => state.user;
