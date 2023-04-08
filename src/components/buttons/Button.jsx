@@ -50,6 +50,7 @@ const Button = ({
       onClick={isLink ? null : () => isClicked()}
     >
       {icon && <FontAwesomeIcon icon={icon} height={14} className="mr-1" />}
+      {children}
     </button>
   );
 };

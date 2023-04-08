@@ -4,30 +4,54 @@ import React, { useState } from "react";
 import { ErrorMessage, Field, Formik, Form } from "formik";
 import { useSelector, useDispatch } from "react-redux";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faClose } from "@fortawesome/free-solid-svg-icons";
-import { addChild } from "@/store/actions/user-actions";
-import axios from "axios";
+import {
+  faClose,
+  faSpinner,
+  faCircleCheck,
+} from "@fortawesome/free-solid-svg-icons";
+import { addKid } from "@/store/actions/user-actions";
+import { setStatus } from "@/store/slices/user";
 
-const apiRoute = "http://localhost:4000/api/v1";
-export async function getServerSideProps(context) {
-  const kids = await axios.get(`${apiRoute}/user/all-anak`);
-  console.log("kids", kids.json());
+// const apiRoute = "http://localhost:4000/api/v1";
+// export async function getServerSideProps(context) {
+//   const kids = await axios.get(`${apiRoute}/user/all-anak`);
+//   console.log("kids", kids.json());
 
-  return {
-    props: { props: "kids" },
-  };
-}
+//   return {
+//     props: { props: "kids" },
+//   };
+// }
 
-const Children = () => {
-  const { isLoading, error, userInfo, status } = useSelector(
-    (state) => state.user
-  );
+const Kids = () => {
+  const { isLoading, error, userInfo } = useSelector((state) => state.user);
   const dispatch = useDispatch();
   const [isFormShown, setIsFormShown] = useState(false);
   const children = false;
 
   return (
     <article className={`bg-abu-terang overflow-hidden`}>
+      {/* {status.type !== "Error" && (
+        <section className="z-50 fixed left-0 top-0 bottom-0 right-0 bg-white/50 backdrop-blur-sm grid place-content-center">
+          <div
+            className={`p-4 rounded-xl ${
+              status.type !== "Error" ? "bg-green-500" : "bg-red-500"
+            } grid place-content-center`}
+          >
+            <p className="text-white max-w-xs text-center mb-4">
+              {status.type !== "Error"
+                ? "Berhasil buat akun!"
+                : "Yah gagal buat akun, mungkin email sudah digunakan, coba email lain yuk!"}
+            </p>
+            <Button
+              icon={faCircleCheck}
+              className="border-white text-white hover:bg-white hover:text-green-500 hover:border-none"
+              isClicked={() => dispatch(setStatus(null))}
+            >
+              Ok
+            </Button>
+          </div>
+        </section>
+      )} */}
       <section
         className={`${
           isFormShown ? "lg:translate-x-72 lg:skew-x-4 lg:-skew-y-2" : ""
@@ -101,7 +125,7 @@ const Children = () => {
                 errors.birthdate = "required";
               }
             }}
-            onSubmit={(values) => dispatch(addChild(values))}
+            onSubmit={(values) => dispatch(addKid(values))}
           >
             {({ isSubmitting }) => (
               <Form className="grid grid-cols-1 gap-4 w-full">
@@ -164,7 +188,7 @@ const Children = () => {
                           className="text-white animate-spin"
                         />
                       </span>
-                      <span>Tunggu sebentar</span>
+                      Tunggu sebentar
                     </p>
                   ) : (
                     "Buat akun"
@@ -179,4 +203,4 @@ const Children = () => {
   );
 };
 
-export default Children;
+export default Kids;
