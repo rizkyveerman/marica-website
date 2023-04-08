@@ -30,7 +30,7 @@ const Button = ({
         onClick={isLink ? null : () => isClicked()}
       >
         {icon && <FontAwesomeIcon icon={icon} height={14} className="mr-1" />}
-        {isLink ? <Link href={href}>{children}</Link> : <span>{children}</span>}
+        {children}
       </Link>
     );
   }

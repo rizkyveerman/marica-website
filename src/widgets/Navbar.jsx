@@ -114,7 +114,7 @@ const Navbar = () => {
               </p>
             </div>
           ) : (
-            <Button isLink type="button" variant="secondary" href="/login">
+            <Button isLink variant="secondary" href="/login">
               Masuk ke Marica
             </Button>
           )}

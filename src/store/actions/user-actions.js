@@ -8,7 +8,7 @@ import {
   childRegister,
 } from "../slices/user";
 
-const apiRoute = "http://localhost:4000/api/v1";
+const apiRoute = "https://marica-backend.vercel.app/api/v1";
 
 export const register =
   ({ firstname, lastname, email, password }) =>
@@ -27,9 +27,7 @@ export const register =
         config
       );
       dispatch(setStatus(data.status));
-      console.log("data", data.data.type);
     } catch (error) {
-      console.log("error", error);
       dispatch(
         setError(
           error.message && error.response
@@ -100,8 +98,6 @@ export const addChild =
   async (dispatch) => {
     dispatch(setLoading(true));
 
-    console.log("firstname, birthdate", firstname, birthdate);
-
     try {
       const config = {
         headers: {
@@ -137,7 +133,6 @@ export const selectKid = (childId) => async (dispatch) => {
     const { data, status, statusText } = await axios.get(
       `${apiRoute}/user/anak?idAnak=${childId}`
     );
-    console.log("data", data);
 
     //3. store the child data and token to redux & local storage
     dispatch(userLogin(data));
