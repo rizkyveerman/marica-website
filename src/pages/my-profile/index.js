@@ -17,15 +17,19 @@ import {
 import { useEffect } from "react";
 import { useRouter } from "next/router";
 import { Suspense } from "react";
+import { routeRedirect } from "@/libs/route-redirect";
 
 //protected
 const MyProfile = (props) => {
   const { isLoading, error, userInfo } = useSelector((state) => state.user);
   const router = useRouter();
-  console.log("userInfo", userInfo);
+
   useEffect(() => {
-    if (!userInfo) router.push("/login");
-  }, [router, userInfo]);
+    if (error) {
+      return;
+    }
+    routeRedirect(router, userInfo);
+  }, [error, router, userInfo]);
 
   return (
     <Suspense fallback="Tunggu sebentar...">
@@ -185,7 +189,7 @@ const MyProfile = (props) => {
                 <Button
                   variant="secondary"
                   isLink
-                  href="/users"
+                  href="/my-kids"
                   className="border-dashed transition-all hover:bg-blue-100"
                   icon={faAdd}
                 >

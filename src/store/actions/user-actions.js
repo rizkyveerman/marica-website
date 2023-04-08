@@ -8,7 +8,7 @@ import {
   childRegister,
 } from "../slices/user";
 
-const apiRoute = "https://marica-backend.vercel.app/api/v1";
+const apiRoute = "http://localhost:4000/api/v1";
 
 export const register =
   ({ firstname, lastname, email, password }) =>
@@ -114,8 +114,18 @@ export const addChild =
         { nama: `${firstname} ${lastname}`, lahir: birthdate },
         config
       );
-      dispatch(childRegister(data));
-    } catch (error) {}
+    } catch (error) {
+      dispatch(setStatus(error.response.status));
+      dispatch(
+        setError(
+          error.message && error.response
+            ? error.response
+            : error.message
+            ? error.message
+            : "Aduh ada sedikit masalah, Coba lagi yuk!"
+        )
+      );
+    }
   };
 
 export const selectKid = (childId) => async (dispatch) => {

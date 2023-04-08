@@ -4,10 +4,19 @@ import React, { useState } from "react";
 import { ErrorMessage, Field, Formik, Form } from "formik";
 import { useSelector, useDispatch } from "react-redux";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faClose, faArrowLeft, faAdd } from "@fortawesome/free-solid-svg-icons";
-import { childRegister, setError } from "@/store/slices/user";
+import { faClose } from "@fortawesome/free-solid-svg-icons";
 import { addChild } from "@/store/actions/user-actions";
-import Navbar from "@/widgets/Navbar";
+import axios from "axios";
+
+const apiRoute = "http://localhost:4000/api/v1";
+export async function getServerSideProps(context) {
+  const kids = await axios.get(`${apiRoute}/user/all-anak`);
+  console.log("kids", kids.json());
+
+  return {
+    props: { props: "kids" },
+  };
+}
 
 const Children = () => {
   const { isLoading, error, userInfo, status } = useSelector(
@@ -31,7 +40,7 @@ const Children = () => {
           ) : (
             children.map((child) => (
               <li key={index}>
-                <Link href={`/users/${6}`} className="block">
+                <Link href={`/my-kids/${6}`} className="block">
                   <div className="h-20 w-20 bg-sky-600 rounded-lg"></div>
                   <p className="">{child.nama}</p>
                 </Link>
@@ -146,7 +155,20 @@ const Children = () => {
                   disabled={isSubmitting}
                   isClicked={() => "clicked"}
                 >
-                  Buat akun
+                  {isLoading ? (
+                    <p className="flex items-center gap-2">
+                      <span>
+                        <FontAwesomeIcon
+                          icon={faSpinner}
+                          height={16}
+                          className="text-white animate-spin"
+                        />
+                      </span>
+                      <span>Tunggu sebentar</span>
+                    </p>
+                  ) : (
+                    "Buat akun"
+                  )}
                 </Button>
               </Form>
             )}
