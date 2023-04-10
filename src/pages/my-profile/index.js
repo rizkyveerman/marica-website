@@ -25,10 +25,9 @@ const MyProfile = (props) => {
   const router = useRouter();
 
   useEffect(() => {
-    if (error) {
-      return;
+    if (!userInfo) {
+      return <p>User data not found.</p>;
     }
-    routeRedirect(router, userInfo);
   }, [error, router, userInfo]);
 
   return (
@@ -62,7 +61,12 @@ const MyProfile = (props) => {
                   Sleman, Yogyakarta
                 </p>
               </div>
-              <Button variant="secondary" icon={faEdit} isLink href="/edit">
+              <Button
+                variant="secondary"
+                icon={faEdit}
+                isLink
+                href="/settings/profile"
+              >
                 Edit profile
               </Button>
             </div>
@@ -208,19 +212,5 @@ const MyProfile = (props) => {
 MyProfile.getLayout = function getLayout(page) {
   return <MainLayout>{page}</MainLayout>;
 };
-
-export async function getServerSideProps(context) {
-  // const { data } = await axios.get(
-  //   "https://marica-backend.vercel.app/api/v1/user/login"
-  // );
-
-  return {
-    props: {
-      data: {
-        name: "Maria Vania",
-      },
-    },
-  };
-}
 
 export default MyProfile;

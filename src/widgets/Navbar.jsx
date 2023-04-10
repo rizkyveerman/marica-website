@@ -42,7 +42,7 @@ const Navbar = () => {
               </li>
               <li onClick={() => setProfileMenu(!profileMenu)}>
                 <Link
-                  href="/user-setting"
+                  href="/settings"
                   className="block p-2 hover:bg-sky-100 rounded-lg cursor-pointer text-slate-600"
                 >
                   Pengaturan
