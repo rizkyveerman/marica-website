@@ -9,7 +9,7 @@ import {
   faSpinner,
   faCircleCheck,
 } from "@fortawesome/free-solid-svg-icons";
-import { addKid } from "@/store/actions/user-actions";
+import { addKid } from "@/store/actions/kid-action";
 import { setStatus } from "@/store/slices/user";
 
 // const apiRoute = "http://localhost:4000/api/v1";
