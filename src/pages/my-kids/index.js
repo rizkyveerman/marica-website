@@ -12,16 +12,6 @@ import {
 import { addKid } from "@/store/actions/kid-action";
 import { setStatus } from "@/store/slices/user";
 
-// const apiRoute = "http://localhost:4000/api/v1";
-// export async function getServerSideProps(context) {
-//   const kids = await axios.get(`${apiRoute}/user/all-anak`);
-//   console.log("kids", kids.json());
-
-//   return {
-//     props: { props: "kids" },
-//   };
-// }
-
 const Kids = () => {
   const { isLoading, error, userInfo } = useSelector((state) => state.user);
   const dispatch = useDispatch();
