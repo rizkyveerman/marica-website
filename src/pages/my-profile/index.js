@@ -34,53 +34,6 @@ const MyProfile = (props) => {
 
   return (
     <article>
-      <div className="rounded-3xl max-w-md grid p-4 gap-6 border-2 border-blue-500 bg-white">
-        <Tab.Group>
-          <div className="flex justify-between items-center bg-slate-200 rounded-lg p-2">
-            <Tab.List className="flex">
-              <Tab>
-                <Button
-                  variant="primary"
-                  type="button"
-                  isClicked={() => "profile settings"}
-                >
-                  Profile
-                </Button>
-              </Tab>
-              <Tab>
-                <Button
-                  variant="primary"
-                  type="button"
-                  isClicked={() => "profile settings"}
-                >
-                  Tagihan
-                </Button>
-              </Tab>
-              <Tab>
-                <Button
-                  variant="primary"
-                  type="button"
-                  isClicked={() => "profile settings"}
-                >
-                  Akun
-                </Button>
-              </Tab>
-            </Tab.List>
-            <div className="close-settings w-10 h-10 rounded-lg bg-white text-slate-400 grid place-content-center">
-              <FontAwesomeIcon icon={faClose} height={16} />
-            </div>
-          </div>
-          <Tab.Panels>
-            <Tab.Panel>
-              <Formik>
-                <Form>
-                  <Field />
-                </Form>
-              </Formik>
-            </Tab.Panel>
-          </Tab.Panels>
-        </Tab.Group>
-      </div>
       <section className="px-4 pt-16 pb-8">
         <div className="flex flex-col md:flex-row justify-center items-center md:justify-start md:items-start gap-4">
           <Image
