@@ -30,7 +30,19 @@ const Browser = () => {
       </div>
       <section className="p-4">
         <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-          <li className="h-auto w-full">
+          {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map((index) => (
+            <li key={index} className="h-auto w-full">
+              <iframe
+                className="h-52 w-full rounded-xl"
+                src="https://www.youtube.com/embed/U0wTDK0VOeY"
+                title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
+              ></iframe>
+            </li>
+          ))}{" "}
+          {/* <li className="h-auto w-full">
             <iframe
               className="h-52 w-full rounded-xl"
               src="https://www.youtube.com/embed/5higYnVi4Ro"
@@ -89,7 +101,7 @@ const Browser = () => {
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               allowFullScreen
             ></iframe>
-          </li>
+          </li> */}
         </ul>
       </section>
     </article>
