@@ -41,7 +41,7 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <section className="p-4">
+      {/* <section className="p-4">
         <div className="flex justify-between items-center py-2">
           <h4 className="text-xl font-semibold mb-4">Terpopuler</h4>
           <Link className="text-sky-600 underline" href="/browse">
@@ -160,7 +160,7 @@ export default function Home() {
             ></iframe>
           </li>
         </ul>
-      </section>
+      </section> */}
     </article>
   );
 }
