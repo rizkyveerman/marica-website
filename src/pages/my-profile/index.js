@@ -26,6 +26,12 @@ const MyProfile = (props) => {
   const { isLoading, error, userInfo } = useSelector((state) => state.user);
   const router = useRouter();
 
+  // const { name, message, data } = userInfo;
+  // console.log("name", name);
+  // console.log("message", message);
+  // console.log("data", data.nama);
+  // console.log("userInfo", userInfo);
+
   useEffect(() => {
     if (!userInfo) {
       return <p>User data not found.</p>;
@@ -46,7 +52,7 @@ const MyProfile = (props) => {
           />
           <div>
             <div className="flex w-full justify-center items-center md:justify-start md:items-start gap-4">
-              <h3>Username goes here</h3>
+              <h3>Name goes here</h3>
             </div>
             <p className="max-w-sm text-center md:text-left text-slate-500 mt-4">
               Lorem ipsum dolor sit amet consectetur. Lorem vitae tincidunt
