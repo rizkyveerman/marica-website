@@ -3,16 +3,6 @@ import MainLayout from "@/layout/MainLayout";
 import Tag from "@/components/cards/Tag";
 import Input from "@/components/inputs/Input";
 
-// export async function getServerSideProps(ctx) {
-//   const videos = await loadMovies();
-
-//   return {
-//     props: {
-//       videos,
-//     },
-//   };
-// }
-
 const Browser = ({ videos }) => {
   return (
     <article>
@@ -110,11 +100,5 @@ const Browser = ({ videos }) => {
 Browser.getLayout = function getLayout(page) {
   return <MainLayout title="Semua movies di Marica">{page}</MainLayout>;
 };
-
-// export async function getServerSideProps(context) {
-//   const apiRoute = "https://marica-backend.vercel.app/api/v1";
-//   const { data } = await axios.get(apiRoute + "/videos");
-//   return { props: { data } };
-// }
 
 export default Browser;
